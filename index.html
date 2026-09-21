@@ -289,7 +289,7 @@
         </div>
       </div>
 
-      <!-- 隊職幹部區塊 (了解更多點擊開啟業務職掌) -->
+      <!-- 隊職幹部區塊 -->
       <div id="team-staff" class="mb-16 scroll-mt-24 pt-6">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
@@ -308,7 +308,7 @@
           </div>
 
           <div class="lg:col-span-9 flex flex-col gap-6">
-            <div id="homeTeamListContainer" class="grid grid-flow-col auto-cols-[minmax(280px,1fr)] gap-5 overflow-x-auto pb-4 no-scrollbar snap-x" style="min-height: 320px;"></div>
+            <div id="homeTeamListContainer" class="grid grid-flow-col auto-cols-[minmax(300px,1fr)] gap-6 overflow-x-auto pb-4 no-scrollbar snap-x" style="min-height: 400px;"></div>
 
             <div class="flex items-center justify-between gap-6 pt-2">
               <div class="flex-grow bg-slate-200 h-1.5 rounded-full overflow-hidden">
@@ -452,28 +452,49 @@
     </div>
   </div>
 
-  <!-- 獨立彈出職掌說明 Modal -->
+  <!-- 獨立彈出職掌說明 Modal (仿造截圖清單風格) -->
   <div id="unitModal" class="fixed inset-0 z-[160] flex items-center justify-center p-4 sm:p-6 bg-slate-900/70 backdrop-blur-md hidden">
-    <div class="bg-white rounded-[32px] sm:rounded-[40px] w-full max-w-lg shadow-2xl overflow-hidden relative p-6 sm:p-8">
-      <button onclick="closeUnitModal()" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-all"><i class="fa-solid fa-xmark"></i></button>
-      <div class="flex items-center gap-3 mb-4">
-        <div id="unitModalIcon" class="w-12 h-12 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-2xl"><i class="fa-solid fa-user-shield"></i></div>
-        <div>
-          <span class="text-xs font-black text-indigo-600 uppercase tracking-widest block">職務詳細說明</span>
-          <h3 id="unitModalRole" class="text-xl sm:text-2xl font-black text-slate-900">職稱</h3>
+    <div class="bg-white rounded-[32px] sm:rounded-[40px] w-full max-w-2xl shadow-2xl overflow-hidden relative p-6 sm:p-8 max-h-[90vh] flex flex-col">
+      <div class="flex justify-between items-center pb-4 mb-2 border-b border-slate-100 shrink-0">
+        <h3 class="text-lg font-black text-slate-800">幹部詳細資訊</h3>
+        <button onclick="closeUnitModal()" class="w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-all"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      
+      <div class="overflow-y-auto custom-scrollbar divide-y divide-slate-100 pr-1 flex-grow space-y-1">
+        <div class="py-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-8">
+          <span class="w-36 text-sm font-bold text-slate-400 shrink-0">職稱</span>
+          <span id="modalRole" class="text-slate-900 font-bold text-base">--</span>
+        </div>
+        <div class="py-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-8">
+          <span class="w-36 text-sm font-bold text-slate-400 shrink-0">出生年月日</span>
+          <span id="modalBirth" class="text-slate-900 font-bold text-base">2002-05-01</span>
+        </div>
+        <div class="py-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-8">
+          <span class="w-36 text-sm font-bold text-slate-400 shrink-0">出生地／籍貫</span>
+          <span id="modalOrigin" class="text-slate-900 font-bold text-base"></span>
+        </div>
+        <div class="py-4 flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-8">
+          <span class="w-36 text-sm font-bold text-slate-400 shrink-0 pt-0.5">經歷／管理經歷</span>
+          <div id="modalDesc" class="text-slate-900 font-bold text-sm sm:text-base leading-relaxed space-y-1">--</div>
+        </div>
+        <div class="py-4 flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-8">
+          <span class="w-36 text-sm font-bold text-slate-400 shrink-0 pt-0.5">擅長領域</span>
+          <div id="modalSkills" class="flex flex-wrap gap-2"></div>
+        </div>
+        <div class="py-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-8">
+          <span class="w-36 text-sm font-bold text-slate-400 shrink-0">加入年份</span>
+          <span id="modalYear" class="text-slate-900 font-bold text-base">2026</span>
         </div>
       </div>
-      <div class="bg-slate-50 rounded-2xl p-5 border border-slate-100 mb-6">
-        <span class="text-[10px] font-black text-slate-400 uppercase tracking-widest block mb-1">工作職掌內容</span>
-        <p id="unitModalDesc" class="text-slate-700 font-medium text-sm sm:text-base leading-relaxed">內容...</p>
-      </div>
-      <div id="unitModalLinkArea" class="mb-6 hidden">
+
+      <div id="unitModalLinkArea" class="mt-6 pt-4 border-t border-slate-100 hidden shrink-0">
         <a id="unitModalLinkBtn" href="#" target="_blank" class="w-full py-3 px-5 rounded-2xl bg-indigo-50 hover:bg-indigo-100 text-indigo-700 font-black flex items-center justify-between transition-all border border-indigo-100 text-sm">
-          <span>開啟專屬連結</span>
+          <span>開啟專屬相關連結</span>
           <i class="fa-solid fa-arrow-up-right-from-square"></i>
         </a>
       </div>
-      <button onclick="closeUnitModal()" class="w-full py-3.5 rounded-2xl bg-slate-800 hover:bg-slate-900 text-white font-black uppercase text-sm shadow-md transition-all">關閉視窗</button>
+      
+      <button onclick="closeUnitModal()" class="w-full mt-4 py-3.5 rounded-2xl bg-slate-800 hover:bg-slate-900 text-white font-black uppercase text-sm shadow-md transition-all shrink-0">關閉視窗</button>
     </div>
   </div>
 
@@ -839,11 +860,51 @@
     let noticeData = {};
 
     const teamStaffList = [
-      { role: "主管 (家庭長)", desc: "團隊最高決策與核心目標，負責行政之最終審核。", icon: "fa-crown text-amber-500", link: "" },
-      { role: "營務官", desc: "負責單位總務、行政、政戰事務。", icon: "fa-user-clock text-slate-400", link: "https://thelufamily.github.io/tokki-cutie/" },
-      { role: "營產官", desc: "負責單位營產改善、管理。", icon: "fa-screwdriver-wrench text-blue-600", link: "" },
-      { role: "美工官", desc: "負責單位主視覺設計、美編與攝影紀實。", icon: "fa-palette text-purple-600", link: "" },
-      { role: "分支長", desc: "負責管理及督導所屬駐地各項分支單位運作。", icon: "fa-location-crosshairs text-orange-600", link: "" }
+      { 
+        role: "主管 (家庭長)", 
+        birth: "-",
+        origin: "新北市板橋區",
+        desc: "", 
+        icon: "fa-crown text-amber-500", 
+        skills: ["決策領導", "行政審核", "統籌規劃"],
+        link: "" 
+      },
+      { 
+        role: "營務官", 
+        birth: "2002-05-01",
+        origin: "新北市板橋區",
+        desc: "", 
+        icon: "fa-user-clock text-slate-500", 
+        skills: ["行政庶務", "溝通協調", "活動籌辦"],
+        link: "" 
+      },
+      { 
+        role: "營產官", 
+        birth: "-",
+        origin: "桃園市平鎮區",
+        desc: "負責單位營產設備改善、硬體設備管理與空間維護。", 
+        icon: "fa-screwdriver-wrench text-blue-600", 
+        skills: ["資產管理", "設備維修", "硬體維護"],
+        link: "" 
+      },
+      { 
+        role: "美工官", 
+        birth: "2005-08-21",
+        origin: "新北市板橋區",
+        desc: "", 
+        icon: "fa-palette text-purple-600", 
+        skills: ["視覺設計", "攝影紀實", "多媒體剪輯"],
+        link: "" 
+      },
+      { 
+        role: "分支長", 
+        birth: "-",
+        origin: "",
+        desc: "", 
+        icon: "fa-location-crosshairs text-orange-600", 
+        skills: ["駐地管理", "督導考核", "基層領導"],
+        link: "" 
+      }
     ];
 
     function renderHomeTeamStaff() {
@@ -851,21 +912,34 @@
       if (!container) return;
       container.innerHTML = '';
 
-      teamStaffList.forEach(member => {
+      teamStaffList.forEach((member, index) => {
         const item = document.createElement('div');
-        item.className = "bg-white rounded-[28px] overflow-hidden border border-slate-100 shadow-md cursor-pointer hover:shadow-2xl transition-all flex flex-col justify-between shrink-0 w-full sm:w-[280px] snap-start group p-6";
-        item.setAttribute('onclick', `openTeamMemberModal('${member.role}', '${member.desc}', '${member.link}')`);
+        item.className = "bg-white rounded-[32px] overflow-hidden border border-slate-100 shadow-md cursor-pointer hover:shadow-2xl transition-all flex flex-col justify-between shrink-0 w-full sm:w-[320px] snap-start group p-7";
         
+        // 改用索引直接安全綁定點擊事件
+        item.setAttribute('onclick', `openTeamMemberModalByIndex(${index})`);
+        
+        let skillsHtml = '';
+        if (member.skills && member.skills.length > 0) {
+          skillsHtml = `<div class="flex flex-wrap gap-2 mt-4 pt-4 border-t border-slate-100">`;
+          member.skills.forEach(skill => {
+            skillsHtml += `<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-slate-100 text-slate-700 text-xs font-bold"><i class="fa-solid fa-circle-check text-indigo-600"></i> ${skill}</span>`;
+          });
+          skillsHtml += `</div>`;
+        }
+
         item.innerHTML = `
-          <div class="relative w-full h-32 sm:h-36 rounded-2xl bg-slate-50 flex items-center justify-center mb-4">
-            <i class="fa-solid ${member.icon} text-4xl sm:text-5xl group-hover:scale-110 transition-transform"></i>
+          <div class="flex flex-col items-center text-center pt-2">
+            <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-slate-50 border-4 border-indigo-50 shadow-inner flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
+              <i class="fa-solid ${member.icon} text-4xl sm:text-5xl"></i>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-black text-slate-900 truncate w-full mb-2">${member.role}</h3>
+            <p class="text-sm sm:text-base text-slate-600 font-medium line-clamp-2 px-2 leading-relaxed">${member.desc}</p>
+            ${skillsHtml}
           </div>
-          <div>
-            <h3 class="text-xl sm:text-2xl font-black text-slate-900 truncate">${member.role}</h3>
-          </div>
-          <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-400 group-hover:text-indigo-600 transition-colors">
-            <span>檢視詳細職掌</span>
-            <i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
+          <div class="pt-5 mt-5 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-400 group-hover:text-indigo-600 transition-colors">
+            <span class="text-sm">檢視詳細資訊</span>
+            <i class="fa-solid fa-arrow-right text-sm transform group-hover:translate-x-1 transition-transform"></i>
           </div>
         `;
         container.appendChild(item);
@@ -875,7 +949,7 @@
 
     function scrollTeamContainer(direction) {
       const container = document.getElementById('homeTeamListContainer');
-      const scrollAmount = 300;
+      const scrollAmount = 320;
       if (direction === 'left') {
         container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
       } else {
@@ -899,15 +973,35 @@
 
     document.getElementById('homeTeamListContainer')?.addEventListener('scroll', updateTeamProgress);
 
-    function openTeamMemberModal(role, desc, link) {
-      document.getElementById('unitModalRole').innerText = role;
-      document.getElementById('unitModalDesc').innerText = desc;
+    function openTeamMemberModalByIndex(index) {
+      const member = teamStaffList[index];
+      if (!member) return;
+
+      document.getElementById('modalRole').innerText = member.role || '--';
+      document.getElementById('modalBirth').innerText = member.birth || '2002-05-01';
+      document.getElementById('modalOrigin').innerText = member.origin || '新北市板橋區';
       
+      const descEl = document.getElementById('modalDesc');
+      descEl.innerText = member.desc || '--';
+
+      const skillsEl = document.getElementById('modalSkills');
+      skillsEl.innerHTML = '';
+      if (member.skills && member.skills.length > 0) {
+        member.skills.forEach(s => {
+          const badge = document.createElement('span');
+          badge.className = "px-3 py-1 rounded-xl bg-indigo-50 text-indigo-700 font-bold text-xs border border-indigo-100";
+          badge.innerText = s;
+          skillsEl.appendChild(badge);
+        });
+      } else {
+        skillsEl.innerText = '無';
+      }
+
       const linkArea = document.getElementById('unitModalLinkArea');
       const linkBtn = document.getElementById('unitModalLinkBtn');
-      if (link && link.trim() !== '') {
+      if (member.link && member.link.trim() !== '') {
         linkArea.classList.remove('hidden');
-        linkBtn.href = link;
+        linkBtn.href = member.link;
       } else {
         linkArea.classList.add('hidden');
       }
