@@ -452,52 +452,6 @@
     </div>
   </div>
 
-  <!-- 獨立彈出職掌說明 Modal (仿造截圖清單風格) -->
-  <div id="unitModal" class="fixed inset-0 z-[160] flex items-center justify-center p-4 sm:p-6 bg-slate-900/70 backdrop-blur-md hidden">
-    <div class="bg-white rounded-[32px] sm:rounded-[40px] w-full max-w-2xl shadow-2xl overflow-hidden relative p-6 sm:p-8 max-h-[90vh] flex flex-col">
-      <div class="flex justify-between items-center pb-4 mb-2 border-b border-slate-100 shrink-0">
-        <h3 class="text-lg font-black text-slate-800">幹部詳細資訊</h3>
-        <button onclick="closeUnitModal()" class="w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-all"><i class="fa-solid fa-xmark"></i></button>
-      </div>
-      
-      <div class="overflow-y-auto custom-scrollbar divide-y divide-slate-100 pr-1 flex-grow space-y-1">
-        <div class="py-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-8">
-          <span class="w-36 text-sm font-bold text-slate-400 shrink-0">職稱</span>
-          <span id="modalRole" class="text-slate-900 font-bold text-base">--</span>
-        </div>
-        <div class="py-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-8">
-          <span class="w-36 text-sm font-bold text-slate-400 shrink-0">出生年月日</span>
-          <span id="modalBirth" class="text-slate-900 font-bold text-base">2002-05-01</span>
-        </div>
-        <div class="py-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-8">
-          <span class="w-36 text-sm font-bold text-slate-400 shrink-0">出生地／籍貫</span>
-          <span id="modalOrigin" class="text-slate-900 font-bold text-base"></span>
-        </div>
-        <div class="py-4 flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-8">
-          <span class="w-36 text-sm font-bold text-slate-400 shrink-0 pt-0.5">經歷／管理經歷</span>
-          <div id="modalDesc" class="text-slate-900 font-bold text-sm sm:text-base leading-relaxed space-y-1">--</div>
-        </div>
-        <div class="py-4 flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-8">
-          <span class="w-36 text-sm font-bold text-slate-400 shrink-0 pt-0.5">擅長領域</span>
-          <div id="modalSkills" class="flex flex-wrap gap-2"></div>
-        </div>
-        <div class="py-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-8">
-          <span class="w-36 text-sm font-bold text-slate-400 shrink-0">加入年份</span>
-          <span id="modalYear" class="text-slate-900 font-bold text-base">2026</span>
-        </div>
-      </div>
-
-      <div id="unitModalLinkArea" class="mt-6 pt-4 border-t border-slate-100 hidden shrink-0">
-        <a id="unitModalLinkBtn" href="#" target="_blank" class="w-full py-3 px-5 rounded-2xl bg-indigo-50 hover:bg-indigo-100 text-indigo-700 font-black flex items-center justify-between transition-all border border-indigo-100 text-sm">
-          <span>開啟專屬相關連結</span>
-          <i class="fa-solid fa-arrow-up-right-from-square"></i>
-        </a>
-      </div>
-      
-      <button onclick="closeUnitModal()" class="w-full mt-4 py-3.5 rounded-2xl bg-slate-800 hover:bg-slate-900 text-white font-black uppercase text-sm shadow-md transition-all shrink-0">關閉視窗</button>
-    </div>
-  </div>
-
   <!-- 後台管理選單 Modal -->
   <div id="adminMenuModal" class="fixed inset-0 z-[140] flex items-center justify-center p-4 sm:p-6 bg-slate-900/60 backdrop-blur-sm hidden">
     <div class="bg-white rounded-[35px] sm:rounded-[40px] w-full max-w-md shadow-2xl p-6 sm:p-8 text-center relative">
@@ -882,7 +836,7 @@
         role: "營產官", 
         birth: "-",
         origin: "桃園市平鎮區",
-        desc: "負責單位營產設備改善、硬體設備管理與空間維護。", 
+        desc: "", 
         icon: "fa-screwdriver-wrench text-blue-600", 
         skills: ["資產管理", "設備維修", "硬體維護"],
         link: "" 
@@ -895,15 +849,6 @@
         icon: "fa-palette text-purple-600", 
         skills: ["視覺設計", "攝影紀實", "多媒體剪輯"],
         link: "" 
-      },
-      { 
-        role: "分支長", 
-        birth: "-",
-        origin: "",
-        desc: "", 
-        icon: "fa-location-crosshairs text-orange-600", 
-        skills: ["駐地管理", "督導考核", "基層領導"],
-        link: "" 
       }
     ];
 
@@ -912,12 +857,9 @@
       if (!container) return;
       container.innerHTML = '';
 
-      teamStaffList.forEach((member, index) => {
+      teamStaffList.forEach((member) => {
         const item = document.createElement('div');
-        item.className = "bg-white rounded-[32px] overflow-hidden border border-slate-100 shadow-md cursor-pointer hover:shadow-2xl transition-all flex flex-col justify-between shrink-0 w-full sm:w-[320px] snap-start group p-7";
-        
-        // 改用索引直接安全綁定點擊事件
-        item.setAttribute('onclick', `openTeamMemberModalByIndex(${index})`);
+        item.className = "relative bg-white rounded-[32px] overflow-visible border border-slate-100 shadow-md transition-all flex flex-col justify-between shrink-0 w-full sm:w-[320px] snap-start group p-7";
         
         let skillsHtml = '';
         if (member.skills && member.skills.length > 0) {
@@ -934,12 +876,20 @@
               <i class="fa-solid ${member.icon} text-4xl sm:text-5xl"></i>
             </div>
             <h3 class="text-xl sm:text-2xl font-black text-slate-900 truncate w-full mb-2">${member.role}</h3>
-            <p class="text-sm sm:text-base text-slate-600 font-medium line-clamp-2 px-2 leading-relaxed">${member.desc}</p>
+            <p class="text-sm sm:text-base text-slate-600 font-medium line-clamp-2 px-2 leading-relaxed">${member.desc || ''}</p>
             ${skillsHtml}
           </div>
-          <div class="pt-5 mt-5 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-400 group-hover:text-indigo-600 transition-colors">
-            <span class="text-sm">檢視詳細資訊</span>
-            <i class="fa-solid fa-arrow-right text-sm transform group-hover:translate-x-1 transition-transform"></i>
+
+          <!-- 懸停時浮動顯示的詳細資訊卡片 -->
+          <div class="absolute bottom-full left-0 w-full mb-3 p-5 bg-white/95 backdrop-blur-md rounded-3xl shadow-2xl border border-indigo-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-30 pointer-events-none text-left">
+            <div class="text-xs font-bold text-indigo-600 uppercase tracking-widest mb-2 flex items-center gap-1.5">
+              <i class="fa-solid fa-circle-info"></i> 詳細資訊
+            </div>
+            <div class="space-y-1.5 text-xs font-bold text-slate-700">
+              <div><span class="text-slate-400">出生年月日：</span>${member.birth || '--'}</div>
+              <div><span class="text-slate-400">出生地／籍貫：</span>${member.origin || '--'}</div>
+              <div><span class="text-slate-400">加入年份：</span>2026</div>
+            </div>
           </div>
         `;
         container.appendChild(item);
@@ -972,46 +922,6 @@
     }
 
     document.getElementById('homeTeamListContainer')?.addEventListener('scroll', updateTeamProgress);
-
-    function openTeamMemberModalByIndex(index) {
-      const member = teamStaffList[index];
-      if (!member) return;
-
-      document.getElementById('modalRole').innerText = member.role || '--';
-      document.getElementById('modalBirth').innerText = member.birth || '2002-05-01';
-      document.getElementById('modalOrigin').innerText = member.origin || '新北市板橋區';
-      
-      const descEl = document.getElementById('modalDesc');
-      descEl.innerText = member.desc || '--';
-
-      const skillsEl = document.getElementById('modalSkills');
-      skillsEl.innerHTML = '';
-      if (member.skills && member.skills.length > 0) {
-        member.skills.forEach(s => {
-          const badge = document.createElement('span');
-          badge.className = "px-3 py-1 rounded-xl bg-indigo-50 text-indigo-700 font-bold text-xs border border-indigo-100";
-          badge.innerText = s;
-          skillsEl.appendChild(badge);
-        });
-      } else {
-        skillsEl.innerText = '無';
-      }
-
-      const linkArea = document.getElementById('unitModalLinkArea');
-      const linkBtn = document.getElementById('unitModalLinkBtn');
-      if (member.link && member.link.trim() !== '') {
-        linkArea.classList.remove('hidden');
-        linkBtn.href = member.link;
-      } else {
-        linkArea.classList.add('hidden');
-      }
-
-      document.getElementById('unitModal').classList.remove('hidden');
-    }
-
-    function closeUnitModal() {
-      document.getElementById('unitModal').classList.add('hidden');
-    }
 
     function formatDate(d) { if (!d) return ''; return String(d).includes('T') ? String(d).split('T')[0] : d; }
 
@@ -1441,7 +1351,7 @@
       if (document.getElementById('historyAuthInput').value === ADMIN_PASSWORD) {
         closeHistoryAuthModal();
         renderHistoryList();
-        document.getElementById('historyModal').classList.remove('hidden');
+        document.getElementById('historyModal').classList.add('hidden');
       } else { alert('❌ 密碼錯誤！'); }
     }
     function closeHistoryModal() { document.getElementById('historyModal').classList.add('hidden'); }
