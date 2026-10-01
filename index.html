@@ -1351,8 +1351,10 @@
       if (document.getElementById('historyAuthInput').value === ADMIN_PASSWORD) {
         closeHistoryAuthModal();
         renderHistoryList();
-        document.getElementById('historyModal').classList.add('hidden');
-      } else { alert('❌ 密碼錯誤！'); }
+        document.getElementById('historyModal').classList.remove('hidden'); // 修改這裡：改為移除 hidden 以開啟視窗
+      } else { 
+        alert('❌ 密碼錯誤！'); 
+      }
     }
     function closeHistoryModal() { document.getElementById('historyModal').classList.add('hidden'); }
 
