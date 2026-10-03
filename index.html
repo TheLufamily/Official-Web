@@ -53,79 +53,51 @@
       <!-- 電腦版導覽項目 -->
       <div class="hidden lg:flex items-center gap-6 font-bold text-sm text-slate-700 shrink-0">
         <a href="#home" class="hover:text-orange-600 transition-colors py-2">首頁 HOME</a>
-        <a href="https://thelufamily.github.io/Family-activities/" target="_blank" class="hover:text-orange-600 transition-colors py-2">家庭活動 FAMILY ACTIVITY</a>
         <a href="#notice" class="hover:text-orange-600 transition-colors py-2">最新消息 NEWS</a>
         
-        <!-- 關於我們 下拉選單 (橫式多欄佈局) -->
+        <!-- 關於我們 下拉選單 (橫式單欄簡化佈局) -->
         <div class="relative group py-2">
           <button class="flex items-center gap-1.5 hover:text-orange-600 transition-colors focus:outline-none">
             <span>關於我們 ABOUT</span> <i class="fa-solid fa-plus text-xs transition-transform group-hover:rotate-45"></i>
           </button>
           
-          <div class="absolute top-full left-1/2 -translate-x-1/2 w-[720px] bg-white rounded-[32px] shadow-2xl border border-slate-100 p-8 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all transform translate-y-3 group-hover:translate-y-0 z-50">
+          <div class="absolute top-full left-1/2 -translate-x-1/2 w-[360px] bg-white rounded-[32px] shadow-2xl border border-slate-100 p-6 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all transform translate-y-3 group-hover:translate-y-0 z-50">
             <!-- 頂部大標題列 -->
-            <div class="flex items-baseline gap-3 pb-6 mb-6 border-b border-slate-100">
-              <span class="text-3xl font-black tracking-wider text-orange-600 uppercase">ABOUT</span>
-              <span class="text-sm font-bold text-slate-400">關於我們</span>
+            <div class="flex items-baseline gap-3 pb-4 mb-4 border-b border-slate-100">
+              <span class="text-2xl font-black tracking-wider text-orange-600 uppercase">ABOUT</span>
+              <span class="text-xs font-bold text-slate-400">關於我們</span>
             </div>
 
-            <!-- 內容網格 -->
-            <div class="grid grid-cols-2 gap-x-12 gap-y-8">
-              
-              <!-- 1. 隊職員與業務 -->
-              <div class="space-y-4">
-                <div class="flex items-center gap-2 text-orange-600 font-black text-sm tracking-wide">
-                  <span class="w-1.5 h-4 bg-orange-600 rounded-full"></span>
-                  <span>隊職員與業務</span>
-                </div>
-                <div class="grid grid-cols-2 gap-3">
-                  <a href="#team-staff" class="group/item text-left p-3 rounded-2xl bg-slate-50 hover:bg-orange-50/60 border border-slate-100 hover:border-orange-200 transition-all flex items-center justify-between">
-                    <span class="text-xs font-black text-slate-700 group-hover/item:text-orange-600">隊職幹部</span>
-                    <i class="fa-solid fa-arrow-right text-xs text-orange-400 opacity-0 group-hover/item:opacity-100 transform -translate-x-1 group-hover/item:translate-x-0 transition-all"></i>
-                  </a>
-                  <button onclick="openIndependentPage('role')" class="group/item text-left p-3 rounded-2xl bg-slate-50 hover:bg-orange-50/60 border border-slate-100 hover:border-orange-200 transition-all flex items-center justify-between">
-                    <span class="text-xs font-black text-slate-700 group-hover/item:text-orange-600">業務職掌</span>
-                    <i class="fa-solid fa-arrow-right text-xs text-orange-400 opacity-0 group-hover/item:opacity-100 transform -translate-x-1 group-hover/item:translate-x-0 transition-all"></i>
-                  </button>
-                </div>
+            <!-- 內容清單 -->
+            <div class="space-y-3">
+              <div class="flex items-center gap-2 text-orange-600 font-black text-xs tracking-wide">
+                <span class="w-1.5 h-3.5 bg-orange-600 rounded-full"></span>
+                <span>隊職員與業務</span>
+              </div>
+              <div class="grid grid-cols-2 gap-2">
+                <a href="#team-staff" class="group/item text-left p-2.5 rounded-xl bg-slate-50 hover:bg-orange-50/60 border border-slate-100 hover:border-orange-200 transition-all flex items-center justify-between">
+                  <span class="text-xs font-black text-slate-700 group-hover/item:text-orange-600">隊職幹部</span>
+                  <i class="fa-solid fa-arrow-right text-[10px] text-orange-400 opacity-0 group-hover/item:opacity-100 transform -translate-x-1 group-hover/item:translate-x-0 transition-all"></i>
+                </a>
+                <button onclick="openIndependentPage('role')" class="group/item text-left p-2.5 rounded-xl bg-slate-50 hover:bg-orange-50/60 border border-slate-100 hover:border-orange-200 transition-all flex items-center justify-between">
+                  <span class="text-xs font-black text-slate-700 group-hover/item:text-orange-600">業務職掌</span>
+                  <i class="fa-solid fa-arrow-right text-[10px] text-orange-400 opacity-0 group-hover/item:opacity-100 transform -translate-x-1 group-hover/item:translate-x-0 transition-all"></i>
+                </button>
               </div>
 
-              <!-- 2. 家族分布與福利制度 -->
-              <div class="space-y-6">
-                <!-- 家族分布 -->
-                <div class="space-y-4">
-                  <div class="flex items-center gap-2 text-orange-600 font-black text-sm tracking-wide">
-                    <span class="w-1.5 h-4 bg-orange-600 rounded-full"></span>
-                    <span>家族分布</span>
-                  </div>
-                  <div class="grid grid-cols-1 gap-3">
-                    <button onclick="openIndependentPage('unit')" class="group/item text-left p-3 rounded-2xl bg-slate-50 hover:bg-orange-50/60 border border-slate-100 hover:border-orange-200 transition-all flex items-center justify-between">
-                      <span class="text-xs font-black text-slate-700 group-hover/item:text-orange-600">家族分布地圖</span>
-                      <i class="fa-solid fa-arrow-right text-xs text-orange-400 opacity-0 group-hover/item:opacity-100 transform -translate-x-1 group-hover/item:translate-x-0 transition-all"></i>
-                    </button>
-                  </div>
-                </div>
-
-                <!-- 福利制度 -->
-                <div class="space-y-4">
-                  <div class="flex items-center gap-2 text-orange-600 font-black text-sm tracking-wide">
-                    <span class="w-1.5 h-4 bg-orange-600 rounded-full"></span>
-                    <span>福利制度</span>
-                  </div>
-                  <div class="grid grid-cols-1 gap-3">
-                    <a href="https://thelufamily.github.io/LUFAMILYVIP/" target="_blank" class="group/item text-left p-3 rounded-2xl bg-slate-50 hover:bg-orange-50/60 border border-slate-100 hover:border-orange-200 transition-all flex items-center justify-between">
-                      <span class="text-xs font-black text-slate-700 group-hover/item:text-orange-600">會員福利</span>
-                      <i class="fa-solid fa-arrow-up-right-from-square text-xs text-orange-400 opacity-0 group-hover/item:opacity-100 transform -translate-x-1 group-hover/item:translate-x-0 transition-all"></i>
-                    </a>
-                  </div>
-                </div>
+              <div class="flex items-center gap-2 text-orange-600 font-black text-xs tracking-wide pt-2">
+                <span class="w-1.5 h-3.5 bg-orange-600 rounded-full"></span>
+                <span>家族分布</span>
               </div>
-
+              <div class="grid grid-cols-1 gap-2">
+                <button onclick="openIndependentPage('unit')" class="group/item text-left p-2.5 rounded-xl bg-slate-50 hover:bg-orange-50/60 border border-slate-100 hover:border-orange-200 transition-all flex items-center justify-between">
+                  <span class="text-xs font-black text-slate-700 group-hover/item:text-orange-600">家族分布地圖</span>
+                  <i class="fa-solid fa-arrow-right text-[10px] text-orange-400 opacity-0 group-hover/item:opacity-100 transform -translate-x-1 group-hover/item:translate-x-0 transition-all"></i>
+                </button>
+              </div>
             </div>
           </div>
         </div>
-
-        <a href="#contact" class="hover:text-orange-600 transition-colors py-2">聯絡我們 CONTACT</a>
 
         <div class="flex items-center gap-4 border-l border-slate-200 pl-4 text-lg">
           <button onclick="openAdminMenuModal()" class="hover:text-indigo-600 transition-colors focus:outline-none" title="後台管理"><i class="fa-solid fa-user"></i></button>
@@ -159,11 +131,6 @@
           <i class="fa-solid fa-chevron-right text-xs text-slate-400"></i>
         </a>
 
-        <a href="https://thelufamily.github.io/Family-activities/" target="_blank" onclick="toggleMobileMenu()" class="px-5 py-4 rounded-2xl bg-white text-slate-800 shadow-sm border border-slate-200 flex items-center justify-between hover:border-orange-500 transition-all">
-          <span>家庭活動 <span class="text-xs text-indigo-600 font-normal ml-2">FAMILY ACTIVITY</span></span>
-          <i class="fa-solid fa-chevron-right text-xs text-slate-400"></i>
-        </a>
-
         <a href="#notice" onclick="toggleMobileMenu()" class="px-5 py-4 rounded-2xl bg-white text-slate-800 shadow-sm border border-slate-200 flex items-center justify-between hover:border-orange-500 transition-all">
           <span>最新消息 <span class="text-xs text-orange-600 font-normal ml-2">NEWS</span></span>
           <i class="fa-solid fa-chevron-right text-xs text-slate-400"></i>
@@ -185,18 +152,9 @@
             <button onclick="toggleMobileMenu(); openIndependentPage('unit')" class="w-full text-left px-5 py-3.5 rounded-xl bg-white shadow-sm border border-slate-200 text-slate-700 hover:bg-indigo-50 hover:text-indigo-600 text-sm font-black flex items-center gap-3 transition-all">
               <i class="fa-solid fa-map-location-dot text-blue-600 text-base"></i> 家族分布
             </button>
-            <!-- 手機版 福利制度小標題與項目 -->
-            <div class="pt-2 pb-1 px-3 text-xs font-black text-orange-600 tracking-wider">福利制度</div>
-            <a href="https://thelufamily.github.io/LUFAMILYVIP/" target="_blank" onclick="toggleMobileMenu()" class="w-full text-left px-5 py-3.5 rounded-xl bg-white shadow-sm border border-slate-200 text-slate-700 hover:bg-amber-50 hover:text-amber-600 text-sm font-black flex items-center gap-3 transition-all">
-              <i class="fa-solid fa-crown text-amber-500 text-base"></i> 會員福利
-            </a>
           </div>
         </div>
 
-        <a href="#contact" onclick="toggleMobileMenu()" class="px-5 py-4 rounded-2xl bg-white text-slate-800 shadow-sm border border-slate-200 flex items-center justify-between hover:border-orange-500 transition-all">
-          <span>聯絡我們 <span class="text-xs text-orange-600 font-normal ml-2">CONTACT</span></span>
-          <i class="fa-solid fa-chevron-right text-xs text-slate-400"></i>
-        </a>
       </div>
     </div>
   </nav>
@@ -324,108 +282,6 @@
         </div>
       </div>
 
-    </div>
-  </section>
-
-  <!-- 聯絡我們區塊 -->
-  <section id="contact" class="py-12 bg-[#f8fafc] border-t-0">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6">
-      
-      <div class="text-center mb-10">
-        <span class="text-orange-600 font-bold text-sm tracking-wider uppercase block mb-1">聯絡我們</span>
-        <h2 class="text-4xl sm:text-5xl font-black text-slate-900 tracking-tight uppercase">CONTACT US</h2>
-        <div class="w-16 h-1.5 bg-orange-500 mx-auto mt-4 rounded-full"></div>
-      </div>
-
-      <div class="space-y-8">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
-          
-          <!-- 左側：家庭服務資訊區塊 -->
-          <div class="bg-white rounded-[32px] p-6 sm:p-8 shadow-xl border border-orange-100 relative overflow-hidden flex flex-col justify-between">
-            <div class="absolute top-0 left-0 right-0 h-2 bg-orange-600"></div>
-            <div>
-              <div class="flex items-center gap-3 mb-4">
-                <div class="w-10 h-10 rounded-xl bg-orange-50 text-orange-600 flex items-center justify-center text-lg font-bold"><i class="fa-solid fa-headset"></i></div>
-                <h3 class="text-xl font-black text-slate-800">家庭服務 FAMILY SUPPORT</h3>
-              </div>
-              
-              <p class="text-slate-600 text-sm font-medium mb-6 leading-relaxed text-justify">
-                家庭服務資訊內容更新，如有任何日常事務或相關（活動報名或其他事項）問題，歡迎隨時與我們聯繫，我們將竭誠為您服務！
-              </p>
-            </div>
-
-            <!-- 垂直排列的三個區塊 -->
-            <div class="space-y-3 mt-auto">
-              <div class="flex items-center gap-3 text-xs sm:text-sm font-bold text-slate-700 bg-orange-50/60 p-4 rounded-2xl border border-orange-100/60">
-                <div class="w-8 h-8 rounded-xl bg-orange-500 text-white flex items-center justify-center shrink-0 text-sm">
-                  <i class="fa-regular fa-clock"></i>
-                </div>
-                <div class="truncate">
-                  <span class="text-[10px] text-slate-400 block">服務時間</span>
-                  <span>週一至週五 10:00–17:00（國定假日除外）</span>
-                </div>
-              </div>
-
-              <div class="flex items-center gap-3 text-xs sm:text-sm font-bold text-slate-700 bg-orange-50/60 p-4 rounded-2xl border border-orange-100/60">
-                <div class="w-8 h-8 rounded-xl bg-orange-500 text-white flex items-center justify-center shrink-0 text-sm">
-                  <i class="fa-solid fa-user-shield"></i>
-                </div>
-                <div class="truncate">
-                  <span class="text-[10px] text-slate-400 block">聯絡人</span>
-                  <span class="font-black text-slate-800">呂氏家庭 聯絡小組</span>
-                </div>
-              </div>
-
-              <div class="flex items-center gap-3 text-xs sm:text-sm font-bold text-slate-700 bg-orange-50/60 p-4 rounded-2xl border border-orange-100/60">
-                <div class="w-8 h-8 rounded-xl bg-orange-500 text-white flex items-center justify-center shrink-0 text-sm">
-                  <i class="fa-solid fa-envelope"></i>
-                </div>
-                <div class="truncate">
-                  <span class="text-[10px] text-slate-400 block">聯絡信箱</span>
-                  <a href="mailto:luteam.family@gmail.com" class="font-black text-indigo-600 hover:underline truncate">luteam.family@gmail.com</a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- 右側：線上填寫表單 -->
-          <div class="bg-white rounded-[32px] p-6 sm:p-8 shadow-xl border border-orange-100 relative overflow-hidden flex flex-col justify-between">
-            <div class="absolute top-0 left-0 right-0 h-2 bg-orange-600"></div>
-            <div>
-              <div class="flex items-center gap-3 mb-4">
-                <div class="w-10 h-10 rounded-xl bg-orange-50 text-orange-600 flex items-center justify-center text-lg font-bold"><i class="fa-solid fa-file-lines"></i></div>
-                <h3 class="text-xl font-black text-slate-800">線上填寫表單</h3>
-              </div>
-              <p class="text-slate-600 text-sm font-medium mb-6 leading-relaxed">
-                填寫下方三項資訊，送出後將自動彙整並發送至 luteam.family@gmail.com 信箱。
-              </p>
-            </div>
-            
-            <form id="contactForm" onsubmit="handleContactSubmit(event)" class="space-y-3.5 text-left">
-              <div>
-                <label class="block text-xs font-black text-slate-500 mb-1"><i class="fa-solid fa-user text-orange-600 mr-1"></i> 聯絡人 *</label>
-                <input type="text" id="contactName" required placeholder="請填寫您的真實姓名或稱謂" class="w-full px-4 py-2.5 rounded-2xl bg-slate-50 border border-slate-200 focus:border-orange-500 text-xs sm:text-sm font-bold outline-none">
-              </div>
-
-              <div>
-                <label class="block text-xs font-black text-slate-500 mb-1"><i class="fa-solid fa-bullseye text-orange-600 mr-1"></i> 聯絡目的 *</label>
-                <input type="text" id="contactPurpose" required placeholder="例如：事務諮詢、活動報名、其他事項" class="w-full px-4 py-2.5 rounded-2xl bg-slate-50 border border-slate-200 focus:border-orange-500 text-xs sm:text-sm font-bold outline-none">
-              </div>
-
-              <div>
-                <label class="block text-xs font-black text-slate-500 mb-1"><i class="fa-solid fa-phone-volume text-orange-600 mr-1"></i> 連絡電話或信箱 *</label>
-                <input type="text" id="contactInfo" required placeholder="請填寫電話號碼或 Email" class="w-full px-4 py-2.5 rounded-2xl bg-slate-50 border border-slate-200 focus:border-orange-500 text-xs sm:text-sm font-bold outline-none">
-              </div>
-
-              <button type="submit" id="contactSubmitBtn" class="w-full py-3.5 px-6 rounded-2xl bg-orange-600 hover:bg-orange-700 text-white font-black text-xs sm:text-sm uppercase shadow-md transition-all flex items-center justify-center gap-2 mt-1">
-                <span>送出表單</span>
-                <i class="fa-solid fa-arrow-right"></i>
-              </button>
-            </form>
-          </div>
-
-        </div>
-      </div>
     </div>
   </section>
 
@@ -672,15 +528,12 @@
 
       const staticPages = [
         { title: '首頁 / HOME', type: 'page', target: '#home', desc: '呂氏家庭生活資訊官方網站首頁' },
-        { title: '會員福利 / 福利制度', type: 'link', target: 'https://thelufamily.github.io/LUFAMILYVIP/', desc: '查看專屬會員福利與優惠' },
         { title: '最新消息 / NEWS', type: 'page', target: '#notice', desc: '查看家庭各項最新公告與資訊' },
         { title: '隊職員 / TEAM STAFF', type: 'page', target: '#team-staff', desc: '查看現代隊職幹部介紹與職掌' },
         { title: '關於我們：隊職幹部', type: 'page', target: '#team-staff', desc: '跳轉至首頁隊職幹部區塊' },
         { title: '關於我們：業務職掌', type: 'modal', action: "openIndependentPage('role')", desc: '檢視各項業務職掌說明' },
         { title: '關於我們：家族分布', type: 'modal', action: "openIndependentPage('unit')", desc: '檢視家族成員分布與所在地圖' },
-        { title: '關於我們：會員福利', type: 'link', target: 'https://thelufamily.github.io/LUFAMILYVIP/', desc: '查看福利制度與專屬會員福利' },
-        { title: '支持我們的力量 SPONSORS', type: 'modal', action: "openIndependentPage('sponsors')", desc: '了解網站改版初衷與贊助支援' },
-        { title: '聯絡我們 / CONTACT US', type: 'page', target: '#contact', desc: '取得家庭服務信箱與線上填寫表單' }
+        { title: '支持我們的力量 SPONSORS', type: 'modal', action: "openIndependentPage('sponsors')", desc: '了解網站改版初衷與贊助支援' }
       ];
 
       staticPages.forEach(p => {
@@ -711,11 +564,6 @@
               <div class="font-black text-slate-800 text-xs sm:text-sm">${r.title}</div>
               <div class="text-[10px] text-slate-500 font-medium">${r.desc}</div>
             </a>`;
-          } else if (r.type === 'link') {
-            html += `<a href="${r.target}" target="_blank" onclick="clearNavSearch(); toggleMobileMenu();" class="block p-3 rounded-2xl hover:bg-slate-50 border border-transparent hover:border-indigo-100 transition-all">
-              <div class="font-black text-amber-600 text-xs sm:text-sm">${r.title}</div>
-              <div class="text-[10px] text-slate-500 font-medium">${r.desc}</div>
-            </a>`;
           } else {
             html += `<div onclick="clearNavSearch(); toggleMobileMenu(); ${r.action};" class="block p-3 rounded-2xl hover:bg-slate-50 border border-transparent hover:border-indigo-100 transition-all cursor-pointer">
               <div class="font-black text-indigo-600 text-xs sm:text-sm">${r.title}</div>
@@ -737,38 +585,6 @@
       const clearBtn = document.getElementById('navSearchClearBtn');
       if (clearBtn) clearBtn.classList.add('hidden');
       document.getElementById('searchResultsDropdown').classList.add('hidden');
-    }
-
-    // 聯絡表單送出
-    async function handleContactSubmit(event) {
-      event.preventDefault();
-      const btn = document.getElementById('contactSubmitBtn');
-      
-      const name = document.getElementById('contactName').value;
-      const purpose = document.getElementById('contactPurpose').value;
-      const contactInfo = document.getElementById('contactInfo').value;
-
-      const payload = {
-        action: 'contact',
-        name,
-        purpose,
-        contactInfo,
-        date: new Date().toISOString()
-      };
-
-      btn.innerText = "資料傳送中...";
-      btn.disabled = true;
-
-      try {
-        await fetch(API_URL, { method: 'POST', body: JSON.stringify(payload) });
-        alert('✅ 您的表單已成功送出！後台已完成彙整並發送至 luteam.family@gmail.com 信箱。');
-        document.getElementById('contactForm').reset();
-      } catch (e) {
-        alert('❌ 傳送失敗，請稍後再試或直接透過信箱與我們聯繫。');
-      } finally {
-        btn.innerHTML = '<span>送出表單</span><i class="fa-solid fa-arrow-right"></i>';
-        btn.disabled = false;
-      }
     }
 
     let _lightboxCurrentIndex = 0;
@@ -1351,7 +1167,7 @@
       if (document.getElementById('historyAuthInput').value === ADMIN_PASSWORD) {
         closeHistoryAuthModal();
         renderHistoryList();
-        document.getElementById('historyModal').classList.remove('hidden'); // 修改這裡：改為移除 hidden 以開啟視窗
+        document.getElementById('historyModal').classList.remove('hidden');
       } else { 
         alert('❌ 密碼錯誤！'); 
       }
