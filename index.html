@@ -24,7 +24,7 @@
 
     .uniform-modal-container {
       width: 100%;
-      max-width: 52rem;
+      max-width: 56rem;
       height: 82vh;
       max-height: 750px;
       display: flex;
@@ -33,7 +33,7 @@
   </style>
 </head>
 
-<body class="text-slate-700">
+<body class="text-slate-700 flex flex-col min-h-screen">
 
   <!-- 導覽列 -->
   <nav class="bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-slate-100">
@@ -43,32 +43,23 @@
         <a href="#home" class="font-bold text-base sm:text-lg text-slate-800 hover:text-indigo-600 transition-colors truncate">呂氏家庭生活資訊網</a>
       </div>
 
-      <!-- 導覽列搜尋框 -->
-      <div class="hidden md:flex items-center relative flex-grow max-w-xs mx-4">
-        <span class="absolute left-3 text-slate-400 text-xs"><i class="fa-solid fa-magnifying-glass"></i></span>
-        <input type="text" id="navSearchInput" oninput="handleNavSearch(this.value)" placeholder="搜尋關鍵字跳轉..." class="w-full pl-9 pr-8 py-2 rounded-xl bg-slate-100 border border-transparent focus:border-indigo-500 focus:bg-white text-xs font-bold transition-all outline-none">
-        <button id="navSearchClearBtn" onclick="clearNavSearch()" class="absolute right-2.5 text-slate-400 hover:text-slate-600 text-xs hidden"><i class="fa-solid fa-xmark"></i></button>
-      </div>
-
       <!-- 電腦版導覽項目 -->
       <div class="hidden lg:flex items-center gap-6 font-bold text-sm text-slate-700 shrink-0">
         <a href="#home" class="hover:text-orange-600 transition-colors py-2">首頁 HOME</a>
         <a href="#notice" class="hover:text-orange-600 transition-colors py-2">最新消息 NEWS</a>
         
-        <!-- 關於我們 下拉選單 (橫式單欄簡化佈局) -->
+        <!-- 關於我們 下拉選單 -->
         <div class="relative group py-2">
           <button class="flex items-center gap-1.5 hover:text-orange-600 transition-colors focus:outline-none">
             <span>關於我們 ABOUT</span> <i class="fa-solid fa-plus text-xs transition-transform group-hover:rotate-45"></i>
           </button>
           
           <div class="absolute top-full left-1/2 -translate-x-1/2 w-[360px] bg-white rounded-[32px] shadow-2xl border border-slate-100 p-6 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all transform translate-y-3 group-hover:translate-y-0 z-50">
-            <!-- 頂部大標題列 -->
             <div class="flex items-baseline gap-3 pb-4 mb-4 border-b border-slate-100">
               <span class="text-2xl font-black tracking-wider text-orange-600 uppercase">ABOUT</span>
               <span class="text-xs font-bold text-slate-400">關於我們</span>
             </div>
 
-            <!-- 內容清單 -->
             <div class="space-y-3">
               <div class="flex items-center gap-2 text-orange-600 font-black text-xs tracking-wide">
                 <span class="w-1.5 h-3.5 bg-orange-600 rounded-full"></span>
@@ -119,13 +110,6 @@
     <!-- 展開式漢堡清單 -->
     <div id="mobileMenu" class="hidden bg-white border-t border-slate-100 shadow-2xl transition-all lg:hidden">
       <div class="max-w-4xl mx-auto px-6 py-6 flex flex-col gap-3 bg-slate-50/80 border-b border-slate-100 font-bold text-base sm:text-lg">
-        
-        <!-- 手機版搜尋框 -->
-        <div class="relative w-full mb-2">
-          <span class="absolute left-3.5 top-3.5 text-slate-400 text-sm"><i class="fa-solid fa-magnifying-glass"></i></span>
-          <input type="text" id="mobileNavSearchInput" oninput="handleNavSearch(this.value)" placeholder="搜尋關鍵字跳轉..." class="w-full pl-10 pr-8 py-3 rounded-2xl bg-white border border-slate-200 focus:border-indigo-500 text-sm font-bold transition-all outline-none shadow-sm">
-        </div>
-
         <a href="#home" onclick="toggleMobileMenu()" class="px-5 py-4 rounded-2xl bg-white text-slate-800 shadow-sm border border-slate-200 flex items-center justify-between hover:border-indigo-500 transition-all">
           <span>首頁 <span class="text-xs text-indigo-600 font-normal ml-2">HOME</span></span>
           <i class="fa-solid fa-chevron-right text-xs text-slate-400"></i>
@@ -136,7 +120,6 @@
           <i class="fa-solid fa-chevron-right text-xs text-slate-400"></i>
         </a>
 
-        <!-- 關於我們 -->
         <div class="rounded-2xl bg-white shadow-sm border border-slate-200 overflow-hidden">
           <button onclick="toggleMobileSubMenu()" class="w-full px-5 py-4 text-slate-800 flex items-center justify-between focus:outline-none hover:bg-slate-50 transition-all">
             <span class="flex items-center gap-2">關於我們 <span class="text-xs text-orange-600 font-normal">ABOUT</span></span>
@@ -154,73 +137,53 @@
             </button>
           </div>
         </div>
-
       </div>
     </div>
   </nav>
 
-  <!-- 搜尋快速導引結果浮動清單 -->
-  <div id="searchResultsDropdown" class="hidden fixed top-[75px] left-1/2 -translate-x-1/2 w-full max-w-lg z-[200] px-4">
-    <div id="searchResultsContent" class="bg-white rounded-3xl shadow-2xl border border-slate-200 p-3 space-y-2 max-h-[60vh] overflow-y-auto custom-scrollbar"></div>
-  </div>
-
   <!-- 首頁區 -->
   <section id="home" class="py-16 sm:py-24 flex items-center relative overflow-hidden">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 w-full relative">
-      
-      <!-- 左上裝飾圖片 -->
       <div class="hidden lg:block absolute -top-8 left-4 w-48 h-36 rounded-2xl overflow-hidden shadow-xl border-4 border-white bg-white transform -rotate-6 animate-pulse" data-aos="fade-right">
         <img src="S__23732244.jpg" alt="裝飾照 1" class="w-full h-full object-contain">
       </div>
-
-      <!-- 右側中段裝飾圖片 -->
       <div class="hidden lg:block absolute top-12 right-4 w-52 h-68 rounded-2xl overflow-hidden shadow-xl border-4 border-white bg-white transform rotate-6" data-aos="fade-left">
         <img src="362511_0.jpg" alt="裝飾照 2" class="w-full h-full object-contain">
       </div>
-
-      <!-- 左下裝飾圖片 -->
       <div class="hidden lg:block absolute bottom-[-50px] left-8 w-52 h-36 rounded-2xl overflow-hidden shadow-xl border-4 border-white bg-white transform rotate-3" data-aos="fade-up">
         <img src="362512_0.jpg" alt="裝飾照 3" class="w-full h-full object-contain">
       </div>
 
-      <!-- 中央主內容區 -->
       <div class="text-center max-w-2xl mx-auto z-10 relative py-8" data-aos="zoom-in">
         <span class="text-orange-600 font-black text-sm sm:text-base tracking-widest uppercase block mb-2">關於呂氏家庭</span>
         <h1 class="text-4xl sm:text-6xl font-black text-slate-900 tracking-tight uppercase mb-6 drop-shadow-sm">ABOUT LU FAMILY</h1>
-        
         <p class="text-slate-600 font-medium text-sm sm:text-base leading-relaxed mb-8">
           認識我們的願景、理念與成立初衷。<br>見證一個溫馨家庭日常紀錄與生活資訊的匯集點。
         </p>
 
-        <!-- 了解更多按鈕組 (點擊開啟支持我們的力量) -->
         <div class="inline-flex items-center rounded-2xl shadow-xl overflow-hidden bg-orange-50 hover:shadow-2xl transition-all cursor-pointer group border border-orange-200" onclick="openIndependentPage('sponsors')">
-          <div class="px-8 py-4 text-orange-600 font-black text-sm sm:text-base tracking-wide">
-            了解更多
-          </div>
+          <div class="px-8 py-4 text-orange-600 font-black text-sm sm:text-base tracking-wide">了解更多</div>
           <div class="bg-orange-600 text-white px-5 py-4 flex items-center justify-center group-hover:bg-orange-700 transition-colors">
             <i class="fa-solid fa-arrow-up-right-from-square text-sm transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
           </div>
         </div>
       </div>
-
     </div>
   </section>
 
   <!-- 主要內容區 -->
-  <section class="py-8 sm:py-10 bg-slate-50">
+  <section class="py-8 sm:py-10 bg-slate-50 flex-grow">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 w-full">
       
       <!-- 最新消息區 -->
       <div id="notice" class="mb-16 scroll-mt-24 pt-6">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          
           <div class="lg:col-span-3 flex flex-col justify-between self-stretch">
             <div>
               <h3 class="text-orange-600 font-bold text-sm tracking-wider mb-1">最新消息</h3>
               <h2 class="text-4xl sm:text-5xl font-black text-slate-900 tracking-tight uppercase">NEWS</h2>
               <div class="w-12 h-1 bg-orange-500 rounded-full mt-3 mb-6"></div>
             </div>
-
             <div class="pt-4">
               <button onclick="openIndependentPage('notice')" class="px-6 py-3.5 bg-orange-50 hover:bg-orange-100 text-orange-700 rounded-2xl font-black text-xs flex items-center justify-between transition-all w-full shadow-sm">
                 <span>了解更多</span> <div class="w-7 h-7 rounded-xl bg-orange-500 text-white flex items-center justify-center text-xs"><i class="fa-solid fa-arrow-right"></i></div>
@@ -232,7 +195,6 @@
             <div id="noticeListContainer" class="grid grid-flow-col auto-cols-[minmax(280px,1fr)] gap-5 overflow-x-auto pb-4 no-scrollbar snap-x" style="min-height: 320px;">
               <div class="text-center py-16 text-slate-400 font-bold col-span-full"><i class="fa-solid fa-spinner fa-spin mr-2"></i> 更新中...請稍後</div>
             </div>
-
             <div class="flex items-center justify-between gap-6 pt-2">
               <div class="flex-grow bg-slate-200 h-1.5 rounded-full overflow-hidden">
                 <div id="noticeScrollProgress" class="bg-orange-500 h-full w-1/3 transition-all duration-300"></div>
@@ -243,21 +205,18 @@
               </div>
             </div>
           </div>
-
         </div>
       </div>
 
       <!-- 隊職幹部區塊 -->
       <div id="team-staff" class="mb-16 scroll-mt-24 pt-6">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          
           <div class="lg:col-span-3 flex flex-col justify-between self-stretch">
             <div>
               <h3 class="text-indigo-600 font-bold text-sm tracking-wider mb-1">隊職員</h3>
               <h2 class="text-4xl sm:text-5xl font-black text-slate-900 tracking-tight uppercase">TEAM STAFF</h2>
               <div class="w-12 h-1 bg-indigo-600 rounded-full mt-3 mb-6"></div>
             </div>
-
             <div class="pt-4">
               <button onclick="openIndependentPage('role')" class="px-6 py-3.5 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 rounded-2xl font-black text-xs flex items-center justify-between transition-all w-full shadow-sm">
                 <span>了解更多</span> <div class="w-7 h-7 rounded-xl bg-indigo-600 text-white flex items-center justify-center text-xs"><i class="fa-solid fa-arrow-right"></i></div>
@@ -267,7 +226,6 @@
 
           <div class="lg:col-span-9 flex flex-col gap-6">
             <div id="homeTeamListContainer" class="grid grid-flow-col auto-cols-[minmax(300px,1fr)] gap-6 overflow-x-auto pb-4 no-scrollbar snap-x" style="min-height: 400px;"></div>
-
             <div class="flex items-center justify-between gap-6 pt-2">
               <div class="flex-grow bg-slate-200 h-1.5 rounded-full overflow-hidden">
                 <div id="teamScrollProgress" class="bg-indigo-600 h-full w-1/3 transition-all duration-300"></div>
@@ -278,30 +236,25 @@
               </div>
             </div>
           </div>
-
         </div>
       </div>
 
     </div>
   </section>
 
-
-
-
-  <!-- 網站底部資訊區 -->
-  <footer class="bg-slate-900 text-slate-300 py-10 border-t border-slate-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row justify-between items-center gap-6 text-xs sm:text-sm font-bold">
-      <div class="space-y-2 text-center md:text-left">
-        <p class="text-white font-black tracking-wide">呂氏家庭生活資訊網 版權所有 © 2026</p>
-        <p class="text-slate-400 font-medium">更新日期：民國115年10月06日</p>
+  <!-- 網頁頁尾 Footer -->
+  <footer class="bg-white border-t border-slate-100 py-8 text-center text-xs font-bold text-slate-400 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>
+        <p>&copy; 2026 呂氏家庭生活資訊網 版權所有 All Rights Reserved.</p>
       </div>
-      <div class="space-y-2 text-center md:text-right text-slate-400 font-medium">
-        <p>瀏覽器建議使用 Chrome、Edge 或 Safari 最新版本</p>
-        <p>最佳瀏覽解析度：1024x768 以上</p>
+      <div class="flex items-center gap-3">
+        <span class="inline-flex items-center gap-1.5 bg-slate-50 px-3 py-1.5 rounded-xl border border-slate-100 text-slate-500">
+          <i class="fa-solid fa-rotate text-indigo-500"></i> 最後更新日期：2026-10-06
+        </span>
       </div>
     </div>
   </footer>
-
 
   <!-- 獨立彈出檢視頁面 Modal -->
   <div id="independentPageModal" class="fixed inset-0 z-[150] flex items-center justify-center p-4 sm:p-6 bg-slate-900/70 backdrop-blur-md hidden">
@@ -314,7 +267,7 @@
             <h4 id="indModalTitle" class="text-base sm:text-lg font-black tracking-wide">獨立專區檢視</h4>
           </div>
         </div>
-        <button onclick="closeIndependentPage()" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-all"><i class="fa-solid fa-xmark text-lg"></i></button>
+        <button onclick="closeIndependentPage()" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-all"><i class="fa-solid fa-xmark"></i></button>
       </div>
 
       <div id="indModalContentBody" class="p-6 sm:p-10 overflow-y-auto custom-scrollbar space-y-6 bg-slate-50/50 flex-grow"></div>
@@ -524,100 +477,7 @@
       }
     }
 
-    // 導覽列即時搜尋與跳轉功能
-    function handleNavSearch(keyword) {
-      const query = keyword.trim().toLowerCase();
-      const dropdown = document.getElementById('searchResultsDropdown');
-      const content = document.getElementById('searchResultsContent');
-      const clearBtn = document.getElementById('navSearchClearBtn');
-
-      if (clearBtn) {
-        if (query.length > 0) clearBtn.classList.remove('hidden');
-        else clearBtn.classList.add('hidden');
-      }
-
-      if (!query) {
-        dropdown.classList.add('hidden');
-        content.innerHTML = '';
-        return;
-      }
-
-      let results = [];
-
-      const staticPages = [
-        { title: '首頁 / HOME', type: 'page', target: '#home', desc: '呂氏家庭生活資訊官方網站首頁' },
-        { title: '最新消息 / NEWS', type: 'page', target: '#notice', desc: '查看家庭各項最新公告與資訊' },
-        { title: '隊職員 / TEAM STAFF', type: 'page', target: '#team-staff', desc: '查看現代隊職幹部介紹與職掌' },
-        { title: '關於我們：隊職幹部', type: 'page', target: '#team-staff', desc: '跳轉至首頁隊職幹部區塊' },
-        { title: '關於我們：業務職掌', type: 'modal', action: "openIndependentPage('role')", desc: '檢視各項業務職掌說明' },
-        { title: '關於我們：家族分布', type: 'modal', action: "openIndependentPage('unit')", desc: '檢視家族成員分布與所在地圖' },
-        { title: '支持我們的力量 SPONSORS', type: 'modal', action: "openIndependentPage('sponsors')", desc: '了解網站改版初衷與贊助支援' }
-      ];
-
-      staticPages.forEach(p => {
-        if (p.title.toLowerCase().includes(query) || p.desc.toLowerCase().includes(query)) {
-          results.push(p);
-        }
-      });
-
-      Object.keys(noticeData).forEach(id => {
-        const item = noticeData[id];
-        if (item.title.toLowerCase().includes(query) || item.content.toLowerCase().includes(query)) {
-          results.push({
-            title: `[最新消息] ${item.title}`,
-            type: 'notice',
-            action: `openNoticeModal('${id}')`,
-            desc: item.content.substring(0, 40) + '...'
-          });
-        }
-      });
-
-      if (results.length === 0) {
-        content.innerHTML = `<div class="text-center py-6 text-slate-400 font-bold text-xs">沒有找到符合 "${query}" 的相關內容</div>`;
-      } else {
-        let html = '';
-        results.forEach(r => {
-          if (r.type === 'page') {
-            html += `<a href="${r.target}" onclick="clearNavSearch(); toggleMobileMenu();" class="block p-3 rounded-2xl hover:bg-slate-50 border border-transparent hover:border-indigo-100 transition-all">
-              <div class="font-black text-slate-800 text-xs sm:text-sm">${r.title}</div>
-              <div class="text-[10px] text-slate-500 font-medium">${r.desc}</div>
-            </a>`;
-          } else {
-            html += `<div onclick="clearNavSearch(); toggleMobileMenu(); ${r.action};" class="block p-3 rounded-2xl hover:bg-slate-50 border border-transparent hover:border-indigo-100 transition-all cursor-pointer">
-              <div class="font-black text-indigo-600 text-xs sm:text-sm">${r.title}</div>
-              <div class="text-[10px] text-slate-500 font-medium">${r.desc}</div>
-            </div>`;
-          }
-        });
-        content.innerHTML = html;
-      }
-
-      dropdown.classList.remove('hidden');
-    }
-
-    function clearNavSearch() {
-      const input1 = document.getElementById('navSearchInput');
-      const input2 = document.getElementById('mobileNavSearchInput');
-      if (input1) input1.value = '';
-      if (input2) input2.value = '';
-      const clearBtn = document.getElementById('navSearchClearBtn');
-      if (clearBtn) clearBtn.classList.add('hidden');
-      document.getElementById('searchResultsDropdown').classList.add('hidden');
-    }
-
     let _lightboxCurrentIndex = 0;
-
-    function openRoleChartLightbox() {
-      const imgSrc = document.getElementById('roleChartImg')?.src || '';
-      window._currentNoticeImages = [{ url: imgSrc, name: '業務職掌圖' }];
-      openImageLightbox(0);
-    }
-
-    function openFamilyChartLightbox() {
-      const imgSrc = document.getElementById('familyChartImg')?.src || '';
-      window._currentNoticeImages = [{ url: imgSrc, name: '家族分布圖' }];
-      openImageLightbox(0);
-    }
 
     function openImageLightbox(index) {
       if (!window._currentNoticeImages || window._currentNoticeImages.length === 0) return;
@@ -714,7 +574,6 @@
             ${skillsHtml}
           </div>
 
-          <!-- 懸停時浮動顯示的詳細資訊卡片 -->
           <div class="absolute bottom-full left-0 w-full mb-3 p-5 bg-white/95 backdrop-blur-md rounded-3xl shadow-2xl border border-indigo-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-30 pointer-events-none text-left">
             <div class="text-xs font-bold text-indigo-600 uppercase tracking-widest mb-2 flex items-center gap-1.5">
               <i class="fa-solid fa-circle-info"></i> 詳細資訊
@@ -826,19 +685,151 @@
       } else if (type === 'role') {
         titleEl.innerText = "業務職掌";
         iconEl.innerHTML = '<i class="fa-solid fa-briefcase text-white"></i>';
+        // 👉 業務職掌改為視覺平均分布的 2 欄整齊網格 (Grid) 佈局
         bodyEl.innerHTML = `
-          <div class="space-y-4 text-center cursor-pointer" onclick="openRoleChartLightbox()">
-            <h3 class="text-xl font-black text-slate-800 mb-2">業務職掌圖表 (點擊圖片放大)</h3>
-            <img id="roleChartImg" src="業務職掌圖.png" alt="業務職掌圖" class="w-full rounded-2xl shadow-md border bg-white object-contain mx-auto hover:opacity-95 transition-opacity">
+          <div class="space-y-6">
+            <div class="text-center mb-2">
+              <h3 class="text-xl sm:text-2xl font-black text-slate-900">家族核心業務職掌</h3>
+              <p class="text-xs sm:text-sm text-slate-500 font-medium mt-1">各項職務分工與核心工作項目說明</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <!-- 家庭長 -->
+              <div class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm flex flex-col justify-between gap-4 hover:shadow-md transition-all">
+                <div class="flex items-center gap-4">
+                  <div class="w-12 h-12 rounded-2xl bg-amber-500 text-white flex items-center justify-center text-lg font-black shrink-0 shadow-md">
+                    <i class="fa-solid fa-crown"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-base font-black text-slate-800">家庭長</h4>
+                    <span class="text-xs text-slate-400 font-bold">最高領導與決策</span>
+                  </div>
+                </div>
+                <div class="bg-amber-50 text-amber-800 px-4 py-3 rounded-2xl text-xs sm:text-sm font-black border border-amber-100 flex items-center gap-2">
+                  <i class="fa-solid fa-circle-check text-amber-600"></i> 綜理單位各項勤(業)務
+                </div>
+              </div>
+
+              <!-- 營務官 -->
+              <div class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm flex flex-col justify-between gap-4 hover:shadow-md transition-all">
+                <div class="flex items-center gap-4">
+                  <div class="w-12 h-12 rounded-2xl bg-slate-500 text-white flex items-center justify-center text-lg font-black shrink-0 shadow-md">
+                    <i class="fa-solid fa-user-clock"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-base font-black text-slate-800">營務官</h4>
+                    <span class="text-xs text-slate-400 font-bold">行政與事務統籌</span>
+                  </div>
+                </div>
+                <div class="bg-slate-100 text-slate-800 px-4 py-3 rounded-2xl text-xs sm:text-sm font-black border border-slate-200 flex items-center gap-2">
+                  <i class="fa-solid fa-circle-check text-slate-600"></i> 總務、行政、政戰事務
+                </div>
+              </div>
+
+              <!-- 營產官 -->
+              <div class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm flex flex-col justify-between gap-4 hover:shadow-md transition-all">
+                <div class="flex items-center gap-4">
+                  <div class="w-12 h-12 rounded-2xl bg-blue-600 text-white flex items-center justify-center text-lg font-black shrink-0 shadow-md">
+                    <i class="fa-solid fa-screwdriver-wrench"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-base font-black text-slate-800">營產官</h4>
+                    <span class="text-xs text-slate-400 font-bold">資產與硬體維護</span>
+                  </div>
+                </div>
+                <div class="bg-blue-50 text-blue-800 px-4 py-3 rounded-2xl text-xs sm:text-sm font-black border border-blue-100 flex items-center gap-2">
+                  <i class="fa-solid fa-circle-check text-blue-600"></i> 營產改善、管理
+                </div>
+              </div>
+
+              <!-- 美工官 -->
+              <div class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm flex flex-col justify-between gap-4 hover:shadow-md transition-all">
+                <div class="flex items-center gap-4">
+                  <div class="w-12 h-12 rounded-2xl bg-purple-600 text-white flex items-center justify-center text-lg font-black shrink-0 shadow-md">
+                    <i class="fa-solid fa-palette"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-base font-black text-slate-800">美工官</h4>
+                    <span class="text-xs text-slate-400 font-bold">視覺與數位設計</span>
+                  </div>
+                </div>
+                <div class="bg-purple-50 text-purple-800 px-4 py-3 rounded-2xl text-xs sm:text-sm font-black border border-purple-100 flex items-center gap-2">
+                  <i class="fa-solid fa-circle-check text-purple-600"></i> 主視覺設計、美編與創意發想
+                </div>
+              </div>
+            </div>
           </div>`;
 
       } else if (type === 'unit') {
         titleEl.innerText = "家族分布";
         iconEl.innerHTML = '<i class="fa-solid fa-map-location-dot text-white"></i>';
         bodyEl.innerHTML = `
-          <div class="space-y-4 text-center cursor-pointer" onclick="openFamilyChartLightbox()">
-            <h3 class="text-xl font-black text-slate-800 mb-2">家族分布圖 (點擊圖片放大)</h3>
-            <img id="familyChartImg" src="家族分布圖.jpg" alt="家族分布圖" class="w-full rounded-2xl shadow-md border bg-white object-contain mx-auto hover:opacity-95 transition-opacity">
+          <div class="space-y-6 max-w-2xl mx-auto">
+            <div class="text-center mb-2">
+              <h3 class="text-xl sm:text-2xl font-black text-slate-900">家族分布概況</h3>
+              <p class="text-xs sm:text-sm text-slate-500 font-medium mt-1">成員人數共 13 位，分別在北部及中部</p>
+            </div>
+
+            <!-- 總覽標籤列 -->
+            <div class="flex flex-wrap items-center justify-center gap-2 bg-white p-4 rounded-3xl border border-slate-100 shadow-sm">
+              <span class="text-xs font-bold text-slate-400">區域對照：</span>
+              <span class="px-3 py-1 rounded-xl bg-red-50 text-red-600 text-xs font-black border border-red-100">新北板橋</span>
+              <span class="px-3 py-1 rounded-xl bg-blue-50 text-blue-600 text-xs font-black border border-blue-100">臺中中區</span>
+              <span class="px-3 py-1 rounded-xl bg-emerald-50 text-emerald-600 text-xs font-black border border-emerald-100">臺中北區</span>
+              <span class="px-3 py-1 rounded-xl bg-amber-50 text-amber-600 text-xs font-black border border-amber-100">桃園平鎮</span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <!-- 北部區域 -->
+              <div class="bg-white p-5 sm:p-6 rounded-3xl border border-slate-100 shadow-sm space-y-4">
+                <div class="flex items-center gap-3 pb-3 border-b border-slate-100">
+                  <div class="w-10 h-10 rounded-xl bg-red-500 text-white flex items-center justify-center font-black shadow-md">
+                    <i class="fa-solid fa-location-dot"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-base font-black text-slate-800">北部區域</h4>
+                    <span class="text-[10px] text-slate-400 font-bold">主要據點</span>
+                  </div>
+                </div>
+                <div class="space-y-2.5 text-xs font-bold text-slate-700">
+                  <div class="flex items-center justify-between p-3 rounded-2xl bg-slate-50 border border-slate-100">
+                    <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-red-500"></span>新北市 板橋區</span>
+                    <span class="text-slate-400 font-medium">核心據點</span>
+                  </div>
+                  <div class="flex items-center justify-between p-3 rounded-2xl bg-slate-50 border border-slate-100">
+                    <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-amber-500"></span>桃園市 平鎮區</span>
+                    <span class="text-slate-400 font-medium">資安/營產據點</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 中部區域 -->
+              <div class="bg-white p-5 sm:p-6 rounded-3xl border border-slate-100 shadow-sm space-y-4">
+                <div class="flex items-center gap-3 pb-3 border-b border-slate-100">
+                  <div class="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center font-black shadow-md">
+                    <i class="fa-solid fa-location-dot"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-base font-black text-slate-800">中部區域</h4>
+                    <span class="text-[10px] text-slate-400 font-bold">主要據點</span>
+                  </div>
+                </div>
+                <div class="space-y-2.5 text-xs font-bold text-slate-700">
+                  <div class="flex items-center justify-between p-3 rounded-2xl bg-slate-50 border border-slate-100">
+                    <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-blue-500"></span>臺中市 中區</span>
+                    <span class="text-slate-400 font-medium">生活據點</span>
+                  </div>
+                  <div class="flex items-center justify-between p-3 rounded-2xl bg-slate-50 border border-slate-100">
+                    <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-500"></span>臺中市 北區</span>
+                    <span class="text-slate-400 font-medium">生活據點</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="text-center pt-2">
+              <span class="text-[10px] font-bold text-slate-400 italic">註：圖為示意位置，非實際地理位置</span>
+            </div>
           </div>`;
       }
 
