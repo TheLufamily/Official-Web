@@ -13,9 +13,9 @@
     @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap');
     body { font-family: "Noto Sans TC", sans-serif; background: #f8fafc; overflow-x: hidden; }
     .glass-card { backdrop-filter: blur(16px); background: rgba(255,255,255,0.9); border: 1px solid rgba(255,255,255,0.6); }
-    .gradient-text { background: linear-gradient(to right, #6366f1, #0ea5e9); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .hover-float { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-    .hover-float:hover { transform: translateY(-8px); box-shadow: 0 30px 60px rgba(15, 23, 42, 0.15); }
+    .gradient-text { background: linear-gradient(135deg, #f97316 0%, #6366f1 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .title-hover-effect { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+    .title-hover-effect:hover { transform: scale(1.03) translateY(-4px); text-shadow: 0 20px 30px rgba(99, 102, 241, 0.2); }
     
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
@@ -81,36 +81,11 @@
                 <span>家族分布</span>
               </div>
               <div class="grid grid-cols-1 gap-2">
-                <button onclick="openIndependentPage('unit')" class="group/item text-left p-2.5 rounded-xl bg-slate-50 hover:bg-orange-50/60 border border-slate-100 hover:border-orange-200 transition-all flex items-center justify-between">
+                <a href="#family-map" class="group/item text-left p-2.5 rounded-xl bg-slate-50 hover:bg-orange-50/60 border border-slate-100 hover:border-orange-200 transition-all flex items-center justify-between">
                   <span class="text-xs font-black text-slate-700 group-hover/item:text-orange-600">家族分布地圖</span>
                   <i class="fa-solid fa-arrow-right text-[10px] text-orange-400 opacity-0 group-hover/item:opacity-100 transform -translate-x-1 group-hover/item:translate-x-0 transition-all"></i>
-                </button>
+                </a>
               </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 其他資訊 下拉選單（內含安全逃生圖） -->
-        <div class="relative group py-2">
-          <button class="flex items-center gap-1.5 hover:text-orange-600 transition-colors focus:outline-none">
-            <span>其他資訊 OTHER</span> <i class="fa-solid fa-plus text-xs transition-transform group-hover:rotate-45"></i>
-          </button>
-          
-          <div class="absolute top-full left-1/2 -translate-x-1/2 w-[320px] bg-white rounded-[32px] shadow-2xl border border-slate-100 p-6 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all transform translate-y-3 group-hover:translate-y-0 z-50">
-            <div class="flex items-baseline gap-3 pb-4 mb-4 border-b border-slate-100">
-              <span class="text-2xl font-black tracking-wider text-orange-600 uppercase">OTHER</span>
-              <span class="text-xs font-bold text-slate-400">其他資訊</span>
-            </div>
-
-            <div class="space-y-2">
-              <button onclick="openIndependentPage('other')" class="w-full group/item text-left p-2.5 rounded-xl bg-slate-50 hover:bg-orange-50/60 border border-slate-100 hover:border-orange-200 transition-all flex items-center justify-between">
-                <span class="text-xs font-black text-slate-700 group-hover/item:text-orange-600">生活公約與資源</span>
-                <i class="fa-solid fa-arrow-right text-[10px] text-orange-400 opacity-0 group-hover/item:opacity-100 transform -translate-x-1 group-hover/item:translate-x-0 transition-all"></i>
-              </button>
-              <button onclick="openIndependentPage('escape')" class="w-full group/item text-left p-2.5 rounded-xl bg-orange-50/60 hover:bg-orange-100 border border-orange-200 transition-all flex items-center justify-between">
-                <span class="text-xs font-black text-orange-700 flex items-center gap-2"><i class="fa-solid fa-fire-extinguisher text-orange-600"></i> 安全逃生圖 (5F)</span>
-                <i class="fa-solid fa-arrow-right text-[10px] text-orange-400 opacity-0 group-hover/item:opacity-100 transform -translate-x-1 group-hover/item:translate-x-0 transition-all"></i>
-              </button>
             </div>
           </div>
         </div>
@@ -158,25 +133,9 @@
             <button onclick="toggleMobileMenu(); openIndependentPage('role')" class="w-full text-left px-5 py-3.5 rounded-xl bg-white shadow-sm border border-slate-200 text-slate-700 hover:bg-indigo-50 hover:text-indigo-600 text-sm font-black flex items-center gap-3 transition-all">
               <i class="fa-solid fa-briefcase text-slate-600 text-base"></i> 業務職掌
             </button>
-            <button onclick="toggleMobileMenu(); openIndependentPage('unit')" class="w-full text-left px-5 py-3.5 rounded-xl bg-white shadow-sm border border-slate-200 text-slate-700 hover:bg-indigo-50 hover:text-indigo-600 text-sm font-black flex items-center gap-3 transition-all">
-              <i class="fa-solid fa-map-location-dot text-blue-600 text-base"></i> 家族分布
-            </button>
-          </div>
-        </div>
-
-        <!-- 其他資訊 子選單 -->
-        <div class="rounded-2xl bg-white shadow-sm border border-slate-200 overflow-hidden">
-          <button onclick="toggleMobileSubMenu('mobileOtherSubMenu')" class="w-full px-5 py-4 text-slate-800 flex items-center justify-between focus:outline-none hover:bg-slate-50 transition-all">
-            <span class="flex items-center gap-2">其他資訊 <span class="text-xs text-orange-600 font-normal">OTHER</span></span>
-            <i id="mobileOtherSubMenuIcon" class="fa-solid fa-plus text-xs text-orange-600 transition-transform"></i>
-          </button>
-          <div id="mobileOtherSubMenu" class="hidden bg-slate-50 border-t border-slate-100 p-3 space-y-2">
-            <button onclick="toggleMobileMenu(); openIndependentPage('other')" class="w-full text-left px-5 py-3.5 rounded-xl bg-white shadow-sm border border-slate-200 text-slate-700 hover:bg-orange-50 hover:text-orange-600 text-sm font-black flex items-center gap-3 transition-all">
-              <i class="fa-solid fa-circle-info text-slate-600 text-base"></i> 生活公約與資源
-            </button>
-            <button onclick="toggleMobileMenu(); openIndependentPage('escape')" class="w-full text-left px-5 py-3.5 rounded-xl bg-orange-50 shadow-sm border border-orange-200 text-orange-700 hover:bg-orange-100 text-sm font-black flex items-center gap-3 transition-all">
-              <i class="fa-solid fa-fire-extinguisher text-orange-600 text-base"></i> 安全逃生圖 (5F)
-            </button>
+            <a href="#family-map" onclick="toggleMobileMenu()" class="w-full text-left px-5 py-3.5 rounded-xl bg-white shadow-sm border border-slate-200 text-slate-700 hover:bg-indigo-50 hover:text-indigo-600 text-sm font-black flex items-center gap-3 transition-all">
+              <i class="fa-solid fa-map-location-dot text-blue-600 text-base"></i> 家族分布圖
+            </a>
           </div>
         </div>
 
@@ -184,21 +143,32 @@
     </div>
   </nav>
 
- <!-- 首頁區 -->
+  <!-- 首頁視覺標題區 (全新升級排版與互動) -->
+  <div id="home" class="max-w-4xl mx-auto z-10 relative py-12 px-4 text-center" data-aos="zoom-in">
+    <div class="glass-card rounded-[35px] p-8 sm:p-12 shadow-xl border border-white/80 relative overflow-hidden group">
+      <!-- 背景裝飾光暈 -->
+      <div class="absolute -top-24 -right-24 w-48 h-48 bg-orange-400/10 rounded-full blur-3xl group-hover:bg-orange-400/20 transition-all"></div>
+      <div class="absolute -bottom-24 -left-24 w-48 h-48 bg-indigo-500/10 rounded-full blur-3xl group-hover:bg-indigo-500/20 transition-all"></div>
 
-      <div class="text-center max-w-2xl mx-auto z-10 relative py-8" data-aos="zoom-in">
-        <span class="text-orange-600 font-black text-sm sm:text-base tracking-widest uppercase block mb-2">歡迎蒞臨</span>
-        <h1 class="text-4xl sm:text-6xl font-black text-slate-900 tracking-tight uppercase mb-6 drop-shadow-sm">呂氏家庭生活資訊網</h1>
-        <p class="text-slate-600 font-medium text-sm sm:text-base leading-relaxed mb-8">
-          ABOUT LU FAMILY<br>
-        </p>
-     </div>
-        </div>
+      <!-- 歡迎標籤 -->
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-50 border border-orange-200 text-orange-600 font-black text-xs sm:text-sm tracking-widest uppercase mb-4 shadow-sm animate-pulse">
+        <i class="fa-solid fa-hands-clapping text-xs"></i> 歡迎蒞臨
       </div>
+
+      <!-- 主標題 (具備互動放大效果) -->
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight uppercase mb-6 title-hover-effect cursor-default leading-tight">
+        呂氏家庭<span class="gradient-text">生活資訊網</span>
+      </h1>
+
+      <!-- 分隔線裝飾 -->
+      <div class="w-16 h-1 bg-gradient-to-r from-orange-500 to-indigo-600 rounded-full mx-auto mb-5"></div>
+
+      <!-- 英文副標題 -->
+      <p class="text-slate-400 font-bold text-xs sm:text-sm tracking-[0.3em] uppercase">
+        — LU FAMILY —
+      </p>
     </div>
-  </section>
-
-
+  </div>
 
   <!-- 主要內容區 -->
   <section class="py-8 sm:py-10 bg-slate-50 flex-grow">
@@ -268,6 +238,62 @@
         </div>
       </div>
 
+      <!-- 家族分布圖區塊 -->
+      <div id="family-map" class="mb-16 scroll-mt-24 pt-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <div class="lg:col-span-3 flex flex-col justify-between self-stretch">
+            <div>
+              <h3 class="text-blue-600 font-bold text-sm tracking-wider mb-1">FAMILY MAP</h3>
+              <h2 class="text-4xl sm:text-5xl font-black text-slate-900 tracking-tight uppercase">家族分布圖</h2>
+              <div class="w-12 h-1 bg-blue-600 rounded-full mt-3 mb-6"></div>
+            </div>
+            <div class="pt-4">
+              <button onclick="openIndependentPage('unit')" class="px-6 py-3.5 bg-blue-50 hover:bg-blue-100 text-blue-700 rounded-2xl font-black text-xs flex items-center justify-between transition-all w-full shadow-sm">
+                <span>詳細分布</span> <div class="w-7 h-7 rounded-xl bg-blue-600 text-white flex items-center justify-center text-xs"><i class="fa-solid fa-arrow-right"></i></div>
+              </button>
+            </div>
+          </div>
+
+          <div class="lg:col-span-9 bg-white rounded-[35px] p-6 sm:p-8 border border-slate-100 shadow-md">
+            <div class="text-center mb-6">
+              <h3 class="text-xl sm:text-2xl font-black text-slate-900">呂氏家庭成員分佈概況</h3>
+              <p class="text-xs sm:text-sm text-slate-500 font-medium mt-1">總成員共 13 位，主要據點分布於北部及中部地區</p>
+            </div>
+
+            <div class="flex flex-wrap items-center justify-center gap-2 mb-6">
+              <span class="px-3.5 py-1.5 rounded-xl bg-red-50 text-red-600 text-xs font-black border border-red-100 flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-red-500"></span>新北市 板橋區 (核心)</span>
+              <span class="px-3.5 py-1.5 rounded-xl bg-amber-50 text-amber-600 text-xs font-black border border-amber-100 flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-amber-500"></span>桃園市 平鎮區 (資安/營產)</span>
+              <span class="px-3.5 py-1.5 rounded-xl bg-blue-50 text-blue-600 text-xs font-black border border-blue-100 flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-blue-500"></span>臺中市 中區 (生活)</span>
+              <span class="px-3.5 py-1.5 rounded-xl bg-emerald-50 text-emerald-600 text-xs font-black border border-emerald-100 flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-500"></span>臺中市 北區 (生活)</span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="bg-slate-50 p-5 rounded-2xl border border-slate-100 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-xl bg-red-500 text-white flex items-center justify-center font-black shadow-md"><i class="fa-solid fa-location-dot"></i></div>
+                  <div>
+                    <h4 class="text-sm font-black text-slate-800">北部區域</h4>
+                    <p class="text-xs text-slate-500">新北市板橋區、桃園市平鎮區</p>
+                  </div>
+                </div>
+                <span class="text-xs font-bold text-slate-400">主要據點</span>
+              </div>
+
+              <div class="bg-slate-50 p-5 rounded-2xl border border-slate-100 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center font-black shadow-md"><i class="fa-solid fa-location-dot"></i></div>
+                  <div>
+                    <h4 class="text-sm font-black text-slate-800">中部區域</h4>
+                    <p class="text-xs text-slate-500">臺中市中區、臺中市北區</p>
+                  </div>
+                </div>
+                <span class="text-xs font-bold text-slate-400">生活據點</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -279,7 +305,7 @@
       </div>
       <div class="flex items-center gap-3">
         <span class="inline-flex items-center gap-1.5 bg-slate-50 px-3 py-1.5 rounded-xl border border-slate-100 text-slate-500">
-          <i class="fa-solid fa-rotate text-indigo-500"></i> 最後更新日期：2026-10-06
+          <i class="fa-solid fa-rotate text-indigo-500"></i> 最後更新日期：2026-10-08
         </span>
       </div>
     </div>
@@ -809,7 +835,7 @@
                   </div>
                   <div class="flex items-center justify-between p-3 rounded-2xl bg-slate-50 border border-slate-100">
                     <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-amber-500"></span>桃園市 平鎮區</span>
-                    <span class="text-slate-400 font-medium">資安/營產據點</span>
+                    <span class="text-slate-400 font-medium">營產據點</span>
                   </div>
                 </div>
               </div>
@@ -838,87 +864,12 @@
             </div>
 
             <div class="text-center pt-2">
-              <span class="text-[10px] font-bold text-slate-400 italic">註：圖為示意位置，非實際地理位置</span>
-            </div>
-          </div>`;
-
-      } else if (type === 'other') {
-        titleEl.innerText = "其他資訊";
-        iconEl.innerHTML = '<i class="fa-solid fa-circle-info text-white"></i>';
-        bodyEl.innerHTML = `
-          <div class="space-y-6 max-w-2xl mx-auto">
-            <div class="text-center mb-2">
-              <h3 class="text-xl sm:text-2xl font-black text-slate-900">其他生活資訊與資源</h3>
-              <p class="text-xs sm:text-sm text-slate-500 font-medium mt-1">提供家庭日常常用資源與公告規範</p>
-            </div>
-            <div class="space-y-4">
-              <div class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm">
-                <h4 class="text-base font-black text-slate-800 mb-2 flex items-center gap-2">
-                  <i class="fa-solid fa-book-open text-indigo-600"></i> 家族生活公約
-                </h4>
-                <p class="text-sm text-slate-600 leading-relaxed font-medium">
-                  本網站為呂氏家庭專屬資訊交流平台，請各位家人共同維護網路禮儀與資訊安全，定期瀏覽最新公告以掌握家庭動態。
-                </p>
-              </div>
-              <div class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm">
-                <h4 class="text-base font-black text-slate-800 mb-2 flex items-center gap-2">
-                  <i class="fa-solid fa-link text-indigo-600"></i> 常用外部連結
-                </h4>
-                <p class="text-sm text-slate-600 leading-relaxed font-medium">
-                  若需查閱更多雲端檔案或歷史相簿，請洽各區負責幹部索取專屬存取權限。
-                </p>
-              </div>
-            </div>
-          </div>`;
-
-      } else if (type === 'escape') {
-        titleEl.innerText = "安全逃生圖";
-        iconEl.innerHTML = '<i class="fa-solid fa-fire-extinguisher text-white"></i>';
-        // 👉 新增網頁標題、文字說明與逃生平面圖圖片預覽（點擊可直接放大檢視）
-        bodyEl.innerHTML = `
-          <div class="space-y-6 max-w-3xl mx-auto">
-            <div class="text-center mb-2">
-              <h3 class="text-xl sm:text-2xl font-black text-slate-900">呂氏家庭逃生平面圖 5F</h3>
-              <p class="text-xs sm:text-sm text-slate-500 font-medium mt-1">依據 5 樓實際空間配置規劃之安全疏散平面圖[cite: 3, 4]</p>
-            </div>
-
-            <!-- 逃生圖圖片展示區 -->
-            <div class="bg-white rounded-3xl p-4 sm:p-6 border border-slate-100 shadow-sm space-y-3">
-              <div class="flex items-center justify-between">
-                <span class="text-xs font-black text-slate-400 uppercase tracking-widest"><i class="fa-solid fa-image mr-1"></i> 平面圖預覽 (點擊圖片可放大)</span>
-                <span class="text-xs font-bold text-orange-600 bg-orange-50 px-3 py-1 rounded-full"><i class="fa-solid fa-shield-halved mr-1"></i> 5F 逃生配置</span>
-              </div>
-              
-              <div onclick="openEscapeLightbox()" class="rounded-2xl overflow-hidden border border-slate-200 bg-slate-900 relative group cursor-pointer shadow-md">
-                <img id="escapeImgSource" src="平面圖_發布_工作區域 1_2.png" alt="呂氏家庭逃生平面圖5F" class="w-full h-auto max-h-[420px] object-contain mx-auto group-hover:scale-105 transition-transform duration-300">
-                <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                  <span class="px-4 py-2 rounded-xl bg-slate-900/90 text-white text-xs font-black backdrop-blur-sm shadow-xl flex items-center gap-2">
-                    <i class="fa-solid fa-magnifying-glass-plus text-sm"></i> 點擊放大檢視完整平面圖
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            <div class="bg-amber-50 border border-amber-200 rounded-2xl p-4 flex items-start gap-3 text-amber-800 text-xs sm:text-sm font-medium">
-              <i class="fa-solid fa-triangle-exclamation text-amber-600 text-base mt-0.5 shrink-0"></i>
-              <div>
-                <span class="font-black block mb-1">5F 逃生注意事項：</span>
-                發生火警時，請由各房間迅速至客廳，並由北側之「安全門/大門」或經由「樓梯間」向下疏散至安全樓層，保持冷靜並遵循避難引導[cite: 3, 4]。
-              </div>
+              <span class="text-[10px] font-bold text-slate-400 italic"></span>
             </div>
           </div>`;
       }
 
       modal.classList.remove('hidden');
-    }
-
-    // 專屬安全逃生圖放大檢視功能
-    function openEscapeLightbox() {
-      const img = document.getElementById('escapeImgSource');
-      if (!img) return;
-      document.getElementById('lightboxImage').src = img.src;
-      document.getElementById('lightboxCounter').innerText = "呂氏家庭逃生平面圖 5F";
-      document.getElementById('imageLightboxModal').classList.remove('hidden');
     }
 
     function closeIndependentPage() {
