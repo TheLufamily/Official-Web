@@ -30,6 +30,13 @@
       display: flex;
       flex-direction: column;
     }
+  
+    /* 進度條造型與光點樣式 */
+    .slider-indicator-num {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-weight: 900;
+      letter-spacing: -0.05em;
+    }
   </style>
 </head>
 
@@ -140,7 +147,7 @@
         </div>
 
       </div>
-    </div>
+  </div>
   </nav>
 
   <!-- 首頁視覺標題區 (全新升級排版與互動) -->
@@ -195,8 +202,16 @@
               <div class="text-center py-16 text-slate-400 font-bold col-span-full"><i class="fa-solid fa-spinner fa-spin mr-2"></i> 更新中...請稍後</div>
             </div>
             <div class="flex items-center justify-between gap-6 pt-2">
-              <div class="flex-grow bg-slate-200 h-1.5 rounded-full overflow-hidden">
+            <!-- 最新消息進度條與數字指示器 -->
+            <div class="flex items-center gap-3 shrink-0">
+              <div class="slider-indicator-num text-lg text-slate-900 flex items-baseline">
+                <span id="noticeCurrentNum">01</span><span class="text-xs text-slate-400 font-bold ml-0.5">/ <span id="noticeTotalNum">06</span></span>
+              </div>
+            </div>
+              <div class="flex-grow bg-slate-200 h-1.5 rounded-full overflow-hidden relative">
                 <div id="noticeScrollProgress" class="bg-orange-500 h-full w-1/3 transition-all duration-300"></div>
+              <!-- 進度條光點指示 -->
+              <div id="noticeProgressThumb" class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-orange-600 shadow-md border-2 border-white transition-all duration-300 pointer-events-none" style="left: 0%;"></div>
               </div>
               <div class="flex items-center gap-2 shrink-0">
                 <button onclick="scrollNoticeContainer('left')" class="w-10 h-10 rounded-full bg-orange-600 hover:bg-orange-700 text-white flex items-center justify-center transition-all shadow-md"><i class="fa-solid fa-chevron-left text-sm"></i></button>
@@ -226,8 +241,16 @@
           <div class="lg:col-span-9 flex flex-col gap-6">
             <div id="homeTeamListContainer" class="grid grid-flow-col auto-cols-[minmax(300px,1fr)] gap-6 overflow-x-auto pb-4 no-scrollbar snap-x" style="min-height: 400px;"></div>
             <div class="flex items-center justify-between gap-6 pt-2">
-              <div class="flex-grow bg-slate-200 h-1.5 rounded-full overflow-hidden">
+            <!-- 隊職幹部進度條與數字指示器 -->
+            <div class="flex items-center gap-3 shrink-0">
+              <div class="slider-indicator-num text-lg text-slate-900 flex items-baseline">
+                <span id="teamCurrentNum">01</span><span class="text-xs text-slate-400 font-bold ml-0.5">/ <span id="teamTotalNum">06</span></span>
+              </div>
+            </div>
+              <div class="flex-grow bg-slate-200 h-1.5 rounded-full overflow-hidden relative">
                 <div id="teamScrollProgress" class="bg-indigo-600 h-full w-1/3 transition-all duration-300"></div>
+              <!-- 進度條光點指示 -->
+              <div id="teamProgressThumb" class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-indigo-700 shadow-md border-2 border-white transition-all duration-300 pointer-events-none" style="left: 0%;"></div>
               </div>
               <div class="flex items-center gap-2 shrink-0">
                 <button onclick="scrollTeamContainer('left')" class="w-10 h-10 rounded-full bg-indigo-600 hover:bg-indigo-700 text-white flex items-center justify-center transition-all shadow-md"><i class="fa-solid fa-chevron-left text-sm"></i></button>
@@ -598,6 +621,24 @@
         icon: "fa-palette text-purple-600", 
         skills: ["視覺設計", "攝影紀實", "多媒體剪輯"],
         link: "" 
+      },
+      { 
+        role: "行政專員", 
+        birth: "-",
+        origin: "新北市板橋區",
+        desc: "", 
+        icon: "fa-file-lines text-teal-600", 
+        skills: ["文書處理", "檔案管理", "行政支援"],
+        link: "" 
+      },
+      { 
+        role: "藝術專員", 
+        birth: "-",
+        origin: "臺中市中區",
+        desc: "", 
+        icon: "fa-feather-pointed text-pink-600", 
+        skills: ["美學設計", "創意發想", "文宣排版"],
+        link: "" 
       }
     ];
 
@@ -642,6 +683,7 @@
         `;
         container.appendChild(item);
       });
+      document.getElementById('teamTotalNum').innerText = String(teamStaffList.length).padStart(2, '0');
       updateTeamProgress();
     }
 
@@ -659,14 +701,30 @@
     function updateTeamProgress() {
       const container = document.getElementById('homeTeamListContainer');
       const progressBar = document.getElementById('teamScrollProgress');
+      const progressThumb = document.getElementById('teamProgressThumb');
+      const currentNumEl = document.getElementById('teamCurrentNum');
       if (!container || !progressBar) return;
       const maxScroll = container.scrollWidth - container.clientWidth;
-      if (maxScroll <= 0) {
-        progressBar.style.width = '100%';
-        return;
+      
+      let scrollPercent = 0;
+      if (maxScroll > 0) {
+        scrollPercent = (container.scrollLeft / maxScroll) * 100;
       }
-      const scrollPercent = (container.scrollLeft / maxScroll) * 100;
-      progressBar.style.width = Math.max(scrollPercent, 15) + '%';
+      const widthVal = Math.max(scrollPercent, 0);
+      progressBar.style.width = Math.max(widthVal, 15) + '%';
+      if (progressThumb) {
+        progressThumb.style.left = widthVal + '%';
+      }
+
+      // 計算當前顯示到第幾張卡片
+      const totalItems = teamStaffList.length;
+      if (totalItems > 0) {
+        const cardWidth = 320 + 24; // 卡片寬度加間距
+        const currentIndex = Math.min(Math.round(container.scrollLeft / cardWidth) + 1, totalItems);
+        if (currentNumEl) {
+          currentNumEl.innerText = String(Math.max(1, currentIndex)).padStart(2, '0');
+        }
+      }
     }
 
     document.getElementById('homeTeamListContainer')?.addEventListener('scroll', updateTeamProgress);
@@ -796,8 +854,40 @@
                   <i class="fa-solid fa-circle-check text-purple-600"></i> 主視覺設計、美編與創意發想
                 </div>
               </div>
-            </div>
-          </div>`;
+
+              <!-- 行政專員 -->
+              <div class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm flex flex-col justify-between gap-4 hover:shadow-md transition-all">
+                <div class="flex items-center gap-4">
+                  <div class="w-12 h-12 rounded-2xl bg-teal-600 text-white flex items-center justify-center text-lg font-black shrink-0 shadow-md">
+                    <i class="fa-solid fa-file-lines"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-base font-black text-slate-800">行政專員</h4>
+                    <span class="text-xs text-slate-400 font-bold">文書與後勤支援</span>
+                  </div>
+                </div>
+                <div class="bg-teal-50 text-teal-800 px-4 py-3 rounded-2xl text-xs sm:text-sm font-black border border-teal-100 flex items-center gap-2">
+                  <i class="fa-solid fa-circle-check text-teal-600"></i> 文書處理、檔案管理與行政支援
+                </div>
+              </div>
+
+              <!-- 藝術專員 -->
+              <div class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm flex flex-col justify-between gap-4 hover:shadow-md transition-all">
+                <div class="flex items-center gap-4">
+                  <div class="w-12 h-12 rounded-2xl bg-pink-600 text-white flex items-center justify-center text-lg font-black shrink-0 shadow-md">
+                    <i class="fa-solid fa-feather-pointed"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-base font-black text-slate-800">藝術專員</h4>
+                    <span class="text-xs text-slate-400 font-bold">美學與創意創作</span>
+                  </div>
+                </div>
+                <div class="bg-pink-50 text-pink-800 px-4 py-3 rounded-2xl text-xs sm:text-sm font-black border border-pink-100 flex items-center gap-2">
+                  <i class="fa-solid fa-circle-check text-pink-600"></i> 美學設計、創意發想與文宣排版
+                </div>
+              </div>
+          </div>
+        </div>`;
 
       } else if (type === 'unit') {
         titleEl.innerText = "家族分布";
@@ -844,423 +934,444 @@
                 <div class="flex items-center gap-3 pb-3 border-b border-slate-100">
                   <div class="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center font-black shadow-md">
                     <i class="fa-solid fa-location-dot"></i>
-                  </div>
-                  <div>
-                    <h4 class="text-base font-black text-slate-800">中部區域</h4>
-                    <span class="text-[10px] text-slate-400 font-bold">主要據點</span>
-                  </div>
                 </div>
-                <div class="space-y-2.5 text-xs font-bold text-slate-700">
-                  <div class="flex items-center justify-between p-3 rounded-2xl bg-slate-50 border border-slate-100">
-                    <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-blue-500"></span>臺中市 中區</span>
-                    <span class="text-slate-400 font-medium">生活據點</span>
-                  </div>
-                  <div class="flex items-center justify-between p-3 rounded-2xl bg-slate-50 border border-slate-100">
-                    <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-500"></span>臺中市 北區</span>
-                    <span class="text-slate-400 font-medium">生活據點</span>
-                  </div>
+                <div>
+                  <h4 class="text-base font-black text-slate-800">中部區域</h4>
+                  <span class="text-[10px] text-slate-400 font-bold">主要據點</span>
                 </div>
               </div>
+              <div class="space-y-2.5 text-xs font-bold text-slate-700">
+                <div class="flex items-center justify-between p-3 rounded-2xl bg-slate-50 border border-slate-100">
+                  <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-blue-500"></span>臺中市 中區</span>
+                  <span class="text-slate-400 font-medium">生活據點</span>
+                </div>
+                <div class="flex items-center justify-between p-3 rounded-2xl bg-slate-50 border border-slate-100">
+                  <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-500"></span>臺中市 北區</span>
+                  <span class="text-slate-400 font-medium">生活據點</span>
+                </div>
             </div>
-
-            <div class="text-center pt-2">
-              <span class="text-[10px] font-bold text-slate-400 italic"></span>
-            </div>
-          </div>`;
-      }
-
-      modal.classList.remove('hidden');
-    }
-
-    function closeIndependentPage() {
-      document.getElementById('independentPageModal').classList.add('hidden');
-    }
-
-    function isImageFile(file) {
-      const name = (file.name || '').toLowerCase();
-      const type = (file.type || '').toLowerCase();
-      return type.startsWith('image/') || name.match(/\.(jpg|jpeg|png|gif|webp)$/i);
-    }
-
-    async function fetchNoticesFromCloud() {
-      try {
-        const response = await fetch(API_URL);
-        const json = await response.json();
-        noticeData = {};
-        
-        json.forEach(item => {
-          if (item.id) {
-            let filesArr = [];
-            try {
-              if (item.files) {
-                filesArr = typeof item.files === 'string' ? JSON.parse(item.files) : item.files;
-              }
-            } catch(e) { filesArr = []; }
-
-            const obj = {
-              title: item.title,
-              tag: '最新消息',
-              date: item.date,
-              content: item.content,
-              link: item.link || '',
-              linkName: item.linkName || '',
-              files: filesArr
-            };
-
-            noticeData[item.id] = obj;
-          }
-        });
-        renderNotices();
-      } catch (error) {
-        console.error("載入失敗", error);
-        document.getElementById('noticeListContainer').innerHTML = '<p class="text-center text-red-500 font-bold col-span-full">無法連線至雲端試算表。</p>';
-      }
-    }
-
-    function renderNotices() {
-      const container = document.getElementById('noticeListContainer');
-      container.innerHTML = '';
-      const keys = Object.keys(noticeData);
-      
-      if (keys.length === 0) {
-        container.innerHTML = '<p class="text-center text-slate-400 font-bold py-10 col-span-full">目前沒有任何最新消息。</p>';
-        return;
-      }
-
-      const sortedIds = keys.sort((a, b) => {
-        return new Date(noticeData[b].date) - new Date(noticeData[a].date);
-      }).slice(0, 5);
-
-      if (sortedIds.length === 0) {
-        container.innerHTML = '<p class="text-center text-slate-400 font-bold py-10 col-span-full">目前沒有公告。</p>';
-      } else {
-        sortedIds.forEach(id => {
-          const data = noticeData[id];
-          const newItem = document.createElement('div');
-          newItem.className = "notice-item bg-white rounded-[28px] overflow-hidden border border-slate-100 shadow-md cursor-pointer hover:shadow-2xl transition-all flex flex-col justify-between shrink-0 w-full sm:w-[280px] snap-start group";
-          newItem.setAttribute('onclick', `openNoticeModal('${id}')`);
-          
-          let badgeBg = "bg-orange-500";
-          const mediaContent = `<img src="New Release.png" alt="訊息發布預覽" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">`;
-
-          newItem.innerHTML = `
-            <div class="relative w-full h-32 sm:h-36 overflow-hidden bg-slate-100 flex items-center justify-center">
-              ${mediaContent}
-              <div class="absolute bottom-3 left-3">
-                <span class="${badgeBg} text-white text-[10px] font-black px-3 py-1 rounded-full uppercase shadow-md">最新消息</span>
-              </div>
-            </div>
-            <div class="p-5 flex flex-col justify-between flex-grow bg-white">
-              <div class="mb-3">
-                <span class="text-xs font-bold text-orange-600/80 italic block mb-1.5"><i class="fa-regular fa-calendar-days mr-1"></i> ${formatDate(data.date)}</span>
-                <h3 class="text-base font-black text-slate-900 line-clamp-2 leading-snug">${data.title}</h3>
-              </div>
-              <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-400 group-hover:text-orange-600 transition-colors">
-                <span>檢視完整內容</span>
-                <i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
-              </div>
-            </div>
-          `;
-          container.appendChild(newItem);
-        });
-      }
-      updateNoticeProgress();
-    }
-
-    function scrollNoticeContainer(direction) {
-      const container = document.getElementById('noticeListContainer');
-      const scrollAmount = 300;
-      if (direction === 'left') {
-        container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-      } else {
-        container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-      }
-      setTimeout(updateNoticeProgress, 300);
-    }
-
-    function updateNoticeProgress() {
-      const container = document.getElementById('noticeListContainer');
-      const progressBar = document.getElementById('noticeScrollProgress');
-      if (!container || !progressBar) return;
-      const maxScroll = container.scrollWidth - container.clientWidth;
-      if (maxScroll <= 0) {
-        progressBar.style.width = '100%';
-        return;
-      }
-      const scrollPercent = (container.scrollLeft / maxScroll) * 100;
-      progressBar.style.width = Math.max(scrollPercent, 15) + '%';
-    }
-
-    document.getElementById('noticeListContainer')?.addEventListener('scroll', updateNoticeProgress);
-
-    function compressAndReadFile(file) {
-      return new Promise((resolve, reject) => {
-        if (file.type && file.type.startsWith('image/')) {
-          const reader = new FileReader();
-          reader.onload = (e) => {
-            const img = new Image();
-            img.onload = () => {
-              const canvas = document.createElement('canvas');
-              let width = img.width;
-              let height = img.height;
-              const maxWidth = 900;
-              if (width > maxWidth) {
-                height = Math.round((height * maxWidth) / width);
-                width = maxWidth;
-              }
-              canvas.width = width;
-              canvas.height = height;
-              const ctx = canvas.getContext('2d');
-              ctx.drawImage(img, 0, 0, width, height);
-              resolve(canvas.toDataURL('image/jpeg', 0.75));
-            };
-            img.onerror = () => reject(new Error('圖片載入失敗'));
-            img.src = e.target.result;
-          };
-          reader.onerror = error => reject(error);
-          reader.readAsDataURL(file);
-        } else {
-          const reader = new FileReader();
-          reader.onload = () => resolve(reader.result);
-          reader.onerror = error => reject(error);
-          reader.readAsDataURL(file);
-        }
-      });
-    }
-
-    async function handlePublishSubmit(event) {
-      event.preventDefault();
-      const btn = document.getElementById('pubSubmitBtn');
-      const editId = document.getElementById('editNoticeId').value;
-      
-      const title = document.getElementById('pubTitle').value;
-      const date = document.getElementById('pubDate').value;
-      const content = document.getElementById('pubContent').value;
-      const fileInput = document.getElementById('pubFiles');
-
-      let filesArr = editId && noticeData[editId] ? noticeData[editId].files : [];
-      
-      if (fileInput.files && fileInput.files.length > 0) {
-        const maxFiles = 10;
-        const uploadCount = Math.min(fileInput.files.length, maxFiles);
-        btn.innerText = "正在處理附件...";
-        btn.disabled = true;
-        try {
-          for (let i = 0; i < uploadCount; i++) {
-            const file = fileInput.files[i];
-            const base64Url = await compressAndReadFile(file);
-            filesArr.push({ name: file.name, type: file.type, url: base64Url });
-          }
-          if (filesArr.length > maxFiles) {
-            filesArr = filesArr.slice(0, maxFiles);
-            alert('⚠️ 附件數量超過 10 個上限，僅保留前 10 個檔案。');
-          }
-        } catch (err) { console.error("檔案讀取失敗", err); }
-      }
-
-      const link = document.getElementById('pubLink').value;
-      const linkName = document.getElementById('pubLinkName').value;
-      
-      let payload = editId ? { 
-        action: 'update', id: editId, section: 'notice', title, tag: '最新消息', date, content, link, linkName, files: JSON.stringify(filesArr) 
-      } : { 
-        action: 'add', section: 'notice', title, tag: '最新消息', date, content, link, linkName, files: JSON.stringify(filesArr) 
-      };
-
-      btn.innerText = editId ? "修改同步中..." : "發布同步中...";
-      btn.disabled = true;
-
-      try {
-        await fetch(API_URL, { method: 'POST', body: JSON.stringify(payload) });
-        alert(editId ? '✅ 內容已成功修改並同步至雲端！' : '✅ 內容已成功發布並同步至雲端！');
-        closePublishModal();
-        fetchNoticesFromCloud();
-      } catch (e) {
-        alert('❌ 操作失敗，請稍後再試。');
-      } finally {
-        btn.innerText = "立即發布";
-        btn.disabled = false;
-      }
-    }
-
-    async function deleteNotice(id) {
-      if (confirm('⚠️ 確定要刪除這筆紀錄嗎？')) {
-        try {
-          await fetch(API_URL, { method: 'POST', body: JSON.stringify({ action: 'delete', id }) });
-          alert('✅ 紀錄已刪除！');
-          fetchNoticesFromCloud();
-          renderHistoryList();
-        } catch (e) { alert('❌ 刪除失敗'); }
-      }
-    }
-
-    function openEditModal(id) {
-      const data = noticeData[id];
-      if(!data) return;
-      closeHistoryModal();
-      
-      document.getElementById('editNoticeId').value = id;
-      document.getElementById('pubTitle').value = data.title;
-      document.getElementById('pubDate').value = formatDate(data.date);
-      document.getElementById('pubContent').value = data.content;
-      document.getElementById('pubLink').value = data.link || '';
-      document.getElementById('pubLinkName').value = data.linkName || '';
-      document.getElementById('pubFiles').value = '';
-      
-      document.getElementById('publishModalTitle').innerHTML = '<i class="fa-solid fa-pen-to-square text-indigo-600"></i> 修改內容';
-      document.getElementById('pubSubmitBtn').innerText = "確認儲存修改";
-      document.getElementById('publishModal').classList.remove('hidden');
-    }
-
-    function openNoticeModal(id) {
-      const data = noticeData[id];
-      if(!data) return;
-      document.getElementById('noticeTag').innerText = "最新消息";
-      document.getElementById('noticeTag').className = "text-[10px] font-black px-4 py-1.5 rounded-full uppercase bg-orange-500 text-white";
-      document.getElementById('noticeDate').innerText = formatDate(data.date);
-      document.getElementById('noticeTitle').innerText = data.title;
-      document.getElementById('noticeContent').innerText = data.content;
-
-      const linkArea = document.getElementById('noticeLinkArea');
-      const externalLink = document.getElementById('noticeExternalLink');
-      const linkText = document.getElementById('noticeLinkText');
-      if (data.link && data.link.trim() !== '') {
-        linkArea.classList.remove('hidden');
-        externalLink.href = data.link;
-        linkText.innerText = (data.linkName && data.linkName.trim() !== '') ? data.linkName : data.link;
-      } else {
-        linkArea.classList.add('hidden');
-      }
-
-      const imageSliderArea = document.getElementById('noticeImageSliderArea');
-      const imageSliderContent = document.getElementById('noticeImageSliderContent');
-      const fileArea = document.getElementById('noticeFileArea');
-      const fileContent = document.getElementById('noticeFileContent');
-      
-      imageSliderContent.innerHTML = '';
-      fileContent.innerHTML = '';
-
-      if (data.files && data.files.length > 0) {
-        const images = data.files.filter(f => isImageFile(f));
-        const files = data.files.filter(f => !isImageFile(f));
-
-        if (images.length > 0) {
-          imageSliderArea.classList.remove('hidden');
-          window._currentNoticeImages = images;
-          images.forEach((img, idx) => {
-            const imgCard = document.createElement('div');
-            imgCard.className = "shrink-0 w-60 sm:w-64 h-44 sm:h-48 rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 snap-center relative group shadow-sm cursor-pointer";
-            imgCard.setAttribute('onclick', `openImageLightbox(${idx})`);
-            imgCard.innerHTML = `
-              <img src="${img.url}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" alt="預覽圖">
-              <div class="absolute inset-0 bg-slate-900/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                <span class="px-3 py-1.5 rounded-xl bg-slate-900/80 text-white text-xs font-black backdrop-blur-sm shadow-md">
-                  <i class="fa-solid fa-magnifying-glass-plus mr-1"></i> 點擊放大 (${idx + 1}/${images.length})
-                </span>
-              </div>
-            `;
-            imageSliderContent.appendChild(imgCard);
-          });
-        } else { imageSliderArea.classList.add('hidden'); }
-
-        if (files.length > 0) {
-          fileArea.classList.remove('hidden');
-          files.forEach((file, idx) => {
-            const fileRow = document.createElement('div');
-            fileRow.className = "bg-indigo-50/50 border border-indigo-100 rounded-2xl p-3 flex items-center justify-between gap-3";
-            fileRow.innerHTML = `
-              <div class="flex items-center gap-3 overflow-hidden">
-                <div class="w-8 h-8 rounded-xl bg-indigo-600 text-white flex items-center justify-center shrink-0 text-xs"><i class="fa-solid fa-file-arrow-down"></i></div>
-                <div class="truncate"><p class="text-xs font-black text-slate-800 truncate">${file.name || '附件 ' + (idx + 1)}</p></div>
-              </div>
-              <a href="${file.url}" download="${file.name || 'file_' + (idx + 1)}" class="px-3 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-black transition-all shrink-0 shadow-sm">下載</a>
-            `;
-            fileContent.appendChild(fileRow);
-          });
-        } else { fileArea.classList.add('hidden'); }
-      } else {
-        imageSliderArea.classList.add('hidden');
-        fileArea.classList.add('hidden');
-      }
-
-      document.getElementById('noticeDetailModal').classList.remove('hidden');
-    }
-
-    function closeNoticeModal() { document.getElementById('noticeDetailModal').classList.add('hidden'); }
-
-    function openAdminMenuModal() { document.getElementById('adminMenuModal').classList.remove('hidden'); }
-    function closeAdminMenuModal() { document.getElementById('adminMenuModal').classList.add('hidden'); }
-
-    function openPublishAuthModal() { closeAdminMenuModal(); document.getElementById('pubAuthInput').value = ''; document.getElementById('publishAuthModal').classList.remove('hidden'); }
-    function closePublishAuthModal() { document.getElementById('publishAuthModal').classList.add('hidden'); }
-    function verifyPublishAuth() {
-      if (document.getElementById('pubAuthInput').value === ADMIN_PASSWORD) {
-        closePublishAuthModal();
-        document.getElementById('editNoticeId').value = '';
-        document.getElementById('publishForm').reset();
-        document.getElementById('pubDate').value = new Date().toISOString().split('T')[0];
-        document.getElementById('publishModalTitle').innerHTML = '<i class="fa-solid fa-pen-to-square text-indigo-600"></i> 新增發布內容';
-        document.getElementById('pubSubmitBtn').innerText = "立即發布";
-        document.getElementById('publishModal').classList.remove('hidden');
-      } else { alert('❌ 密碼錯誤！'); }
-    }
-    function closePublishModal() { document.getElementById('publishModal').classList.add('hidden'); }
-
-    function openHistoryAuthModal() { closeAdminMenuModal(); document.getElementById('historyAuthInput').value = ''; document.getElementById('historyAuthModal').classList.remove('hidden'); }
-    function closeHistoryAuthModal() { document.getElementById('historyAuthModal').classList.add('hidden'); }
-    function verifyHistoryAuth() {
-      if (document.getElementById('historyAuthInput').value === ADMIN_PASSWORD) {
-        closeHistoryAuthModal();
-        renderHistoryList();
-        document.getElementById('historyModal').classList.remove('hidden');
-      } else { 
-        alert('❌ 密碼錯誤！'); 
-      }
-    }
-    function closeHistoryModal() { document.getElementById('historyModal').classList.add('hidden'); }
-
-    function renderHistoryList() {
-      const historyList = document.getElementById('historyListContainer');
-      historyList.innerHTML = '';
-      const sortDirection = document.getElementById('adminSortOrderSelect') ? document.getElementById('adminSortOrderSelect').value : 'desc';
-
-      const keys = Object.keys(noticeData).sort((a, b) => {
-        const dateA = new Date(noticeData[a].date);
-        const dateB = new Date(noticeData[b].date);
-        if (sortDirection === 'asc') {
-          return dateA - dateB;
-        } else {
-          return dateB - dateA;
-        }
-      });
-
-      if (keys.length === 0) {
-        historyList.innerHTML = '<p class="text-center text-slate-400 font-bold py-6">目前沒有任何紀錄。</p>';
-        return;
-      }
-
-      keys.forEach(id => {
-        const data = noticeData[id];
-        const item = document.createElement('div');
-        item.className = "p-4 rounded-2xl bg-slate-50 border flex justify-between items-center gap-4";
-        item.innerHTML = `
-          <div class="truncate">
-            <span class="text-xs font-bold text-slate-400">${formatDate(data.date)} [最新消息]</span>
-            <h4 class="font-black text-slate-800 text-sm sm:text-base truncate">${data.title}</h4>
           </div>
-          <div class="flex items-center gap-2 shrink-0">
-            <button onclick="openEditModal('${id}')" class="px-3 py-1.5 rounded-xl bg-indigo-600 text-white text-xs font-black">修改</button>
-            <button onclick="deleteNotice('${id}')" class="px-3 py-1.5 rounded-xl bg-red-600 text-white text-xs font-black">刪除</button>
+        </div>
+
+        <div class="text-center pt-2">
+          <span class="text-[10px] font-bold text-slate-400 italic"></span>
+        </div>
+      </div>`;
+    }
+
+    modal.classList.remove('hidden');
+  }
+
+  function closeIndependentPage() {
+    document.getElementById('independentPageModal').classList.add('hidden');
+  }
+
+  function isImageFile(file) {
+    const name = (file.name || '').toLowerCase();
+    const type = (file.type || '').toLowerCase();
+    return type.startsWith('image/') || name.match(/\.(jpg|jpeg|png|gif|webp)$/i);
+  }
+
+  async function fetchNoticesFromCloud() {
+    try {
+      const response = await fetch(API_URL);
+      const json = await response.json();
+      noticeData = {};
+       
+      json.forEach(item => {
+        if (item.id) {
+          let filesArr = [];
+          try {
+            if (item.files) {
+              filesArr = typeof item.files === 'string' ? JSON.parse(item.files) : item.files;
+            }
+          } catch(e) { filesArr = []; }
+
+          const obj = {
+            title: item.title,
+            tag: '最新消息',
+            date: item.date,
+            content: item.content,
+            link: item.link || '',
+            linkName: item.linkName || '',
+            files: filesArr
+          };
+
+          noticeData[item.id] = obj;
+        }
+      });
+      renderNotices();
+    } catch (error) {
+      console.error("載入失敗", error);
+      document.getElementById('noticeListContainer').innerHTML = '<p class="text-center text-red-500 font-bold col-span-full">無法連線至雲端試算表。</p>';
+    }
+  }
+
+  function renderNotices() {
+    const container = document.getElementById('noticeListContainer');
+    container.innerHTML = '';
+    const keys = Object.keys(noticeData);
+     
+    if (keys.length === 0) {
+      container.innerHTML = '<p class="text-center text-slate-400 font-bold py-10 col-span-full">目前沒有任何最新消息。</p>';
+      document.getElementById('noticeTotalNum').innerText = "00";
+      return;
+    }
+
+    const sortedIds = keys.sort((a, b) => {
+      return new Date(noticeData[b].date) - new Date(noticeData[a].date);
+    }).slice(0, 6);
+
+    document.getElementById('noticeTotalNum').innerText = String(sortedIds.length).padStart(2, '0');
+
+    if (sortedIds.length === 0) {
+      container.innerHTML = '<p class="text-center text-slate-400 font-bold py-10 col-span-full">目前沒有公告。</p>';
+    } else {
+      sortedIds.forEach(id => {
+        const data = noticeData[id];
+        const newItem = document.createElement('div');
+        newItem.className = "notice-item bg-white rounded-[28px] overflow-hidden border border-slate-100 shadow-md cursor-pointer hover:shadow-2xl transition-all flex flex-col justify-between shrink-0 w-full sm:w-[280px] snap-start group";
+        newItem.setAttribute('onclick', `openNoticeModal('${id}')`);
+         
+        let badgeBg = "bg-orange-500";
+        const mediaContent = `<img src="New Release.png" alt="訊息發布預覽" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">`;
+
+        newItem.innerHTML = `
+          <div class="relative w-full h-32 sm:h-36 overflow-hidden bg-slate-100 flex items-center justify-center">
+            ${mediaContent}
+            <div class="absolute bottom-3 left-3">
+              <span class="${badgeBg} text-white text-[10px] font-black px-3 py-1 rounded-full uppercase shadow-md">最新消息</span>
+            </div>
+          </div>
+          <div class="p-5 flex flex-col justify-between flex-grow bg-white">
+            <div class="mb-3">
+              <span class="text-xs font-bold text-orange-600/80 italic block mb-1.5"><i class="fa-regular fa-calendar-days mr-1"></i> ${formatDate(data.date)}</span>
+              <h3 class="text-base font-black text-slate-900 line-clamp-2 leading-snug">${data.title}</h3>
+            </div>
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-400 group-hover:text-orange-600 transition-colors">
+              <span>檢視完整內容</span>
+              <i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
+            </div>
           </div>
         `;
-        historyList.appendChild(item);
+        container.appendChild(newItem);
       });
     }
+    updateNoticeProgress();
+  }
 
-    document.addEventListener('DOMContentLoaded', () => { 
-      fetchNoticesFromCloud(); 
-      renderHomeTeamStaff();
+  function scrollNoticeContainer(direction) {
+    const container = document.getElementById('noticeListContainer');
+    const scrollAmount = 300;
+    if (direction === 'left') {
+      container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    } else {
+      container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+    setTimeout(updateNoticeProgress, 300);
+  }
+
+  function updateNoticeProgress() {
+    const container = document.getElementById('noticeListContainer');
+    const progressBar = document.getElementById('noticeScrollProgress');
+    const progressThumb = document.getElementById('noticeProgressThumb');
+    const currentNumEl = document.getElementById('noticeCurrentNum');
+    if (!container || !progressBar) return;
+    const maxScroll = container.scrollWidth - container.clientWidth;
+    
+    let scrollPercent = 0;
+    if (maxScroll > 0) {
+      scrollPercent = (container.scrollLeft / maxScroll) * 100;
+    }
+    const widthVal = Math.max(scrollPercent, 0);
+    progressBar.style.width = Math.max(widthVal, 15) + '%';
+    if (progressThumb) {
+      progressThumb.style.left = widthVal + '%';
+    }
+
+    // 計算當前顯示的項目索引
+    const keys = Object.keys(noticeData).slice(0, 6);
+    const totalItems = keys.length;
+    if (totalItems > 0) {
+      const cardWidth = 280 + 20; // 容器內卡片寬度 + 間距
+      const currentIndex = Math.min(Math.round(container.scrollLeft / cardWidth) + 1, totalItems);
+      if (currentNumEl) {
+        currentNumEl.innerText = String(Math.max(1, currentIndex)).padStart(2, '0');
+      }
+    }
+  }
+
+  document.getElementById('noticeListContainer')?.addEventListener('scroll', updateNoticeProgress);
+
+  function compressAndReadFile(file) {
+    return new Promise((resolve, reject) => {
+      if (file.type && file.type.startsWith('image/')) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          const img = new Image();
+          img.onload = () => {
+            const canvas = document.createElement('canvas');
+            let width = img.width;
+            let height = img.height;
+            const maxWidth = 900;
+            if (width > maxWidth) {
+              height = Math.round((height * maxWidth) / width);
+              width = maxWidth;
+            }
+            canvas.width = width;
+            canvas.height = height;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0, width, height);
+            resolve(canvas.toDataURL('image/jpeg', 0.75));
+          };
+          img.onerror = () => reject(new Error('圖片載入失敗'));
+          img.src = e.target.result;
+        };
+        reader.onerror = error => reject(error);
+        reader.readAsDataURL(file);
+      } else {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = error => reject(error);
+        reader.readAsDataURL(file);
+      }
     });
+  }
+
+  async function handlePublishSubmit(event) {
+    event.preventDefault();
+    const btn = document.getElementById('pubSubmitBtn');
+    const editId = document.getElementById('editNoticeId').value;
+     
+    const title = document.getElementById('pubTitle').value;
+    const date = document.getElementById('pubDate').value;
+    const content = document.getElementById('pubContent').value;
+    const fileInput = document.getElementById('pubFiles');
+
+    let filesArr = editId && noticeData[editId] ? noticeData[editId].files : [];
+     
+    if (fileInput.files && fileInput.files.length > 0) {
+      const maxFiles = 10;
+      const uploadCount = Math.min(fileInput.files.length, maxFiles);
+      btn.innerText = "正在處理附件...";
+      btn.disabled = true;
+      try {
+        for (let i = 0; i < uploadCount; i++) {
+          const file = fileInput.files[i];
+          const base64Url = await compressAndReadFile(file);
+          filesArr.push({ name: file.name, type: file.type, url: base64Url });
+        }
+        if (filesArr.length > maxFiles) {
+          filesArr = filesArr.slice(0, maxFiles);
+          alert('⚠️ 附件數量超過 10 個上限，僅保留前 10 個檔案。');
+        }
+      } catch (err) { console.error("檔案讀取失敗", err); }
+    }
+
+    const link = document.getElementById('pubLink').value;
+    const linkName = document.getElementById('pubLinkName').value;
+     
+    let payload = editId ? { 
+      action: 'update', id: editId, section: 'notice', title, tag: '最新消息', date, content, link, linkName, files: JSON.stringify(filesArr) 
+    } : { 
+      action: 'add', section: 'notice', title, tag: '最新消息', date, content, link, linkName, files: JSON.stringify(filesArr) 
+    };
+
+    btn.innerText = editId ? "修改同步中..." : "發布同步中...";
+    btn.disabled = true;
+
+    try {
+      await fetch(API_URL, { method: 'POST', body: JSON.stringify(payload) });
+      alert(editId ? '✅ 內容已成功修改並同步至雲端！' : '✅ 內容已成功發布並同步至雲端！');
+      closePublishModal();
+      fetchNoticesFromCloud();
+    } catch (e) {
+      alert('❌ 操作失敗，請稍後再試。');
+    } finally {
+      btn.innerText = "立即發布";
+      btn.disabled = false;
+    }
+  }
+
+  async function deleteNotice(id) {
+    if (confirm('⚠️ 確定要刪除這筆紀錄嗎？')) {
+      try {
+        await fetch(API_URL, { method: 'POST', body: JSON.stringify({ action: 'delete', id }) });
+        alert('✅ 紀錄已刪除！');
+        fetchNoticesFromCloud();
+        renderHistoryList();
+      } catch (e) { alert('❌ 刪除失敗'); }
+    }
+  }
+
+  function openEditModal(id) {
+    const data = noticeData[id];
+    if(!data) return;
+    closeHistoryModal();
+     
+    document.getElementById('editNoticeId').value = id;
+    document.getElementById('pubTitle').value = data.title;
+    document.getElementById('pubDate').value = formatDate(data.date);
+    document.getElementById('pubContent').value = data.content;
+    document.getElementById('pubLink').value = data.link || '';
+    document.getElementById('pubLinkName').value = data.linkName || '';
+    document.getElementById('pubFiles').value = '';
+     
+    document.getElementById('publishModalTitle').innerHTML = '<i class="fa-solid fa-pen-to-square text-indigo-600"></i> 修改內容';
+    document.getElementById('pubSubmitBtn').innerText = "確認儲存修改";
+    document.getElementById('publishModal').classList.remove('hidden');
+  }
+
+  function openNoticeModal(id) {
+    const data = noticeData[id];
+    if(!data) return;
+    document.getElementById('noticeTag').innerText = "最新消息";
+    document.getElementById('noticeTag').className = "text-[10px] font-black px-4 py-1.5 rounded-full uppercase bg-orange-500 text-white";
+    document.getElementById('noticeDate').innerText = formatDate(data.date);
+    document.getElementById('noticeTitle').innerText = data.title;
+    document.getElementById('noticeContent').innerText = data.content;
+
+    const linkArea = document.getElementById('noticeLinkArea');
+    const externalLink = document.getElementById('noticeExternalLink');
+    const linkText = document.getElementById('noticeLinkText');
+    if (data.link && data.link.trim() !== '') {
+      linkArea.classList.remove('hidden');
+      externalLink.href = data.link;
+      linkText.innerText = (data.linkName && data.linkName.trim() !== '') ? data.linkName : data.link;
+    } else {
+      linkArea.classList.add('hidden');
+    }
+
+    const imageSliderArea = document.getElementById('noticeImageSliderArea');
+    const imageSliderContent = document.getElementById('noticeImageSliderContent');
+    const fileArea = document.getElementById('noticeFileArea');
+    const fileContent = document.getElementById('noticeFileContent');
+     
+    imageSliderContent.innerHTML = '';
+    fileContent.innerHTML = '';
+
+    if (data.files && data.files.length > 0) {
+      const images = data.files.filter(f => isImageFile(f));
+      const files = data.files.filter(f => !isImageFile(f));
+
+      if (images.length > 0) {
+        imageSliderArea.classList.remove('hidden');
+        window._currentNoticeImages = images;
+        images.forEach((img, idx) => {
+          const imgCard = document.createElement('div');
+          imgCard.className = "shrink-0 w-60 sm:w-64 h-44 sm:h-48 rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 snap-center relative group shadow-sm cursor-pointer";
+          imgCard.setAttribute('onclick', `openImageLightbox(${idx})`);
+          imgCard.innerHTML = `
+            <img src="${img.url}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" alt="預覽圖">
+            <div class="absolute inset-0 bg-slate-900/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+              <span class="px-3 py-1.5 rounded-xl bg-slate-900/80 text-white text-xs font-black backdrop-blur-sm shadow-md">
+                <i class="fa-solid fa-magnifying-glass-plus mr-1"></i> 點擊放大 (${idx + 1}/${images.length})
+              </span>
+            </div>
+          `;
+          imageSliderContent.appendChild(imgCard);
+        });
+      } else { imageSliderArea.classList.add('hidden'); }
+
+      if (files.length > 0) {
+        fileArea.classList.remove('hidden');
+        files.forEach((file, idx) => {
+          const fileRow = document.createElement('div');
+          fileRow.className = "bg-indigo-50/50 border border-indigo-100 rounded-2xl p-3 flex items-center justify-between gap-3";
+          fileRow.innerHTML = `
+            <div class="flex items-center gap-3 overflow-hidden">
+              <div class="w-8 h-8 rounded-xl bg-indigo-600 text-white flex items-center justify-center shrink-0 text-xs"><i class="fa-solid fa-file-arrow-down"></i></div>
+              <div class="truncate"><p class="text-xs font-black text-slate-800 truncate">${file.name || '附件 ' + (idx + 1)}</p></div>
+            </div>
+            <a href="${file.url}" download="${file.name || 'file_' + (idx + 1)}" class="px-3 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-black transition-all shrink-0 shadow-sm">下載</a>
+          `;
+          fileContent.appendChild(fileRow);
+        });
+      } else { fileArea.classList.add('hidden'); }
+    } else {
+      imageSliderArea.classList.add('hidden');
+      fileArea.classList.add('hidden');
+    }
+
+    document.getElementById('noticeDetailModal').classList.remove('hidden');
+  }
+
+  function closeNoticeModal() { document.getElementById('noticeDetailModal').classList.add('hidden'); }
+
+  function openAdminMenuModal() { document.getElementById('adminMenuModal').classList.remove('hidden'); }
+  function closeAdminMenuModal() { document.getElementById('adminMenuModal').classList.add('hidden'); }
+
+  function openPublishAuthModal() { closeAdminMenuModal(); document.getElementById('pubAuthInput').value = ''; document.getElementById('publishAuthModal').classList.remove('hidden'); }
+  function closePublishAuthModal() { document.getElementById('publishAuthModal').classList.add('hidden'); }
+  function verifyPublishAuth() {
+    if (document.getElementById('pubAuthInput').value === ADMIN_PASSWORD) {
+      closePublishAuthModal();
+      document.getElementById('editNoticeId').value = '';
+      document.getElementById('publishForm').reset();
+      document.getElementById('pubDate').value = new Date().toISOString().split('T')[0];
+      document.getElementById('publishModalTitle').innerHTML = '<i class="fa-solid fa-pen-to-square text-indigo-600"></i> 新增發布內容';
+      document.getElementById('pubSubmitBtn').innerText = "立即發布";
+      document.getElementById('publishModal').classList.remove('hidden');
+    } else { alert('❌ 密碼錯誤！'); }
+  }
+  function closePublishModal() { document.getElementById('publishModal').classList.add('hidden'); }
+
+  function openHistoryAuthModal() { closeAdminMenuModal(); document.getElementById('historyAuthInput').value = ''; document.getElementById('historyAuthModal').classList.remove('hidden'); }
+  function closeHistoryAuthModal() { document.getElementById('historyAuthModal').classList.add('hidden'); }
+  function verifyHistoryAuth() {
+    if (document.getElementById('historyAuthInput').value === ADMIN_PASSWORD) {
+      closeHistoryAuthModal();
+      renderHistoryList();
+      document.getElementById('historyModal').classList.remove('hidden');
+    } else { 
+      alert('❌ 密碼錯誤！'); 
+    }
+  }
+  function closeHistoryModal() { document.getElementById('historyModal').classList.add('hidden'); }
+
+  function renderHistoryList() {
+    const historyList = document.getElementById('historyListContainer');
+    historyList.innerHTML = '';
+    const sortDirection = document.getElementById('adminSortOrderSelect') ? document.getElementById('adminSortOrderSelect').value : 'desc';
+
+    const keys = Object.keys(noticeData).sort((a, b) => {
+      const dateA = new Date(noticeData[a].date);
+      const dateB = new Date(noticeData[b].date);
+      if (sortDirection === 'asc') {
+        return dateA - dateB;
+      } else {
+        return dateB - dateA;
+      }
+    });
+
+    if (keys.length === 0) {
+      historyList.innerHTML = '<p class="text-center text-slate-400 font-bold py-6">目前沒有任何紀錄。</p>';
+      return;
+    }
+
+    keys.forEach(id => {
+      const data = noticeData[id];
+      const item = document.createElement('div');
+      item.className = "p-4 rounded-2xl bg-slate-50 border flex justify-between items-center gap-4";
+      item.innerHTML = `
+        <div class="p-2 truncate">
+          <span class="text-xs font-bold text-slate-400">${formatDate(data.date)} [最新消息]</span>
+          <h4 class="font-black text-slate-800 text-sm sm:text-base truncate">${data.title}</h4>
+        </div>
+        <div class="flex items-center gap-2 shrink-0">
+          <button onclick="openEditModal('${id}')" class="px-3 py-1.5 rounded-xl bg-indigo-600 text-white text-xs font-black">修改</button>
+          <button onclick="deleteNotice('${id}')" class="px-3 py-1.5 rounded-xl bg-red-600 text-white text-xs font-black">刪除</button>
+        </div>
+      `;
+      historyList.push(item); // 修正語法
+      historyList.appendChild(item);
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', () => { 
+    fetchNoticesFromCloud(); 
+    renderHomeTeamStaff();
+  });
   </script>
 </body>
 </html>
