@@ -37,6 +37,40 @@
       font-weight: 900;
       letter-spacing: -0.05em;
     }
+
+    /* 參考截圖風格之浮水印與標題區設計 */
+    .section-title-watermark {
+      position: relative;
+      overflow: hidden;
+    }
+    .watermark-text {
+      position: absolute;
+      top: -15px;
+      left: 0px;
+      font-size: 5rem;
+      font-weight: 900;
+      color: rgba(0, 0, 0, 0.03);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      pointer-events: none;
+      white-space: nowrap;
+      z-index: 0;
+      user-select: none;
+    }
+
+    /* 斜向跑馬燈動畫樣式 */
+    @keyframes marquee {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marquee 18s linear infinite;
+    }
+    .marquee-track:hover {
+      animation-play-state: paused;
+    }
   </style>
 </head>
 
@@ -150,8 +184,10 @@
   </div>
   </nav>
 
+
+
   <!-- 首頁視覺標題區 (全新升級排版與互動) -->
-  <div id="home" class="max-w-4xl mx-auto z-10 relative py-12 px-4 text-center" data-aos="zoom-in">
+  <div id="home" class="max-w-4xl mx-auto z-10 relative py-8 px-4 text-center" data-aos="zoom-in">
     <div class="glass-card rounded-[35px] p-8 sm:p-12 shadow-xl border border-white/80 relative overflow-hidden group">
       <!-- 背景裝飾光暈 -->
       <div class="absolute -top-24 -right-24 w-48 h-48 bg-orange-400/10 rounded-full blur-3xl group-hover:bg-orange-400/20 transition-all"></div>
@@ -177,141 +213,167 @@
     </div>
   </div>
 
+  <!-- 斜向跑馬橫幅 (參考截圖樣式)[cite: 3] -->
+  <div class="relative w-full overflow-hidden bg-orange-500 py-3 shadow-md my-4">
+    <div class="absolute inset-0 bg-black transform -rotate-2 scale-110 flex items-center overflow-hidden shadow-lg border-y-2 border-orange-400">
+      <div class="marquee-track flex items-center whitespace-nowrap text-white font-black tracking-widest text-sm sm:text-base italic uppercase">
+        <!-- 重複多組以確保跑馬燈平順循環 -->
+        <div class="flex items-center shrink-0">
+          <span class="mx-6 flex items-center gap-2">呂氏家庭 LU FAMILY <span class="text-orange-400 text-xs">✦</span></span>
+          <span class="mx-6 flex items-center gap-2">呂氏家庭 LU FAMILY <span class="text-orange-400 text-xs">✦</span></span>
+          <span class="mx-6 flex items-center gap-2">呂氏家庭 LU FAMILY <span class="text-orange-400 text-xs">✦</span></span>
+          <span class="mx-6 flex items-center gap-2">呂氏家庭 LU FAMILY <span class="text-orange-400 text-xs">✦</span></span>
+          <span class="mx-6 flex items-center gap-2">呂氏家庭 LU FAMILY <span class="text-orange-400 text-xs">✦</span></span>
+          <span class="mx-6 flex items-center gap-2">呂氏家庭 LU FAMILY <span class="text-orange-400 text-xs">✦</span></span>
+        </div>
+        <div class="flex items-center shrink-0" aria-hidden="true">
+          <span class="mx-6 flex items-center gap-2">呂氏家庭 LU FAMILY <span class="text-orange-400 text-xs">✦</span></span>
+          <span class="mx-6 flex items-center gap-2">呂氏家庭 LU FAMILY <span class="text-orange-400 text-xs">✦</span></span>
+          <span class="mx-6 flex items-center gap-2">呂氏家庭 LU FAMILY <span class="text-orange-400 text-xs">✦</span></span>
+          <span class="mx-6 flex items-center gap-2">呂氏家庭 LU FAMILY <span class="text-orange-400 text-xs">✦</span></span>
+          <span class="mx-6 flex items-center gap-2">呂氏家庭 LU FAMILY <span class="text-orange-400 text-xs">✦</span></span>
+          <span class="mx-6 flex items-center gap-2">呂氏家庭 LU FAMILY <span class="text-orange-400 text-xs">✦</span></span>
+        </div>
+      </div>
+    </div>
+    <!-- 頂部與底部留白高對齊 -->
+    <div class="opacity-0 pointer-events-none text-sm py-3">跑馬燈撐高佔位</div>
+  </div>
+
   <!-- 主要內容區 -->
   <section class="py-8 sm:py-10 bg-slate-50 flex-grow">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 w-full">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 w-full space-y-16">
       
       <!-- 最新消息區 -->
-      <div id="notice" class="mb-16 scroll-mt-24 pt-6">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          <div class="lg:col-span-3 flex flex-col justify-between self-stretch">
-            <div>
-              <h3 class="text-orange-600 font-bold text-sm tracking-wider mb-1">NEWS</h3>
-              <h2 class="text-4xl sm:text-5xl font-black text-slate-900 tracking-tight uppercase">最新消息</h2>
-              <div class="w-12 h-1 bg-orange-500 rounded-full mt-3 mb-6"></div>
-            </div>
-            <div class="pt-4">
-              <button onclick="openIndependentPage('notice')" class="px-6 py-3.5 bg-orange-50 hover:bg-orange-100 text-orange-700 rounded-2xl font-black text-xs flex items-center justify-between transition-all w-full shadow-sm">
-                <span>了解更多</span> <div class="w-7 h-7 rounded-xl bg-orange-500 text-white flex items-center justify-center text-xs"><i class="fa-solid fa-arrow-right"></i></div>
-              </button>
-            </div>
+      <div id="notice" class="scroll-mt-24 pt-4">
+        <!-- 參考截圖頂部排版：標題帶有 NEWS 大浮水印、右上角「所有消息 →」 -->
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 relative section-title-watermark px-2">
+          <div class="watermark-text">NEWS</div>
+          <div class="relative z-10">
+            <span class="text-orange-600 font-black text-xs tracking-widest uppercase block mb-1">最新消息</span>
+            <h2 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight uppercase">NEWS</h2>
           </div>
+          <div class="mt-4 sm:mt-0 relative z-10">
+            <button onclick="openIndependentPage('notice')" class="inline-flex items-center gap-2 text-xs font-black text-slate-800 hover:text-orange-600 transition-colors group py-2">
+              <span>所有消息</span> <i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
+            </button>
+          </div>
+        </div>
 
-          <div class="lg:col-span-9 flex flex-col gap-6">
-            <div id="noticeListContainer" class="grid grid-flow-col auto-cols-[minmax(280px,1fr)] gap-5 overflow-x-auto pb-4 no-scrollbar snap-x" style="min-height: 320px;">
-              <div class="text-center py-16 text-slate-400 font-bold col-span-full"><i class="fa-solid fa-spinner fa-spin mr-2"></i> 更新中...請稍後</div>
-            </div>
-            <div class="flex items-center justify-between gap-6 pt-2">
-            <!-- 最新消息進度條與數字指示器 -->
+        <div class="flex flex-col gap-6">
+          <div id="noticeListContainer" class="grid grid-flow-col auto-cols-[minmax(280px,1fr)] gap-5 overflow-x-auto pb-4 no-scrollbar snap-x" style="min-height: 320px;">
+            <div class="text-center py-16 text-slate-400 font-bold col-span-full"><i class="fa-solid fa-spinner fa-spin mr-2"></i> 更新中...請稍後</div>
+          </div>
+          <div class="flex items-center justify-between gap-6 pt-2">
+            <!-- 最新消息進度條與數字指示器 (對齊參考圖風格) -->
             <div class="flex items-center gap-3 shrink-0">
               <div class="slider-indicator-num text-lg text-slate-900 flex items-baseline">
-                <span id="noticeCurrentNum">01</span><span class="text-xs text-slate-400 font-bold ml-0.5">/ <span id="noticeTotalNum">06</span></span>
+                <span id="noticeCurrentNum">01</span><span class="text-xs text-slate-400 font-bold ml-0.5">/ <span id="noticeTotalNum">10</span></span>
               </div>
+              <div class="w-5 h-5 rounded-full bg-orange-500/20 text-orange-600 flex items-center justify-center text-[10px] font-black"><i class="fa-solid fa-plus"></i></div>
             </div>
-              <div class="flex-grow bg-slate-200 h-1.5 rounded-full overflow-hidden relative">
-                <div id="noticeScrollProgress" class="bg-orange-500 h-full w-1/3 transition-all duration-300"></div>
+            <div class="flex-grow bg-slate-200 h-1.5 rounded-full overflow-hidden relative">
+              <div id="noticeScrollProgress" class="bg-orange-500 h-full w-1/3 transition-all duration-300"></div>
               <!-- 進度條光點指示 -->
               <div id="noticeProgressThumb" class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-orange-600 shadow-md border-2 border-white transition-all duration-300 pointer-events-none" style="left: 0%;"></div>
-              </div>
-              <div class="flex items-center gap-2 shrink-0">
-                <button onclick="scrollNoticeContainer('left')" class="w-10 h-10 rounded-full bg-orange-600 hover:bg-orange-700 text-white flex items-center justify-center transition-all shadow-md"><i class="fa-solid fa-chevron-left text-sm"></i></button>
-                <button onclick="scrollNoticeContainer('right')" class="w-10 h-10 rounded-full bg-orange-600 hover:bg-orange-700 text-white flex items-center justify-center transition-all shadow-md"><i class="fa-solid fa-chevron-right text-sm"></i></button>
-              </div>
+            </div>
+            <div class="flex items-center gap-2 shrink-0">
+              <button onclick="scrollNoticeContainer('left')" class="w-10 h-10 rounded-full bg-white hover:bg-orange-50 text-slate-700 hover:text-orange-600 border border-slate-200 flex items-center justify-center transition-all shadow-sm"><i class="fa-solid fa-chevron-left text-sm"></i></button>
+              <button onclick="scrollNoticeContainer('right')" class="w-10 h-10 rounded-full bg-white hover:bg-orange-50 text-slate-700 hover:text-orange-600 border border-slate-200 flex items-center justify-center transition-all shadow-sm"><i class="fa-solid fa-chevron-right text-sm"></i></button>
             </div>
           </div>
         </div>
       </div>
 
       <!-- 隊職幹部區塊 -->
-      <div id="team-staff" class="mb-16 scroll-mt-24 pt-6">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          <div class="lg:col-span-3 flex flex-col justify-between self-stretch">
-            <div>
-              <h3 class="text-indigo-600 font-bold text-sm tracking-wider mb-1">TEAM STAFF</h3>
-              <h2 class="text-4xl sm:text-5xl font-black text-slate-900 tracking-tight uppercase">隊職幹部</h2>
-              <div class="w-12 h-1 bg-indigo-600 rounded-full mt-3 mb-6"></div>
-            </div>
-            <div class="pt-4">
-              <button onclick="openIndependentPage('role')" class="px-6 py-3.5 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 rounded-2xl font-black text-xs flex items-center justify-between transition-all w-full shadow-sm">
-                <span>了解更多</span> <div class="w-7 h-7 rounded-xl bg-indigo-600 text-white flex items-center justify-center text-xs"><i class="fa-solid fa-arrow-right"></i></div>
-              </button>
-            </div>
+      <div id="team-staff" class="scroll-mt-24 pt-4">
+        <!-- 標題帶有 TEAM STAFF 浮水印、右上角連結 -->
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 relative section-title-watermark px-2">
+          <div class="watermark-text">TEAM</div>
+          <div class="relative z-10">
+            <span class="text-indigo-600 font-black text-xs tracking-widest uppercase block mb-1">隊職幹部</span>
+            <h2 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight uppercase">TEAM STAFF</h2>
           </div>
+          <div class="mt-4 sm:mt-0 relative z-10">
+            <button onclick="openIndependentPage('role')" class="inline-flex items-center gap-2 text-xs font-black text-slate-800 hover:text-indigo-600 transition-colors group py-2">
+              <span>業務職掌</span> <i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
+            </button>
+          </div>
+        </div>
 
-          <div class="lg:col-span-9 flex flex-col gap-6">
-            <div id="homeTeamListContainer" class="grid grid-flow-col auto-cols-[minmax(300px,1fr)] gap-6 overflow-x-auto pb-4 no-scrollbar snap-x" style="min-height: 400px;"></div>
-            <div class="flex items-center justify-between gap-6 pt-2">
+        <div class="flex flex-col gap-6">
+          <div id="homeTeamListContainer" class="grid grid-flow-col auto-cols-[minmax(300px,1fr)] gap-6 overflow-x-auto pb-4 no-scrollbar snap-x" style="min-height: 400px;"></div>
+          <div class="flex items-center justify-between gap-6 pt-2">
             <!-- 隊職幹部進度條與數字指示器 -->
             <div class="flex items-center gap-3 shrink-0">
               <div class="slider-indicator-num text-lg text-slate-900 flex items-baseline">
                 <span id="teamCurrentNum">01</span><span class="text-xs text-slate-400 font-bold ml-0.5">/ <span id="teamTotalNum">06</span></span>
               </div>
+              <div class="w-5 h-5 rounded-full bg-indigo-500/20 text-indigo-600 flex items-center justify-center text-[10px] font-black"><i class="fa-solid fa-plus"></i></div>
             </div>
-              <div class="flex-grow bg-slate-200 h-1.5 rounded-full overflow-hidden relative">
-                <div id="teamScrollProgress" class="bg-indigo-600 h-full w-1/3 transition-all duration-300"></div>
+            <div class="flex-grow bg-slate-200 h-1.5 rounded-full overflow-hidden relative">
+              <div id="teamScrollProgress" class="bg-indigo-600 h-full w-1/3 transition-all duration-300"></div>
               <!-- 進度條光點指示 -->
               <div id="teamProgressThumb" class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-indigo-700 shadow-md border-2 border-white transition-all duration-300 pointer-events-none" style="left: 0%;"></div>
-              </div>
-              <div class="flex items-center gap-2 shrink-0">
-                <button onclick="scrollTeamContainer('left')" class="w-10 h-10 rounded-full bg-indigo-600 hover:bg-indigo-700 text-white flex items-center justify-center transition-all shadow-md"><i class="fa-solid fa-chevron-left text-sm"></i></button>
-                <button onclick="scrollTeamContainer('right')" class="w-10 h-10 rounded-full bg-indigo-600 hover:bg-indigo-700 text-white flex items-center justify-center transition-all shadow-md"><i class="fa-solid fa-chevron-right text-sm"></i></button>
-              </div>
+            </div>
+            <div class="flex items-center gap-2 shrink-0">
+              <button onclick="scrollTeamContainer('left')" class="w-10 h-10 rounded-full bg-white hover:bg-indigo-50 text-slate-700 hover:text-indigo-600 border border-slate-200 flex items-center justify-center transition-all shadow-sm"><i class="fa-solid fa-chevron-left text-sm"></i></button>
+              <button onclick="scrollTeamContainer('right')" class="w-10 h-10 rounded-full bg-white hover:bg-indigo-50 text-slate-700 hover:text-indigo-600 border border-slate-200 flex items-center justify-center transition-all shadow-sm"><i class="fa-solid fa-chevron-right text-sm"></i></button>
             </div>
           </div>
         </div>
       </div>
 
       <!-- 家族分布圖區塊 -->
-      <div id="family-map" class="mb-16 scroll-mt-24 pt-6">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          <div class="lg:col-span-3 flex flex-col justify-between self-stretch">
-            <div>
-              <h3 class="text-blue-600 font-bold text-sm tracking-wider mb-1">FAMILY MAP</h3>
-              <h2 class="text-4xl sm:text-5xl font-black text-slate-900 tracking-tight uppercase">家族分布圖</h2>
-              <div class="w-12 h-1 bg-blue-600 rounded-full mt-3 mb-6"></div>
-            </div>
-            <div class="pt-4">
-              <button onclick="openIndependentPage('unit')" class="px-6 py-3.5 bg-blue-50 hover:bg-blue-100 text-blue-700 rounded-2xl font-black text-xs flex items-center justify-between transition-all w-full shadow-sm">
-                <span>詳細分布</span> <div class="w-7 h-7 rounded-xl bg-blue-600 text-white flex items-center justify-center text-xs"><i class="fa-solid fa-arrow-right"></i></div>
-              </button>
-            </div>
+      <div id="family-map" class="scroll-mt-24 pt-4">
+        <!-- 標題帶有 FAMILY MAP 浮水印、右上角連結 -->
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 relative section-title-watermark px-2">
+          <div class="watermark-text">MAP</div>
+          <div class="relative z-10">
+            <span class="text-blue-600 font-black text-xs tracking-widest uppercase block mb-1">家族分布</span>
+            <h2 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight uppercase">FAMILY MAP</h2>
+          </div>
+          <div class="mt-4 sm:mt-0 relative z-10">
+            <button onclick="openIndependentPage('unit')" class="inline-flex items-center gap-2 text-xs font-black text-slate-800 hover:text-blue-600 transition-colors group py-2">
+              <span>詳細分布</span> <i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-[35px] p-6 sm:p-8 border border-slate-100 shadow-md">
+          <div class="text-center mb-6">
+            <h3 class="text-xl sm:text-2xl font-black text-slate-900">成員分佈概況</h3>
+            <p class="text-xs sm:text-sm text-slate-500 font-medium mt-1">主要據點分布於北部及中部地區</p>
           </div>
 
-          <div class="lg:col-span-9 bg-white rounded-[35px] p-6 sm:p-8 border border-slate-100 shadow-md">
-            <div class="text-center mb-6">
-              <h3 class="text-xl sm:text-2xl font-black text-slate-900">成員分佈概況</h3>
-              <p class="text-xs sm:text-sm text-slate-500 font-medium mt-1">主要據點分布於北部及中部地區</p>
+          <div class="flex flex-wrap items-center justify-center gap-2 mb-6">
+            <span class="px-3.5 py-1.5 rounded-xl bg-red-50 text-red-600 text-xs font-black border border-red-100 flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-red-500"></span>新北市 板橋區 (核心)</span>
+            <span class="px-3.5 py-1.5 rounded-xl bg-amber-50 text-amber-600 text-xs font-black border border-amber-100 flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-amber-500"></span>桃園市 平鎮區 (營產)</span>
+            <span class="px-3.5 py-1.5 rounded-xl bg-blue-50 text-blue-600 text-xs font-black border border-blue-100 flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-blue-500"></span>臺中市 中區 (生活)</span>
+            <span class="px-3.5 py-1.5 rounded-xl bg-emerald-50 text-emerald-600 text-xs font-black border border-emerald-100 flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-500"></span>臺中市 北區 (生活)</span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="bg-slate-50 p-5 rounded-2xl border border-slate-100 flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-red-500 text-white flex items-center justify-center font-black shadow-md"><i class="fa-solid fa-location-dot"></i></div>
+                <div>
+                  <h4 class="text-sm font-black text-slate-800">北部區域</h4>
+                  <p class="text-xs text-slate-500">新北市板橋區、桃園市平鎮區</p>
+                </div>
+              </div>
+              <span class="text-xs font-bold text-slate-400">主要據點</span>
             </div>
 
-            <div class="flex flex-wrap items-center justify-center gap-2 mb-6">
-              <span class="px-3.5 py-1.5 rounded-xl bg-red-50 text-red-600 text-xs font-black border border-red-100 flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-red-500"></span>新北市 板橋區 (核心)</span>
-              <span class="px-3.5 py-1.5 rounded-xl bg-amber-50 text-amber-600 text-xs font-black border border-amber-100 flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-amber-500"></span>桃園市 平鎮區 (營產)</span>
-              <span class="px-3.5 py-1.5 rounded-xl bg-blue-50 text-blue-600 text-xs font-black border border-blue-100 flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-blue-500"></span>臺中市 中區 (生活)</span>
-              <span class="px-3.5 py-1.5 rounded-xl bg-emerald-50 text-emerald-600 text-xs font-black border border-emerald-100 flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-500"></span>臺中市 北區 (生活)</span>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div class="bg-slate-50 p-5 rounded-2xl border border-slate-100 flex items-center justify-between">
-                <div class="flex items-center gap-3">
-                  <div class="w-10 h-10 rounded-xl bg-red-500 text-white flex items-center justify-center font-black shadow-md"><i class="fa-solid fa-location-dot"></i></div>
-                  <div>
-                    <h4 class="text-sm font-black text-slate-800">北部區域</h4>
-                    <p class="text-xs text-slate-500">新北市板橋區、桃園市平鎮區</p>
-                  </div>
+            <div class="bg-slate-50 p-5 rounded-2xl border border-slate-100 flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center font-black shadow-md"><i class="fa-solid fa-location-dot"></i></div>
+                <div>
+                  <h4 class="text-sm font-black text-slate-800">中部區域</h4>
+                  <p class="text-xs text-slate-500">臺中市中區、臺中市北區</p>
                 </div>
-                <span class="text-xs font-bold text-slate-400">主要據點</span>
               </div>
-
-              <div class="bg-slate-50 p-5 rounded-2xl border border-slate-100 flex items-center justify-between">
-                <div class="flex items-center gap-3">
-                  <div class="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center font-black shadow-md"><i class="fa-solid fa-location-dot"></i></div>
-                  <div>
-                    <h4 class="text-sm font-black text-slate-800">中部區域</h4>
-                    <p class="text-xs text-slate-500">臺中市中區、臺中市北區</p>
-                  </div>
-                </div>
-                <span class="text-xs font-bold text-slate-400">生活據點</span>
-              </div>
+              <span class="text-xs font-bold text-slate-400">生活據點</span>
             </div>
           </div>
         </div>
@@ -328,7 +390,7 @@
       </div>
       <div class="flex items-center gap-3">
         <span class="inline-flex items-center gap-1.5 bg-slate-50 px-3 py-1.5 rounded-xl border border-slate-100 text-slate-500">
-          <i class="fa-solid fa-rotate text-indigo-500"></i> 最後更新日期：2026-10-09
+          <i class="fa-solid fa-rotate text-indigo-500"></i> 最後更新日期：2026-10-12
         </span>
       </div>
     </div>
@@ -689,11 +751,11 @@
 
     function scrollTeamContainer(direction) {
       const container = document.getElementById('homeTeamListContainer');
-      const scrollAmount = 320;
+      const cardWidth = 320 + 24;
       if (direction === 'left') {
-        container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        container.scrollBy({ left: -cardWidth, behavior: 'smooth' });
       } else {
-        container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        container.scrollBy({ left: cardWidth, behavior: 'smooth' });
       }
       setTimeout(updateTeamProgress, 300);
     }
@@ -716,13 +778,15 @@
         progressThumb.style.left = widthVal + '%';
       }
 
-      // 計算當前顯示到第幾張卡片
+      // 精確對應目前顯示的卡片索引（基於實際捲動位置與卡片寬度）
       const totalItems = teamStaffList.length;
       if (totalItems > 0) {
-        const cardWidth = 320 + 24; // 卡片寬度加間距
-        const currentIndex = Math.min(Math.round(container.scrollLeft / cardWidth) + 1, totalItems);
+        const cardWidth = 320 + 24; // 卡片寬度 + 間距
+        let currentIndex = Math.round(container.scrollLeft / cardWidth) + 1;
+        if (currentIndex < 1) currentIndex = 1;
+        if (currentIndex > totalItems) currentIndex = totalItems;
         if (currentNumEl) {
-          currentNumEl.innerText = String(Math.max(1, currentIndex)).padStart(2, '0');
+          currentNumEl.innerText = String(currentIndex).padStart(2, '0');
         }
       }
     }
@@ -887,7 +951,7 @@
                 </div>
               </div>
           </div>
-        </div>`;
+          </div>`;
 
       } else if (type === 'unit') {
         titleEl.innerText = "家族分布";
@@ -934,22 +998,23 @@
                 <div class="flex items-center gap-3 pb-3 border-b border-slate-100">
                   <div class="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center font-black shadow-md">
                     <i class="fa-solid fa-location-dot"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-base font-black text-slate-800">中部區域</h4>
+                    <span class="text-[10px] text-slate-400 font-bold">主要據點</span>
+                  </div>
                 </div>
-                <div>
-                  <h4 class="text-base font-black text-slate-800">中部區域</h4>
-                  <span class="text-[10px] text-slate-400 font-bold">主要據點</span>
+                <div class="space-y-2.5 text-xs font-bold text-slate-700">
+                  <div class="flex items-center justify-between p-3 rounded-2xl bg-slate-50 border border-slate-100">
+                    <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-blue-500"></span>臺中市 中區</span>
+                    <span class="text-slate-400 font-medium">生活據點</span>
+                  </div>
+                  <div class="flex items-center justify-between p-3 rounded-2xl bg-slate-50 border border-slate-100">
+                    <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-500"></span>臺中市 北區</span>
+                    <span class="text-slate-400 font-medium">生活據點</span>
+                  </div>
                 </div>
               </div>
-              <div class="space-y-2.5 text-xs font-bold text-slate-700">
-                <div class="flex items-center justify-between p-3 rounded-2xl bg-slate-50 border border-slate-100">
-                  <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-blue-500"></span>臺中市 中區</span>
-                  <span class="text-slate-400 font-medium">生活據點</span>
-                </div>
-                <div class="flex items-center justify-between p-3 rounded-2xl bg-slate-50 border border-slate-100">
-                  <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-500"></span>臺中市 北區</span>
-                  <span class="text-slate-400 font-medium">生活據點</span>
-                </div>
-            </div>
           </div>
         </div>
 
@@ -977,7 +1042,7 @@
       const response = await fetch(API_URL);
       const json = await response.json();
       noticeData = {};
-       
+      
       json.forEach(item => {
         if (item.id) {
           let filesArr = [];
@@ -1011,7 +1076,7 @@
     const container = document.getElementById('noticeListContainer');
     container.innerHTML = '';
     const keys = Object.keys(noticeData);
-     
+    
     if (keys.length === 0) {
       container.innerHTML = '<p class="text-center text-slate-400 font-bold py-10 col-span-full">目前沒有任何最新消息。</p>';
       document.getElementById('noticeTotalNum').innerText = "00";
@@ -1020,7 +1085,7 @@
 
     const sortedIds = keys.sort((a, b) => {
       return new Date(noticeData[b].date) - new Date(noticeData[a].date);
-    }).slice(0, 6);
+    }).slice(0, 10);
 
     document.getElementById('noticeTotalNum').innerText = String(sortedIds.length).padStart(2, '0');
 
@@ -1032,7 +1097,7 @@
         const newItem = document.createElement('div');
         newItem.className = "notice-item bg-white rounded-[28px] overflow-hidden border border-slate-100 shadow-md cursor-pointer hover:shadow-2xl transition-all flex flex-col justify-between shrink-0 w-full sm:w-[280px] snap-start group";
         newItem.setAttribute('onclick', `openNoticeModal('${id}')`);
-         
+        
         let badgeBg = "bg-orange-500";
         const mediaContent = `<img src="New Release.png" alt="訊息發布預覽" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">`;
 
@@ -1062,11 +1127,11 @@
 
   function scrollNoticeContainer(direction) {
     const container = document.getElementById('noticeListContainer');
-    const scrollAmount = 300;
+    const cardWidth = 280 + 20;
     if (direction === 'left') {
-      container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+      container.scrollBy({ left: -cardWidth, behavior: 'smooth' });
     } else {
-      container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      container.scrollBy({ left: cardWidth, behavior: 'smooth' });
     }
     setTimeout(updateNoticeProgress, 300);
   }
@@ -1089,14 +1154,16 @@
       progressThumb.style.left = widthVal + '%';
     }
 
-    // 計算當前顯示的項目索引
-    const keys = Object.keys(noticeData).slice(0, 6);
+    // 精確對應目前顯示的項目索引（基於實際捲動位置與卡片寬度）
+    const keys = Object.keys(noticeData).slice(0, 10);
     const totalItems = keys.length;
     if (totalItems > 0) {
-      const cardWidth = 280 + 20; // 容器內卡片寬度 + 間距
-      const currentIndex = Math.min(Math.round(container.scrollLeft / cardWidth) + 1, totalItems);
+      const cardWidth = 280 + 20; // 卡片寬度 + 間距
+      let currentIndex = Math.round(container.scrollLeft / cardWidth) + 1;
+      if (currentIndex < 1) currentIndex = 1;
+      if (currentIndex > totalItems) currentIndex = totalItems;
       if (currentNumEl) {
-        currentNumEl.innerText = String(Math.max(1, currentIndex)).padStart(2, '0');
+        currentNumEl.innerText = String(currentIndex).padStart(2, '0');
       }
     }
   }
@@ -1142,14 +1209,14 @@
     event.preventDefault();
     const btn = document.getElementById('pubSubmitBtn');
     const editId = document.getElementById('editNoticeId').value;
-     
+    
     const title = document.getElementById('pubTitle').value;
     const date = document.getElementById('pubDate').value;
     const content = document.getElementById('pubContent').value;
     const fileInput = document.getElementById('pubFiles');
 
     let filesArr = editId && noticeData[editId] ? noticeData[editId].files : [];
-     
+    
     if (fileInput.files && fileInput.files.length > 0) {
       const maxFiles = 10;
       const uploadCount = Math.min(fileInput.files.length, maxFiles);
@@ -1170,7 +1237,7 @@
 
     const link = document.getElementById('pubLink').value;
     const linkName = document.getElementById('pubLinkName').value;
-     
+    
     let payload = editId ? { 
       action: 'update', id: editId, section: 'notice', title, tag: '最新消息', date, content, link, linkName, files: JSON.stringify(filesArr) 
     } : { 
@@ -1208,7 +1275,7 @@
     const data = noticeData[id];
     if(!data) return;
     closeHistoryModal();
-     
+    
     document.getElementById('editNoticeId').value = id;
     document.getElementById('pubTitle').value = data.title;
     document.getElementById('pubDate').value = formatDate(data.date);
@@ -1216,7 +1283,7 @@
     document.getElementById('pubLink').value = data.link || '';
     document.getElementById('pubLinkName').value = data.linkName || '';
     document.getElementById('pubFiles').value = '';
-     
+    
     document.getElementById('publishModalTitle').innerHTML = '<i class="fa-solid fa-pen-to-square text-indigo-600"></i> 修改內容';
     document.getElementById('pubSubmitBtn').innerText = "確認儲存修改";
     document.getElementById('publishModal').classList.remove('hidden');
@@ -1246,7 +1313,7 @@
     const imageSliderContent = document.getElementById('noticeImageSliderContent');
     const fileArea = document.getElementById('noticeFileArea');
     const fileContent = document.getElementById('noticeFileContent');
-     
+    
     imageSliderContent.innerHTML = '';
     fileContent.innerHTML = '';
 
@@ -1363,7 +1430,6 @@
           <button onclick="deleteNotice('${id}')" class="px-3 py-1.5 rounded-xl bg-red-600 text-white text-xs font-black">刪除</button>
         </div>
       `;
-      historyList.push(item); // 修正語法
       historyList.appendChild(item);
     });
   }
