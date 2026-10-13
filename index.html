@@ -67,26 +67,7 @@
 
 <body class="flex flex-col min-h-screen">
 
-  <!-- 頂部跑馬橫幅 -->
-  <div class="relative w-full overflow-hidden bg-orange-600 py-3 shadow-md z-50">
-    <div class="absolute inset-0 bg-black transform -rotate-1 scale-110 flex items-center overflow-hidden shadow-lg border-y-2 border-orange-500">
-      <div class="marquee-track flex items-center whitespace-nowrap text-white font-black tracking-widest text-sm sm:text-base italic uppercase">
-        <div class="flex items-center shrink-0">
-          <span class="mx-6 flex items-center gap-2">呂氏家庭 LU FAMILY <span class="text-orange-400 text-xs">✦</span></span>
-          <span class="mx-6 flex items-center gap-2">呂氏家庭 LU FAMILY <span class="text-orange-400 text-xs">✦</span></span>
-          <span class="mx-6 flex items-center gap-2">呂氏家庭 LU FAMILY <span class="text-orange-400 text-xs">✦</span></span>
-          <span class="mx-6 flex items-center gap-2">呂氏家庭 LU FAMILY <span class="text-orange-400 text-xs">✦</span></span>
-        </div>
-        <div class="flex items-center shrink-0" aria-hidden="true">
-          <span class="mx-6 flex items-center gap-2">呂氏家庭 LU FAMILY <span class="text-orange-400 text-xs">✦</span></span>
-          <span class="mx-6 flex items-center gap-2">呂氏家庭 LU FAMILY <span class="text-orange-400 text-xs">✦</span></span>
-          <span class="mx-6 flex items-center gap-2">呂氏家庭 LU FAMILY <span class="text-orange-400 text-xs">✦</span></span>
-          <span class="mx-6 flex items-center gap-2">呂氏家庭 LU FAMILY <span class="text-orange-400 text-xs">✦</span></span>
-        </div>
-      </div>
-    </div>
-    <div class="opacity-0 pointer-events-none text-sm py-3">跑馬燈佔位</div>
-  </div>
+ 
 
   <!-- 導覽列 -->
   <nav class="bg-white/90 backdrop-blur-md sticky top-0 z-40 border-b border-orange-100 shadow-sm">
@@ -116,6 +97,10 @@
             </div>
 
             <div class="space-y-2">
+              <a href="#scholarship" class="group/item text-left p-3 rounded-xl bg-slate-50 hover:bg-orange-50 border border-slate-100 hover:border-orange-200 transition-all flex items-center justify-between">
+                <span class="text-xs font-black text-slate-700 group-hover/item:text-orange-600">獎學金申請專區</span>
+                <i class="fa-solid fa-arrow-right text-[10px] text-orange-500 opacity-0 group-hover/item:opacity-100 transform -translate-x-1 group-hover/item:translate-x-0 transition-all"></i>
+              </a>
               <a href="#calendar" class="group/item text-left p-3 rounded-xl bg-slate-50 hover:bg-orange-50 border border-slate-100 hover:border-orange-200 transition-all flex items-center justify-between">
                 <span class="text-xs font-black text-slate-700 group-hover/item:text-orange-600">家族活動行事曆</span>
                 <i class="fa-solid fa-arrow-right text-[10px] text-orange-500 opacity-0 group-hover/item:opacity-100 transform -translate-x-1 group-hover/item:translate-x-0 transition-all"></i>
@@ -156,6 +141,10 @@
     <!-- 手機版選單 -->
     <div id="mobileMenu" class="hidden bg-white border-t border-slate-100 shadow-2xl transition-all lg:hidden">
       <div class="max-w-4xl mx-auto px-6 py-6 flex flex-col gap-3 font-bold text-base">
+        <a href="#scholarship" onclick="toggleMobileMenu()" class="px-5 py-4 rounded-2xl bg-orange-50 text-orange-700 border border-orange-200 flex items-center justify-between hover:border-orange-500 transition-all">
+          <span>獎學金專區 <span class="text-xs text-orange-600 font-normal ml-2">SCHOLARSHIP</span></span>
+          <i class="fa-solid fa-chevron-right text-xs text-orange-500"></i>
+        </a>
         <a href="#calendar" onclick="toggleMobileMenu()" class="px-5 py-4 rounded-2xl bg-slate-50 text-slate-800 border border-slate-200 flex items-center justify-between hover:border-orange-500 transition-all">
           <span>家族行事曆 <span class="text-xs text-orange-600 font-normal ml-2">CALENDAR</span></span>
           <i class="fa-solid fa-chevron-right text-xs text-slate-400"></i>
@@ -177,31 +166,133 @@
   </nav>
 
   <!-- 首頁主視覺 HERO 區塊 -->
-  <div id="home" class="max-w-5xl mx-auto z-10 relative py-12 px-4 text-center" data-aos="zoom-in">
-    <div class="glass-card rounded-[35px] p-8 sm:p-14 shadow-xl relative overflow-hidden group">
-      <div class="absolute -top-24 -right-24 w-56 h-56 bg-orange-500/10 rounded-full blur-3xl"></div>
-      <div class="absolute -bottom-24 -left-24 w-56 h-56 bg-amber-500/10 rounded-full blur-3xl"></div>
-
-      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-100 border border-orange-200 text-orange-600 font-black text-xs sm:text-sm tracking-widest uppercase mb-6 shadow-sm">
-        <i class="fa-solid fa-shield-halved text-xs"></i> OFFICIAL WEBSITE
-      </div>
-
-      <h1 class="text-3xl sm:text-5xl lg:text-7xl font-black text-slate-900 tracking-tight uppercase mb-6 leading-tight">
-        呂氏家庭生活資訊網
-      </h1>
-
-      <div class="w-20 h-1.5 bg-gradient-to-r from-orange-500 to-amber-600 rounded-full mx-auto mb-6"></div>
-
-      <p class="text-slate-500 font-bold text-xs sm:text-sm tracking-[0.4em] uppercase">
-        — LU FAMILY 2026 —
-      </p>
+  <div id="home" class="max-w-5xl mx-auto z-10 relative py-8 px-4 text-center" data-aos="zoom-in">
+    <div class="glass-card rounded-[35px] p-4 sm:p-6 shadow-xl relative overflow-hidden group flex items-center justify-center">
+      <img src="2026新主視覺_工作區域 1.jpg" alt="幻心齊燃 呂氏家庭主視覺" class="w-full max-w-4xl h-auto object-contain rounded-2xl shadow-md select-none pointer-events-none">
     </div>
+  </div>\
+
+ <!-- 頂部跑馬橫幅 -->
+  <div class="relative w-full overflow-hidden bg-orange-600 py-3 shadow-md z-50">
+    <div class="absolute inset-0 bg-black transform -rotate-1 scale-110 flex items-center overflow-hidden shadow-lg border-y-2 border-orange-500">
+      <div class="marquee-track flex items-center whitespace-nowrap text-white font-black tracking-widest text-sm sm:text-base italic uppercase">
+        <div class="flex items-center shrink-0">
+          <span class="mx-6 flex items-center gap-2">呂氏家庭 LU FAMILY <span class="text-orange-400 text-xs">✦</span></span>
+          <span class="mx-6 flex items-center gap-2">呂氏家庭 LU FAMILY <span class="text-orange-400 text-xs">✦</span></span>
+          <span class="mx-6 flex items-center gap-2">呂氏家庭 LU FAMILY <span class="text-orange-400 text-xs">✦</span></span>
+          <span class="mx-6 flex items-center gap-2">呂氏家庭 LU FAMILY <span class="text-orange-400 text-xs">✦</span></span>
+        </div>
+        <div class="flex items-center shrink-0" aria-hidden="true">
+          <span class="mx-6 flex items-center gap-2">呂氏家庭 LU FAMILY <span class="text-orange-400 text-xs">✦</span></span>
+          <span class="mx-6 flex items-center gap-2">呂氏家庭 LU FAMILY <span class="text-orange-400 text-xs">✦</span></span>
+          <span class="mx-6 flex items-center gap-2">呂氏家庭 LU FAMILY <span class="text-orange-400 text-xs">✦</span></span>
+          <span class="mx-6 flex items-center gap-2">呂氏家庭 LU FAMILY <span class="text-orange-400 text-xs">✦</span></span>
+        </div>
+      </div>
+    </div>
+    <div class="opacity-0 pointer-events-none text-sm py-3">跑馬燈佔位</div>
   </div>
 
   <!-- 主要內容區 -->
   <section class="py-10 flex-grow">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 w-full space-y-20">
       
+      <!-- 獎學金申請專區 -->
+      <div id="scholarship" class="scroll-mt-24 pt-4">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 relative section-title-watermark px-2">
+          <div class="watermark-text">SCHOLARSHIP</div>
+          <div class="relative z-10">
+            <span class="text-orange-600 font-black text-xs tracking-widest uppercase block mb-1">各項獎學金與補助申請</span>
+            <h2 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight uppercase">SCHOLARSHIP</h2>
+          </div>
+          <div class="mt-4 sm:mt-0 relative z-10">
+            <span class="inline-flex items-center gap-2 text-xs font-black text-orange-700 bg-orange-50 px-4 py-2 rounded-2xl border border-orange-200 shadow-sm">
+              <i class="fa-solid fa-graduation-cap text-orange-600"></i> 115年度 獎學金申辦專區
+            </span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          
+          <!-- 獎學金項目 1 -->
+          <div class="bg-white rounded-[32px] p-7 border border-orange-100 shadow-xl flex flex-col justify-between hover:shadow-2xl transition-all group relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-red-500/5 rounded-bl-full pointer-events-none"></div>
+            
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="px-3.5 py-1.5 rounded-full bg-red-50 text-red-600 font-black text-xs uppercase border border-red-200 flex items-center gap-1.5">
+                  <i class="fa-solid fa-location-dot"></i> 新北市回饋地方專案
+                </span>
+                <span class="text-xs font-bold text-slate-400 tracking-wider">115年度</span>
+              </div>
+
+              <h3 class="text-xl sm:text-2xl font-black text-slate-900 mb-3 group-hover:text-orange-600 transition-colors leading-snug">
+                新北市立殯儀館及火化場 115 年度回饋地方經費勤學獎助學金
+              </h3>
+
+              <div class="space-y-3 mb-6">
+                <div class="flex items-start gap-2.5 text-xs sm:text-sm font-bold text-slate-600">
+                  <i class="fa-solid fa-circle-check text-orange-600 mt-1 shrink-0"></i>
+                  <span><strong class="text-slate-800">申辦對象：</strong>設籍於宏翠里學生奮發向學，獎勵品學兼優之學子。</span>
+                </div>
+                <div class="flex items-start gap-2.5 text-xs sm:text-sm font-bold text-slate-600">
+                  <i class="fa-solid fa-circle-check text-orange-600 mt-1 shrink-0"></i>
+                  <span><strong class="text-slate-800">補助重點：</strong>鼓勵在地學子努力向學、減輕家庭經濟負擔。</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-5 border-t border-slate-100 flex items-center justify-between gap-4">
+              <span class="text-xs font-bold text-slate-400 flex items-center gap-1">
+                <i class="fa-regular fa-clock"></i> 申辦審查中
+              </span>
+              <button onclick="openScholarshipModal('ntpc')" class="px-5 py-2.5 rounded-xl bg-orange-600 hover:bg-orange-700 text-white font-black text-xs sm:text-sm shadow-md transition-all flex items-center gap-2">
+                <span>查看詳情與辦法</span> <i class="fa-solid fa-arrow-right text-xs"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- 獎學金項目 2 -->
+          <div class="bg-white rounded-[32px] p-7 border border-orange-100 shadow-xl flex flex-col justify-between hover:shadow-xl transition-all group relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-amber-500/5 rounded-bl-full pointer-events-none"></div>
+            
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="px-3.5 py-1.5 rounded-full bg-amber-50 text-amber-700 font-black text-xs uppercase border border-amber-200 flex items-center gap-1.5">
+                  <i class="fa-solid fa-users"></i> 家族宗親專案
+                </span>
+                <span class="text-xs font-bold text-slate-400 tracking-wider">115年度</span>
+              </div>
+
+              <h3 class="text-xl sm:text-2xl font-black text-slate-900 mb-3 group-hover:text-orange-600 transition-colors leading-snug">
+                祭祀公業法人桃園縣呂孟生公派下員子女獎學金申請
+              </h3>
+
+              <div class="space-y-3 mb-6">
+                <div class="flex items-start gap-2.5 text-xs sm:text-sm font-bold text-slate-600">
+                  <i class="fa-solid fa-circle-check text-orange-600 mt-1 shrink-0"></i>
+                  <span><strong class="text-slate-800">申辦對象：</strong>祭祀公業法人桃園縣呂孟生公派下員之在學子女。</span>
+                </div>
+                <div class="flex items-start gap-2.5 text-xs sm:text-sm font-bold text-slate-600">
+                  <i class="fa-solid fa-circle-check text-orange-600 mt-1 shrink-0"></i>
+                  <span><strong class="text-slate-800">補助重點：</strong>傳承宗親美德、獎勵派下員子女學業優良、勤奮向學。</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-5 border-t border-slate-100 flex items-center justify-between gap-4">
+              <span class="text-xs font-bold text-slate-400 flex items-center gap-1">
+                <i class="fa-regular fa-clock"></i> 申辦審查中
+              </span>
+              <button onclick="openScholarshipModal('taoyuan')" class="px-5 py-2.5 rounded-xl bg-orange-600 hover:bg-orange-700 text-white font-black text-xs sm:text-sm shadow-md transition-all flex items-center gap-2">
+                <span>查看詳情與辦法</span> <i class="fa-solid fa-arrow-right text-xs"></i>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
       <!-- 家族活動行事曆區塊 -->
       <div id="calendar" class="scroll-mt-24 pt-4">
         <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 relative section-title-watermark px-2">
@@ -242,7 +333,7 @@
                     <i class="fa-solid fa-earth-asia"></i>
                   </div>
                   <div>
-                    <h4 class="text-lg font-black tracking-wide">日本旅遊</h4>
+                    <h4 class="text-lg font-black tracking-wide">日本行族旅遊</h4>
                     <p class="text-xs text-orange-100 font-medium">歡樂出遊・放鬆度假</p>
                   </div>
                 </div>
@@ -251,15 +342,15 @@
 
             <div class="pt-4 border-t border-white/20 flex items-center justify-between">
               <span class="text-xs font-bold text-orange-100 flex items-center gap-1.5">
-                <i class="fa-solid fa-location-dot text-white"></i> 日本目的地
+                <i class="fa-solid fa-location-dot text-white"></i> 東京
               </span>
               <span class="inline-flex items-center gap-1.5 text-xs font-black bg-white text-orange-700 px-4 py-2 rounded-xl shadow-md hover:bg-orange-50 transition-colors cursor-default">
-                即將前往 <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                即將出發 <i class="fa-solid fa-arrow-right text-[10px]"></i>
               </span>
             </div>
           </div>
 
-          <!-- 右側：其他年度固定活動列表 (圍爐、母親節、中秋烤肉) -->
+          <!-- 右側：其他年度固定活動列表 -->
           <div class="lg:col-span-2 grid grid-cols-1 sm:grid-cols-3 gap-4">
             
             <!-- 活動卡片 1：新年圍爐 -->
@@ -274,14 +365,14 @@
                   </div>
                 </div>
                 <div class="mb-3">
-                  <span class="text-xs font-bold text-orange-600 block mb-1">農曆新年期間</span>
+                  <span class="text-xs font-bold text-orange-600 block mb-1">2026/01/01</span>
                   <h4 class="text-lg font-black text-slate-900 group-hover:text-orange-600 transition-colors">新年團圓圍爐</h4>
                 </div>
                 <p class="text-xs text-slate-500 leading-relaxed font-medium">全家齊聚一堂享用豐盛年夜飯，互道恭喜迎新春。</p>
               </div>
               <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-400">
                 <span>年度首要聚會</span>
-                <span class="text-orange-600 font-black">已圓滿</span>
+                <span class="text-orange-600 font-black">已結束</span>
               </div>
             </div>
 
@@ -297,14 +388,14 @@
                   </div>
                 </div>
                 <div class="mb-3">
-                  <span class="text-xs font-bold text-orange-600 block mb-1">每年 5 月上旬</span>
+                  <span class="text-xs font-bold text-orange-600 block mb-1">2026/05/10</span>
                   <h4 class="text-lg font-black text-slate-900 group-hover:text-orange-600 transition-colors">母親節慶祝</h4>
                 </div>
-                <p class="text-xs text-slate-500 leading-relaxed font-medium">獻上最誠摯的感謝，慶祝偉大母親的辛勞。</p>
+                <p class="text-xs text-slate-500 leading-relaxed font-medium">獻上最誠摯的感謝，祝偉大母親的辛勞。</p>
               </div>
               <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-400">
                 <span>溫馨獻禮</span>
-                <span class="text-orange-600 font-black">年度活動</span>
+                <span class="text-orange-600 font-black">已結束</span>
               </div>
             </div>
 
@@ -320,14 +411,14 @@
                   </div>
                 </div>
                 <div class="mb-3">
-                  <span class="text-xs font-bold text-orange-600 block mb-1">農曆八月十五</span>
+                  <span class="text-xs font-bold text-orange-600 block mb-1">2026/09/25</span>
                   <h4 class="text-lg font-black text-slate-900 group-hover:text-orange-600 transition-colors">中秋烤肉同樂</h4>
                 </div>
                 <p class="text-xs text-slate-500 leading-relaxed font-medium">中秋佳節戶外烤肉香氣四溢，賞月談心凝聚情感。</p>
               </div>
               <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-400">
                 <span>團聚時刻</span>
-                <span class="text-orange-600 font-black">今年取消</span>
+                <span class="text-orange-600 font-black">取消舉辦</span>
               </div>
             </div>
 
@@ -467,7 +558,7 @@
     </div>
   </section>
 
-  <!-- 網頁頁尾 Footer (參考伊斯特風格之多欄位相關連結與版權) -->
+  <!-- 網頁頁尾 Footer -->
   <footer class="bg-slate-900 text-slate-300 pt-16 pb-10 border-t border-orange-500/20 mt-auto">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-8 pb-12 border-b border-white/10 text-xs sm:text-sm font-bold">
@@ -483,13 +574,13 @@
           </ul>
         </div>
 
-        <!-- 家族活動 -->
+        <!-- 獎學金與活動 -->
         <div class="space-y-4">
-          <h4 class="text-white font-black text-sm sm:text-base tracking-wider uppercase border-l-4 border-orange-600 pl-3">家族活動</h4>
+          <h4 class="text-white font-black text-sm sm:text-base tracking-wider uppercase border-l-4 border-orange-600 pl-3">獎學金與活動</h4>
           <ul class="space-y-2.5 text-slate-400 font-medium">
+            <li><a href="#scholarship" class="hover:text-orange-400 transition-colors">獎學金申請專區</a></li>
             <li><a href="#calendar" class="hover:text-orange-400 transition-colors">行事曆與行程</a></li>
             <li><a href="#calendar" class="hover:text-orange-400 transition-colors">特別旅遊指南</a></li>
-            <li><a href="#calendar" class="hover:text-orange-400 transition-colors">年度聚會紀實</a></li>
           </ul>
         </div>
 
@@ -504,7 +595,7 @@
           </ul>
         </div>
 
-        <!-- 顧客服務 / 支援 -->
+        <!-- 支援服務 -->
         <div class="space-y-4">
           <h4 class="text-white font-black text-sm sm:text-base tracking-wider uppercase border-l-4 border-orange-600 pl-3">支援服務</h4>
           <ul class="space-y-2.5 text-slate-400 font-medium">
@@ -528,6 +619,28 @@
       </div>
     </div>
   </footer>
+
+  <!-- 獎學金詳細資訊 Modal -->
+  <div id="scholarshipModal" class="fixed inset-0 z-[160] flex items-center justify-center p-4 sm:p-6 bg-slate-900/60 backdrop-blur-sm hidden">
+    <div class="bg-white text-slate-800 rounded-[28px] sm:rounded-[32px] shadow-2xl overflow-hidden relative uniform-modal-container border border-orange-100">
+      <div class="bg-slate-900 text-white px-6 sm:px-8 py-5 sm:py-6 flex items-center justify-between relative shrink-0">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-orange-600 text-white flex items-center justify-center text-sm font-black shadow-md"><i class="fa-solid fa-graduation-cap"></i></div>
+          <div>
+            <span class="text-[9px] sm:text-[10px] font-bold text-orange-400 uppercase tracking-widest block">LU FAMILY SCHOLARSHIP PORTAL</span>
+            <h4 class="text-sm sm:text-base font-black tracking-wide">獎學金申請辦法詳情</h4>
+          </div>
+        </div>
+        <button onclick="closeScholarshipModal()" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-all"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <div id="scholarshipModalBody" class="p-6 sm:p-8 overflow-y-auto custom-scrollbar space-y-6 flex-grow bg-slate-50/50"></div>
+
+      <div class="p-4 sm:p-6 bg-white border-t border-slate-200 shrink-0 text-center">
+        <button onclick="closeScholarshipModal()" class="w-full py-3.5 rounded-2xl bg-slate-800 hover:bg-slate-900 text-white font-black uppercase text-sm shadow-md transition-all">關閉視窗</button>
+      </div>
+    </div>
+  </div>
 
   <!-- 獨立彈出檢視頁面 Modal -->
   <div id="independentPageModal" class="fixed inset-0 z-[150] flex items-center justify-center p-4 sm:p-6 bg-slate-900/60 backdrop-blur-md hidden">
@@ -574,27 +687,27 @@
 
   <!-- 密碼驗證 Modal (新增) -->
   <div id="publishAuthModal" class="fixed inset-0 z-[150] flex items-center justify-center p-4 sm:p-6 bg-slate-900/60 backdrop-blur-sm hidden">
-    <div class="bg-white text-slate-800 rounded-[35px] sm:rounded-[40px] w-full max-w-sm shadow-2xl p-6 sm:p-8 text-center border border-orange-100">
+    <div class="bg-white text-slate-800 rounded-[35px] sm:rounded-[40px] w-full max-w-sm shadow-2xl p-6 sm:p-8 text-center border border-orange-100" onclick="event.stopPropagation()">
       <h3 class="text-lg sm:text-xl font-black text-slate-900 mb-2">請輸入管理密碼</h3>
-      <input type="password" id="pubAuthInput" class="w-full px-4 py-3 rounded-2xl bg-slate-50 border border-slate-200 text-center font-bold mb-4 text-sm text-slate-800 focus:outline-none focus:border-orange-500" placeholder="輸入管理密碼">
+      <input type="password" id="pubAuthInput" class="w-full px-4 py-3 rounded-2xl bg-slate-50 border border-slate-200 text-center font-bold mb-4 text-sm text-slate-800 focus:outline-none focus:border-orange-500" placeholder="輸入管理密碼" onkeydown="if(event.key==='Enter') verifyPublishAuth()">
       <button onclick="verifyPublishAuth()" class="w-full py-3 rounded-2xl bg-orange-600 hover:bg-orange-700 text-white font-black text-sm mb-2 transition-all">驗證進入</button>
       <button onclick="closePublishAuthModal()" class="w-full py-2.5 rounded-2xl bg-slate-100 text-slate-600 font-bold text-xs">關閉</button>
     </div>
   </div>
 
   <!-- 密碼驗證 Modal (管理) -->
-  <div id="historyAuthModal" class="fixed inset-0 z-[150] flex items-center justify-center p-4 sm:p-6 bg-slate-900/60 backdrop-blur-sm hidden">
-    <div class="bg-white text-slate-800 rounded-[35px] sm:rounded-[40px] w-full max-w-sm shadow-2xl p-6 sm:p-8 text-center border border-orange-100">
+  <div id="historyAuthModal" class="fixed inset-0 z-[150] flex items-center justify-center p-4 sm:p-6 bg-slate-900/60 backdrop-blur-sm hidden" onclick="closeHistoryAuthModal()">
+    <div class="bg-white text-slate-800 rounded-[35px] sm:rounded-[40px] w-full max-w-sm shadow-2xl p-6 sm:p-8 text-center border border-orange-100" onclick="event.stopPropagation()">
       <h3 class="text-lg sm:text-xl font-black text-slate-900 mb-2">請輸入管理密碼</h3>
-      <input type="password" id="historyAuthInput" class="w-full px-4 py-3 rounded-2xl bg-slate-50 border border-slate-200 text-center font-bold mb-4 text-sm text-slate-800 focus:outline-none focus:border-orange-500" placeholder="輸入管理密碼">
+      <input type="password" id="historyAuthInput" class="w-full px-4 py-3 rounded-2xl bg-slate-50 border border-slate-200 text-center font-bold mb-4 text-sm text-slate-800 focus:outline-none focus:border-orange-500" placeholder="輸入管理密碼" onkeydown="if(event.key==='Enter') verifyHistoryAuth()">
       <button onclick="verifyHistoryAuth()" class="w-full py-3 rounded-2xl bg-orange-600 hover:bg-orange-700 text-white font-black text-sm mb-2 transition-all">解鎖管理</button>
       <button onclick="closeHistoryAuthModal()" class="w-full py-2.5 rounded-2xl bg-slate-100 text-slate-600 font-bold text-xs">關閉</button>
     </div>
   </div>
 
   <!-- 管理歷史訊息 Modal -->
-  <div id="historyModal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 bg-slate-900/60 backdrop-blur-sm hidden">
-    <div class="bg-white text-slate-800 rounded-[35px] sm:rounded-[40px] shadow-2xl p-6 sm:p-8 uniform-modal-container border border-orange-100">
+  <div id="historyModal" class="fixed inset-0 z-[160] flex items-center justify-center p-4 sm:p-6 bg-slate-900/60 backdrop-blur-sm hidden" onclick="closeHistoryModal()">
+    <div class="bg-white text-slate-800 rounded-[35px] sm:rounded-[40px] shadow-2xl p-6 sm:p-8 uniform-modal-container border border-orange-100" onclick="event.stopPropagation()">
       <div class="flex justify-between items-center mb-6 shrink-0">
         <h3 class="text-xl sm:text-2xl font-black text-slate-900">最新消息管理</h3>
         <button onclick="closeHistoryModal()" class="w-8 h-8 rounded-full bg-slate-100 text-slate-700 flex items-center justify-center"><i class="fa-solid fa-xmark"></i></button>
@@ -610,13 +723,13 @@
         </div>
       </div>
 
-      <div class="space-y-4 overflow-y-auto custom-scrollbar flex-grow" id="historyListContainer"></div>
+      <div class="space-y-4 overflow-y-auto custom-scrollbar flex-grow pr-1" id="historyListContainer"></div>
     </div>
   </div>
 
   <!-- 新增/修改發布表單 Modal -->
-  <div id="publishModal" class="fixed inset-0 z-[120] flex items-center justify-center p-4 sm:p-6 bg-slate-900/60 backdrop-blur-sm hidden">
-    <div class="bg-white text-slate-800 rounded-[35px] sm:rounded-[40px] shadow-2xl p-6 sm:p-8 relative uniform-modal-container border border-orange-100">
+  <div id="publishModal" class="fixed inset-0 z-[170] flex items-center justify-center p-4 sm:p-6 bg-slate-900/60 backdrop-blur-sm hidden" onclick="closePublishModal()">
+    <div class="bg-white text-slate-800 rounded-[35px] sm:rounded-[40px] shadow-2xl p-6 sm:p-8 relative uniform-modal-container border border-orange-100" onclick="event.stopPropagation()">
       <div class="flex justify-between items-center mb-6 shrink-0">
         <h3 id="publishModalTitle" class="text-xl sm:text-2xl font-black text-slate-900 flex items-center gap-3">
           <i class="fa-solid fa-pen-to-square text-orange-600"></i> 新增內容
@@ -644,7 +757,7 @@
         </div>
 
         <div>
-          <label class="block text-xs font-black text-orange-600 mb-2"><i class="fa-solid fa-paperclip mr-1"></i> 相關附件 (最多可上傳 10 個)</label>
+          <label class="block text-xs font-black text-orange-600 mb-2"><i class="fa-solid fa-paperclip mr-1"></i> 相關附件與圖片 (支援多檔上傳)</label>
           <input type="file" id="pubFiles" multiple class="w-full text-xs font-bold text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-black file:bg-orange-100 file:text-orange-700 hover:file:bg-orange-200 cursor-pointer">
         </div>
 
@@ -654,8 +767,8 @@
   </div>
 
   <!-- 詳細內容 Modal -->
-  <div id="noticeDetailModal" class="fixed inset-0 z-[160] flex items-center justify-center p-4 sm:p-6 bg-slate-900/60 backdrop-blur-sm hidden">
-    <div class="bg-white text-slate-800 rounded-[28px] sm:rounded-[32px] shadow-2xl overflow-hidden relative uniform-modal-container border border-orange-100">
+  <div id="noticeDetailModal" class="fixed inset-0 z-[160] flex items-center justify-center p-4 sm:p-6 bg-slate-900/60 backdrop-blur-sm hidden" onclick="closeNoticeModal()">
+    <div class="bg-white text-slate-800 rounded-[28px] sm:rounded-[32px] shadow-2xl overflow-hidden relative uniform-modal-container border border-orange-100" onclick="event.stopPropagation()">
       <div class="bg-slate-900 text-white px-6 sm:px-8 py-5 sm:py-6 flex items-center justify-between relative shrink-0">
         <div class="flex items-center gap-3">
           <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-orange-600 text-white flex items-center justify-center text-sm font-black shadow-md"><i class="fa-solid fa-bullhorn"></i></div>
@@ -698,7 +811,7 @@
         </div>
 
         <div id="noticeFileArea" class="mb-6 hidden">
-          <span class="text-[10px] font-black text-slate-400 uppercase tracking-widest block mb-2"><i class="fa-solid fa-paperclip mr-1"></i> 檔案下載</span>
+          <span class="text-[10px] font-black text-slate-400 uppercase tracking-widest block mb-2"><i class="fa-solid fa-paperclip mr-1"></i> 附件與檔案下載</span>
           <div id="noticeFileContent" class="space-y-2"></div>
         </div>
       </div>
@@ -710,7 +823,7 @@
   </div>
 
   <!-- 圖片放大 Lightbox Modal -->
-  <div id="imageLightboxModal" class="fixed inset-0 z-[170] flex items-center justify-center p-4 bg-slate-950/90 backdrop-blur-md hidden" onclick="closeImageLightbox()">
+  <div id="imageLightboxModal" class="fixed inset-0 z-[180] flex items-center justify-center p-4 bg-slate-950/90 backdrop-blur-md hidden" onclick="closeImageLightbox()">
     <div class="relative max-w-5xl max-h-[90vh] flex items-center justify-center w-full h-full" onclick="event.stopPropagation()">
       <button onclick="closeImageLightbox()" class="absolute top-4 right-4 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/20 hover:bg-white/40 text-white flex items-center justify-center text-xl transition-all shadow-lg"><i class="fa-solid fa-xmark"></i></button>
       <button onclick="prevLightboxImage()" class="absolute left-2 sm:left-4 z-20 w-10 h-10 sm:w-14 sm:h-14 rounded-full bg-white/20 hover:bg-white/40 text-white flex items-center justify-center text-lg sm:text-2xl transition-all shadow-lg backdrop-blur-sm"><i class="fa-solid fa-chevron-left"></i></button>
@@ -763,6 +876,90 @@
     const API_URL = "https://script.google.com/macros/s/AKfycbytKuMUIHPxco1oKuh06EORbfZysAZqmLRzsVA8kPq6Yx7T_De2id70s7GJAoCS9jQR5Q/exec";
 
     let noticeData = {};
+
+    function openScholarshipModal(type) {
+      const modal = document.getElementById('scholarshipModal');
+      const body = document.getElementById('scholarshipModalBody');
+      body.innerHTML = '';
+
+      if (type === 'ntpc') {
+        body.innerHTML = `
+          <div class="space-y-6">
+            <div class="flex items-center gap-3 border-b border-slate-200 pb-4">
+              <span class="text-xs font-black px-4 py-1.5 rounded-full uppercase bg-red-600 text-white">新北市回饋地方專案</span>
+              <span class="text-xs font-bold text-slate-500"><i class="fa-regular fa-calendar-days text-orange-600 mr-1"></i> 115年度申請</span>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-black text-slate-900 leading-snug">新北市立殯儀館及火化場 115 年度回饋地方經費勤學獎助學金</h3>
+            
+            <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm space-y-4">
+              <h4 class="text-base font-black text-slate-900 border-l-4 border-orange-600 pl-3">申請資格與條件</h4>
+              <ul class="space-y-2 text-slate-700 font-medium text-sm sm:text-base list-disc list-inside">
+                <li>設籍於新北市回饋金發放受惠區（宏翠里學生奮發向學，獎勵品學兼優之學子。）連續滿一定期限。</li>
+                <li>就讀國內公私立國小、國中、高中職及大專院校之學生。</li>
+                <li>學業成績及操行表現達一定標準（一般需平均 80 分以上或無不良紀錄）。</li>
+              </ul>
+            </div>
+
+            <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm space-y-4">
+              <h4 class="text-base font-black text-slate-900 border-l-4 border-orange-600 pl-3">應檢附文件</h4>
+              <ul class="space-y-2 text-slate-700 font-medium text-sm sm:text-base list-disc list-inside">
+                <li>申請書正本一份。</li>
+                <li>全戶戶籍謄本或新式戶口名簿（需詳細記事）。</li>
+                <li>在學證明書或學生證正反面影本（蓋有115學年度註冊章）。</li>
+                <li>114學年度學業成績證明書（或前一學期成績單）。</li>
+                <li>申請人金融機構存摺封面影本。</li>
+              </ul>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-orange-50 border border-orange-200 text-orange-800 text-xs sm:text-sm font-black flex items-center gap-3">
+              <i class="fa-solid fa-circle-info text-orange-600 text-lg shrink-0"></i>
+              <span>相關申請資料，請洽營務官</span>
+            </div>
+          </div>
+        `;
+      } else if (type === 'taoyuan') {
+        body.innerHTML = `
+          <div class="space-y-6">
+            <div class="flex items-center gap-3 border-b border-slate-200 pb-4">
+              <span class="text-xs font-black px-4 py-1.5 rounded-full uppercase bg-amber-600 text-white">家族宗親專案</span>
+              <span class="text-xs font-bold text-slate-500"><i class="fa-regular fa-calendar-days text-orange-600 mr-1"></i> 115年度申請</span>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-black text-slate-900 leading-snug">祭祀公業法人桃園縣呂孟生公派下員子女獎學金申請</h3>
+            
+            <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm space-y-4">
+              <h4 class="text-base font-black text-slate-900 border-l-4 border-orange-600 pl-3">申請資格與條件</h4>
+              <ul class="space-y-2 text-slate-700 font-medium text-sm sm:text-base list-disc list-inside">
+                <li>具備祭祀公業法人桃園縣呂孟生公派下員身分之子女。</li>
+                <li>就讀教育部認可之國內公私立國中、高中（職）、大專院校及研究所正規學制學生。</li>
+                <li>學業成績平均達 80 分（或甲等）以上，操行成績甲等（或 80 分）以上。</li>
+              </ul>
+            </div>
+
+            <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm space-y-4">
+              <h4 class="text-base font-black text-slate-900 border-l-4 border-orange-600 pl-3">應檢附文件</h4>
+              <ul class="space-y-2 text-slate-700 font-medium text-sm sm:text-base list-disc list-inside">
+                <li>獎學金申請書一份。</li>
+                <li>派下員證明文件或相關系統派下全員證明書影本。</li>
+                <li>學生證影本及在學證明。</li>
+                <li>前一學年度（或上學期）成績證明單正本。</li>
+                <li>戶口名簿影本。</li>
+              </ul>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-orange-50 border border-orange-200 text-orange-800 text-xs sm:text-sm font-black flex items-center gap-3">
+              <i class="fa-solid fa-circle-info text-orange-600 text-lg shrink-0"></i>
+              <span>相關申請資料，請洽營務官</span>
+            </div>
+          </div>
+        `;
+      }
+
+      modal.classList.remove('hidden');
+    }
+
+    function closeScholarshipModal() {
+      document.getElementById('scholarshipModal').classList.add('hidden');
+    }
 
     const teamStaffList = [
       { role: "主管 (家庭長)", birth: "-", origin: "新北市板橋區", desc: "", icon: "fa-crown text-amber-500", skills: ["決策領導", "行政審核", "統籌規劃"], link: "" },
@@ -1001,7 +1198,7 @@
                 </div>
               </div>
             </div>
-          </div>`;
+          `;
 
       } else if (type === 'unit') {
         titleEl.innerText = "家族分布";
@@ -1054,7 +1251,7 @@
                 </div>
               </div>
             </div>
-          </div>`;
+          `;
       }
 
       modal.classList.remove('hidden');
@@ -1062,12 +1259,6 @@
 
     function closeIndependentPage() {
       document.getElementById('independentPageModal').classList.add('hidden');
-    }
-
-    function isImageFile(file) {
-      const name = (file.name || '').toLowerCase();
-      const type = (file.type || '').toLowerCase();
-      return type.startsWith('image/') || name.match(/\.(jpg|jpeg|png|gif|webp)$/i);
     }
 
     async function fetchNoticesFromCloud() {
@@ -1099,18 +1290,23 @@
         renderNotices();
       } catch (error) {
         console.error("載入失敗", error);
-        document.getElementById('noticeListContainer').innerHTML = '<p class="text-center text-red-500 font-bold col-span-full">無法連線至雲端試算表。</p>';
+        const container = document.getElementById('noticeListContainer');
+        if (container) {
+          container.innerHTML = '<p class="text-center text-red-500 font-bold col-span-full">無法連線至雲端試算表。</p>';
+        }
       }
     }
 
     function renderNotices() {
       const container = document.getElementById('noticeListContainer');
+      if (!container) return;
       container.innerHTML = '';
       const keys = Object.keys(noticeData);
       
       if (keys.length === 0) {
         container.innerHTML = '<p class="text-center text-slate-400 font-bold py-10 col-span-full">目前沒有任何最新消息。</p>';
-        document.getElementById('noticeTotalNum').innerText = "00";
+        const totalNumEl = document.getElementById('noticeTotalNum');
+        if (totalNumEl) totalNumEl.innerText = "00";
         return;
       }
 
@@ -1118,7 +1314,8 @@
         return new Date(noticeData[b].date) - new Date(noticeData[a].date);
       }).slice(0, 10);
 
-      document.getElementById('noticeTotalNum').innerText = String(sortedIds.length).padStart(2, '0');
+      const totalNumEl = document.getElementById('noticeTotalNum');
+      if (totalNumEl) totalNumEl.innerText = String(sortedIds.length).padStart(2, '0');
 
       sortedIds.forEach(id => {
         const data = noticeData[id];
@@ -1195,125 +1392,6 @@
 
     document.getElementById('noticeListContainer')?.addEventListener('scroll', updateNoticeProgress);
 
-    function compressAndReadFile(file) {
-      return new Promise((resolve, reject) => {
-        if (file.type && file.type.startsWith('image/')) {
-          const reader = new FileReader();
-          reader.onload = (e) => {
-            const img = new Image();
-            img.onload = () => {
-              const canvas = document.createElement('canvas');
-              let width = img.width;
-              let height = img.height;
-              const maxWidth = 900;
-              if (width > maxWidth) {
-                height = Math.round((height * maxWidth) / width);
-                width = maxWidth;
-              }
-              canvas.width = width;
-              canvas.height = height;
-              const ctx = canvas.getContext('2d');
-              ctx.drawImage(img, 0, 0, width, height);
-              resolve(canvas.toDataURL('image/jpeg', 0.75));
-            };
-            img.onerror = () => reject(new Error('圖片載入失敗'));
-            img.src = e.target.result;
-          };
-          reader.onerror = error => reject(error);
-          reader.readAsDataURL(file);
-        } else {
-          const reader = new FileReader();
-          reader.onload = () => resolve(reader.result);
-          reader.onerror = error => reject(error);
-          reader.readAsDataURL(file);
-        }
-      });
-    }
-
-    async function handlePublishSubmit(event) {
-      event.preventDefault();
-      const btn = document.getElementById('pubSubmitBtn');
-      const editId = document.getElementById('editNoticeId').value;
-      
-      const title = document.getElementById('pubTitle').value;
-      const date = document.getElementById('pubDate').value;
-      const content = document.getElementById('pubContent').value;
-      const fileInput = document.getElementById('pubFiles');
-
-      let filesArr = editId && noticeData[editId] ? noticeData[editId].files : [];
-      
-      if (fileInput.files && fileInput.files.length > 0) {
-        const maxFiles = 10;
-        const uploadCount = Math.min(fileInput.files.length, maxFiles);
-        btn.innerText = "正在處理附件...";
-        btn.disabled = true;
-        try {
-          for (let i = 0; i < uploadCount; i++) {
-            const file = fileInput.files[i];
-            const base64Url = await compressAndReadFile(file);
-            filesArr.push({ name: file.name, type: file.type, url: base64Url });
-          }
-          if (filesArr.length > maxFiles) {
-            filesArr = filesArr.slice(0, maxFiles);
-            alert('⚠️ 附件數量超過 10 個上限，僅保留前 10 個檔案。');
-          }
-        } catch (err) { console.error("檔案讀取失敗", err); }
-      }
-
-      const link = document.getElementById('pubLink').value;
-      const linkName = document.getElementById('pubLinkName').value;
-      
-      let payload = editId ? { 
-        action: 'update', id: editId, section: 'notice', title, tag: '最新消息', date, content, link, linkName, files: JSON.stringify(filesArr) 
-      } : { 
-        action: 'add', section: 'notice', title, tag: '最新消息', date, content, link, linkName, files: JSON.stringify(filesArr) 
-      };
-
-      btn.innerText = editId ? "修改同步中..." : "發布同步中...";
-      btn.disabled = true;
-
-      try {
-        await fetch(API_URL, { method: 'POST', body: JSON.stringify(payload) });
-        alert(editId ? '✅ 內容已成功修改並同步至雲端！' : '✅ 內容已成功發布並同步至雲端！');
-        closePublishModal();
-        fetchNoticesFromCloud();
-      } catch (e) {
-        alert('❌ 操作失敗，請稍後再試。');
-      } finally {
-        btn.innerText = "立即發布";
-        btn.disabled = false;
-      }
-    }
-
-    async function deleteNotice(id) {
-      if (confirm('⚠️ 確定要刪除這筆紀錄嗎？')) {
-        try {
-          await fetch(API_URL, { method: 'POST', body: JSON.stringify({ action: 'delete', id }) });
-          alert('✅ 紀錄已刪除！');
-          fetchNoticesFromCloud();
-          renderHistoryList();
-        } catch (e) { alert('❌ 刪除失敗'); }
-      }
-    }
-
-    function openEditModal(id) {
-      const data = noticeData[id];
-      if(!data) return;
-      closeHistoryModal();
-      
-      document.getElementById('editNoticeId').value = id;
-      document.getElementById('pubTitle').value = data.title;
-      document.getElementById('pubDate').value = formatDate(data.date);
-      document.getElementById('pubContent').value = data.content;
-      document.getElementById('pubLink').value = data.link || '';
-      document.getElementById('pubLinkName').value = data.linkName || '';
-      document.getElementById('pubFiles').value = '';
-      
-      document.getElementById('publishModalTitle').innerHTML = '<i class="fa-solid fa-pen-to-square text-orange-600"></i> 修改內容';
-      document.getElementById('pubSubmitBtn').innerText = "確認儲存修改";
-      document.getElementById('publishModal').classList.remove('hidden');
-    }
-
     function openNoticeModal(id) {
       const data = noticeData[id];
       if(!data) return;
@@ -1340,49 +1418,36 @@
       
       imageSliderContent.innerHTML = '';
       fileContent.innerHTML = '';
+      window._currentNoticeImages = [];
 
-      if (data.files && data.files.length > 0) {
-        const images = data.files.filter(f => isImageFile(f));
-        const files = data.files.filter(f => !isImageFile(f));
+      let hasImages = false;
+      let hasFiles = false;
 
-        if (images.length > 0) {
-          imageSliderArea.classList.remove('hidden');
-          window._currentNoticeImages = images;
-          images.forEach((img, idx) => {
+      if (data.files && Array.isArray(data.files)) {
+        data.files.forEach((file) => {
+          const isImg = file.type && file.type.startsWith('image/');
+          if (isImg) {
+            hasImages = true;
+            window._currentNoticeImages.push(file);
             const imgCard = document.createElement('div');
-            imgCard.className = "shrink-0 w-60 sm:w-64 h-44 sm:h-48 rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 snap-center relative group shadow-sm cursor-pointer";
-            imgCard.setAttribute('onclick', `openImageLightbox(${idx})`);
-            imgCard.innerHTML = `
-              <img src="${img.url}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" alt="預覽圖">
-              <div class="absolute inset-0 bg-slate-900/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                <span class="px-3 py-1.5 rounded-xl bg-slate-900/80 text-white text-xs font-black backdrop-blur-sm shadow-md">
-                  <i class="fa-solid fa-magnifying-glass-plus mr-1"></i> 點擊放大 (${idx + 1}/${images.length})
-                </span>
-              </div>
-            `;
+            imgCard.className = "w-32 h-32 rounded-2xl overflow-hidden shrink-0 border border-slate-200 shadow-sm cursor-pointer relative group/img";
+            imgCard.setAttribute('onclick', `openImageLightbox(${window._currentNoticeImages.length - 1})`);
+            imgCard.innerHTML = `<img src="${file.url}" class="w-full h-full object-cover group-hover/img:scale-105 transition-transform" alt="附件圖片">`;
             imageSliderContent.appendChild(imgCard);
-          });
-        } else { imageSliderArea.classList.add('hidden'); }
-
-        if (files.length > 0) {
-          fileArea.classList.remove('hidden');
-          files.forEach((file, idx) => {
-            const fileRow = document.createElement('div');
-            fileRow.className = "bg-orange-50/50 border border-orange-100 rounded-2xl p-3 flex items-center justify-between gap-3";
-            fileRow.innerHTML = `
-              <div class="flex items-center gap-3 overflow-hidden">
-                <div class="w-8 h-8 rounded-xl bg-orange-600 text-white flex items-center justify-center shrink-0 text-xs"><i class="fa-solid fa-file-arrow-down"></i></div>
-                <div class="truncate"><p class="text-xs font-black text-slate-800 truncate">${file.name || '附件 ' + (idx + 1)}</p></div>
-              </div>
-              <a href="${file.url}" download="${file.name || 'file_' + (idx + 1)}" class="px-3 py-1.5 rounded-xl bg-orange-600 hover:bg-orange-700 text-white text-xs font-black transition-all shrink-0 shadow-sm">下載</a>
-            `;
-            fileContent.appendChild(fileRow);
-          });
-        } else { fileArea.classList.add('hidden'); }
-      } else {
-        imageSliderArea.classList.add('hidden');
-        fileArea.classList.add('hidden');
+          } else {
+            hasFiles = true;
+            const fileItem = document.createElement('a');
+            fileItem.href = file.url;
+            fileItem.target = "_blank";
+            fileItem.className = "p-3 rounded-xl bg-slate-50 hover:bg-orange-50 border border-slate-200 flex items-center justify-between text-xs font-bold text-slate-700 transition-all";
+            fileItem.innerHTML = `<span class="truncate"><i class="fa-solid fa-file-arrow-down text-orange-600 mr-2"></i> ${file.name || '附件檔案'}</span> <i class="fa-solid fa-download text-slate-400"></i>`;
+            fileContent.appendChild(fileItem);
+          }
+        });
       }
+
+      if (hasImages) { imageSliderArea.classList.remove('hidden'); } else { imageSliderArea.classList.add('hidden'); }
+      if (hasFiles) { fileArea.classList.remove('hidden'); } else { fileArea.classList.add('hidden'); }
 
       document.getElementById('noticeDetailModal').classList.remove('hidden');
     }
@@ -1409,25 +1474,29 @@
 
     function openHistoryAuthModal() { closeAdminMenuModal(); document.getElementById('historyAuthInput').value = ''; document.getElementById('historyAuthModal').classList.remove('hidden'); }
     function closeHistoryAuthModal() { document.getElementById('historyAuthModal').classList.add('hidden'); }
+    
     function verifyHistoryAuth() {
-      if (document.getElementById('historyAuthInput').value === ADMIN_PASSWORD) {
+      const inputVal = document.getElementById('historyAuthInput').value;
+      if (inputVal === ADMIN_PASSWORD) {
         closeHistoryAuthModal();
         renderHistoryList();
-        document.getElementById('historyModal').classList.add('hidden');
+        document.getElementById('historyModal').classList.remove('hidden');
       } else { 
         alert('❌ 密碼錯誤！'); 
       }
     }
+    
     function closeHistoryModal() { document.getElementById('historyModal').classList.add('hidden'); }
 
     function renderHistoryList() {
       const historyList = document.getElementById('historyListContainer');
+      if (!historyList) return;
       historyList.innerHTML = '';
       const sortDirection = document.getElementById('adminSortOrderSelect') ? document.getElementById('adminSortOrderSelect').value : 'desc';
 
       const keys = Object.keys(noticeData).sort((a, b) => {
-        const dateA = new Date(noticeData[a].date);
-        const dateB = new Date(noticeData[b].date);
+        const dateA = new Date(noticeData[a].date || 0);
+        const dateB = new Date(noticeData[b].date || 0);
         if (sortDirection === 'asc') {
           return dateA - dateB;
         } else {
@@ -1450,12 +1519,110 @@
             <h4 class="font-black text-slate-800 text-sm sm:text-base truncate">${data.title}</h4>
           </div>
           <div class="flex items-center gap-2 shrink-0">
-            <button onclick="openEditModal('${id}')" class="px-3 py-1.5 rounded-xl bg-orange-600 hover:bg-orange-700 text-white text-xs font-black transition-all">修改</button>
-            <button onclick="deleteNotice('${id}')" class="px-3 py-1.5 rounded-xl bg-red-600 hover:bg-red-700 text-white text-xs font-black transition-all">刪除</button>
+            <button type="button" onclick="openEditModal('${id}')" class="px-3 py-1.5 rounded-xl bg-orange-600 hover:bg-orange-700 text-white text-xs font-black transition-all">修改</button>
+            <button type="button" onclick="deleteNotice('${id}')" class="px-3 py-1.5 rounded-xl bg-red-600 hover:bg-red-700 text-white text-xs font-black transition-all">刪除</button>
           </div>
         `;
         historyList.appendChild(item);
       });
+    }
+
+    function openEditModal(id) {
+      const data = noticeData[id];
+      if (!data) return;
+      closeHistoryModal();
+      document.getElementById('editNoticeId').value = id;
+      document.getElementById('pubTitle').value = data.title;
+      document.getElementById('pubDate').value = data.date;
+      document.getElementById('pubContent').value = data.content;
+      document.getElementById('pubLink').value = data.link || '';
+      document.getElementById('pubLinkName').value = data.linkName || '';
+      document.getElementById('publishModalTitle').innerHTML = '<i class="fa-solid fa-pen-to-square text-orange-600"></i> 修改發布內容';
+      document.getElementById('pubSubmitBtn').innerText = "確認修改";
+      document.getElementById('publishModal').classList.remove('hidden');
+    }
+
+    async function handlePublishSubmit(e) {
+      e.preventDefault();
+      const id = document.getElementById('editNoticeId').value || 'notice_' + Date.now();
+      const title = document.getElementById('pubTitle').value;
+      const date = document.getElementById('pubDate').value;
+      const content = document.getElementById('pubContent').value;
+      const link = document.getElementById('pubLink').value;
+      const linkName = document.getElementById('pubLinkName').value;
+      const fileInput = document.getElementById('pubFiles');
+
+      let filesArr = noticeData[id] ? (noticeData[id].files || []) : [];
+
+      if (fileInput.files && fileInput.files.length > 0) {
+        for (let i = 0; i < fileInput.files.length; i++) {
+          const file = fileInput.files[i];
+          const reader = new FileReader();
+          await new Promise((resolve) => {
+            reader.onload = function(uploadEvent) {
+              filesArr.push({
+                name: file.name,
+                type: file.type,
+                url: uploadEvent.target.result
+              });
+              resolve();
+            };
+            reader.readAsDataURL(file);
+          });
+        }
+      }
+
+      noticeData[id] = {
+        title,
+        tag: '最新消息',
+        date,
+        content,
+        link,
+        linkName,
+        files: filesArr
+      };
+
+      try {
+        await fetch(API_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            action: document.getElementById('editNoticeId').value ? 'update' : 'create',
+            id,
+            title,
+            date,
+            content,
+            link,
+            linkName,
+            files: JSON.stringify(filesArr)
+          })
+        });
+      } catch (err) {
+        console.error("同步至雲端失敗", err);
+      }
+
+      alert('✅ 發布/修改成功！');
+      closePublishModal();
+      renderNotices();
+    }
+
+    async function deleteNotice(id) {
+      if (!confirm('確定要刪除這則消息嗎？')) return;
+      delete noticeData[id];
+      try {
+        await fetch(API_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ action: 'delete', id })
+        });
+      } catch (err) {
+        console.error("刪除失敗", err);
+      }
+      alert('🗑️ 已刪除！');
+      renderHistoryList();
+      renderNotices();
     }
 
     document.addEventListener('DOMContentLoaded', () => { 
