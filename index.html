@@ -68,8 +68,6 @@
 <body class="flex flex-col min-h-screen">
 
  
-
-  <!-- 導覽列 -->
   <nav class="bg-white/90 backdrop-blur-md sticky top-0 z-40 border-b border-orange-100 shadow-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center gap-4">
       <div class="flex items-center gap-3 shrink-0">
@@ -86,37 +84,84 @@
         
         <!-- 關於我們 下拉選單 -->
         <div class="relative group py-2">
+          <!-- 觸發按鈕 -->
           <button class="flex items-center gap-1.5 hover:text-orange-600 transition-colors focus:outline-none">
-            <span>關於我們 ABOUT</span> <i class="fa-solid fa-plus text-xs transition-transform group-hover:rotate-45 text-orange-600"></i>
+            <span>關於我們 ABOUT</span> 
+            <i class="fa-solid fa-plus text-xs transition-transform group-hover:rotate-45 text-orange-600"></i>
           </button>
           
-          <div class="absolute top-full left-1/2 -translate-x-1/2 w-[340px] bg-white rounded-[24px] shadow-2xl border border-orange-100 p-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all transform translate-y-3 group-hover:translate-y-0 z-50">
-            <div class="flex items-baseline gap-3 pb-3 mb-3 border-b border-slate-100">
+          <!-- 下拉展開的圖片風格排版容器 -->
+          <div class="absolute top-full left-1/2 -translate-x-1/2 w-[720px] bg-white rounded-[24px] shadow-2xl border border-orange-100 p-6 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all transform translate-y-3 group-hover:translate-y-0 z-50">
+            
+            <!-- 標題區 -->
+            <div class="flex items-baseline gap-3 pb-4 mb-5 border-b border-slate-100">
               <span class="text-xl font-black tracking-wider text-orange-600 uppercase">ABOUT</span>
               <span class="text-xs font-bold text-slate-400">家族專區</span>
             </div>
 
-            <div class="space-y-2">
-              <a href="#scholarship" class="group/item text-left p-3 rounded-xl bg-slate-50 hover:bg-orange-50 border border-slate-100 hover:border-orange-200 transition-all flex items-center justify-between">
-                <span class="text-xs font-black text-slate-700 group-hover/item:text-orange-600">獎學金申請專區</span>
-                <i class="fa-solid fa-arrow-right text-[10px] text-orange-500 opacity-0 group-hover/item:opacity-100 transform -translate-x-1 group-hover/item:translate-x-0 transition-all"></i>
+            <!-- 網格卡片排版 -->
+            <div class="grid grid-cols-2 gap-4">
+              
+              <!-- 項目 01 -->
+              <a href="#scholarship" class="group/item relative overflow-hidden text-left p-4 rounded-2xl bg-white hover:bg-orange-50/40 border border-slate-100 hover:border-orange-200 transition-all flex items-center justify-between shadow-sm">
+                <div class="flex flex-col">
+                  <span class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-0.5">Scholarship</span>
+                  <span class="text-sm font-black text-slate-700 group-hover/item:text-orange-600">獎學金申請專區</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <span class="text-2xl font-black text-orange-200 group-hover/item:text-orange-400 transition-colors">01</span>
+                  <i class="fa-solid fa-arrow-right text-xs text-orange-500 transform -translate-x-1 group-hover/item:translate-x-0 transition-all"></i>
+                </div>
               </a>
-              <a href="#calendar" class="group/item text-left p-3 rounded-xl bg-slate-50 hover:bg-orange-50 border border-slate-100 hover:border-orange-200 transition-all flex items-center justify-between">
-                <span class="text-xs font-black text-slate-700 group-hover/item:text-orange-600">家族活動行事曆</span>
-                <i class="fa-solid fa-arrow-right text-[10px] text-orange-500 opacity-0 group-hover/item:opacity-100 transform -translate-x-1 group-hover/item:translate-x-0 transition-all"></i>
+
+              <!-- 項目 02 -->
+              <a href="#calendar" class="group/item relative overflow-hidden text-left p-4 rounded-2xl bg-white hover:bg-orange-50/40 border border-slate-100 hover:border-orange-200 transition-all flex items-center justify-between shadow-sm">
+                <div class="flex flex-col">
+                  <span class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-0.5">Calendar</span>
+                  <span class="text-sm font-black text-slate-700 group-hover/item:text-orange-600">家族活動行事曆</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <span class="text-2xl font-black text-orange-200 group-hover/item:text-orange-400 transition-colors">02</span>
+                  <i class="fa-solid fa-arrow-right text-xs text-orange-500 transform -translate-x-1 group-hover/item:translate-x-0 transition-all"></i>
+                </div>
               </a>
-              <a href="#team-staff" class="group/item text-left p-3 rounded-xl bg-slate-50 hover:bg-orange-50 border border-slate-100 hover:border-orange-200 transition-all flex items-center justify-between">
-                <span class="text-xs font-black text-slate-700 group-hover/item:text-orange-600">隊職幹部名單</span>
-                <i class="fa-solid fa-arrow-right text-[10px] text-orange-500 opacity-0 group-hover/item:opacity-100 transform -translate-x-1 group-hover/item:translate-x-0 transition-all"></i>
+
+              <!-- 項目 03 -->
+              <a href="#team-staff" class="group/item relative overflow-hidden text-left p-4 rounded-2xl bg-white hover:bg-orange-50/40 border border-slate-100 hover:border-orange-200 transition-all flex items-center justify-between shadow-sm">
+                <div class="flex flex-col">
+                  <span class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-0.5">Staff</span>
+                  <span class="text-sm font-black text-slate-700 group-hover/item:text-orange-600">隊職幹部名單</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <span class="text-2xl font-black text-orange-200 group-hover/item:text-orange-400 transition-colors">03</span>
+                  <i class="fa-solid fa-arrow-right text-xs text-orange-500 transform -translate-x-1 group-hover/item:translate-x-0 transition-all"></i>
+                </div>
               </a>
-              <button onclick="openIndependentPage('role')" class="w-full text-left p-3 rounded-xl bg-slate-50 hover:bg-orange-50 border border-slate-100 hover:border-orange-200 transition-all flex items-center justify-between">
-                <span class="text-xs font-black text-slate-700 hover:text-orange-600">業務職掌分工</span>
-                <i class="fa-solid fa-arrow-right text-[10px] text-orange-500 opacity-0 hover:opacity-100 transition-all"></i>
+
+              <!-- 項目 04 -->
+              <button onclick="openIndependentPage('role')" class="group/item w-full relative overflow-hidden text-left p-4 rounded-2xl bg-white hover:bg-orange-50/40 border border-slate-100 hover:border-orange-200 transition-all flex items-center justify-between shadow-sm cursor-pointer">
+                <div class="flex flex-col">
+                  <span class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-0.5">Roles</span>
+                  <span class="text-sm font-black text-slate-700 group-hover/item:text-orange-600">業務職掌分工</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <span class="text-2xl font-black text-orange-200 group-hover/item:text-orange-400 transition-colors">04</span>
+                  <i class="fa-solid fa-arrow-right text-xs text-orange-500 transform -translate-x-1 group-hover/item:translate-x-0 transition-all"></i>
+                </div>
               </button>
-              <a href="#family-map" class="group/item text-left p-3 rounded-xl bg-slate-50 hover:bg-orange-50 border border-slate-100 hover:border-orange-200 transition-all flex items-center justify-between">
-                <span class="text-xs font-black text-slate-700 group-hover/item:text-orange-600">家族成員分布圖</span>
-                <i class="fa-solid fa-arrow-right text-[10px] text-orange-500 opacity-0 group-hover/item:opacity-100 transform -translate-x-1 group-hover/item:translate-x-0 transition-all"></i>
+
+              <!-- 項目 05 -->
+              <a href="#family-map" class="group/item relative overflow-hidden text-left p-4 rounded-2xl bg-white hover:bg-orange-50/40 border border-slate-100 hover:border-orange-200 transition-all flex items-center justify-between shadow-sm col-span-2">
+                <div class="flex flex-col">
+                  <span class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-0.5">Distribution Map</span>
+                  <span class="text-sm font-black text-slate-700 group-hover/item:text-orange-600">家族成員分布圖</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <span class="text-2xl font-black text-orange-200 group-hover/item:text-orange-400 transition-colors">05</span>
+                  <i class="fa-solid fa-arrow-right text-xs text-orange-500 transform -translate-x-1 group-hover/item:translate-x-0 transition-all"></i>
+                </div>
               </a>
+
             </div>
           </div>
         </div>
@@ -126,7 +171,7 @@
         </div>
       </div>
 
-      <!-- 手機版右側按鈕群 -->
+      <!-- 手機版右側按鈕群（已補回漢堡選單圖示） -->
       <div class="flex items-center gap-3 lg:hidden">
         <button onclick="openAdminMenuModal()" class="text-slate-700 hover:text-orange-600 transition-colors p-2 text-lg focus:outline-none bg-transparent border-0 shadow-none" title="後台管理">
           <i class="fa-solid fa-user-gear"></i>
@@ -138,29 +183,76 @@
       </div>
     </div>
 
-    <!-- 手機版選單 -->
+    <!-- 手機版選單（卡片與大數字編號風格） -->
     <div id="mobileMenu" class="hidden bg-white border-t border-slate-100 shadow-2xl transition-all lg:hidden">
-      <div class="max-w-4xl mx-auto px-6 py-6 flex flex-col gap-3 font-bold text-base">
-        <a href="#scholarship" onclick="toggleMobileMenu()" class="px-5 py-4 rounded-2xl bg-orange-50 text-orange-700 border border-orange-200 flex items-center justify-between hover:border-orange-500 transition-all">
-          <span>獎學金專區 <span class="text-xs text-orange-600 font-normal ml-2">SCHOLARSHIP</span></span>
-          <i class="fa-solid fa-chevron-right text-xs text-orange-500"></i>
+      <div class="max-w-4xl mx-auto px-6 py-6 flex flex-col gap-3">
+        
+        <!-- 標題區 -->
+        <div class="flex items-baseline gap-3 pb-2 mb-1 border-b border-slate-100">
+          <span class="text-lg font-black tracking-wider text-orange-600 uppercase">ABOUT</span>
+          <span class="text-xs font-bold text-slate-400">家族專區</span>
+        </div>
+
+        <!-- 項目 01 -->
+        <a href="#scholarship" onclick="toggleMobileMenu()" class="group relative overflow-hidden p-4 rounded-2xl bg-slate-50 hover:bg-orange-50/40 border border-slate-100 hover:border-orange-200 transition-all flex items-center justify-between">
+          <div class="flex flex-col">
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-0.5">Scholarship</span>
+            <span class="text-sm font-black text-slate-700 group-hover:text-orange-600">獎學金申請專區</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-2xl font-black text-orange-200 group-hover:text-orange-400 transition-colors">01</span>
+            <i class="fa-solid fa-arrow-right text-xs text-orange-500 transform -translate-x-1 group-hover:translate-x-0 transition-all"></i>
+          </div>
         </a>
-        <a href="#calendar" onclick="toggleMobileMenu()" class="px-5 py-4 rounded-2xl bg-slate-50 text-slate-800 border border-slate-200 flex items-center justify-between hover:border-orange-500 transition-all">
-          <span>家族行事曆 <span class="text-xs text-orange-600 font-normal ml-2">CALENDAR</span></span>
-          <i class="fa-solid fa-chevron-right text-xs text-slate-400"></i>
+
+        <!-- 項目 02 -->
+        <a href="#calendar" onclick="toggleMobileMenu()" class="group relative overflow-hidden p-4 rounded-2xl bg-slate-50 hover:bg-orange-50/40 border border-slate-100 hover:border-orange-200 transition-all flex items-center justify-between">
+          <div class="flex flex-col">
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-0.5">Calendar</span>
+            <span class="text-sm font-black text-slate-700 group-hover:text-orange-600">家族活動行事曆</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-2xl font-black text-orange-200 group-hover:text-orange-400 transition-colors">02</span>
+            <i class="fa-solid fa-arrow-right text-xs text-orange-500 transform -translate-x-1 group-hover:translate-x-0 transition-all"></i>
+          </div>
         </a>
-        <a href="#notice" onclick="toggleMobileMenu()" class="px-5 py-4 rounded-2xl bg-slate-50 text-slate-800 border border-slate-200 flex items-center justify-between hover:border-orange-500 transition-all">
-          <span>最新消息 <span class="text-xs text-orange-600 font-normal ml-2">NEWS</span></span>
-          <i class="fa-solid fa-chevron-right text-xs text-slate-400"></i>
+
+        <!-- 項目 03 -->
+        <a href="#team-staff" onclick="toggleMobileMenu()" class="group relative overflow-hidden p-4 rounded-2xl bg-slate-50 hover:bg-orange-50/40 border border-slate-100 hover:border-orange-200 transition-all flex items-center justify-between">
+          <div class="flex flex-col">
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-0.5">Staff</span>
+            <span class="text-sm font-black text-slate-700 group-hover:text-orange-600">隊職幹部名單</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-2xl font-black text-orange-200 group-hover:text-orange-400 transition-colors">03</span>
+            <i class="fa-solid fa-arrow-right text-xs text-orange-500 transform -translate-x-1 group-hover:translate-x-0 transition-all"></i>
+          </div>
         </a>
-        <a href="#team-staff" onclick="toggleMobileMenu()" class="px-5 py-4 rounded-2xl bg-slate-50 text-slate-800 border border-slate-200 flex items-center justify-between hover:border-orange-500 transition-all">
-          <span>隊職幹部 <span class="text-xs text-orange-600 font-normal ml-2">TEAM</span></span>
-          <i class="fa-solid fa-chevron-right text-xs text-slate-400"></i>
+
+        <!-- 項目 04 -->
+        <button onclick="openIndependentPage('role'); toggleMobileMenu();" class="group w-full relative overflow-hidden text-left p-4 rounded-2xl bg-slate-50 hover:bg-orange-50/40 border border-slate-100 hover:border-orange-200 transition-all flex items-center justify-between cursor-pointer">
+          <div class="flex flex-col">
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-0.5">Roles</span>
+            <span class="text-sm font-black text-slate-700 group-hover:text-orange-600">業務職掌分工</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-2xl font-black text-orange-200 group-hover:text-orange-400 transition-colors">04</span>
+            <i class="fa-solid fa-arrow-right text-xs text-orange-500 transform -translate-x-1 group-hover:translate-x-0 transition-all"></i>
+          </div>
+        </button>
+
+        <!-- 項目 05 -->
+        <a href="#family-map" onclick="toggleMobileMenu()" class="group relative overflow-hidden p-4 rounded-2xl bg-slate-50 hover:bg-orange-50/40 border border-slate-100 hover:border-orange-200 transition-all flex items-center justify-between">
+          <div class="flex flex-col">
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-0.5">Distribution Map</span>
+            <span class="text-sm font-black text-slate-700 group-hover:text-orange-600">家族成員分布圖</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-2xl font-black text-orange-200 group-hover:text-orange-400 transition-colors">05</span>
+            <i class="fa-solid fa-arrow-right text-xs text-orange-500 transform -translate-x-1 group-hover:translate-x-0 transition-all"></i>
+          </div>
         </a>
-        <a href="#family-map" onclick="toggleMobileMenu()" class="px-5 py-4 rounded-2xl bg-slate-50 text-slate-800 border border-slate-200 flex items-center justify-between hover:border-orange-500 transition-all">
-          <span>家族分布 <span class="text-xs text-orange-600 font-normal ml-2">MAP</span></span>
-          <i class="fa-solid fa-chevron-right text-xs text-slate-400"></i>
-        </a>
+
       </div>
     </div>
   </nav>
