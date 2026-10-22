@@ -62,16 +62,6 @@
     .marquee-track:hover {
       animation-play-state: paused;
     }
-
-    /* 參考圖風格的卡片與金框設計 */
-    .membership-card-frame {
-      background-color: #262220;
-      background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.03) 0, rgba(255,255,255,0.03) 1px, transparent 0, transparent 50%),
-                        repeating-linear-gradient(-45deg, rgba(255,255,255,0.03) 0, rgba(255,255,255,0.03) 1px, transparent 0, transparent 50%);
-      background-size: 20px 20px;
-      border: 3px solid #d4a373;
-      position: relative;
-    }
   </style>
 </head>
 
@@ -140,26 +130,11 @@
         </div>
 
         <a href="#notice" class="hover:text-orange-600 transition-colors py-2 tracking-wider">最新消息 NEWS</a> 
-        <a href="#member-tier" class="hover:text-orange-600 transition-colors py-2 tracking-wider text-orange-600">會員專區 TIER</a>
-
-        <div class="flex items-center gap-3 border-l border-slate-200 pl-4">
-          <button onclick="openLoginModal()" class="px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-black shadow-sm transition-all flex items-center gap-1.5 cursor-pointer">
-            <i class="fa-solid fa-right-to-bracket text-orange-400"></i> 會員登入
-          </button>
-          <button onclick="openMemberModal()" class="px-4 py-2 rounded-xl bg-orange-600 hover:bg-orange-700 text-white text-xs font-black shadow-md transition-all flex items-center gap-1.5 cursor-pointer">
-            <i class="fa-solid fa-user-plus"></i> 免費註冊
-          </button>
-          <button onclick="openAdminMenuModal()" class="text-slate-600 hover:text-orange-600 transition-colors focus:outline-none ml-1 text-lg" title="後台管理"><i class="fa-solid fa-user-gear"></i></button>
-        </div>
+        <a href="#scholarship" class="hover:text-orange-600 transition-colors py-2 tracking-wider">獎學金專區 SCHOLARSHIP</a>
       </div>
 
-      <!-- 手機版右側按鈕群 -->
+      <!-- 手機版右側選單按鈕 -->
       <div class="flex items-center gap-2 lg:hidden">
-        <button onclick="openLoginModal()" class="px-3 py-1.5 rounded-xl bg-slate-900 text-white text-xs font-black shadow-sm">登入</button>
-        <button onclick="openMemberModal()" class="px-3 py-1.5 rounded-xl bg-orange-600 text-white text-xs font-black shadow-sm">註冊</button>
-        <button onclick="openAdminMenuModal()" class="text-slate-700 hover:text-orange-600 transition-colors p-2 text-lg focus:outline-none" title="後台管理">
-          <i class="fa-solid fa-user-gear"></i>
-        </button>
         <button onclick="toggleMobileMenu()" class="text-2xl text-slate-800 p-2 focus:outline-none hover:text-orange-600 transition-colors">
           <i id="mobileMenuIcon" class="fa-solid fa-bars"></i>
         </button>
@@ -181,10 +156,6 @@
           </a>
           <a href="#scholarship" onclick="toggleMobileMenu()" class="group py-2.5 px-2 flex items-center justify-between text-slate-800 hover:text-orange-600 transition-colors border-b border-slate-50">
             <span class="font-bold">獎學金申請</span>
-            <i class="fa-solid fa-arrow-right text-xs text-orange-500 transform -translate-x-1 group-hover:translate-x-0 transition-all"></i>
-          </a>
-          <a href="#member-tier" onclick="toggleMobileMenu()" class="group py-2.5 px-2 flex items-center justify-between text-slate-800 hover:text-orange-600 transition-colors border-b border-slate-50">
-            <span class="font-bold">免費會員專區與會員證</span>
             <i class="fa-solid fa-arrow-right text-xs text-orange-500 transform -translate-x-1 group-hover:translate-x-0 transition-all"></i>
           </a>
         </div>
@@ -222,127 +193,6 @@
   <section class="py-10 flex-grow">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 w-full space-y-20">
       
-      <!-- 會員等級與晉升制度區塊 (新增) -->
-      <div id="member-tier" class="scroll-mt-24 pt-4">
-        <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 relative section-title-watermark px-2">
-          <div class="watermark-text">MEMBER TIER</div>
-          <div class="relative z-10">
-            <span class="text-orange-600 font-black text-xs tracking-widest uppercase block mb-1">免費會員註冊與等級晉升制度</span>
-            <h2 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight uppercase">MEMBER PROGRESSION</h2>
-          </div>
-          <div class="mt-4 sm:mt-0 relative z-10 flex items-center gap-3">
-            <button onclick="openLoginModal()" class="px-4 py-2.5 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-black text-xs sm:text-sm shadow-md transition-all flex items-center gap-2">
-              <i class="fa-solid fa-right-to-bracket text-orange-400"></i> 登入會員證
-            </button>
-            <button onclick="openMemberModal()" class="px-5 py-2.5 rounded-2xl bg-orange-600 hover:bg-orange-700 text-white font-black text-xs sm:text-sm shadow-md transition-all flex items-center gap-2">
-              <i class="fa-solid fa-user-plus"></i> 免費註冊
-            </button>
-          </div>
-        </div>
-
-        <!-- 階級卡片列表 (依照啟用時間長短晉升) -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          
-          <!-- 下忍 (第 1-2 個月) -->
-          <div class="bg-white rounded-[32px] p-6 border border-orange-200 shadow-md flex flex-col justify-between relative overflow-hidden group hover:scale-[1.02] transition-all">
-            <div>
-              <div class="flex items-center justify-between mb-4">
-                <span class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 font-black text-[10px] uppercase">新血階級</span>
-                <span class="text-xs font-bold text-slate-400">第 1 - 2 個月</span>
-              </div>
-              <div class="flex items-center gap-4 mb-4">
-                <div class="w-14 h-14 rounded-2xl bg-slate-800 text-emerald-400 flex items-center justify-center text-2xl font-black shadow-md shrink-0">
-                  <i class="fa-solid fa-seedling"></i>
-                </div>
-                <div>
-                  <h3 class="text-xl font-black text-slate-900">下忍</h3>
-                  <p class="text-xs text-emerald-600 font-black tracking-wider">GENIN</p>
-                </div>
-              </div>
-              <p class="text-xs text-slate-600 font-medium leading-relaxed mb-6">修行第一步，加入家族享受基礎福利與交流。</p>
-            </div>
-            <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
-              <span class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 font-black text-[10px]">基礎期</span>
-              <button onclick="openMemberModalWithDate(0)" class="text-xs font-black text-orange-600 hover:text-orange-700">立即註冊 <i class="fa-solid fa-arrow-right"></i></button>
-            </div>
-          </div>
-
-          <!-- 中忍 (第 3-4 個月) -->
-          <div class="bg-white rounded-[32px] p-6 border border-orange-200 shadow-md flex flex-col justify-between relative overflow-hidden group hover:scale-[1.02] transition-all">
-            <div>
-              <div class="flex items-center justify-between mb-4">
-                <span class="px-3 py-1 rounded-full bg-blue-50 text-blue-700 font-black text-[10px] uppercase">中堅階級</span>
-                <span class="text-xs font-bold text-slate-400">第 3 - 4 個月</span>
-              </div>
-              <div class="flex items-center gap-4 mb-4">
-                <div class="w-14 h-14 rounded-2xl bg-blue-600 text-white flex items-center justify-center text-2xl font-black shadow-md shrink-0">
-                  <i class="fa-solid fa-user-shield"></i>
-                </div>
-                <div>
-                  <h3 class="text-xl font-black text-slate-900">中忍</h3>
-                  <p class="text-xs text-blue-600 font-bold tracking-wider">CHUUNIN</p>
-                </div>
-              </div>
-              <p class="text-xs text-slate-600 font-medium leading-relaxed mb-6">累積滿 3 個月後自動晉升，成為獨當一面的戰力。</p>
-            </div>
-            <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
-              <span class="px-3 py-1 rounded-full bg-blue-50 text-blue-700 font-black text-[10px]">成長期</span>
-              <button onclick="openMemberModalWithDate(3)" class="text-xs font-black text-orange-600 hover:text-orange-700">模擬此等級 <i class="fa-solid fa-arrow-right"></i></button>
-            </div>
-          </div>
-
-          <!-- 上忍 (第 5-8 個月) -->
-          <div class="bg-white rounded-[32px] p-6 border border-orange-200 shadow-md flex flex-col justify-between relative overflow-hidden group hover:scale-[1.02] transition-all">
-            <div>
-              <div class="flex items-center justify-between mb-4">
-                <span class="px-3 py-1 rounded-full bg-amber-50 text-amber-700 font-black text-[10px] uppercase">精銳階級</span>
-                <span class="text-xs font-bold text-slate-400">第 5 - 8 個月</span>
-              </div>
-              <div class="flex items-center gap-4 mb-4">
-                <div class="w-14 h-14 rounded-2xl bg-orange-600 text-white flex items-center justify-center text-2xl font-black shadow-md shrink-0">
-                  <i class="fa-solid fa-shield-halved"></i>
-                </div>
-                <div>
-                  <h3 class="text-xl font-black text-slate-900">上忍</h3>
-                  <p class="text-xs text-orange-600 font-black tracking-wider">JOUNIN</p>
-                </div>
-              </div>
-              <p class="text-xs text-slate-600 font-medium leading-relaxed mb-6">累積滿 5 個月後晉升，享有各項專屬活動優先權。</p>
-            </div>
-            <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
-              <span class="px-3 py-1 rounded-full bg-amber-50 text-amber-700 font-black text-[10px]">精銳期</span>
-              <button onclick="openMemberModalWithDate(5)" class="text-xs font-black text-orange-600 hover:text-orange-700">模擬此等級 <i class="fa-solid fa-arrow-right"></i></button>
-            </div>
-          </div>
-
-          <!-- 長老 (第 9-12 個月) -->
-          <div class="bg-white rounded-[32px] p-6 border-2 border-orange-500 shadow-xl flex flex-col justify-between relative overflow-hidden group hover:scale-[1.02] transition-all">
-            <div class="absolute top-0 right-0 w-24 h-24 bg-orange-500/10 rounded-bl-full pointer-events-none"></div>
-            <div>
-              <div class="flex items-center justify-between mb-4">
-                <span class="px-3 py-1 rounded-full bg-orange-100 text-orange-700 font-black text-[10px] uppercase">尊榮階級</span>
-                <span class="text-xs font-bold text-slate-400">第 9 - 12 個月</span>
-              </div>
-              <div class="flex items-center gap-4 mb-4">
-                <div class="w-14 h-14 rounded-2xl bg-slate-900 text-orange-400 flex items-center justify-center text-2xl font-black shadow-md shrink-0 border border-orange-500/30">
-                  <i class="fa-solid fa-crown"></i>
-                </div>
-                <div>
-                  <h3 class="text-xl font-black text-slate-900">長老</h3>
-                  <p class="text-xs text-orange-600 font-bold tracking-wider">ELDER</p>
-                </div>
-              </div>
-              <p class="text-xs text-slate-600 font-medium leading-relaxed mb-6">累積滿 9 個月以上之資深會員，享有最高權限與尊榮福利。</p>
-            </div>
-            <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
-              <span class="px-3 py-1 rounded-full bg-orange-50 text-orange-700 font-black text-[10px]">資深期</span>
-              <button onclick="openMemberModalWithDate(9)" class="text-xs font-black text-orange-600 hover:text-orange-700">模擬此等級 <i class="fa-solid fa-arrow-right"></i></button>
-            </div>
-          </div>
-
-        </div>
-      </div>
-      
       <!-- 獎學金申請專區 -->
       <div id="scholarship" class="scroll-mt-24 pt-4">
         <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 relative section-title-watermark px-2">
@@ -355,7 +205,6 @@
             <span class="inline-flex items-center gap-2 text-xs font-black text-orange-700 bg-orange-50 px-4 py-2 rounded-2xl border border-orange-200 shadow-sm">
               <i class="fa-solid fa-graduation-cap text-orange-600"></i> 115年度 獎學金申辦專區
             </span>
-
           </div>
         </div>
 
@@ -438,7 +287,6 @@
             <span class="inline-flex items-center gap-2 text-xs font-black text-slate-500 bg-white px-4 py-2 rounded-2xl border border-orange-100 shadow-sm">
               <i class="fa-solid fa-calendar-check text-orange-600"></i> 2026 年度活動行程
             </span>
-
           </div>
         </div>
 
@@ -462,7 +310,7 @@
                     <i class="fa-solid fa-earth-asia"></i>
                   </div>
                   <div>
-                    <h4 class="text-lg font-black tracking-wide">日本行族旅遊</h4>
+                    <h4 class="text-lg font-black tracking-wide">日本行旅遊</h4>
                     <p class="text-xs text-orange-100 font-medium">歡樂出遊・放鬆度假</p>
                   </div>
                 </div>
@@ -471,7 +319,7 @@
             <div class="pt-4 border-t border-white/20 flex items-center justify-between">
               <span class="text-xs font-bold text-orange-100 flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-white"></i> 東京</span>
               <span class="inline-flex items-center gap-1.5 text-xs font-black bg-white text-orange-700 px-4 py-2 rounded-xl shadow-md hover:bg-orange-50 transition-colors cursor-default">
-                即將出發 <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                已結束 <i class="fa-solid fa-arrow-right text-[10px]"></i>
               </span>
             </div>
           </div>
@@ -664,21 +512,20 @@
           <h4 class="text-white font-black text-sm sm:text-base tracking-wider uppercase border-l-4 border-orange-600 pl-3">獎學金與活動</h4>
           <ul class="space-y-2.5 text-slate-400 font-medium">
             <li><a href="#scholarship" class="hover:text-orange-400 transition-colors">獎學金申請</a></li>
-            <li><a href="#member-tier" class="hover:text-orange-400 transition-colors">會員註冊與會員證</a></li>
+            <li><a href="#calendar" class="hover:text-orange-400 transition-colors">日本行特別企劃</a></li>
           </ul>
         </div>
         <div class="space-y-4">
           <h4 class="text-white font-black text-sm sm:text-base tracking-wider uppercase border-l-4 border-orange-600 pl-3">探索家庭</h4>
           <ul class="space-y-2.5 text-slate-400 font-medium">
             <li><a href="#notice" class="hover:text-orange-400 transition-colors">最新消息</a></li>
-            <li><a href="#calendar" class="hover:text-orange-400 transition-colors">日本行特別企劃</a></li>
+            <li><a href="#family-map" class="hover:text-orange-400 transition-colors">成員分布</a></li>
           </ul>
         </div>
         <div class="space-y-4">
-          <h4 class="text-white font-black text-sm sm:text-base tracking-wider uppercase border-l-4 border-orange-600 pl-3">會員服務</h4>
+          <h4 class="text-white font-black text-sm sm:text-base tracking-wider uppercase border-l-4 border-orange-600 pl-3">系統資訊</h4>
           <ul class="space-y-2.5 text-slate-400 font-medium">
-            <li><button onclick="openLoginModal()" class="hover:text-orange-400 transition-colors text-left">登入會員證</button></li>
-            <li><button onclick="openMemberModal()" class="hover:text-orange-400 transition-colors text-left">免費註冊</button></li>
+            <li><span class="text-slate-500">LU FAMILY v2.6</span></li>
           </ul>
         </div>
       </div>
@@ -686,129 +533,12 @@
         <div><p>&copy; 2026 呂氏家庭生活資訊網 版權所有 All Rights Reserved.</p></div>
         <div class="flex items-center gap-3">
           <span class="inline-flex items-center gap-1.5 bg-white/5 px-3 py-1.5 rounded-xl border border-white/10 text-slate-400">
-            <i class="fa-solid fa-rotate text-orange-500"></i> 最後更新日期：2026-10-14
+            <i class="fa-solid fa-rotate text-orange-500"></i> 最後更新日期：2026-10-23
           </span>
         </div>
       </div>
     </div>
   </footer>
-
-  <!-- 免費會員註冊 Modal -->
-  <div id="memberModal" class="fixed inset-0 z-[190] flex items-center justify-center p-4 sm:p-6 bg-slate-900/60 backdrop-blur-sm hidden" onclick="closeMemberModal()">
-    <div class="bg-white text-slate-800 rounded-[35px] max-w-md w-full shadow-2xl p-6 sm:p-8 relative border border-orange-100" onclick="event.stopPropagation()">
-      <button onclick="closeMemberModal()" class="absolute top-5 right-5 w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-700"><i class="fa-solid fa-xmark"></i></button>
-      
-      <div class="text-center mb-6">
-        <div class="w-14 h-14 rounded-2xl bg-orange-600 text-white flex items-center justify-center text-2xl mx-auto mb-3 shadow-md">
-          <i class="fa-solid fa-user-plus"></i>
-        </div>
-        <h3 class="text-2xl font-black text-slate-900">免費會員註冊</h3>
-        <p class="text-xs text-slate-500 mt-1">填寫姓名與啟用日期，系統將自動計算並解鎖會員身分！</p>
-      </div>
-
-      <form id="memberForm" onsubmit="handleMemberSubmit(event)" class="space-y-4 text-left">
-        <div>
-          <label class="block text-xs font-black text-slate-600 mb-1.5">會員姓名</label>
-          <input type="text" id="memberName" required class="w-full px-4 py-3 rounded-2xl bg-slate-50 border border-slate-200 font-bold text-sm text-slate-800 focus:outline-none focus:border-orange-500" placeholder="請輸入您的姓名">
-        </div>
-
-        <div>
-          <label class="block text-xs font-black text-slate-600 mb-1.5">會員啟用日期 (可用於模擬不同等級)</label>
-          <input type="date" id="memberStartDate" required class="w-full px-4 py-3 rounded-2xl bg-slate-50 border border-slate-200 font-bold text-sm text-slate-800 focus:outline-none focus:border-orange-500">
-        </div>
-
-        <button type="submit" class="w-full py-3.5 rounded-2xl bg-orange-600 hover:bg-orange-700 text-white font-black uppercase text-sm shadow-md transition-all mt-2">
-          立即註冊會員
-        </button>
-      </form>
-    </div>
-  </div>
-
-  <!-- 會員登入 Modal -->
-  <div id="loginModal" class="fixed inset-0 z-[190] flex items-center justify-center p-4 sm:p-6 bg-slate-900/60 backdrop-blur-sm hidden" onclick="closeLoginModal()">
-    <div class="bg-white text-slate-800 rounded-[35px] max-w-md w-full shadow-2xl p-6 sm:p-8 relative border border-orange-100" onclick="event.stopPropagation()">
-      <button onclick="closeLoginModal()" class="absolute top-5 right-5 w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-700"><i class="fa-solid fa-xmark"></i></button>
-      
-      <div class="text-center mb-6">
-        <div class="w-14 h-14 rounded-2xl bg-slate-900 text-orange-400 flex items-center justify-center text-2xl mx-auto mb-3 shadow-md">
-          <i class="fa-solid fa-right-to-bracket"></i>
-        </div>
-        <h3 class="text-2xl font-black text-slate-900">會員登入</h3>
-        <p class="text-xs text-slate-500 mt-1">輸入您的註冊姓名即可查詢並顯示電子會員證</p>
-      </div>
-
-      <form id="loginForm" onsubmit="handleLoginSubmit(event)" class="space-y-4 text-left">
-        <div>
-          <label class="block text-xs font-black text-slate-600 mb-1.5">會員姓名</label>
-          <input type="text" id="loginName" required class="w-full px-4 py-3 rounded-2xl bg-slate-50 border border-slate-200 font-bold text-sm text-slate-800 focus:outline-none focus:border-orange-500" placeholder="請輸入註冊時的姓名">
-        </div>
-
-        <button type="submit" class="w-full py-3.5 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-black uppercase text-sm shadow-md transition-all mt-2">
-          登入並檢視電子會員證
-        </button>
-      </form>
-    </div>
-  </div>
-
-  <!-- 電子會員證 Modal (參考圖片排版：六角徽章、幾何背景、可下載) -->
-  <div id="memberCardModal" class="fixed inset-0 z-[200] flex items-center justify-center p-4 sm:p-6 bg-slate-950/80 backdrop-blur-md hidden" onclick="closeMemberCardModal()">
-    <div class="membership-card-frame text-white rounded-[24px] max-w-lg w-full shadow-2xl p-6 sm:p-8 relative overflow-hidden" onclick="event.stopPropagation()">
-      
-      <!-- 四角裝飾金框 -->
-      <div class="absolute top-0 right-0 w-16 h-16 border-t-4 border-r-4 border-[#d4a373] pointer-events-none"></div>
-      <div class="absolute bottom-0 left-0 w-16 h-16 border-b-4 border-l-4 border-[#d4a373] pointer-events-none"></div>
-
-      <!-- 頂部列 -->
-      <div class="flex items-center justify-between mb-4 relative z-10">
-        <div class="flex items-center gap-2 bg-black/40 px-3 py-1.5 rounded-lg border border-[#d4a373]/40">
-          <i class="fa-solid fa-house text-[#d4a373] text-xs"></i>
-          <span class="font-black text-[10px] tracking-wider uppercase text-[#d4a373]">TAIPEI LU FAMILY</span>
-        </div>
-        <button onclick="closeMemberCardModal()" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-all"><i class="fa-solid fa-xmark"></i></button>
-      </div>
-
-      <!-- 會員證核心視覺 -->
-      <div class="flex flex-col items-center justify-center my-6 relative z-10">
-        <div class="w-28 h-28 bg-[#1a1716] border-2 border-[#d4a373] rounded-2xl flex flex-col items-center justify-center shadow-2xl relative mb-3">
-          <div class="absolute inset-1 border border-white/10 rounded-xl pointer-events-none"></div>
-          <span id="cardTierKanji" class="text-3xl font-black text-[#d4a373] tracking-widest">長老</span>
-        </div>
-
-        <div class="flex items-center gap-3">
-          <span class="text-[#d4a373] text-xs">✦</span>
-          <h2 id="cardTierEn" class="text-xl font-black text-[#d4a373] tracking-widest uppercase">ELDER</h2>
-          <span class="text-[#d4a373] text-xs">✦</span>
-        </div>
-      </div>
-
-      <!-- 會員資訊列 -->
-      <div class="bg-black/50 backdrop-blur-md rounded-xl p-3.5 mb-6 border border-[#d4a373]/30 flex justify-between items-center text-xs relative z-10">
-        <div>
-          <span class="text-slate-400 block text-[10px]">會員姓名 MEMBER</span>
-          <span id="cardMemberName" class="font-black text-white text-sm">--</span>
-        </div>
-        <div class="text-right">
-          <span class="text-slate-400 block text-[10px]">階級效期 / 累積</span>
-          <span id="cardMonths" class="font-black text-[#d4a373] text-sm">-- 個月</span>
-        </div>
-      </div>
-
-      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-3 border-t border-white/10 relative z-10">
-        <span class="text-[10px] font-bold text-slate-400 tracking-wider">TAIPEI LU FAMILY VOLUNTEER TEAM</span>
-        <span class="text-[10px] font-bold text-[#d4a373]">2026-2027</span>
-      </div>
-
-      <div class="mt-6 flex gap-3 relative z-10">
-        <button onclick="downloadMembershipCard()" class="flex-grow py-3.5 rounded-xl bg-[#d4a373] hover:bg-[#bc8a5f] text-slate-950 font-black text-xs uppercase shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer">
-          <i class="fa-solid fa-download"></i> 下載專屬會員證圖片
-        </button>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- 用於產生下載圖片的隱藏 Canvas -->
-  <canvas id="cardCanvas" width="800" height="500" class="hidden"></canvas>
 
   <!-- 各種 Modal 彈出視窗 -->
   <div id="scholarshipModal" class="fixed inset-0 z-[160] flex items-center justify-center p-4 sm:p-6 bg-slate-900/60 backdrop-blur-sm hidden">
@@ -856,34 +586,16 @@
       <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-3xl bg-orange-50 text-orange-600 flex items-center justify-center text-2xl sm:text-3xl mx-auto mb-4 border border-orange-100"><i class="fa-solid fa-user-gear"></i></div>
       <h3 class="text-xl sm:text-2xl font-black text-slate-900 mb-4">後台管理中心</h3>
       <div class="grid grid-cols-1 gap-3 sm:gap-4 mb-4">
-        <button onclick="openPublishAuthModal()" class="p-4 rounded-3xl bg-orange-50 hover:bg-orange-100 border border-orange-200 text-slate-900 flex items-center gap-4 text-left font-black transition-all">
+        <button onclick="openPublishModalFromSecret()" class="p-4 rounded-3xl bg-orange-50 hover:bg-orange-100 border border-orange-200 text-slate-900 flex items-center gap-4 text-left font-black transition-all">
           <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-orange-600 text-white flex items-center justify-center text-lg sm:text-xl shrink-0"><i class="fa-solid fa-user-plus"></i></div>
           <div><h4 class="text-sm sm:text-base">新增消息</h4><p class="text-xs text-slate-500 font-medium">發布最新公告</p></div>
         </button>
-        <button onclick="openHistoryAuthModal()" class="p-4 rounded-3xl bg-slate-50 hover:bg-orange-100 border border-orange-200 text-slate-900 flex items-center gap-4 text-left font-black transition-all">
+        <button onclick="openHistoryModalFromSecret()" class="p-4 rounded-3xl bg-slate-50 hover:bg-orange-100 border border-orange-200 text-slate-900 flex items-center gap-4 text-left font-black transition-all">
           <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-slate-800 text-white flex items-center justify-center text-lg sm:text-xl shrink-0"><i class="fa-solid fa-user-pen"></i></div>
           <div><h4 class="text-sm sm:text-base">內容管理</h4><p class="text-xs text-slate-500 font-medium">修改或刪除公告</p></div>
         </button>
       </div>
       <button onclick="closeAdminMenuModal()" class="w-full py-3.5 rounded-2xl bg-slate-100 text-slate-600 font-black text-sm uppercase">關閉選單</button>
-    </div>
-  </div>
-
-  <div id="publishAuthModal" class="fixed inset-0 z-[150] flex items-center justify-center p-4 sm:p-6 bg-slate-900/60 backdrop-blur-sm hidden">
-    <div class="bg-white text-slate-800 rounded-[35px] sm:rounded-[40px] w-full max-w-sm shadow-2xl p-6 sm:p-8 text-center border border-orange-100" onclick="event.stopPropagation()">
-      <h3 class="text-lg sm:text-xl font-black text-slate-900 mb-2">請輸入管理密碼</h3>
-      <input type="password" id="pubAuthInput" class="w-full px-4 py-3 rounded-2xl bg-slate-50 border border-slate-200 text-center font-bold mb-4 text-sm text-slate-800 focus:outline-none focus:border-orange-500" placeholder="輸入管理密碼" onkeydown="if(event.key==='Enter') verifyPublishAuth()">
-      <button onclick="verifyPublishAuth()" class="w-full py-3 rounded-2xl bg-orange-600 hover:bg-orange-700 text-white font-black text-sm mb-2 transition-all">驗證進入</button>
-      <button onclick="closePublishAuthModal()" class="w-full py-2.5 rounded-2xl bg-slate-100 text-slate-600 font-bold text-xs">關閉</button>
-    </div>
-  </div>
-
-  <div id="historyAuthModal" class="fixed inset-0 z-[150] flex items-center justify-center p-4 sm:p-6 bg-slate-900/60 backdrop-blur-sm hidden" onclick="closeHistoryAuthModal()">
-    <div class="bg-white text-slate-800 rounded-[35px] sm:rounded-[40px] w-full max-w-sm shadow-2xl p-6 sm:p-8 text-center border border-orange-100" onclick="event.stopPropagation()">
-      <h3 class="text-lg sm:text-xl font-black text-slate-900 mb-2">請輸入管理密碼</h3>
-      <input type="password" id="historyAuthInput" class="w-full px-4 py-3 rounded-2xl bg-slate-50 border border-slate-200 text-center font-bold mb-4 text-sm text-slate-800 focus:outline-none focus:border-orange-500" placeholder="輸入管理密碼" onkeydown="if(event.key==='Enter') verifyHistoryAuth()">
-      <button onclick="verifyHistoryAuth()" class="w-full py-3 rounded-2xl bg-orange-600 hover:bg-orange-700 text-white font-black text-sm mb-2 transition-all">解鎖管理</button>
-      <button onclick="closeHistoryAuthModal()" class="w-full py-2.5 rounded-2xl bg-slate-100 text-slate-600 font-bold text-xs">關閉</button>
     </div>
   </div>
 
@@ -998,26 +710,7 @@
     </div>
   </div>
 
-  <!-- 浮動式近期活動提示框 -->
-  <div id="floatingToast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-[200] w-[92%] max-w-xl bg-white/95 backdrop-blur-md rounded-[24px] px-5 py-3.5 shadow-2xl border border-orange-200 transform translate-y-10 opacity-0 transition-all duration-500 pointer-events-none">
-    <div class="flex items-center justify-between gap-4">
-      <div class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-xl bg-orange-600 text-white flex items-center justify-center font-black shadow-md shrink-0">
-          <i class="fa-solid fa-plane-departure"></i>
-        </div>
-        <div>
-          <span class="text-[10px] font-black text-orange-600 uppercase tracking-widest bg-orange-50 px-2 py-0.5 rounded-md border border-orange-100 block w-fit mb-0.5">近期活動提醒</span>
-          <h4 class="text-xs sm:text-sm font-black text-slate-900 truncate">日本行家族旅遊 (10/15 - 10/19)</h4>
-        </div>
-      </div>
-      <div class="flex items-center gap-3 shrink-0">
-        <span class="text-xs text-slate-500 font-medium hidden sm:inline">東京 5 天精采行程即將展開！</span>
-        <button onclick="closeFloatingToast()" class="w-7 h-7 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 flex items-center justify-center transition-all pointer-events-auto cursor-pointer">
-          <i class="fa-solid fa-xmark text-xs"></i>
-        </button>
-      </div>
-    </div>
-  </div>
+ 
 
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
@@ -1056,278 +749,28 @@
 
     AOS.init({ duration: 1000, once: true });
 
-    const ADMIN_PASSWORD = "Rl03210501";
-    // 已更新為最新的 Google Apps Script API 網址
     const API_URL = "https://script.google.com/macros/s/AKfycbwS-5vgJfq6Prb24jbWuVIpGb6UlHT3yZpXRp4ST4siAAecvzHZ6M8MfNlD_ttlwjuMNQ/exec";
 
     let noticeData = {};
 
-    // 會員相關 localStorage 處理
-    function getRegisteredMembers() {
-      try {
-        const data = localStorage.getItem('lu_family_members');
-        return data ? JSON.parse(data) : {};
-      } catch(e) { return {}; }
-    }
-
-    function saveMemberData(name, startDate) {
-      let members = getRegisteredMembers();
-      members[name.trim()] = { startDate };
-      localStorage.setItem('lu_family_members', JSON.stringify(members));
-    }
-
-    function openMemberModal() {
-      document.getElementById('memberForm').reset();
-      const today = new Date().toISOString().split('T')[0];
-      document.getElementById('memberStartDate').value = today;
-      document.getElementById('memberModal').classList.remove('hidden');
-    }
-
-    function openMemberModalWithDate(monthsAgo) {
-      openMemberModal();
-      const d = new Date();
-      d.setMonth(d.getMonth() - monthsAgo);
-      document.getElementById('memberStartDate').value = d.toISOString().split('T')[0];
-    }
-
-    function closeMemberModal() {
-      document.getElementById('memberModal').classList.add('hidden');
-    }
-
-    function handleMemberSubmit(e) {
-      e.preventDefault();
-      const name = document.getElementById('memberName').value.trim();
-      const startDate = document.getElementById('memberStartDate').value;
+    // 鍵盤輸入密碼偵測 (輸入 03210501 自動開啟後台選單)
+    let secretKeyBuffer = "";
+    const SECRET_CODE = "03210501";
+    window.addEventListener('keydown', (e) => {
+      // 確保不是在輸入框或文字輸入時觸發
+      if (['INPUT', 'TEXTAREA', 'SELECT'].includes(e.target.tagName)) return;
       
-      saveMemberData(name, startDate);
-      closeMemberModal();
-      showMemberCard(name, startDate);
-    }
-
-    function openLoginModal() {
-      document.getElementById('loginForm').reset();
-      document.getElementById('loginModal').classList.remove('hidden');
-    }
-
-    function closeLoginModal() {
-      document.getElementById('loginModal').classList.add('hidden');
-    }
-
-    function handleLoginSubmit(e) {
-      e.preventDefault();
-      const name = document.getElementById('loginName').value.trim();
-      const members = getRegisteredMembers();
-
-      if (members[name]) {
-        closeLoginModal();
-        showMemberCard(name, members[name].startDate);
-      } else {
-        alert('❌ 找不到此會員姓名！請先進行「免費會員註冊」。');
+      if (/^[0-9]$/.test(e.key)) {
+        secretKeyBuffer += e.key;
+        if (secretKeyBuffer.length > SECRET_CODE.length) {
+          secretKeyBuffer = secretKeyBuffer.slice(-SECRET_CODE.length);
+        }
+        if (secretKeyBuffer === SECRET_CODE) {
+          secretKeyBuffer = "";
+          openAdminMenuModal();
+        }
       }
-    }
-
-    let currentCardData = { name: '', tierKanji: '', tierEn: '', months: 0, startDate: '' };
-
-    function showMemberCard(name, startDateVal) {
-      const startDate = new Date(startDateVal);
-      const now = new Date();
-      
-      let diffMonths = (now.getFullYear() - startDate.getFullYear()) * 12 + (now.getMonth() - startDate.getMonth());
-      if (now.getDate() < startDate.getDate()) {
-        diffMonths--;
-      }
-      if (diffMonths < 0) diffMonths = 0;
-
-      let tierKanji = "下忍";
-      let tierEn = "GENIN";
-
-      if (diffMonths >= 9) {
-        tierKanji = "長老";
-        tierEn = "ELDER";
-      } else if (diffMonths >= 5) {
-        tierKanji = "上忍";
-        tierEn = "JOUNIN";
-      } else if (diffMonths >= 3) {
-        tierKanji = "中忍";
-        tierEn = "CHUUNIN";
-      }
-
-      currentCardData = { name, tierKanji, tierEn, months: diffMonths, startDate: startDateVal };
-
-      document.getElementById('cardTierKanji').innerText = tierKanji;
-      document.getElementById('cardTierEn').innerText = tierEn;
-      document.getElementById('cardMemberName').innerText = name;
-      document.getElementById('cardMonths').innerText = `${diffMonths} 個月`;
-
-      document.getElementById('memberCardModal').classList.remove('hidden');
-    }
-
-    function closeMemberCardModal() {
-      document.getElementById('memberCardModal').classList.add('hidden');
-    }
-
-    // Canvas 自動繪製與下載會員證圖片
-    function downloadMembershipCard() {
-      const canvas = document.getElementById('cardCanvas');
-      const ctx = canvas.getContext('2d');
-
-      ctx.fillStyle = "#262220";
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-      ctx.strokeStyle = "#d4a373";
-      ctx.lineWidth = 6;
-      ctx.strokeRect(15, 15, canvas.width - 30, canvas.height - 30);
-
-      ctx.fillStyle = "#d4a373";
-      ctx.fillRect(15, 15, 40, 10);
-      ctx.fillRect(15, 15, 10, 40);
-      ctx.fillRect(canvas.width - 55, canvas.height - 25, 40, 10);
-      ctx.fillRect(canvas.width - 25, canvas.height - 55, 10, 40);
-
-      ctx.fillStyle = "#d4a373";
-      ctx.font = "bold 14px sans-serif";
-      ctx.fillText("TAIPEI LU FAMILY", 45, 55);
-
-      const cx = canvas.width / 2;
-      const cy = 190;
-      const radius = 65;
-
-      ctx.beginPath();
-      for (let i = 0; i < 6; i++) {
-        const angle = (Math.PI / 3) * i;
-        const hx = cx + radius * Math.cos(angle);
-        const hy = cy + radius * Math.sin(angle);
-        if (i === 0) ctx.moveTo(hx, hy);
-        else ctx.lineTo(hx, hy);
-      }
-      ctx.closePath();
-      ctx.fillStyle = "#1a1716";
-      ctx.fill();
-      ctx.strokeStyle = "#d4a373";
-      ctx.lineWidth = 4;
-      ctx.stroke();
-
-      ctx.fillStyle = "#d4a373";
-      ctx.font = "bold 42px 'Noto Sans TC', sans-serif";
-      ctx.textAlign = "center";
-      ctx.fillText(currentCardData.tierKanji, cx, cy + 15);
-
-      ctx.font = "bold 22px sans-serif";
-      ctx.fillText(`✦  ${currentCardData.tierEn}  ✦`, cx, cy + 75);
-
-      ctx.fillStyle = "rgba(0, 0, 0, 0.4)";
-      ctx.fillRect(45, 330, canvas.width - 90, 70);
-      ctx.strokeStyle = "rgba(212, 163, 115, 0.3)";
-      ctx.lineWidth = 1;
-      ctx.strokeRect(45, 330, canvas.width - 90, 70);
-
-      ctx.textAlign = "left";
-      ctx.fillStyle = "#94a3b8";
-      ctx.font = "12px sans-serif";
-      ctx.fillText("會員姓名 MEMBER", 70, 355);
-      ctx.fillStyle = "#ffffff";
-      ctx.font = "bold 20px 'Noto Sans TC', sans-serif";
-      ctx.fillText(currentCardData.name, 70, 382);
-
-      ctx.textAlign = "right";
-      ctx.fillStyle = "#94a3b8";
-      ctx.font = "12px sans-serif";
-      ctx.fillText("累計效期 / 啟用日期", canvas.width - 70, 355);
-      ctx.fillStyle = "#d4a373";
-      ctx.font = "bold 18px sans-serif";
-      ctx.fillText(`${currentCardData.months} 個月 (${currentCardData.startDate})`, canvas.width - 70, 382);
-
-      ctx.textAlign = "left";
-      ctx.fillStyle = "#64748b";
-      ctx.font = "bold 11px sans-serif";
-      ctx.fillText("TAIPEI LU FAMILY VOLUNTEER TEAM", 45, 435);
-
-      ctx.textAlign = "right";
-      ctx.fillStyle = "#d4a373";
-      ctx.fillText("2026-2027", canvas.width - 45, 435);
-
-      const link = document.createElement('a');
-      link.download = `${currentCardData.name}_呂氏家庭_${currentCardData.tierKanji}會員證.png`;
-      link.href = canvas.toDataURL('image/png');
-      link.click();
-    }
-
-    function openScholarshipModal(type) {
-      const modal = document.getElementById('scholarshipModal');
-      const body = document.getElementById('scholarshipModalBody');
-      body.innerHTML = '';
-
-      if (type === 'ntpc') {
-        body.innerHTML = `
-          <div class="space-y-6">
-            <div class="flex items-center gap-3 border-b border-slate-200 pb-4">
-              <span class="text-xs font-black px-4 py-1.5 rounded-full uppercase bg-red-600 text-white">新北市回饋地方專案</span>
-              <span class="text-xs font-bold text-slate-500"><i class="fa-regular fa-calendar-days text-orange-600 mr-1"></i> 115年度申請</span>
-            </div>
-            <h3 class="text-xl sm:text-2xl font-black text-slate-900 leading-snug">新北市立殯儀館及火化場 115 年度回饋地方經費勤學獎助學金</h3>
-            <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm space-y-4">
-              <h4 class="text-base font-black text-slate-900 border-l-4 border-orange-600 pl-3">申請資格與條件</h4>
-              <ul class="space-y-2 text-slate-700 font-medium text-sm sm:text-base list-disc list-inside">
-                <li>設籍於新北市回饋金發放受惠區（宏翠里學生奮發向學，獎勵品學兼優之學子。）連續滿一定期限。</li>
-                <li>就讀國內公私立國小、國中、高中職及大專院校之學生。</li>
-                <li>學業成績及操行表現達一定標準（一般需平均 80 分以上或無不良紀錄）。</li>
-              </ul>
-            </div>
-            <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm space-y-4">
-              <h4 class="text-base font-black text-slate-900 border-l-4 border-orange-600 pl-3">應檢附文件</h4>
-              <ul class="space-y-2 text-slate-700 font-medium text-sm sm:text-base list-disc list-inside">
-                <li>申請書正本一份。</li>
-                <li>全戶戶籍謄本或新式戶口名簿（需詳細記事）。</li>
-                <li>在學證明書或學生證正反面影本（蓋有115學年度註冊章）。</li>
-                <li>114學年度學業成績證明書（或前一學期成績單）。</li>
-                <li>申請人金融機構存摺封面影本。</li>
-              </ul>
-            </div>
-            <div class="p-4 rounded-2xl bg-orange-50 border border-orange-200 text-orange-800 text-xs sm:text-sm font-black flex items-center gap-3">
-              <i class="fa-solid fa-circle-info text-orange-600 text-lg shrink-0"></i>
-              <span>相關申請資料，請洽營務官</span>
-            </div>
-          </div>
-        `;
-      } else if (type === 'taoyuan') {
-        body.innerHTML = `
-          <div class="space-y-6">
-            <div class="flex items-center gap-3 border-b border-slate-200 pb-4">
-              <span class="text-xs font-black px-4 py-1.5 rounded-full uppercase bg-amber-600 text-white">家族宗親專案</span>
-              <span class="text-xs font-bold text-slate-500"><i class="fa-regular fa-calendar-days text-orange-600 mr-1"></i> 115年度申請</span>
-            </div>
-            <h3 class="text-xl sm:text-2xl font-black text-slate-900 leading-snug">祭祀公業法人桃園縣呂孟生公派下員子女獎學金申請</h3>
-            <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm space-y-4">
-              <h4 class="text-base font-black text-slate-900 border-l-4 border-orange-600 pl-3">申請資格與條件</h4>
-              <ul class="space-y-2 text-slate-700 font-medium text-sm sm:text-base list-disc list-inside">
-                <li>具備祭祀公業法人桃園縣呂孟生公派下員身分之子女。</li>
-                <li>就讀教育部認可之國內公私立國中、高中（職）、大專院校及研究所正規學制學生。</li>
-                <li>學業成績平均達 80 分（或甲等）以上，操行成績甲等（或 80 分）以上。</li>
-              </ul>
-            </div>
-            <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm space-y-4">
-              <h4 class="text-base font-black text-slate-900 border-l-4 border-orange-600 pl-3">應檢附文件</h4>
-              <ul class="space-y-2 text-slate-700 font-medium text-sm sm:text-base list-disc list-inside">
-                <li>獎學金申請書一份。</li>
-                <li>派下員證明文件或相關系統派下全員證明書影本。</li>
-                <li>學生證影本及在學證明。</li>
-                <li>前一學年度（或上學期）成績證明單正本。</li>
-                <li>戶口名簿影本。</li>
-              </ul>
-            </div>
-            <div class="p-4 rounded-2xl bg-orange-50 border border-orange-200 text-orange-800 text-xs sm:text-sm font-black flex items-center gap-3">
-              <i class="fa-solid fa-circle-info text-orange-600 text-lg shrink-0"></i>
-              <span>相關申請資料，請洽營務官</span>
-            </div>
-          </div>
-        `;
-      }
-      modal.classList.remove('hidden');
-    }
-
-    function closeScholarshipModal() {
-      document.getElementById('scholarshipModal').classList.add('hidden');
-    }
+    });
 
     const teamStaffList = [
       { role: "家庭長(主管)", engRole: "DIRECTOR", birth: "", origin: "", desc: "綜理單位各項勤(業)務，最高領導與決策。", icon: "fa-crown text-amber-500", skills: ["決策領導", "行政審核", "統籌規劃"] },
@@ -1792,35 +1235,23 @@
     function openAdminMenuModal() { document.getElementById('adminMenuModal').classList.remove('hidden'); }
     function closeAdminMenuModal() { document.getElementById('adminMenuModal').classList.add('hidden'); }
 
-    function openPublishAuthModal() { closeAdminMenuModal(); document.getElementById('pubAuthInput').value = ''; document.getElementById('publishAuthModal').classList.remove('hidden'); }
-    function closePublishAuthModal() { document.getElementById('publishAuthModal').classList.add('hidden'); }
-    function verifyPublishAuth() {
-      if (document.getElementById('pubAuthInput').value === ADMIN_PASSWORD) {
-        closePublishAuthModal();
-        document.getElementById('editNoticeId').value = '';
-        document.getElementById('publishForm').reset();
-        document.getElementById('pubDate').value = new Date().toISOString().split('T')[0];
-        document.getElementById('publishModalTitle').innerHTML = '<i class="fa-solid fa-pen-to-square text-orange-600"></i> 新增發布內容';
-        document.getElementById('pubSubmitBtn').innerText = "立即發布";
-        document.getElementById('publishModal').classList.remove('hidden');
-      } else { alert('❌ 密碼錯誤！'); }
+    function openPublishModalFromSecret() {
+      closeAdminMenuModal();
+      document.getElementById('editNoticeId').value = '';
+      document.getElementById('publishForm').reset();
+      document.getElementById('pubDate').value = new Date().toISOString().split('T')[0];
+      document.getElementById('publishModalTitle').innerHTML = '<i class="fa-solid fa-pen-to-square text-orange-600"></i> 新增發布內容';
+      document.getElementById('pubSubmitBtn').innerText = "立即發布";
+      document.getElementById('publishModal').classList.remove('hidden');
     }
-    function closePublishModal() { document.getElementById('publishModal').classList.add('hidden'); }
 
-    function openHistoryAuthModal() { closeAdminMenuModal(); document.getElementById('historyAuthInput').value = ''; document.getElementById('historyAuthModal').classList.remove('hidden'); }
-    function closeHistoryAuthModal() { document.getElementById('historyAuthModal').classList.add('hidden'); }
-    
-    function verifyHistoryAuth() {
-      const inputVal = document.getElementById('historyAuthInput').value;
-      if (inputVal === ADMIN_PASSWORD) {
-        closeHistoryAuthModal();
-        renderHistoryList();
-        document.getElementById('historyModal').classList.remove('hidden');
-      } else { 
-        alert('❌ 密碼錯誤！'); 
-      }
+    function openHistoryModalFromSecret() {
+      closeAdminMenuModal();
+      renderHistoryList();
+      document.getElementById('historyModal').classList.remove('hidden');
     }
-    
+
+    function closePublishModal() { document.getElementById('publishModal').classList.add('hidden'); }
     function closeHistoryModal() { document.getElementById('historyModal').classList.add('hidden'); }
 
     function renderHistoryList() {
