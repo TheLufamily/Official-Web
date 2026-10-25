@@ -49,6 +49,20 @@
       user-select: none;
       font-style: italic;
     }
+
+    /* 跑馬燈無限循環滾動動畫 */
+    @keyframes marqueeScroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marqueeScroll 22s linear infinite;
+    }
+    .marquee-track:hover {
+      animation-play-state: paused;
+    }
   </style>
 </head>
 
@@ -181,10 +195,20 @@
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <!-- 獎學金項目 1：已結束（反灰） -->
+        <!-- 獎學金項目 1：已結束（反灰，含跑馬燈公告） -->
         <div class="bg-slate-50 rounded-[32px] p-7 border border-slate-200 shadow-sm flex flex-col justify-between group relative overflow-hidden opacity-80">
           <div class="absolute top-0 right-0 w-32 h-32 bg-slate-500/5 rounded-bl-full pointer-events-none"></div>
           <div>
+            <!-- 跑馬燈公告列 -->
+            <div class="mb-4 bg-orange-100 border border-orange-200 rounded-xl overflow-hidden py-1.5 px-3 flex items-center gap-2">
+              <i class="fa-solid fa-bullhorn text-orange-600 text-xs shrink-0 animate-bounce"></i>
+              <div class="overflow-hidden whitespace-nowrap relative w-full">
+                <div class="inline-block animate-[marquee_12s_linear_infinite] text-xs font-black text-orange-800">
+                  📢 發放時間：115 年 11 月 7 日（符合資格者將另行簡訊通知領取時間與地點）。
+                </div>
+              </div>
+            </div>
+
             <div class="flex items-center justify-between mb-4">
               <span class="px-3.5 py-1.5 rounded-full bg-slate-200 text-slate-600 font-black text-xs uppercase border border-slate-300 flex items-center gap-1.5">
                 <i class="fa-solid fa-location-dot"></i> 新北市回饋地方專案
@@ -207,8 +231,8 @@
           </div>
           <div class="pt-5 border-t border-slate-200 flex items-center justify-between gap-4">
             <span class="text-xs font-bold text-slate-400 flex items-center gap-1"><i class="fa-regular fa-clock"></i> 已結束申請</span>
-            <button type="button" onclick="openScholarshipModal('ntpc')" class="px-5 py-2.5 rounded-xl bg-slate-300 hover:bg-slate-400 text-slate-700 font-black text-xs sm:text-sm transition-all flex items-center gap-2 cursor-pointer">
-              <span>查看詳情與辦法</span> <i class="fa-solid fa-arrow-right text-xs"></i>
+            <button type="button" disabled class="px-5 py-2.5 rounded-xl bg-slate-200 text-slate-400 font-black text-xs sm:text-sm cursor-not-allowed flex items-center gap-2">
+              <span>已截止無法點選</span> <i class="fa-solid fa-ban text-xs"></i>
             </button>
           </div>
         </div>
@@ -350,6 +374,28 @@
         </div>
       </div>
 
+      <!-- 滿版交叉斜角跑馬燈 -->
+      <div class="relative w-screen left-1/2 -translate-x-1/2 overflow-hidden py-5 rotate-2 bg-orange-600 shadow-xl my-10">
+        <div class="bg-black text-white py-3 overflow-hidden shadow-inner -rotate-3 scale-105">
+          <div class="marquee-track flex whitespace-nowrap items-center font-black tracking-widest text-base sm:text-xl italic">
+            <div class="flex items-center gap-8 px-4">
+              <span>呂氏家庭 LU FAMILY</span> <i class="fa-solid fa-star-of-life text-orange-500 text-sm"></i>
+              <span>呂氏家庭 LU FAMILY</span> <i class="fa-solid fa-star-of-life text-orange-500 text-sm"></i>
+              <span>呂氏家庭 LU FAMILY</span> <i class="fa-solid fa-star-of-life text-orange-500 text-sm"></i>
+              <span>呂氏家庭 LU FAMILY</span> <i class="fa-solid fa-star-of-life text-orange-500 text-sm"></i>
+              <span>呂氏家庭 LU FAMILY</span> <i class="fa-solid fa-star-of-life text-orange-500 text-sm"></i>
+            </div>
+            <div class="flex items-center gap-8 px-4" aria-hidden="true">
+              <span>呂氏家庭 LU FAMILY</span> <i class="fa-solid fa-star-of-life text-orange-500 text-sm"></i>
+              <span>呂氏家庭 LU FAMILY</span> <i class="fa-solid fa-star-of-life text-orange-500 text-sm"></i>
+              <span>呂氏家庭 LU FAMILY</span> <i class="fa-solid fa-star-of-life text-orange-500 text-sm"></i>
+              <span>呂氏家庭 LU FAMILY</span> <i class="fa-solid fa-star-of-life text-orange-500 text-sm"></i>
+              <span>呂氏家庭 LU FAMILY</span> <i class="fa-solid fa-star-of-life text-orange-500 text-sm"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- 最新消息區 -->
       <div id="notice" class="scroll-mt-24 pt-4">
         <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 relative section-title-watermark px-2">
@@ -411,74 +457,114 @@
         </div>
       </div>
 
-      <!-- 家族分布圖區塊 -->
-      <div class="max-w-6xl mx-auto w-full pt-4">
+      <!-- ================= 參考圖片風格的家族分布卡片區塊 ================= -->
+      <div class="max-w-7xl mx-auto w-full pt-4">
         <div class="mb-10">
-          <h1 class="text-5xl sm:text-7xl font-black tracking-wider uppercase text-gray-900 mb-4">
+          <span class="text-orange-600 font-black text-xs tracking-widest uppercase block mb-1">家族分布</span>
+          <h1 class="text-4xl sm:text-6xl font-black tracking-wider uppercase text-gray-900 mb-4">
             FAMILY <span class="text-orange-600">MAP</span>
           </h1>
-          <div class="space-y-2 mt-6">
-            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900">歡迎來到呂氏家族</h2>
-            <p class="text-gray-600 text-base sm:text-lg">
-              13位家庭成員，分布至北部及中部地區
-            </p>
-          </div>
+          <p class="text-gray-600 text-base sm:text-lg">
+            13位家庭成員，主要分布於新北板橋、桃園平鎮、臺中中區及北區
+          </p>
         </div>
 
-        <div class="bg-white rounded-3xl p-6 sm:p-10 shadow-sm border border-gray-100 space-y-8">
-          <div class="text-center space-y-2">
-            <h3 class="text-xl sm:text-2xl font-black text-gray-900">分佈概況</h3>
-            <p class="text-sm sm:text-base text-gray-500">主要分佈於北部及中部地區</p>
-          </div>
-
-          <div class="flex flex-wrap justify-center gap-3 sm:gap-4 pt-2">
-            <div class="inline-flex items-center space-x-2 bg-red-50 border border-red-200 px-4 py-2 rounded-full text-sm font-medium text-red-700">
-              <span class="w-2 h-2 rounded-full bg-red-600"></span>
-              <span>新北市 板橋區</span>
-            </div>
-            <div class="inline-flex items-center space-x-2 bg-amber-50 border border-amber-200 px-4 py-2 rounded-full text-sm font-medium text-amber-700">
-              <span class="w-2 h-2 rounded-full bg-amber-500"></span>
-              <span>桃園市 平鎮區</span>
-            </div>
-            <div class="inline-flex items-center space-x-2 bg-blue-50 border border-blue-200 px-4 py-2 rounded-full text-sm font-medium text-blue-700">
-              <span class="w-2 h-2 rounded-full bg-blue-600"></span>
-              <span>臺中市 中區</span>
-            </div>
-            <div class="inline-flex items-center space-x-2 bg-emerald-50 border border-emerald-200 px-4 py-2 rounded-full text-sm font-medium text-emerald-700">
-              <span class="w-2 h-2 rounded-full bg-emerald-600"></span>
-              <span>臺中市 北區</span>
-            </div>
-          </div>
-
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
-            <div class="border border-gray-200/80 rounded-2xl p-6 flex items-center justify-between hover:border-red-300 transition-all bg-white shadow-xs">
-              <div class="flex items-center space-x-4">
-                <div class="w-12 h-12 rounded-xl bg-red-600 flex items-center justify-center text-white text-xl shadow-md">
-                  <i class="fa-solid fa-location-dot"></i>
-                </div>
-                <div>
-                  <h4 class="font-bold text-lg text-gray-900">北部區域</h4>
-                  <p class="text-sm text-gray-500 mt-0.5">新北市板橋區、桃園市平鎮區</p>
-                </div>
+        <!-- 4 張參考圖風格的卡片排版 -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <!-- 卡片 1：新北市 板橋區 (橘色) -->
+          <div class="bg-gradient-to-b from-orange-600 to-amber-700 rounded-[32px] p-6 text-white shadow-xl flex flex-col justify-between relative overflow-hidden group hover:scale-[1.02] transition-all">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-bl-full pointer-events-none"></div>
+            <div>
+              <div class="flex items-center justify-between mb-6">
+                <span class="text-[10px] font-black uppercase tracking-widest bg-white/20 px-3 py-1 rounded-full backdrop-blur-md border border-white/30">
+                  主要
+                </span>
+                <i class="fa-solid fa-location-dot text-xl text-orange-200"></i>
               </div>
-              <span class="text-xs font-semibold px-3 py-1 bg-gray-100 text-gray-600 rounded-lg">主要據點</span>
-            </div>
-
-            <div class="border border-gray-200/80 rounded-2xl p-6 flex items-center justify-between hover:border-blue-300 transition-all bg-white shadow-xs">
-              <div class="flex items-center space-x-4">
-                <div class="w-12 h-12 rounded-xl bg-blue-600 flex items-center justify-center text-white text-xl shadow-md">
-                  <i class="fa-solid fa-location-dot"></i>
-                </div>
-                <div>
-                  <h4 class="font-bold text-lg text-gray-900">中部區域</h4>
-                  <p class="text-sm text-gray-500 mt-0.5">臺中市中區、臺中市北區</p>
-                </div>
+              <div class="w-16 h-16 rounded-2xl bg-white/15 backdrop-blur-md flex items-center justify-center text-3xl font-black mb-6 shadow-inner border border-white/20">
+                <i class="fa-solid fa-house-chimney"></i>
               </div>
-              <span class="text-xs font-semibold px-3 py-1 bg-gray-100 text-gray-600 rounded-lg">生活據點</span>
+              <div class="text-xs font-bold text-orange-100 uppercase tracking-widest mb-1">NEW TAIPEI BANQIAO</div>
+              <h3 class="text-2xl font-black tracking-tight mb-4">新北市板橋區</h3>
+              <p class="text-xs text-orange-100 font-medium leading-relaxed mb-6">
+              </p>
+            </div>
+            <div class="pt-4 border-t border-white/20 flex items-center justify-between text-xs font-black">
+              <span></span>
+              <i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
             </div>
           </div>
+
+          <!-- 卡片 2：桃園市 平鎮區 (桃紅/紅色系) -->
+          <div class="bg-gradient-to-b from-rose-600 to-pink-700 rounded-[32px] p-6 text-white shadow-xl flex flex-col justify-between relative overflow-hidden group hover:scale-[1.02] transition-all">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-bl-full pointer-events-none"></div>
+            <div>
+              <div class="flex items-center justify-between mb-6">
+                
+                <i class="fa-solid fa-users text-xl text-rose-200"></i>
+              </div>
+              <div class="w-16 h-16 rounded-2xl bg-white/15 backdrop-blur-md flex items-center justify-center text-3xl font-black mb-6 shadow-inner border border-white/20">
+                <i class="fa-solid fa-landmark"></i>
+              </div>
+              <div class="text-xs font-bold text-rose-100 uppercase tracking-widest mb-1">TAOYUAN PINGZHEN</div>
+              <h3 class="text-2xl font-black tracking-tight mb-4">桃園市平鎮區</h3>
+              <p class="text-xs text-rose-100 font-medium leading-relaxed mb-6">
+              </p>
+            </div>
+            <div class="pt-4 border-t border-white/20 flex items-center justify-between text-xs font-black">
+              <span></span>
+              <i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
+            </div>
+          </div>
+
+          <!-- 卡片 3：臺中市 中區 (深紫/藍紫色系) -->
+          <div class="bg-gradient-to-b from-indigo-800 to-purple-900 rounded-[32px] p-6 text-white shadow-xl flex flex-col justify-between relative overflow-hidden group hover:scale-[1.02] transition-all">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-bl-full pointer-events-none"></div>
+            <div>
+              <div class="flex items-center justify-between mb-6">
+                
+                <i class="fa-solid fa-compass text-xl text-indigo-200"></i>
+              </div>
+              <div class="w-16 h-16 rounded-2xl bg-white/15 backdrop-blur-md flex items-center justify-center text-3xl font-black mb-6 shadow-inner border border-white/20">
+                <i class="fa-solid fa-city"></i>
+              </div>
+              <div class="text-xs font-bold text-indigo-100 uppercase tracking-widest mb-1">TAICHUNG CENTRAL</div>
+              <h3 class="text-2xl font-black tracking-tight mb-4">臺中市中區</h3>
+              <p class="text-xs text-indigo-100 font-medium leading-relaxed mb-6">
+              
+              </p>
+            </div>
+            <div class="pt-4 border-t border-white/20 flex items-center justify-between text-xs font-black">
+              <span></span>
+              <i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
+            </div>
+          </div>
+
+          <!-- 卡片 4：臺中市 北區 (綠色系) -->
+          <div class="bg-gradient-to-b from-emerald-600 to-teal-800 rounded-[32px] p-6 text-white shadow-xl flex flex-col justify-between relative overflow-hidden group hover:scale-[1.02] transition-all">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-bl-full pointer-events-none"></div>
+            <div>
+              <div class="flex items-center justify-between mb-6">
+               
+                <i class="fa-solid fa-seedling text-xl text-emerald-200"></i>
+              </div>
+              <div class="w-16 h-16 rounded-2xl bg-white/15 backdrop-blur-md flex items-center justify-center text-3xl font-black mb-6 shadow-inner border border-white/20">
+                <i class="fa-solid fa-tree-city"></i>
+              </div>
+              <div class="text-xs font-bold text-emerald-100 uppercase tracking-widest mb-1">TAICHUNG NORTH</div>
+              <h3 class="text-2xl font-black tracking-tight mb-4">臺中市北區</h3>
+
+            </div>
+            <div class="pt-4 border-t border-white/20 flex items-center justify-between text-xs font-black">
+              <span></span>
+              <i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
+            </div>
+          </div>
+
         </div>
       </div>
+      <!-- ================= /家族分布卡片結束 ================= -->
 
     </div>
   </section>
@@ -492,7 +578,7 @@
         </div>
         <div class="flex items-center gap-3">
           <span class="inline-flex items-center gap-1.5 bg-white px-4 py-2 rounded-xl border border-orange-200 shadow-sm text-slate-700">
-            <i class="fa-solid fa-rotate text-orange-600"></i> 最後更新日期：2026-10-23
+            <i class="fa-solid fa-rotate text-orange-600"></i> 最後更新日期：2026-10-25
           </span>
         </div>
       </div>
@@ -592,12 +678,7 @@
       </div>
       <form id="publishForm" onsubmit="handlePublishSubmit(event)" class="space-y-4 text-left overflow-y-auto custom-scrollbar flex-grow pr-2">
         <input type="hidden" id="editNoticeId" value="">
-        <div>
-          <label class="block text-xs font-black text-slate-500 mb-2">類別 Category</label>
-          <select id="pubCategory" class="w-full px-5 py-3 rounded-2xl bg-slate-50 border border-slate-200 font-bold text-sm text-slate-800">
-            <option value="最新消息">最新消息</option>
-          </select>
-        </div>
+        <input type="hidden" id="pubCategory" value="最新消息">
         <div><label class="block text-xs font-black text-slate-500 mb-2">標題 Title</label><input type="text" id="pubTitle" required class="w-full px-5 py-3 rounded-2xl bg-slate-50 border border-slate-200 font-bold text-sm text-slate-800"></div>
         <div><label class="block text-xs font-black text-slate-500 mb-2">日期 Date</label><input type="date" id="pubDate" required class="w-full px-5 py-3 rounded-2xl bg-slate-50 border border-slate-200 font-bold text-sm text-slate-800"></div>
         <div><label class="block text-xs font-black text-slate-500 mb-2">詳細內容 Content</label><textarea id="pubContent" rows="4" required class="w-full px-5 py-3 rounded-2xl bg-slate-50 border border-slate-200 font-bold text-sm text-slate-800"></textarea></div>
@@ -737,39 +818,7 @@
       const body = document.getElementById('scholarshipModalBody');
       body.innerHTML = '';
 
-      if (type === 'ntpc') {
-        body.innerHTML = `
-          <div class="space-y-6">
-            <div class="flex items-center gap-3 border-b border-slate-200 pb-4">
-              <span class="text-xs font-black px-4 py-1.5 rounded-full uppercase bg-red-600 text-white">新北市回饋地方專案</span>
-              <span class="text-xs font-bold text-slate-500"><i class="fa-regular fa-calendar-days text-orange-600 mr-1"></i> 115年度申請</span>
-            </div>
-            <h3 class="text-xl sm:text-2xl font-black text-slate-900 leading-snug">新北市立殯儀館及火化場 115 年度回饋地方經費勤學獎助學金</h3>
-            <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm space-y-4">
-              <h4 class="text-base font-black text-slate-900 border-l-4 border-orange-600 pl-3">申請資格與條件</h4>
-              <ul class="space-y-2 text-slate-700 font-medium text-sm sm:text-base list-disc list-inside">
-                <li>設籍於新北市回饋金發放受惠區（宏翠里學生奮發向學，獎勵品學兼優之學子。）連續滿一定期限。</li>
-                <li>就讀國內公私立國小、國中、高中職及大專院校之學生。</li>
-                <li>學業成績及操行表現達一定標準（一般需平均 80 分以上或無不良紀錄）。</li>
-              </ul>
-            </div>
-            <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm space-y-4">
-              <h4 class="text-base font-black text-slate-900 border-l-4 border-orange-600 pl-3">應檢附文件</h4>
-              <ul class="space-y-2 text-slate-700 font-medium text-sm sm:text-base list-disc list-inside">
-                <li>申請書正本一份。</li>
-                <li>全戶戶籍謄本或新式戶口名簿（需詳細記事）。</li>
-                <li>在學證明書或學生證正反面影本（蓋有115學年度註冊章）。</li>
-                <li>114學年度學業成績證明書（或前一學期成績單）。</li>
-                <li>申請人金融機構存摺封面影本。</li>
-              </ul>
-            </div>
-            <div class="p-4 rounded-2xl bg-orange-50 border border-orange-200 text-orange-800 text-xs sm:text-sm font-black flex items-center gap-3">
-              <i class="fa-solid fa-circle-info text-orange-600 text-lg shrink-0"></i>
-              <span>相關申請資料，請洽營務官</span>
-            </div>
-          </div>
-        `;
-      } else if (type === 'taoyuan') {
+      if (type === 'taoyuan') {
         body.innerHTML = `
           <div class="space-y-6">
             <div class="flex items-center gap-3 border-b border-slate-200 pb-4">
@@ -827,12 +876,12 @@
     });
 
     const teamStaffList = [
-      { role: "家庭長(主管)", engRole: "DIRECTOR", birth: "", origin: "", desc: "綜理單位各項勤(業)務，最高領導與決策。", icon: "fa-crown text-amber-500", skills: ["決策領導", "行政審核", "統籌規劃"] },
-      { role: "營務官(行政副主管)", engRole: "ADMIN OFFICER", birth: "", origin: "", desc: "總務、行政、政戰事務統籌與溝通協調。", icon: "fa-user-clock text-slate-500", skills: ["行政庶務", "溝通協調", "活動籌辦"] },
-      { role: "營產官", engRole: "PROPERTY OFFICER", birth: "", origin: "", desc: "資產管理、設備維修與硬體維護。", icon: "fa-screwdriver-wrench text-blue-600", skills: ["資產管理", "設備維修", "硬體維護"] },
-      { role: "美工官", engRole: "DESIGN OFFICER", birth: "", origin: "", desc: "主視覺設計、攝影紀實與多媒體剪輯。", icon: "fa-palette text-purple-600", skills: ["視覺設計", "攝影紀實", "多媒體剪輯"] },
-      { role: "行政專員", engRole: "ADMIN SPECIALIST", birth: "-", origin: "", desc: "文書處理、檔案管理與後勤支援。", icon: "fa-file-lines text-teal-600", skills: ["文書處理", "檔案管理", "行政支援"] },
-      { role: "藝術專員", engRole: "ART SPECIALIST", birth: "", origin: "", desc: "美學設計、創意發想與文宣排版。", icon: "fa-feather-pointed text-pink-600", skills: ["美學設計", "創意發想", "文宣排版"] }
+      { role: "家庭長(主管)", engRole: "DIRECTOR", desc: "綜理單位各項勤(業)務，最高領導與決策。", icon: "fa-crown text-amber-500" },
+      { role: "營務官(行政副主管)", engRole: "ADMIN OFFICER", desc: "總務、行政、政戰事務統籌與溝通協調。", icon: "fa-user-clock text-slate-500" },
+      { role: "營產官", engRole: "PROPERTY OFFICER", desc: "資產管理、設備維修與硬體維護。", icon: "fa-screwdriver-wrench text-blue-600" },
+      { role: "美工官", engRole: "DESIGN OFFICER", desc: "主視覺設計、攝影紀實與多媒體剪輯。", icon: "fa-palette text-purple-600" },
+      { role: "行政專員", engRole: "ADMIN SPECIALIST", desc: "文書處理、檔案管理與後勤支援。", icon: "fa-file-lines text-teal-600" },
+      { role: "藝術專員", engRole: "ART SPECIALIST", desc: "美學設計、創意發想與文宣排版。", icon: "fa-feather-pointed text-pink-600" }
     ];
 
     function renderHomeTeamStaff() {
@@ -867,10 +916,6 @@
               </div>
             </div>
           </div>
-          <div class="pt-4 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2 text-xs font-bold text-slate-500">
-            <div><span class="text-slate-400"></span>${member.origin}</div>
-            <div><span class="text-slate-400"></span>${member.birth}</div>
-          </div>
         `;
         topContainer.appendChild(item);
       });
@@ -892,9 +937,6 @@
               <h3 class="text-lg font-black text-slate-900 mb-1">${member.role}</h3>
               <p class="text-xs text-slate-500 font-medium line-clamp-2">${member.desc}</p>
             </div>
-          </div>
-          <div class="pt-3 border-t border-slate-100 text-[11px] font-bold text-slate-400 text-center">
-            <span>${member.origin}</span>
           </div>
         `;
         subContainer.appendChild(item);
