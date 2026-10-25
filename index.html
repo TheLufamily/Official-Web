@@ -58,15 +58,65 @@
     .marquee-track {
       display: flex;
       width: max-content;
-      animation: marqueeScroll 22s linear infinite;
+      animation: marqueeScroll 25s linear infinite;
     }
     .marquee-track:hover {
       animation-play-state: paused;
+    }
+
+    /* 參考圖風格橘色空心字體效果 */
+    .outline-text {
+      color: transparent;
+      -webkit-text-stroke: 1.5px #ea580c;
+    }
+
+    /* 參考圖風格黑金 Loading 動畫樣式 */
+    #pageLoader {
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      background: #0b1311;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.6s ease, visibility 0.6s ease;
+    }
+    #pageLoader.fade-out {
+      opacity: 0;
+      visibility: hidden;
+    }
+    @keyframes loadProgress {
+      0% { width: 0%; }
+      50% { width: 70%; }
+      100% { width: 100%; }
+    }
+    .loader-bar-fill {
+      animation: loadProgress 1.5s cubic-bezier(0.65, 0, 0.35, 1) forwards;
     }
   </style>
 </head>
 
 <body class="flex flex-col min-h-screen">
+
+  <!-- 黑金 Loading 載入畫面 -->
+  <div id="pageLoader">
+    <div class="flex flex-col items-center select-none">
+      <div class="relative flex items-center justify-center mb-6">
+        <div class="w-20 h-20 rounded-2xl bg-gradient-to-tr from-amber-600 via-yellow-200 to-amber-500 p-0.5 shadow-2xl flex items-center justify-center">
+          <div class="w-full h-full bg-[#0b1311] rounded-2xl flex items-center justify-center p-3">
+            <svg class="w-12 h-12 text-amber-300 drop-shadow-[0_0_10px_rgba(252,211,77,0.5)]" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2L14.4 9.6L22 12L14.4 14.4L12 22L9.6 14.4L2 12L9.6 9.6L12 2Z" />
+            </svg>
+          </div>
+        </div>
+      </div>
+      <span class="text-xs font-black text-amber-200/80 tracking-[0.3em] uppercase mb-4">LOADING</span>
+      <div class="w-40 h-1 bg-white/10 rounded-full overflow-hidden">
+        <div class="loader-bar-fill h-full bg-gradient-to-r from-amber-600 via-yellow-200 to-amber-400 rounded-full"></div>
+      </div>
+    </div>
+  </div>
 
   <!-- 導覽列 -->
   <nav class="bg-white/90 backdrop-blur-md sticky top-0 z-40 border-b border-orange-100 shadow-sm">
@@ -374,24 +424,20 @@
         </div>
       </div>
 
-      <!-- 滿版交叉斜角跑馬燈 -->
-      <div class="relative w-screen left-1/2 -translate-x-1/2 overflow-hidden py-5 rotate-2 bg-orange-600 shadow-xl my-10">
-        <div class="bg-black text-white py-3 overflow-hidden shadow-inner -rotate-3 scale-105">
-          <div class="marquee-track flex whitespace-nowrap items-center font-black tracking-widest text-base sm:text-xl italic">
-            <div class="flex items-center gap-8 px-4">
-              <span>呂氏家庭 LU FAMILY</span> <i class="fa-solid fa-star-of-life text-orange-500 text-sm"></i>
-              <span>呂氏家庭 LU FAMILY</span> <i class="fa-solid fa-star-of-life text-orange-500 text-sm"></i>
-              <span>呂氏家庭 LU FAMILY</span> <i class="fa-solid fa-star-of-life text-orange-500 text-sm"></i>
-              <span>呂氏家庭 LU FAMILY</span> <i class="fa-solid fa-star-of-life text-orange-500 text-sm"></i>
-              <span>呂氏家庭 LU FAMILY</span> <i class="fa-solid fa-star-of-life text-orange-500 text-sm"></i>
-            </div>
-            <div class="flex items-center gap-8 px-4" aria-hidden="true">
-              <span>呂氏家庭 LU FAMILY</span> <i class="fa-solid fa-star-of-life text-orange-500 text-sm"></i>
-              <span>呂氏家庭 LU FAMILY</span> <i class="fa-solid fa-star-of-life text-orange-500 text-sm"></i>
-              <span>呂氏家庭 LU FAMILY</span> <i class="fa-solid fa-star-of-life text-orange-500 text-sm"></i>
-              <span>呂氏家庭 LU FAMILY</span> <i class="fa-solid fa-star-of-life text-orange-500 text-sm"></i>
-              <span>呂氏家庭 LU FAMILY</span> <i class="fa-solid fa-star-of-life text-orange-500 text-sm"></i>
-            </div>
+      <!-- 水平橫式跑馬燈 -->
+      <div class="relative w-screen left-1/2 -translate-x-1/2 overflow-hidden py-3 bg-white border-y border-orange-200 shadow-sm my-10">
+        <div class="marquee-track flex whitespace-nowrap items-center font-black tracking-widest text-lg sm:text-xl uppercase">
+          <div class="flex items-center gap-8 px-4">
+            <span class="outline-text">呂氏家庭 LU FAMILY</span> <i class="fa-solid fa-star-of-life text-orange-600 text-sm"></i>
+            <span class="outline-text">呂氏家庭 LU FAMILY</span> <i class="fa-solid fa-star-of-life text-orange-600 text-sm"></i>
+            <span class="outline-text">呂氏家庭 LU FAMILY</span> <i class="fa-solid fa-star-of-life text-orange-600 text-sm"></i>
+            <span class="outline-text">呂氏家庭 LU FAMILY</span> <i class="fa-solid fa-star-of-life text-orange-600 text-sm"></i>
+          </div>
+          <div class="flex items-center gap-8 px-4" aria-hidden="true">
+            <span class="outline-text">呂氏家庭 LU FAMILY</span> <i class="fa-solid fa-star-of-life text-orange-600 text-sm"></i>
+            <span class="outline-text">呂氏家庭 LU FAMILY</span> <i class="fa-solid fa-star-of-life text-orange-600 text-sm"></i>
+            <span class="outline-text">呂氏家庭 LU FAMILY</span> <i class="fa-solid fa-star-of-life text-orange-600 text-sm"></i>
+            <span class="outline-text">呂氏家庭 LU FAMILY</span> <i class="fa-solid fa-star-of-life text-orange-600 text-sm"></i>
           </div>
         </div>
       </div>
@@ -457,7 +503,7 @@
         </div>
       </div>
 
-      <!-- ================= 參考圖片風格的家族分布卡片區塊 ================= -->
+      <!-- 家族分布卡片區塊 -->
       <div class="max-w-7xl mx-auto w-full pt-4">
         <div class="mb-10">
           <span class="text-orange-600 font-black text-xs tracking-widest uppercase block mb-1">家族分布</span>
@@ -465,83 +511,56 @@
             FAMILY <span class="text-orange-600">MAP</span>
           </h1>
           <p class="text-gray-600 text-base sm:text-lg">
-            13位家庭成員，主要分布於新北板橋、桃園平鎮、臺中中區及北區
+            13位家庭成員，主要分布於新北板橋、桃園平鎮、臺中中區及臺中北區
           </p>
         </div>
 
-        <!-- 4 張參考圖風格的卡片排版 -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          
-          <!-- 卡片 1：新北市 板橋區 (橘色) -->
           <div class="bg-gradient-to-b from-orange-600 to-amber-700 rounded-[32px] p-6 text-white shadow-xl flex flex-col justify-between relative overflow-hidden group hover:scale-[1.02] transition-all">
             <div class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-bl-full pointer-events-none"></div>
             <div>
               <div class="flex items-center justify-between mb-6">
-                <span class="text-[10px] font-black uppercase tracking-widest bg-white/20 px-3 py-1 rounded-full backdrop-blur-md border border-white/30">
-                  主要
-                </span>
+                
                 <i class="fa-solid fa-location-dot text-xl text-orange-200"></i>
               </div>
-              <div class="w-16 h-16 rounded-2xl bg-white/15 backdrop-blur-md flex items-center justify-center text-3xl font-black mb-6 shadow-inner border border-white/20">
-                <i class="fa-solid fa-house-chimney"></i>
-              </div>
+              <div class="w-16 h-16 rounded-2xl bg-white/15 backdrop-blur-md flex items-center justify-center text-3xl font-black mb-6 shadow-inner border border-white/20"><i class="fa-solid fa-house-chimney"></i></div>
               <div class="text-xs font-bold text-orange-100 uppercase tracking-widest mb-1">NEW TAIPEI BANQIAO</div>
               <h3 class="text-2xl font-black tracking-tight mb-4">新北市板橋區</h3>
-              <p class="text-xs text-orange-100 font-medium leading-relaxed mb-6">
-              </p>
+              <p class="text-xs text-orange-100 font-medium leading-relaxed mb-6"></p>
             </div>
-            <div class="pt-4 border-t border-white/20 flex items-center justify-between text-xs font-black">
-              <span></span>
-              <i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
-            </div>
+            <div class="pt-4 border-t border-white/20 flex items-center justify-between text-xs font-black"><span></span><i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i></div>
           </div>
 
-          <!-- 卡片 2：桃園市 平鎮區 (桃紅/紅色系) -->
           <div class="bg-gradient-to-b from-rose-600 to-pink-700 rounded-[32px] p-6 text-white shadow-xl flex flex-col justify-between relative overflow-hidden group hover:scale-[1.02] transition-all">
             <div class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-bl-full pointer-events-none"></div>
             <div>
               <div class="flex items-center justify-between mb-6">
-                
+               
                 <i class="fa-solid fa-users text-xl text-rose-200"></i>
               </div>
-              <div class="w-16 h-16 rounded-2xl bg-white/15 backdrop-blur-md flex items-center justify-center text-3xl font-black mb-6 shadow-inner border border-white/20">
-                <i class="fa-solid fa-landmark"></i>
-              </div>
+              <div class="w-16 h-16 rounded-2xl bg-white/15 backdrop-blur-md flex items-center justify-center text-3xl font-black mb-6 shadow-inner border border-white/20"><i class="fa-solid fa-landmark"></i></div>
               <div class="text-xs font-bold text-rose-100 uppercase tracking-widest mb-1">TAOYUAN PINGZHEN</div>
               <h3 class="text-2xl font-black tracking-tight mb-4">桃園市平鎮區</h3>
-              <p class="text-xs text-rose-100 font-medium leading-relaxed mb-6">
-              </p>
+              <p class="text-xs text-rose-100 font-medium leading-relaxed mb-6"></p>
             </div>
-            <div class="pt-4 border-t border-white/20 flex items-center justify-between text-xs font-black">
-              <span></span>
-              <i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
-            </div>
+            <div class="pt-4 border-t border-white/20 flex items-center justify-between text-xs font-black"><span></span><i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i></div>
           </div>
 
-          <!-- 卡片 3：臺中市 中區 (深紫/藍紫色系) -->
           <div class="bg-gradient-to-b from-indigo-800 to-purple-900 rounded-[32px] p-6 text-white shadow-xl flex flex-col justify-between relative overflow-hidden group hover:scale-[1.02] transition-all">
             <div class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-bl-full pointer-events-none"></div>
             <div>
               <div class="flex items-center justify-between mb-6">
-                
+               
                 <i class="fa-solid fa-compass text-xl text-indigo-200"></i>
               </div>
-              <div class="w-16 h-16 rounded-2xl bg-white/15 backdrop-blur-md flex items-center justify-center text-3xl font-black mb-6 shadow-inner border border-white/20">
-                <i class="fa-solid fa-city"></i>
-              </div>
+              <div class="w-16 h-16 rounded-2xl bg-white/15 backdrop-blur-md flex items-center justify-center text-3xl font-black mb-6 shadow-inner border border-white/20"><i class="fa-solid fa-city"></i></div>
               <div class="text-xs font-bold text-indigo-100 uppercase tracking-widest mb-1">TAICHUNG CENTRAL</div>
               <h3 class="text-2xl font-black tracking-tight mb-4">臺中市中區</h3>
-              <p class="text-xs text-indigo-100 font-medium leading-relaxed mb-6">
-              
-              </p>
+              <p class="text-xs text-indigo-100 font-medium leading-relaxed mb-6"></p>
             </div>
-            <div class="pt-4 border-t border-white/20 flex items-center justify-between text-xs font-black">
-              <span></span>
-              <i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
-            </div>
+            <div class="pt-4 border-t border-white/20 flex items-center justify-between text-xs font-black"><span></span><i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i></div>
           </div>
 
-          <!-- 卡片 4：臺中市 北區 (綠色系) -->
           <div class="bg-gradient-to-b from-emerald-600 to-teal-800 rounded-[32px] p-6 text-white shadow-xl flex flex-col justify-between relative overflow-hidden group hover:scale-[1.02] transition-all">
             <div class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-bl-full pointer-events-none"></div>
             <div>
@@ -549,22 +568,121 @@
                
                 <i class="fa-solid fa-seedling text-xl text-emerald-200"></i>
               </div>
-              <div class="w-16 h-16 rounded-2xl bg-white/15 backdrop-blur-md flex items-center justify-center text-3xl font-black mb-6 shadow-inner border border-white/20">
-                <i class="fa-solid fa-tree-city"></i>
-              </div>
+              <div class="w-16 h-16 rounded-2xl bg-white/15 backdrop-blur-md flex items-center justify-center text-3xl font-black mb-6 shadow-inner border border-white/20"><i class="fa-solid fa-tree-city"></i></div>
               <div class="text-xs font-bold text-emerald-100 uppercase tracking-widest mb-1">TAICHUNG NORTH</div>
               <h3 class="text-2xl font-black tracking-tight mb-4">臺中市北區</h3>
-
+              <p class="text-xs text-emerald-100 font-medium leading-relaxed mb-6"></p>
             </div>
-            <div class="pt-4 border-t border-white/20 flex items-center justify-between text-xs font-black">
-              <span></span>
-              <i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
+            <div class="pt-4 border-t border-white/20 flex items-center justify-between text-xs font-black"><span></span><i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= 第一次進入網頁指南 (GAME GUIDE) 專區 ================= -->
+      <div id="game-guide" class="pt-6">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 relative section-title-watermark px-2">
+          <div class="watermark-text">GAME GUIDE</div>
+          <div class="relative z-10">
+            <span class="text-orange-600 font-black text-xs tracking-widest uppercase block mb-1">新手上路與家族指南</span>
+            <h2 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight uppercase">GAME GUIDE</h2>
+          </div>
+          <div class="mt-4 sm:mt-0 relative z-10">
+            <a href="#home" class="inline-flex items-center gap-2 text-xs font-black text-slate-700 hover:text-orange-600 transition-colors group py-2">
+              <span>完整觀戰與使用指南</span> <i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- 卡片 1 -->
+          <div class="bg-white rounded-[32px] p-7 border border-orange-100 shadow-xl flex flex-col justify-between group relative overflow-hidden transition-all hover:shadow-2xl">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-orange-500/5 rounded-bl-full pointer-events-none"></div>
+            <div>
+              <!-- 頂部小票卡預覽 -->
+              <div class="bg-white rounded-2xl p-4 shadow-md border border-orange-100 mb-6 relative overflow-hidden group-hover:scale-105 transition-transform">
+                <div class="text-[9px] font-black text-orange-600 uppercase tracking-widest mb-0.5">LU FAMILY PASS</div>
+                <div class="text-base font-black text-slate-900 tracking-wider mb-2">GATHERING TICKET</div>
+                <div class="flex items-center justify-between text-xs font-bold text-slate-500 pt-2 border-t border-dashed border-slate-200">
+                  <span>ADMIRE ONE</span>
+                  <span class="text-orange-600 font-black">NT$0 Free</span>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="flex items-baseline justify-between mb-3">
+                <h3 class="text-xl font-black text-slate-900 group-hover:text-orange-600 transition-colors">家族活動報名</h3>
+                <span class="text-2xl font-black text-orange-600">01</span>
+              </div>
+              <p class="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed mb-6">
+                可在活動專區查看近期家族活動，免費參與。
+              </p>
+              <div class="pt-4 border-t border-slate-100">
+                <a href="#calendar" class="inline-flex items-center gap-2 text-xs font-black text-orange-600 hover:text-orange-700 transition-colors">
+                  <span>查詢</span> <i class="fa-solid fa-arrow-right text-xs"></i>
+                </a>
+              </div>
             </div>
           </div>
 
+          <!-- 卡片 2 -->
+          <div class="bg-white rounded-[32px] p-7 border border-orange-100 shadow-xl flex flex-col justify-between group relative overflow-hidden transition-all hover:shadow-2xl">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-orange-500/5 rounded-bl-full pointer-events-none"></div>
+            <div>
+              <!-- 頂部地標預覽 -->
+              <div class="bg-white rounded-2xl p-4 shadow-md border border-orange-100 mb-6 relative overflow-hidden group-hover:scale-105 transition-transform text-center">
+                <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100 text-slate-800 font-bold text-xs mb-2">
+                  <i class="fa-solid fa-location-dot text-rose-600"></i> 核心總部
+                </div>
+                <div class="text-xs font-bold text-orange-600">📍 導航中：直行 10 公尺</div>
+              </div>
+            </div>
+            <div>
+              <div class="flex items-baseline justify-between mb-3">
+                <h3 class="text-xl font-black text-slate-900 group-hover:text-orange-600 transition-colors">交通與位置</h3>
+                <span class="text-2xl font-black text-orange-600">02</span>
+              </div>
+              <p class="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed mb-6">
+                提供家族聚會場館、交通路線、停車場位置資訊，以及捷運轉乘與步行指引。
+              </p>
+              <div class="pt-4 border-t border-slate-100">
+                <a href="#calendar" class="inline-flex items-center gap-2 text-xs font-black text-orange-600 hover:text-orange-700 transition-colors">
+                  <span>交通與入場須知</span> <i class="fa-solid fa-arrow-right text-xs"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 卡片 3 -->
+          <div class="bg-white rounded-[32px] p-7 border border-orange-100 shadow-xl flex flex-col justify-between group relative overflow-hidden transition-all hover:shadow-2xl">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-orange-500/5 rounded-bl-full pointer-events-none"></div>
+            <div>
+              <!-- 頂部大聲公預覽 -->
+              <div class="bg-white rounded-2xl p-4 shadow-md border border-orange-100 mb-6 relative overflow-hidden group-hover:scale-105 transition-transform flex items-center gap-3">
+                <i class="fa-solid fa-bullhorn text-rose-600 text-2xl"></i>
+                <div class="text-xs font-bold text-slate-700">
+                  <div class="text-rose-600 font-black">家族聲量大聲公</div>
+                  <div class="text-[10px] text-slate-400">「家族凝聚，世代傳承！」</div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="flex items-baseline justify-between mb-3">
+                <h3 class="text-xl font-black text-slate-900 group-hover:text-orange-600 transition-colors">幹部專區</h3>
+                <span class="text-2xl font-black text-orange-600">03</span>
+              </div>
+              <p class="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed mb-6">
+               可查看本單位核心幹部與營運團隊。
+              </p>
+              <div class="pt-4 border-t border-slate-100">
+                <a href="#team-staff" class="inline-flex items-center gap-2 text-xs font-black text-orange-600 hover:text-orange-700 transition-colors">
+                  <span>查詢</span> <i class="fa-solid fa-arrow-right text-xs"></i>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <!-- ================= /家族分布卡片結束 ================= -->
+      <!-- ================= /GAME GUIDE 結束 ================= -->
 
     </div>
   </section>
@@ -578,7 +696,7 @@
         </div>
         <div class="flex items-center gap-3">
           <span class="inline-flex items-center gap-1.5 bg-white px-4 py-2 rounded-xl border border-orange-200 shadow-sm text-slate-700">
-            <i class="fa-solid fa-rotate text-orange-600"></i> 最後更新日期：2026-10-25
+            <i class="fa-solid fa-rotate text-orange-600"></i> 最後更新日期：2026-10-23
           </span>
         </div>
       </div>
@@ -757,6 +875,16 @@
 
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        const loader = document.getElementById('pageLoader');
+        if (loader) {
+          loader.classList.add('fade-out');
+          setTimeout(() => loader.remove(), 600);
+        }
+      }, 1200);
+    });
+
     function toggleMobileMenu() {
       const menu = document.getElementById('mobileMenu');
       const icon = document.getElementById('mobileMenuIcon');
@@ -769,7 +897,6 @@
       }
     }
 
-    // 滾動顯示/隱藏 TOP 按鈕邏輯
     window.addEventListener('scroll', () => {
       const scrollBtn = document.getElementById('scrollTopBtn');
       if (!scrollBtn) return;
@@ -858,7 +985,6 @@
       document.getElementById('scholarshipModal').classList.add('hidden');
     }
 
-    // 鍵盤輸入密碼偵測 (輸入 03210501 自動開啟後台選單)
     let secretKeyBuffer = "";
     const SECRET_CODE = "03210501";
     window.addEventListener('keydown', (e) => {
