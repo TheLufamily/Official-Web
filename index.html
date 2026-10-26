@@ -69,6 +69,24 @@
       color: transparent;
       -webkit-text-stroke: 1.5px #ea580c;
     }
+
+    /* 動態標語炫光與浮動動畫 */
+    @keyframes floatText {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .animated-hero-title {
+      background: linear-gradient(270deg, #ea580c, #f97316, #fb923c, #c2410c, #ea580c);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientShift 6s ease infinite, floatText 4s ease-in-out infinite;
+    }
   </style>
 </head>
 
@@ -129,9 +147,12 @@
         <a href="#scholarship" class="hover:text-orange-600 transition-colors py-2 tracking-wider">獎學金專區 SCHOLARSHIP</a>
       </div>
 
-      <!-- 手機版右側選單按鈕 -->
-      <div class="flex items-center gap-2 lg:hidden">
-        <button type="button" onclick="toggleMobileMenu()" class="text-2xl text-slate-800 p-2 focus:outline-none hover:text-orange-600 transition-colors cursor-pointer">
+      <!-- 右側按鈕：App下載與手機選單 -->
+      <div class="flex items-center gap-3">
+        <button type="button" onclick="openAppDownloadModal()" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-orange-600 hover:bg-orange-700 text-white font-black text-xs shadow-md transition-all cursor-pointer">
+          <i class="fa-solid fa-mobile-screen-button"></i> <span>APP 下載</span>
+        </button>
+        <button type="button" onclick="toggleMobileMenu()" class="text-2xl text-slate-800 p-2 focus:outline-none hover:text-orange-600 transition-colors cursor-pointer lg:hidden">
           <i id="mobileMenuIcon" class="fa-solid fa-bars"></i>
         </button>
       </div>
@@ -140,6 +161,9 @@
     <!-- 手機版選單 -->
     <div id="mobileMenu" class="hidden bg-white border-t border-slate-100 shadow-2xl transition-all lg:hidden">
       <div class="max-w-4xl mx-auto px-6 py-6 flex flex-col gap-6 text-sm">
+        <button type="button" onclick="openAppDownloadModal(); toggleMobileMenu();" class="w-full py-3 rounded-2xl bg-orange-600 text-white font-black text-center shadow-md flex items-center justify-center gap-2 cursor-pointer">
+          <i class="fa-solid fa-mobile-screen-button"></i> <span>下載專屬家庭 App</span>
+        </button>
         <div class="flex flex-col gap-3">
           <div class="text-xs font-bold text-orange-600 tracking-wider">— 公告資訊</div>
           <a href="#calendar" onclick="toggleMobileMenu()" class="group py-2.5 px-2 flex items-center justify-between text-slate-800 hover:text-orange-600 transition-colors border-b border-slate-50">
@@ -174,10 +198,32 @@
     </div>
   </nav>
 
-  <!-- 首頁主視覺 HERO 區塊 -->
-  <div id="home" class="max-w-5xl mx-auto z-10 relative py-8 px-4 text-center" data-aos="zoom-in">
-    <div class="glass-card rounded-[35px] p-4 sm:p-6 shadow-xl relative overflow-hidden group flex items-center justify-center">
-      <img src="2026新主視覺_工作區域 1.jpg" alt="幻心齊燃 呂氏家庭主視覺" class="w-full max-w-4xl h-auto object-contain rounded-2xl shadow-md select-none pointer-events-none">
+  <!-- 首頁主視覺 HERO 動態文字區塊 -->
+  <div id="home" class="max-w-5xl mx-auto z-10 relative py-12 px-4 text-center" data-aos="zoom-in">
+    <div class="glass-card rounded-[35px] py-12 px-6 sm:px-10 shadow-2xl relative overflow-hidden group flex flex-col items-center justify-center border-2 border-orange-200 bg-gradient-to-b from-white/95 to-orange-50/50">
+      
+      <!-- 裝飾徽章或小標題 -->
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-100/80 border border-orange-200 text-orange-700 text-xs font-black uppercase tracking-widest mb-6 shadow-sm">
+        <i class="fa-solid fa-house-chimney text-orange-600"></i> LU FAMILY PORTAL 2026
+      </div>
+
+      <!-- 動態漸層主標題 -->
+      <h1 class="animated-hero-title text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight uppercase py-2 drop-shadow-sm">
+        歡迎蒞臨呂氏家庭生活資訊網
+      </h1>
+
+      <!-- 副標題說明 -->
+      <p class="text-slate-600 text-sm sm:text-base font-bold tracking-wider mt-4 flex items-center justify-center gap-2">
+        <i class="fa-solid fa-star text-orange-500 text-xs"></i> 凝聚家族情感・共創美好未來 <i class="fa-solid fa-star text-orange-500 text-xs"></i>
+      </p>
+
+      <!-- App 下載快速捷徑按鈕 -->
+      <div class="mt-8">
+        <button type="button" onclick="openAppDownloadModal()" class="inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-700 hover:to-amber-700 text-white font-black text-sm sm:text-base shadow-xl hover:scale-105 transition-all cursor-pointer">
+          <i class="fa-solid fa-cloud-arrow-down text-lg"></i> <span>立即安裝專屬 App 到手機</span>
+        </button>
+      </div>
+
     </div>
   </div>
 
@@ -540,6 +586,11 @@
         <div>
           <p>&copy; 2026 呂氏家庭生活資訊網 版權所有 All Rights Reserved.</p>
         </div>
+        <div>
+          <button type="button" onclick="openAppDownloadModal()" class="text-orange-600 hover:underline font-black cursor-pointer flex items-center gap-1.5">
+            <i class="fa-solid fa-mobile-screen-button"></i> 下載專屬 App
+          </button>
+        </div>
       </div>
     </div>
   </footer>
@@ -548,6 +599,56 @@
   <button type="button" id="scrollTopBtn" onclick="scrollToTop()" class="fixed right-6 bottom-6 z-50 w-12 h-12 rounded-full bg-gradient-to-br from-orange-500 to-orange-700 text-white shadow-2xl flex items-center justify-center text-lg hover:scale-110 transition-all duration-300 opacity-0 invisible cursor-pointer border-2 border-white">
     <i class="fa-solid fa-arrow-up"></i>
   </button>
+
+  <!-- APP 下載指引 Modal 彈出視窗 -->
+  <div id="appDownloadModal" class="fixed inset-0 z-[190] flex items-center justify-center p-4 sm:p-6 bg-slate-900/60 backdrop-blur-sm hidden">
+    <div class="bg-white text-slate-800 rounded-[32px] shadow-2xl overflow-hidden relative w-full max-w-lg border border-orange-100 p-6 sm:p-8 text-left">
+      <button type="button" onclick="closeAppDownloadModal()" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-all cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
+      
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-14 h-14 rounded-2xl bg-orange-600 text-white flex items-center justify-center text-2xl font-black shadow-lg shrink-0">
+          <i class="fa-solid fa-mobile-screen-button"></i>
+        </div>
+        <div>
+          <span class="text-[10px] font-bold text-orange-600 uppercase tracking-widest block">LU FAMILY MOBILE APP</span>
+          <h3 class="text-xl sm:text-2xl font-black text-slate-900">安裝專屬家庭 App</h3>
+        </div>
+      </div>
+
+      <p class="text-slate-600 text-xs sm:text-sm font-medium leading-relaxed mb-6">
+        將「呂氏家庭生活資訊網」安裝到您的手機桌面上，隨時隨地快速查看最新消息、獎學金與活動行程！
+      </p>
+
+      <div class="space-y-4 mb-6">
+        <div class="p-4 rounded-2xl bg-orange-50/70 border border-orange-200">
+          <h4 class="text-xs sm:text-sm font-black text-orange-800 mb-1 flex items-center gap-2">
+            <i class="fa-brands fa-apple text-base"></i> iPhone / iPad (iOS 用戶)
+          </h4>
+          <p class="text-xs text-slate-600 font-medium leading-relaxed">
+            請使用 Safari 瀏覽器開啟本網頁，點選下方工具列的 <strong class="text-slate-800">「分享」按鈕</strong> <i class="fa-solid fa-arrow-up-from-bracket mx-0.5"></i>，然後選擇 <strong class="text-slate-800">「加入主畫面」</strong> 即可完成安裝。
+          </p>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+          <h4 class="text-xs sm:text-sm font-black text-slate-800 mb-1 flex items-center gap-2">
+            <i class="fa-brands fa-android text-base text-emerald-600"></i> Android (安卓用戶)
+          </h4>
+          <p class="text-xs text-slate-600 font-medium leading-relaxed">
+            請使用 Chrome 瀏覽器開啟本網頁，點選右上角 <strong class="text-slate-800">「選單 (三個點)」</strong> <i class="fa-solid fa-ellipsis-vertical mx-0.5"></i>，然後選擇 <strong class="text-slate-800">「加到主畫面」</strong> 或 <strong class="text-slate-800">「安裝應用程式」</strong>。
+          </p>
+        </div>
+      </div>
+
+      <div class="flex gap-3">
+        <button type="button" onclick="triggerPwaInstall()" id="browserInstallBtn" class="flex-grow py-3.5 rounded-2xl bg-orange-600 hover:bg-orange-700 text-white font-black text-sm uppercase shadow-md transition-all cursor-pointer flex items-center justify-center gap-2">
+          <i class="fa-solid fa-download"></i> <span>快速安裝到桌面</span>
+        </button>
+        <button type="button" onclick="closeAppDownloadModal()" class="px-5 py-3.5 rounded-2xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-black text-sm uppercase transition-all cursor-pointer">
+          關閉
+        </button>
+      </div>
+    </div>
+  </div>
 
   <!-- 各種 Modal 彈出視窗 -->
   <div id="scholarshipModal" class="fixed inset-0 z-[160] flex items-center justify-center p-4 sm:p-6 bg-slate-900/60 backdrop-blur-sm hidden">
@@ -766,6 +867,33 @@
     function closeImageLightbox() { document.getElementById('imageLightboxModal').classList.add('hidden'); }
 
     AOS.init({ duration: 1000, once: true });
+
+    let deferredPrompt = null;
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+    });
+
+    function openAppDownloadModal() {
+      document.getElementById('appDownloadModal').classList.remove('hidden');
+    }
+
+    function closeAppDownloadModal() {
+      document.getElementById('appDownloadModal').classList.add('hidden');
+    }
+
+    async function triggerPwaInstall() {
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        const { outcome } = await deferredPrompt.userChoice;
+        if (outcome === 'accepted') {
+          console.log('使用者已同意安裝 App');
+        }
+        deferredPrompt = null;
+      } else {
+        alert('💡 提示：請依照上方視窗說明，使用手機瀏覽器選單點選「加到主畫面」或「安裝應用程式」即可！');
+      }
+    }
 
     const API_URL = "https://script.google.com/macros/s/AKfycbwS-5vgJfq6Prb24jbWuVIpGb6UlHT3yZpXRp4ST4siAAecvzHZ6M8MfNlD_ttlwjuMNQ/exec";
 
