@@ -5,6 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>呂氏家庭生活資訊網 - LU FAMILY</title>
 
+  <!-- PWA 應用程式設定與全螢幕獨立模式宣告 -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#ea580c">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="呂氏家庭">
+
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
@@ -616,7 +623,7 @@
       </div>
 
       <p class="text-slate-600 text-xs sm:text-sm font-medium leading-relaxed mb-6">
-        將「呂氏家庭生活資訊網」安裝到您的手機桌面上，隨時隨地快速查看最新消息、獎學金與活動行程！
+        點擊下方按鈕可直接觸發瀏覽器安裝提示，將本站快速安裝至手機或電腦桌面！
       </p>
 
       <div class="space-y-4 mb-6">
@@ -625,23 +632,23 @@
             <i class="fa-brands fa-apple text-base"></i> iPhone / iPad (iOS 用戶)
           </h4>
           <p class="text-xs text-slate-600 font-medium leading-relaxed">
-            請使用 Safari 瀏覽器開啟本網頁，點選下方工具列的 <strong class="text-slate-800">「分享」按鈕</strong> <i class="fa-solid fa-arrow-up-from-bracket mx-0.5"></i>，然後選擇 <strong class="text-slate-800">「加入主畫面」</strong> 即可完成安裝。
+            請使用 Safari 瀏覽器，點選工具列 <strong class="text-slate-800">「分享」</strong> <i class="fa-solid fa-arrow-up-from-bracket mx-0.5"></i> ＞ <strong class="text-slate-800">「加入主畫面」</strong>。
           </p>
         </div>
 
         <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
           <h4 class="text-xs sm:text-sm font-black text-slate-800 mb-1 flex items-center gap-2">
-            <i class="fa-brands fa-android text-base text-emerald-600"></i> Android (安卓用戶)
+            <i class="fa-brands fa-android text-base text-emerald-600"></i> Android / 電腦 (Chrome / Edge)
           </h4>
           <p class="text-xs text-slate-600 font-medium leading-relaxed">
-            請使用 Chrome 瀏覽器開啟本網頁，點選右上角 <strong class="text-slate-800">「選單 (三個點)」</strong> <i class="fa-solid fa-ellipsis-vertical mx-0.5"></i>，然後選擇 <strong class="text-slate-800">「加到主畫面」</strong> 或 <strong class="text-slate-800">「安裝應用程式」</strong>。
+            直接點擊下方「一鍵自動安裝」按鈕，即可跳出安裝對話框！
           </p>
         </div>
       </div>
 
       <div class="flex gap-3">
         <button type="button" onclick="triggerPwaInstall()" id="browserInstallBtn" class="flex-grow py-3.5 rounded-2xl bg-orange-600 hover:bg-orange-700 text-white font-black text-sm uppercase shadow-md transition-all cursor-pointer flex items-center justify-center gap-2">
-          <i class="fa-solid fa-download"></i> <span>快速安裝到桌面</span>
+          <i class="fa-solid fa-download"></i> <span>一鍵自動安裝</span>
         </button>
         <button type="button" onclick="closeAppDownloadModal()" class="px-5 py-3.5 rounded-2xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-black text-sm uppercase transition-all cursor-pointer">
           關閉
@@ -891,8 +898,14 @@
         }
         deferredPrompt = null;
       } else {
-        alert('💡 提示：請依照上方視窗說明，使用手機瀏覽器選單點選「加到主畫面」或「安裝應用程式」即可！');
+        alert('💡 提示：若瀏覽器未自動跳出提示，請直接從瀏覽器選單點選「加到主畫面」或「安裝應用程式」即可！');
       }
+    }
+
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js').catch(err => console.log('SW 註冊失敗:', err));
+      });
     }
 
     const API_URL = "https://script.google.com/macros/s/AKfycbwS-5vgJfq6Prb24jbWuVIpGb6UlHT3yZpXRp4ST4siAAecvzHZ6M8MfNlD_ttlwjuMNQ/exec";
