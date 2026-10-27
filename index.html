@@ -5,13 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>呂氏家庭生活資訊網 - LU FAMILY</title>
 
-  <!-- PWA 應用程式設定與全螢幕獨立模式宣告 -->
-  <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#ea580c">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="呂氏家庭">
-
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
@@ -71,13 +64,11 @@
       animation-play-state: paused;
     }
 
-    /* 參考圖風格橘色空心字體效果 */
     .outline-text {
       color: transparent;
       -webkit-text-stroke: 1.5px #ea580c;
     }
 
-    /* 動態標語炫光與浮動動畫 */
     @keyframes floatText {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-8px); }
@@ -111,7 +102,6 @@
       <div class="hidden lg:flex items-center gap-8 font-bold text-sm text-slate-700 shrink-0">
         <a href="#calendar" class="hover:text-orange-600 transition-colors py-2 tracking-wider">活動資訊 CALENDAR</a>
         
-        <!-- 關於我們 下拉選單 -->
         <div class="relative group py-2">
           <button type="button" class="flex items-center gap-1.5 hover:text-orange-600 transition-colors focus:outline-none cursor-pointer">
             <span>關於我們 ABOUT</span> 
@@ -154,23 +144,15 @@
         <a href="#scholarship" class="hover:text-orange-600 transition-colors py-2 tracking-wider">獎學金專區 SCHOLARSHIP</a>
       </div>
 
-      <!-- 右側按鈕：App下載與手機選單 -->
       <div class="flex items-center gap-3">
-        <button type="button" onclick="openAppDownloadModal()" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-orange-600 hover:bg-orange-700 text-white font-black text-xs shadow-md transition-all cursor-pointer">
-          <i class="fa-solid fa-mobile-screen-button"></i> <span>APP 下載</span>
-        </button>
         <button type="button" onclick="toggleMobileMenu()" class="text-2xl text-slate-800 p-2 focus:outline-none hover:text-orange-600 transition-colors cursor-pointer lg:hidden">
           <i id="mobileMenuIcon" class="fa-solid fa-bars"></i>
         </button>
       </div>
     </div>
 
-    <!-- 手機版選單 -->
     <div id="mobileMenu" class="hidden bg-white border-t border-slate-100 shadow-2xl transition-all lg:hidden">
       <div class="max-w-4xl mx-auto px-6 py-6 flex flex-col gap-6 text-sm">
-        <button type="button" onclick="openAppDownloadModal(); toggleMobileMenu();" class="w-full py-3 rounded-2xl bg-orange-600 text-white font-black text-center shadow-md flex items-center justify-center gap-2 cursor-pointer">
-          <i class="fa-solid fa-mobile-screen-button"></i> <span>下載專屬家庭 App</span>
-        </button>
         <div class="flex flex-col gap-3">
           <div class="text-xs font-bold text-orange-600 tracking-wider">— 公告資訊</div>
           <a href="#calendar" onclick="toggleMobileMenu()" class="group py-2.5 px-2 flex items-center justify-between text-slate-800 hover:text-orange-600 transition-colors border-b border-slate-50">
@@ -209,27 +191,17 @@
   <div id="home" class="max-w-5xl mx-auto z-10 relative py-12 px-4 text-center" data-aos="zoom-in">
     <div class="glass-card rounded-[35px] py-12 px-6 sm:px-10 shadow-2xl relative overflow-hidden group flex flex-col items-center justify-center border-2 border-orange-200 bg-gradient-to-b from-white/95 to-orange-50/50">
       
-      <!-- 裝飾徽章或小標題 -->
       <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-100/80 border border-orange-200 text-orange-700 text-xs font-black uppercase tracking-widest mb-6 shadow-sm">
         <i class="fa-solid fa-house-chimney text-orange-600"></i> LU FAMILY PORTAL 2026
       </div>
 
-      <!-- 動態漸層主標題 -->
       <h1 class="animated-hero-title text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight uppercase py-2 drop-shadow-sm">
         歡迎蒞臨呂氏家庭生活資訊網
       </h1>
 
-      <!-- 副標題說明 -->
       <p class="text-slate-600 text-sm sm:text-base font-bold tracking-wider mt-4 flex items-center justify-center gap-2">
         <i class="fa-solid fa-star text-orange-500 text-xs"></i> 凝聚家族情感・共創美好未來 <i class="fa-solid fa-star text-orange-500 text-xs"></i>
       </p>
-
-      <!-- App 下載快速捷徑按鈕 -->
-      <div class="mt-8">
-        <button type="button" onclick="openAppDownloadModal()" class="inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-700 hover:to-amber-700 text-white font-black text-sm sm:text-base shadow-xl hover:scale-105 transition-all cursor-pointer">
-          <i class="fa-solid fa-cloud-arrow-down text-lg"></i> <span>立即安裝專屬 App 到手機</span>
-        </button>
-      </div>
 
     </div>
   </div>
@@ -239,98 +211,95 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 w-full space-y-20">
       
       <!-- 獎學金申請專區 -->
-    <div id="scholarship" class="scroll-mt-24 pt-4">
-      <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 relative section-title-watermark px-2">
-        <div class="watermark-text">SCHOLARSHIP</div>
-        <div class="relative z-10">
-          <span class="text-orange-600 font-black text-xs tracking-widest uppercase block mb-1">各項獎學金與補助申請</span>
-          <h2 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight uppercase">SCHOLARSHIP</h2>
+      <div id="scholarship" class="scroll-mt-24 pt-4">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 relative section-title-watermark px-2">
+          <div class="watermark-text">SCHOLARSHIP</div>
+          <div class="relative z-10">
+            <span class="text-orange-600 font-black text-xs tracking-widest uppercase block mb-1">各項獎學金與補助申請</span>
+            <h2 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight uppercase">SCHOLARSHIP</h2>
+          </div>
+          <div class="mt-4 sm:mt-0 relative z-10">
+            <span class="inline-flex items-center gap-2 text-xs font-black text-orange-700 bg-orange-50 px-4 py-2 rounded-2xl border border-orange-200 shadow-sm">
+              <i class="fa-solid fa-graduation-cap text-orange-600"></i> 115年度 獎學金申辦專區
+            </span>
+          </div>
         </div>
-        <div class="mt-4 sm:mt-0 relative z-10">
-          <span class="inline-flex items-center gap-2 text-xs font-black text-orange-700 bg-orange-50 px-4 py-2 rounded-2xl border border-orange-200 shadow-sm">
-            <i class="fa-solid fa-graduation-cap text-orange-600"></i> 115年度 獎學金申辦專區
-          </span>
-        </div>
-      </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <!-- 獎學金項目 1：已結束（反灰，含跑馬燈公告） -->
-        <div class="bg-slate-50 rounded-[32px] p-7 border border-slate-200 shadow-sm flex flex-col justify-between group relative overflow-hidden opacity-80">
-          <div class="absolute top-0 right-0 w-32 h-32 bg-slate-500/5 rounded-bl-full pointer-events-none"></div>
-          <div>
-            <!-- 跑馬燈公告列 -->
-            <div class="mb-4 bg-orange-100 border border-orange-200 rounded-xl overflow-hidden py-1.5 px-3 flex items-center gap-2">
-              <i class="fa-solid fa-bullhorn text-orange-600 text-xs shrink-0 animate-bounce"></i>
-              <div class="overflow-hidden whitespace-nowrap relative w-full">
-                <div class="inline-block animate-[marquee_12s_linear_infinite] text-xs font-black text-orange-800">
-                  📢 發放時間：115 年 11 月 7 日（符合資格者將另行簡訊通知領取時間與地點）。
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div class="bg-slate-50 rounded-[32px] p-7 border border-slate-200 shadow-sm flex flex-col justify-between group relative overflow-hidden opacity-80">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-slate-500/5 rounded-bl-full pointer-events-none"></div>
+            <div>
+              <div class="mb-4 bg-orange-100 border border-orange-200 rounded-xl overflow-hidden py-1.5 px-3 flex items-center gap-2">
+                <i class="fa-solid fa-bullhorn text-orange-600 text-xs shrink-0 animate-bounce"></i>
+                <div class="overflow-hidden whitespace-nowrap relative w-full">
+                  <div class="inline-block animate-[marquee_12s_linear_infinite] text-xs font-black text-orange-800">
+                    📢 發放時間：115 年 11 月 7 日（符合資格者將另行簡訊通知領取時間與地點）。
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between mb-4">
+                <span class="px-3.5 py-1.5 rounded-full bg-slate-200 text-slate-600 font-black text-xs uppercase border border-slate-300 flex items-center gap-1.5">
+                  <i class="fa-solid fa-location-dot"></i> 新北市回饋地方專案
+                </span>
+                <span class="text-xs font-bold text-slate-400 tracking-wider">115年度</span>
+              </div>
+              <h3 class="text-xl sm:text-2xl font-black text-slate-500 mb-3 leading-snug">
+                新北市立殯儀館及火化場 115 年度回饋地方經費勤學獎助學金
+              </h3>
+              <div class="space-y-3 mb-6">
+                <div class="flex items-start gap-2.5 text-xs sm:text-sm font-bold text-slate-400">
+                  <i class="fa-solid fa-circle-check text-slate-400 mt-1 shrink-0"></i>
+                  <span><strong class="text-slate-500">申辦對象：</strong>設籍於宏翠里學生奮發向學，獎勵品學兼優之學子。</span>
+                </div>
+                <div class="flex items-start gap-2.5 text-xs sm:text-sm font-bold text-slate-400">
+                  <i class="fa-solid fa-circle-check text-slate-400 mt-1 shrink-0"></i>
+                  <span><strong class="text-slate-500">補助重點：</strong>鼓勵在地學子努力向學、減輕家庭經濟負擔。</span>
                 </div>
               </div>
             </div>
+            <div class="pt-5 border-t border-slate-200 flex items-center justify-between gap-4">
+              <span class="text-xs font-bold text-slate-400 flex items-center gap-1"><i class="fa-regular fa-clock"></i> 已結束申請</span>
+              <button type="button" disabled class="px-5 py-2.5 rounded-xl bg-slate-200 text-slate-400 font-black text-xs sm:text-sm cursor-not-allowed flex items-center gap-2">
+                <span>已截止無法點選</span> <i class="fa-solid fa-ban text-xs"></i>
+              </button>
+            </div>
+          </div>
 
-            <div class="flex items-center justify-between mb-4">
-              <span class="px-3.5 py-1.5 rounded-full bg-slate-200 text-slate-600 font-black text-xs uppercase border border-slate-300 flex items-center gap-1.5">
-                <i class="fa-solid fa-location-dot"></i> 新北市回饋地方專案
-              </span>
-              <span class="text-xs font-bold text-slate-400 tracking-wider">115年度</span>
-            </div>
-            <h3 class="text-xl sm:text-2xl font-black text-slate-500 mb-3 leading-snug">
-              新北市立殯儀館及火化場 115 年度回饋地方經費勤學獎助學金
-            </h3>
-            <div class="space-y-3 mb-6">
-              <div class="flex items-start gap-2.5 text-xs sm:text-sm font-bold text-slate-400">
-                <i class="fa-solid fa-circle-check text-slate-400 mt-1 shrink-0"></i>
-                <span><strong class="text-slate-500">申辦對象：</strong>設籍於宏翠里學生奮發向學，獎勵品學兼優之學子。</span>
+          <div class="bg-white rounded-[32px] p-7 border-2 border-red-200 shadow-xl flex flex-col justify-between hover:shadow-2xl transition-all group relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-red-500/5 rounded-bl-full pointer-events-none"></div>
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="px-3.5 py-1.5 rounded-full bg-red-50 text-red-600 font-black text-xs uppercase border border-red-200 flex items-center gap-1.5">
+                  <i class="fa-solid fa-users"></i> 家族宗親專案
+                </span>
+                <span class="text-xs font-bold text-red-600 tracking-wider flex items-center gap-1">
+                  <i class="fa-regular fa-clock"></i> 31號截止
+                </span>
               </div>
-              <div class="flex items-start gap-2.5 text-xs sm:text-sm font-bold text-slate-400">
-                <i class="fa-solid fa-circle-check text-slate-400 mt-1 shrink-0"></i>
-                <span><strong class="text-slate-500">補助重點：</strong>鼓勵在地學子努力向學、減輕家庭經濟負擔。</span>
-              </div>
-            </div>
-          </div>
-          <div class="pt-5 border-t border-slate-200 flex items-center justify-between gap-4">
-            <span class="text-xs font-bold text-slate-400 flex items-center gap-1"><i class="fa-regular fa-clock"></i> 已結束申請</span>
-            <button type="button" disabled class="px-5 py-2.5 rounded-xl bg-slate-200 text-slate-400 font-black text-xs sm:text-sm cursor-not-allowed flex items-center gap-2">
-              <span>已截止無法點選</span> <i class="fa-solid fa-ban text-xs"></i>
-            </button>
-          </div>
-        </div>
-
-        <!-- 獎學金項目 2：進行中（紅色，標註31號截止） -->
-        <div class="bg-white rounded-[32px] p-7 border-2 border-red-200 shadow-xl flex flex-col justify-between hover:shadow-2xl transition-all group relative overflow-hidden">
-          <div class="absolute top-0 right-0 w-32 h-32 bg-red-500/5 rounded-bl-full pointer-events-none"></div>
-          <div>
-            <div class="flex items-center justify-between mb-4">
-              <span class="px-3.5 py-1.5 rounded-full bg-red-50 text-red-600 font-black text-xs uppercase border border-red-200 flex items-center gap-1.5">
-                <i class="fa-solid fa-users"></i> 家族宗親專案
-              </span>
-              <span class="text-xs font-bold text-red-600 tracking-wider flex items-center gap-1">
-                <i class="fa-regular fa-clock"></i> 31號截止
-              </span>
-            </div>
-            <h3 class="text-xl sm:text-2xl font-black text-slate-900 mb-3 group-hover:text-red-600 transition-colors leading-snug">
-              祭祀公業法人桃園縣呂孟生公派下員子女獎學金申請
-            </h3>
-            <div class="space-y-3 mb-6">
-              <div class="flex items-start gap-2.5 text-xs sm:text-sm font-bold text-slate-600">
-                <i class="fa-solid fa-circle-check text-red-600 mt-1 shrink-0"></i>
-                <span><strong class="text-slate-800">申辦對象：</strong>祭祀公業法人桃園縣呂孟生公派下員之在學子女。</span>
-              </div>
-              <div class="flex items-start gap-2.5 text-xs sm:text-sm font-bold text-slate-600">
-                <i class="fa-solid fa-circle-check text-red-600 mt-1 shrink-0"></i>
-                <span><strong class="text-slate-800">補助重點：</strong>傳承宗親美德、獎勵派下員子女學業優良、勤奮向學。</span>
+              <h3 class="text-xl sm:text-2xl font-black text-slate-900 mb-3 group-hover:text-red-600 transition-colors leading-snug">
+                祭祀公業法人桃園縣呂孟生公派下員子女獎學金申請
+              </h3>
+              <div class="space-y-3 mb-6">
+                <div class="flex items-start gap-2.5 text-xs sm:text-sm font-bold text-slate-600">
+                  <i class="fa-solid fa-circle-check text-red-600 mt-1 shrink-0"></i>
+                  <span><strong class="text-slate-800">申辦對象：</strong>祭祀公業法人桃園縣呂孟生公派下員之在學子女。</span>
+                </div>
+                <div class="flex items-start gap-2.5 text-xs sm:text-sm font-bold text-slate-600">
+                  <i class="fa-solid fa-circle-check text-red-600 mt-1 shrink-0"></i>
+                  <span><strong class="text-slate-800">補助重點：</strong>傳承宗親美德、獎勵派下員子女學業優良、勤奮向學。</span>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="pt-5 border-t border-slate-100 flex items-center justify-between gap-4">
-            <span class="text-xs font-bold text-red-600 flex items-center gap-1"><i class="fa-solid fa-triangle-exclamation"></i> 申辦進行中（本月底截止）</span>
-            <button type="button" onclick="openScholarshipModal('taoyuan')" class="px-5 py-2.5 rounded-xl bg-red-600 hover:bg-red-700 text-white font-black text-xs sm:text-sm shadow-md transition-all flex items-center gap-2 cursor-pointer">
-              <span>查看詳情與辦法</span> <i class="fa-solid fa-arrow-right text-xs"></i>
-            </button>
+            <div class="pt-5 border-t border-slate-100 flex items-center justify-between gap-4">
+              <span class="text-xs font-bold text-red-600 flex items-center gap-1"><i class="fa-solid fa-triangle-exclamation"></i> 申辦進行中（本月底截止）</span>
+              <button type="button" onclick="openScholarshipModal('taoyuan')" class="px-5 py-2.5 rounded-xl bg-red-600 hover:bg-red-700 text-white font-black text-xs sm:text-sm shadow-md transition-all flex items-center gap-2 cursor-pointer">
+                <span>查看詳情與辦法</span> <i class="fa-solid fa-arrow-right text-xs"></i>
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
       <!-- 家族活動行事曆區塊 -->
       <div id="calendar" class="scroll-mt-24 pt-4">
@@ -348,7 +317,6 @@
         </div>
 
         <div class="bg-white rounded-[32px] border border-orange-100 shadow-xl overflow-hidden grid grid-cols-1 lg:grid-cols-12">
-          <!-- 左側：特別旅遊大卡片 -->
           <div class="lg:col-span-7 p-6 sm:p-8 bg-gradient-to-br from-orange-600 to-amber-700 text-white flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-orange-500/30 relative">
             <div class="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-bl-full pointer-events-none"></div>
             <div>
@@ -386,7 +354,6 @@
             </div>
           </div>
 
-          <!-- 右側：其他活動列表 -->
           <div class="lg:col-span-5 grid grid-cols-1 divide-y divide-orange-100 bg-slate-50/50">
             <div class="p-5 sm:p-6 bg-slate-100/70 text-slate-400 transition-colors flex flex-col justify-between">
               <div class="flex items-center justify-between mb-2">
@@ -593,66 +560,71 @@
         <div>
           <p>&copy; 2026 呂氏家庭生活資訊網 版權所有 All Rights Reserved.</p>
         </div>
-        <div>
-          <button type="button" onclick="openAppDownloadModal()" class="text-orange-600 hover:underline font-black cursor-pointer flex items-center gap-1.5">
-            <i class="fa-solid fa-mobile-screen-button"></i> 下載專屬 App
-          </button>
-        </div>
       </div>
     </div>
   </footer>
 
-  <!-- 浮動式 TOP 按鈕 -->
   <button type="button" id="scrollTopBtn" onclick="scrollToTop()" class="fixed right-6 bottom-6 z-50 w-12 h-12 rounded-full bg-gradient-to-br from-orange-500 to-orange-700 text-white shadow-2xl flex items-center justify-center text-lg hover:scale-110 transition-all duration-300 opacity-0 invisible cursor-pointer border-2 border-white">
     <i class="fa-solid fa-arrow-up"></i>
   </button>
 
-  <!-- APP 下載指引 Modal 彈出視窗 -->
-  <div id="appDownloadModal" class="fixed inset-0 z-[190] flex items-center justify-center p-4 sm:p-6 bg-slate-900/60 backdrop-blur-sm hidden">
-    <div class="bg-white text-slate-800 rounded-[32px] shadow-2xl overflow-hidden relative w-full max-w-lg border border-orange-100 p-6 sm:p-8 text-left">
-      <button type="button" onclick="closeAppDownloadModal()" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-all cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
+  <!-- 個人簡介彈出視窗 -->
+  <div id="profileModal" class="fixed inset-0 z-[200] flex items-center justify-center p-4 sm:p-6 bg-slate-900/60 backdrop-blur-sm hidden" onclick="closeProfileModal()">
+    <div class="bg-white text-slate-800 rounded-[35px] shadow-2xl overflow-hidden relative w-full max-w-4xl border border-orange-100 p-6 sm:p-10 text-left flex flex-col md:flex-row gap-8 items-center max-h-[90vh] overflow-y-auto custom-scrollbar" onclick="event.stopPropagation()">
+      <button type="button" onclick="closeProfileModal()" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-all cursor-pointer z-10"><i class="fa-solid fa-xmark"></i></button>
       
-      <div class="flex items-center gap-4 mb-6">
-        <div class="w-14 h-14 rounded-2xl bg-orange-600 text-white flex items-center justify-center text-2xl font-black shadow-lg shrink-0">
-          <i class="fa-solid fa-mobile-screen-button"></i>
+      <!-- 左側照片 (支援滑鼠懸停切換排球球員風格照片特效) -->
+      <div class="w-full md:w-5/12 shrink-0 flex justify-center">
+        <div id="profileModalImgContainer" class="w-64 h-80 sm:w-72 sm:h-96 rounded-[28px] overflow-hidden shadow-xl border-4 border-orange-100 bg-slate-100 flex items-center justify-center relative group/avatar">
+          <!-- 預設照片 -->
+          <img id="profileModalImg" src="" alt="成員大頭照" class="w-full h-full object-cover transition-opacity duration-300 group-hover/avatar:opacity-0 absolute inset-0">
+          <!-- 懸停時切換的第二張照片 (排球球員風格戰鬥照) -->
+          <img id="profileModalHoverImg" src="" alt="排球球員風格照" class="w-full h-full object-cover opacity-0 transition-opacity duration-300 group-hover/avatar:opacity-100 absolute inset-0">
+          <!-- 懸停提示標籤 -->
+          <div class="absolute bottom-3 left-1/2 -translate-x-1/2 bg-black/70 backdrop-blur-md text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider opacity-0 group-hover/avatar:opacity-100 transition-opacity pointer-events-none z-20">
+            ⚡ VOLLEYBALL PLAYER STYLE
+          </div>
         </div>
+      </div>
+
+      <!-- 右側資訊 -->
+      <div class="w-full md:w-7/12 space-y-6">
         <div>
-          <span class="text-[10px] font-bold text-orange-600 uppercase tracking-widest block">LU FAMILY MOBILE APP</span>
-          <h3 class="text-xl sm:text-2xl font-black text-slate-900">安裝專屬家庭 App</h3>
-        </div>
-      </div>
-
-      <p class="text-slate-600 text-xs sm:text-sm font-medium leading-relaxed mb-6">
-        點擊下方按鈕可直接觸發瀏覽器安裝提示，將本站快速安裝至手機或電腦桌面！
-      </p>
-
-      <div class="space-y-4 mb-6">
-        <div class="p-4 rounded-2xl bg-orange-50/70 border border-orange-200">
-          <h4 class="text-xs sm:text-sm font-black text-orange-800 mb-1 flex items-center gap-2">
-            <i class="fa-brands fa-apple text-base"></i> iPhone / iPad (iOS 用戶)
-          </h4>
-          <p class="text-xs text-slate-600 font-medium leading-relaxed">
-            請使用 Safari 瀏覽器，點選工具列 <strong class="text-slate-800">「分享」</strong> <i class="fa-solid fa-arrow-up-from-bracket mx-0.5"></i> ＞ <strong class="text-slate-800">「加入主畫面」</strong>。
-          </p>
+          <span id="profileModalEngRole" class="text-xs font-black text-orange-600 uppercase tracking-widest block mb-1">--</span>
+          <h2 id="profileModalName" class="text-3xl sm:text-4xl font-black text-slate-900 mb-1">--</h2>
+          <p id="profileModalRoleTitle" class="text-sm font-bold text-slate-400 tracking-wider">--</p>
         </div>
 
-        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
-          <h4 class="text-xs sm:text-sm font-black text-slate-800 mb-1 flex items-center gap-2">
-            <i class="fa-brands fa-android text-base text-emerald-600"></i> Android / 電腦 (Chrome / Edge)
-          </h4>
-          <p class="text-xs text-slate-600 font-medium leading-relaxed">
-            直接點擊下方「一鍵自動安裝」按鈕，即可跳出安裝對話框！
-          </p>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-3 py-1 rounded-full bg-slate-900 text-white font-black text-xs">隊職幹部</span>
+          <span id="profileModalBadge" class="px-3 py-1 rounded-full bg-orange-600 text-white font-black text-xs">--</span>
         </div>
-      </div>
 
-      <div class="flex gap-3">
-        <button type="button" onclick="triggerPwaInstall()" id="browserInstallBtn" class="flex-grow py-3.5 rounded-2xl bg-orange-600 hover:bg-orange-700 text-white font-black text-sm uppercase shadow-md transition-all cursor-pointer flex items-center justify-center gap-2">
-          <i class="fa-solid fa-download"></i> <span>一鍵自動安裝</span>
-        </button>
-        <button type="button" onclick="closeAppDownloadModal()" class="px-5 py-3.5 rounded-2xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-black text-sm uppercase transition-all cursor-pointer">
-          關閉
-        </button>
+        <div id="profileModalGrid" class="grid grid-cols-2 divide-x divide-slate-200 border-y border-slate-200 py-6 text-center">
+          <div>
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-2">加入年份</span>
+            <span id="profileModalJoinYear" class="text-xl sm:text-2xl font-black text-slate-900">--</span>
+          </div>
+          <div>
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-2">出生地</span>
+            <span id="profileModalBirthplace" class="text-xl sm:text-2xl font-black text-slate-900">--</span>
+          </div>
+          <div id="profileModalThirdCol" class="hidden">
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-2" id="profileModalThirdTitle">學歷</span>
+            <span id="profileModalThirdVal" class="text-lg sm:text-xl font-black text-slate-900">--</span>
+          </div>
+        </div>
+
+        <div id="profileModalSkillsArea" class="hidden">
+          <span class="text-xs font-black text-slate-400 uppercase tracking-widest block mb-3">擅長領域</span>
+          <div id="profileModalSkills" class="flex flex-wrap gap-2"></div>
+        </div>
+
+        <div class="pt-4">
+          <button type="button" onclick="closeProfileModal()" class="w-full py-3.5 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-black text-sm uppercase transition-all shadow-md cursor-pointer">
+            關閉視窗
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -875,37 +847,144 @@
 
     AOS.init({ duration: 1000, once: true });
 
-    let deferredPrompt = null;
-    window.addEventListener('beforeinstallprompt', (e) => {
-      e.preventDefault();
-      deferredPrompt = e;
-    });
-
-    function openAppDownloadModal() {
-      document.getElementById('appDownloadModal').classList.remove('hidden');
-    }
-
-    function closeAppDownloadModal() {
-      document.getElementById('appDownloadModal').classList.add('hidden');
-    }
-
-    async function triggerPwaInstall() {
-      if (deferredPrompt) {
-        deferredPrompt.prompt();
-        const { outcome } = await deferredPrompt.userChoice;
-        if (outcome === 'accepted') {
-          console.log('使用者已同意安裝 App');
-        }
-        deferredPrompt = null;
-      } else {
-        alert('💡 提示：若瀏覽器未自動跳出提示，請直接從瀏覽器選單點選「加到主畫面」或「安裝應用程式」即可！');
+    // 幹部資料庫：營務官已設定預設大頭照與懸停時顯示的排球球員風格照片 (hoverPhoto)
+    const teamStaffDatabase = {
+      director: {
+        name: "家庭長",
+        engRole: "DIRECTOR",
+        roleTitle: "主管",
+        joinYear: "2025",
+        birthplace: "桃園市",
+        icon: "fa-crown text-amber-500",
+        photo: "",
+        hoverPhoto: ""
+      },
+      admin: {
+        name: "呂佳寯",
+        engRole: "ADMIN OFFICER",
+        roleTitle: "營務",
+        joinYear: "2025",
+        birthplace: "新北市",
+        birthday: "2002.05.01",
+        education: "聖約翰科大創設系",
+        skills: ["LOGO設計", "插畫", "視覺平面設計"],
+        icon: "fa-user-clock text-slate-500",
+        photo: "110417006.jpg",
+        hoverPhoto: "volleyball_player_style.jpg" // 可自行替換為排球球員風格戰鬥照檔名
+      },
+      property: {
+        name: "營產官",
+        engRole: "PROPERTY OFFICER",
+        roleTitle: "幕僚",
+        joinYear: "2025",
+        birthplace: "桃園市",
+        icon: "fa-screwdriver-wrench text-blue-600",
+        photo: "",
+        hoverPhoto: ""
+      },
+      design: {
+        name: "呂佳芯",
+        engRole: "DESIGN OFFICER",
+        roleTitle: "美工",
+        joinYear: "2025",
+        birthplace: "新北市",
+        education: "龍華科大文創系",
+        icon: "fa-palette text-purple-600",
+        photo: "",
+        hoverPhoto: ""
+      },
+      adminSpec: {
+        name: "行政專員",
+        engRole: "ADMIN SPECIALIST",
+        roleTitle: "行政",
+        joinYear: "2026",
+        birthplace: "臺中市",
+        icon: "fa-file-lines text-teal-600",
+        photo: "",
+        hoverPhoto: ""
+      },
+      artSpec: {
+        name: "藝術專員",
+        engRole: "ART SPECIALIST",
+        roleTitle: "藝術",
+        joinYear: "2026",
+        birthplace: "臺中市",
+        icon: "fa-feather-pointed text-pink-600",
+        photo: "",
+        hoverPhoto: ""
       }
+    };
+
+    function openProfileModal(key) {
+      const data = teamStaffDatabase[key];
+      if (!data) return;
+
+      document.getElementById('profileModalEngRole').innerText = `${data.engRole} · ${data.roleTitle}`;
+      document.getElementById('profileModalName').innerText = data.name;
+      document.getElementById('profileModalRoleTitle').innerText = data.roleTitle;
+      document.getElementById('profileModalBadge').innerText = data.roleTitle;
+      document.getElementById('profileModalJoinYear').innerText = data.joinYear;
+      document.getElementById('profileModalBirthplace').innerText = data.birthplace;
+
+      const grid = document.getElementById('profileModalGrid');
+      const thirdCol = document.getElementById('profileModalThirdCol');
+      const thirdTitle = document.getElementById('profileModalThirdTitle');
+      const thirdVal = document.getElementById('profileModalThirdVal');
+      const skillsArea = document.getElementById('profileModalSkillsArea');
+
+      if (key === 'admin') {
+        grid.className = "grid grid-cols-3 divide-x divide-slate-200 border-y border-slate-200 py-6 text-center";
+        thirdCol.classList.remove('hidden');
+        thirdTitle.innerText = "生日";
+        thirdVal.innerText = data.birthday;
+
+        skillsArea.classList.remove('hidden');
+        const skillsContainer = document.getElementById('profileModalSkills');
+        skillsContainer.innerHTML = '';
+        data.skills.forEach(skill => {
+          const span = document.createElement('span');
+          span.className = "px-4 py-2 rounded-xl bg-orange-50 text-orange-700 font-black text-xs sm:text-sm border border-orange-200";
+          span.innerText = skill;
+          skillsContainer.appendChild(span);
+        });
+      } else if (data.education) {
+        grid.className = "grid grid-cols-3 divide-x divide-slate-200 border-y border-slate-200 py-6 text-center";
+        thirdCol.classList.remove('hidden');
+        thirdTitle.innerText = "學歷";
+        thirdVal.innerText = data.education;
+        skillsArea.classList.add('hidden');
+      } else {
+        grid.className = "grid grid-cols-2 divide-x divide-slate-200 border-y border-slate-200 py-6 text-center";
+        thirdCol.classList.add('hidden');
+        skillsArea.classList.add('hidden');
+      }
+
+      // 大頭貼圖片與懸停切換照片處理
+      const imgEl = document.getElementById('profileModalImg');
+      const hoverImgEl = document.getElementById('profileModalHoverImg');
+
+      if (data.photo) {
+        imgEl.src = data.photo;
+        imgEl.classList.remove('hidden');
+      } else {
+        imgEl.src = '';
+        imgEl.classList.add('hidden');
+      }
+
+      if (data.hoverPhoto) {
+        hoverImgEl.src = data.hoverPhoto;
+        hoverImgEl.classList.remove('hidden');
+      } else {
+        // 如果沒有設定第二張照片，則預設懸停時顯示原圖或不變
+        hoverImgEl.src = data.photo || '';
+        hoverImgEl.classList.remove('hidden');
+      }
+
+      document.getElementById('profileModal').classList.remove('hidden');
     }
 
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js').catch(err => console.log('SW 註冊失敗:', err));
-      });
+    function closeProfileModal() {
+      document.getElementById('profileModal').classList.add('hidden');
     }
 
     const API_URL = "https://script.google.com/macros/s/AKfycbwS-5vgJfq6Prb24jbWuVIpGb6UlHT3yZpXRp4ST4siAAecvzHZ6M8MfNlD_ttlwjuMNQ/exec";
@@ -974,12 +1053,12 @@
     });
 
     const teamStaffList = [
-      { role: "家庭長(主管)", engRole: "DIRECTOR", desc: "綜理單位各項勤(業)務，最高領導與決策。", icon: "fa-crown text-amber-500" },
-      { role: "營務官(行政副主管)", engRole: "ADMIN OFFICER", desc: "總務、行政、政戰事務統籌與溝通協調。", icon: "fa-user-clock text-slate-500" },
-      { role: "營產官", engRole: "PROPERTY OFFICER", desc: "資產管理、設備維修與硬體維護。", icon: "fa-screwdriver-wrench text-blue-600" },
-      { role: "美工官", engRole: "DESIGN OFFICER", desc: "主視覺設計、攝影紀實與多媒體剪輯。", icon: "fa-palette text-purple-600" },
-      { role: "行政專員", engRole: "ADMIN SPECIALIST", desc: "文書處理、檔案管理與後勤支援。", icon: "fa-file-lines text-teal-600" },
-      { role: "藝術專員", engRole: "ART SPECIALIST", desc: "美學設計、創意發想與文宣排版。", icon: "fa-feather-pointed text-pink-600" }
+      { key: "director", role: "家庭長(主管)", engRole: "DIRECTOR", desc: "綜理單位各項勤(業)務，最高領導與決策。", icon: "fa-crown text-amber-500" },
+      { key: "admin", role: "營務官(行政副主管)", engRole: "ADMIN OFFICER", desc: "總務、行政、政戰事務統籌與溝通協調。", icon: "fa-user-clock text-slate-500", photo: "110417006.jpg" },
+      { key: "property", role: "營產官", engRole: "PROPERTY OFFICER", desc: "資產管理、設備維修與硬體維護。", icon: "fa-screwdriver-wrench text-blue-600" },
+      { key: "design", role: "美工官", engRole: "DESIGN OFFICER", desc: "主視覺設計、攝影紀實與多媒體剪輯。", icon: "fa-palette text-purple-600" },
+      { key: "adminSpec", role: "行政專員", engRole: "ADMIN SPECIALIST", desc: "文書處理、檔案管理與後勤支援。", icon: "fa-file-lines text-teal-600" },
+      { key: "artSpec", role: "藝術專員", engRole: "ART SPECIALIST", desc: "美學設計、創意發想與文宣排版。", icon: "fa-feather-pointed text-pink-600" }
     ];
 
     function renderHomeTeamStaff() {
@@ -995,18 +1074,24 @@
 
       topMembers.forEach((member) => {
         const item = document.createElement('div');
-        item.className = "bg-white rounded-[32px] p-7 border border-orange-100 shadow-xl flex flex-col justify-between group relative overflow-hidden transition-all hover:shadow-2xl";
+        item.className = "bg-white rounded-[32px] p-7 border border-orange-100 shadow-xl flex flex-col justify-between group relative overflow-hidden transition-all cursor-pointer hover:border-orange-400 hover:shadow-2xl";
+        item.setAttribute('onclick', `openProfileModal('${member.key}')`);
+
+        const avatarContent = member.photo 
+          ? `<img src="${member.photo}" class="w-full h-full object-cover" alt="${member.role}">`
+          : `<i class="fa-solid ${member.icon} text-5xl"></i>`;
+
         item.innerHTML = `
           <div>
             <div class="flex items-center justify-between mb-6">
               <span class="px-3.5 py-1.5 rounded-full bg-orange-50 text-orange-700 font-black text-xs uppercase border border-orange-200 tracking-wider">
                 ${member.engRole || 'TEAM LEADER'}
               </span>
-              <span class="text-xs font-bold text-slate-400">核心幹部</span>
+              <span class="text-xs font-bold text-slate-400">核心幹部 <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-orange-600"></i></span>
             </div>
             <div class="flex flex-col sm:flex-row items-center gap-6 mb-6">
-              <div class="w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-orange-50 border-4 border-orange-100 shadow-inner flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
-                <i class="fa-solid ${member.icon} text-5xl"></i>
+              <div class="w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-orange-50 border-4 border-orange-100 shadow-inner flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform overflow-hidden">
+                ${avatarContent}
               </div>
               <div class="text-center sm:text-left">
                 <h3 class="text-2xl font-black text-slate-900 mb-2">${member.role}</h3>
@@ -1020,13 +1105,16 @@
 
       subMembers.forEach((member) => {
         const item = document.createElement('div');
-        item.className = "bg-white rounded-[28px] p-6 border border-orange-100 shadow-md flex flex-col justify-between group relative overflow-hidden transition-all hover:shadow-xl";
+        item.className = "bg-white rounded-[28px] p-6 border border-orange-100 shadow-md flex flex-col justify-between group relative overflow-hidden transition-all cursor-pointer hover:border-orange-400 hover:shadow-xl";
+        item.setAttribute('onclick', `openProfileModal('${member.key}')`);
+
         item.innerHTML = `
           <div>
             <div class="flex items-center justify-between mb-4">
               <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 font-black text-[10px] uppercase border border-slate-200">
                 ${member.engRole || 'STAFF'}
               </span>
+              <span class="text-[10px] font-bold text-orange-600"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
             </div>
             <div class="flex flex-col items-center text-center mb-4">
               <div class="w-20 h-20 rounded-full bg-orange-50 border-2 border-orange-100 shadow-inner flex items-center justify-center mb-3 group-hover:scale-105 transition-transform">
@@ -1211,7 +1299,7 @@
         });
         renderNotices();
       } catch (error) {
-        console.error("載入失敗", error);
+        console.log("載入失敗", error);
         const container = document.getElementById('noticeListContainer');
         if (container) {
           container.innerHTML = '<p class="text-center text-red-500 font-bold col-span-full">無法連線至雲端試算表。</p>';
@@ -1509,7 +1597,7 @@
           })
         });
       } catch (err) {
-        console.error("同步至雲端失敗", err);
+        console.log("同步至雲端失敗", err);
       }
 
       alert('✅ 發布/修改成功！');
@@ -1528,7 +1616,7 @@
           body: JSON.stringify({ action: 'delete', id })
         });
       } catch (err) {
-        console.error("刪除失敗", err);
+        console.log("刪除失敗", err);
       }
       alert('🗑️ 已刪除！');
       renderHistoryList();
