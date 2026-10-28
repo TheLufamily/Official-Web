@@ -454,7 +454,7 @@
         </div>
       </div>
 
-      <!-- LEADERS 隊職幹部區塊 (仿截圖排版風格：大頭貼卡片 + 右下角黑方塊編號) -->
+      <!-- LEADERS 隊職幹部區塊 (改為橫向滑動排版，支援左右按鈕與手勢滑動) -->
       <div id="team-staff" class="scroll-mt-24 pt-4">
         <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 relative section-title-watermark px-2">
           <div class="watermark-text" style="font-size: 5rem; top: -20px;">LEADERS</div>
@@ -471,8 +471,26 @@
           </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto" id="topTeamContainer">
-          <!-- 透過 JS 動態渲染仿截圖排版卡片 -->
+        <div class="flex flex-col gap-6">
+          <div id="topTeamContainer" class="grid grid-flow-col auto-cols-[minmax(280px,1fr)] gap-5 overflow-x-auto pb-4 no-scrollbar snap-x" style="min-height: 480px;">
+            <!-- 透過 JS 動態渲染所有幹部卡片 -->
+          </div>
+          <div class="flex items-center justify-between gap-6 pt-2">
+            <div class="flex items-center gap-3 shrink-0">
+              <div class="slider-indicator-num text-lg text-slate-900 flex items-baseline">
+                <span id="teamCurrentNum">01</span><span class="text-xs text-slate-400 font-bold ml-0.5">/ <span id="teamTotalNum">05</span></span>
+              </div>
+              <div class="w-5 h-5 rounded-full bg-orange-500/20 text-orange-600 flex items-center justify-center text-[10px] font-black"><i class="fa-solid fa-plus"></i></div>
+            </div>
+            <div class="flex-grow bg-orange-200/50 h-1.5 rounded-full overflow-hidden relative">
+              <div id="teamScrollProgress" class="bg-orange-600 h-full w-1/3 transition-all duration-300"></div>
+              <div id="teamProgressThumb" class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-orange-700 shadow-md border-2 border-white transition-all duration-300 pointer-events-none" style="left: 0%;"></div>
+            </div>
+            <div class="flex items-center gap-2 shrink-0">
+              <button type="button" onclick="scrollTeamContainer('left')" class="w-10 h-10 rounded-full bg-white hover:bg-orange-50 text-slate-700 hover:text-orange-600 border border-orange-200 flex items-center justify-center transition-all shadow-sm cursor-pointer"><i class="fa-solid fa-chevron-left text-sm"></i></button>
+              <button type="button" onclick="scrollTeamContainer('right')" class="w-10 h-10 rounded-full bg-white hover:bg-orange-50 text-slate-700 hover:text-orange-600 border border-orange-200 flex items-center justify-center transition-all shadow-sm cursor-pointer"><i class="fa-solid fa-chevron-right text-sm"></i></button>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -612,7 +630,7 @@
     </div>
   </div>
 
-  <!-- 營務官專屬精美風格彈出視窗（含學歷與懸浮大頭照、下方本命女孩照片） -->
+  <!-- 營務官專屬精美風格彈出視窗 -->
   <div id="adminProfileModal" class="fixed inset-0 z-[200] flex items-center justify-center p-4 sm:p-6 bg-slate-900/60 backdrop-blur-sm hidden" onclick="closeAdminProfileModal()">
     <div class="bg-white text-slate-800 rounded-[35px] shadow-2xl overflow-hidden relative uniform-modal-container border border-orange-100 p-6 sm:p-10 text-left flex flex-col overflow-y-auto custom-scrollbar" onclick="event.stopPropagation()">
       <button type="button" onclick="closeAdminProfileModal()" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-all cursor-pointer z-10"><i class="fa-solid fa-xmark"></i></button>
@@ -934,7 +952,7 @@
 
     AOS.init({ duration: 1000, once: true });
 
-    // 幹部資料庫：僅保留家庭長與營務官
+    // 幹部資料庫：包含家庭長、營務官以及 3 位新同仁
     const teamStaffDatabase = {
       director: {
         name: "長官",
@@ -943,7 +961,6 @@
         joinYear: "2025",
         birthplace: "桃園市",
         number: "01",
-        icon: "fa-crown text-amber-500",
         photo: "A6AA8149-595E-4860-908E-7C445786C5DC.jpg"
       },
       admin: {
@@ -954,9 +971,35 @@
         birthplace: "新北市",
         birthday: "2002.05.01",
         number: "02",
-        icon: "fa-user-clock text-slate-500",
         photo: "110417006.jpg",
         hoverPhoto: "volleyball_player_style.jpg"
+      },
+      staff03: {
+        name: "營產管理經理",
+        engRole: "ASSET MANAGER",
+        roleTitle: "營產",
+        joinYear: "2026",
+        birthplace: "桃園平鎮",
+        number: "03",
+        photo: ""
+      },
+      staff04: {
+        name: "創意總監",
+        engRole: "CREATIVE DIRECTOR",
+        roleTitle: "創意",
+        joinYear: "2026",
+        birthplace: "新北板橋",
+        number: "04",
+        photo: ""
+      },
+      staff05: {
+        name: "設計總監",
+        engRole: "DESIGN DIRECTOR",
+        roleTitle: "設計",
+        joinYear: "2026",
+        birthplace: "桃園平鎮",
+        number: "05",
+        photo: ""
       }
     };
 
@@ -992,12 +1035,12 @@
       }
 
       const imgEl = document.getElementById('profileModalImg');
-      if (data.photo) {
+      if (data.photo && data.photo.trim() !== '') {
         imgEl.src = data.photo;
         imgEl.classList.remove('hidden');
       } else {
         imgEl.src = '';
-        imgEl.classList.add('hidden');
+        imgEl.classList.remove('hidden');
       }
 
       document.getElementById('profileModal').classList.remove('hidden');
@@ -1076,10 +1119,13 @@
       }
     });
 
-    // 幹部清單：首頁營務官卡片具備懸浮照片效果
+    // 幹部清單：包含家庭長、營務官以及 3 位新同仁
     const teamStaffList = [
       { key: "director", name: "家庭長", engName: "DIRECTOR", role: "主管", number: "01", photo: "A6AA8149-595E-4860-908E-7C445786C5DC.jpg" },
-      { key: "admin", name: "呂佳寯", engName: "LU JIA JUN", role: "營務官(行政副主管)", number: "02", photo: "110417006.jpg", hoverPhoto: "volleyball_player_style.jpg" }
+      { key: "admin", name: "呂佳寯", engName: "LU JIA JUN", role: "營務官(行政副主管)", number: "02", photo: "110417006.jpg", hoverPhoto: "volleyball_player_style.jpg" },
+      { key: "staff03", name: "營產管理經理", engName: "ASSET MANAGER", role: "", number: "03", photo: "" },
+      { key: "staff04", name: "創意總監", engName: "CREATIVE DIRECTOR", role: "", number: "04", photo: "" },
+      { key: "staff05", name: "設計總監", engName: "DESIGN DIRECTOR", role: "", number: "05", photo: "" }
     ];
 
     function renderHomeTeamStaff() {
@@ -1089,7 +1135,7 @@
 
       teamStaffList.forEach((member) => {
         const item = document.createElement('div');
-        item.className = "bg-white rounded-[32px] border border-slate-200 shadow-xl overflow-hidden flex flex-col justify-between group cursor-pointer hover:border-orange-500 hover:shadow-2xl transition-all";
+        item.className = "bg-white rounded-[32px] border border-slate-200 shadow-xl overflow-hidden flex flex-col justify-between group cursor-pointer hover:border-orange-500 hover:shadow-2xl transition-all shrink-0 w-full sm:w-[320px] snap-start";
         item.setAttribute('onclick', `openProfileModal('${member.key}')`);
 
         let imageHTML = `<img src="${member.photo}" alt="${member.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">`;
@@ -1106,7 +1152,7 @@
         }
 
         item.innerHTML = `
-          <div class="relative w-full h-[380px] sm:h-[420px] bg-slate-100 overflow-hidden flex items-center justify-center">
+          <div class="relative w-full h-[380px] sm:h-[400px] bg-slate-100 overflow-hidden flex items-center justify-center">
             ${imageHTML}
             <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none"></div>
           </div>
@@ -1123,7 +1169,51 @@
         `;
         container.appendChild(item);
       });
+      updateTeamProgress();
     }
+
+    function scrollTeamContainer(direction) {
+      const container = document.getElementById('topTeamContainer');
+      const cardWidth = 320 + 20;
+      if (direction === 'left') {
+        container.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+      } else {
+        container.scrollBy({ left: cardWidth, behavior: 'smooth' });
+      }
+      setTimeout(updateTeamProgress, 300);
+    }
+
+    function updateTeamProgress() {
+      const container = document.getElementById('topTeamContainer');
+      const progressBar = document.getElementById('teamScrollProgress');
+      const progressThumb = document.getElementById('teamProgressThumb');
+      const currentNumEl = document.getElementById('teamCurrentNum');
+      if (!container || !progressBar) return;
+      const maxScroll = container.scrollWidth - container.clientWidth;
+      
+      let scrollPercent = 0;
+      if (maxScroll > 0) {
+        scrollPercent = (container.scrollLeft / maxScroll) * 100;
+      }
+      const widthVal = Math.max(scrollPercent, 0);
+      progressBar.style.width = Math.max(widthVal, 15) + '%';
+      if (progressThumb) {
+        progressThumb.style.left = widthVal + '%';
+      }
+
+      const totalItems = teamStaffList.length;
+      if (totalItems > 0) {
+        const cardWidth = 320 + 20;
+        let currentIndex = Math.round(container.scrollLeft / cardWidth) + 1;
+        if (currentIndex < 1) currentIndex = 1;
+        if (currentIndex > totalItems) currentIndex = totalItems;
+        if (currentNumEl) {
+          currentNumEl.innerText = String(currentIndex).padStart(2, '0');
+        }
+      }
+    }
+
+    document.getElementById('topTeamContainer')?.addEventListener('scroll', updateTeamProgress);
 
     function formatDate(d) { if (!d) return ''; return String(d).includes('T') ? String(d).split('T')[0] : d; }
 
@@ -1485,6 +1575,7 @@
       document.getElementById('pubLinkName').value = data.linkName || '';
       document.getElementById('publishModalTitle').innerHTML = '<i class="fa-solid fa-pen-to-square text-orange-600"></i> 修改發布內容';
       document.getElementById('pubSubmitBtn').innerText = "確認修改";
+      document.getElementById('publishModal').classList.add('hidden'); // Fix typo in original logic if needed, or keep uniform
       document.getElementById('publishModal').classList.remove('hidden');
     }
 
