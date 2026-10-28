@@ -5,6 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>呂氏家庭生活資訊網 - LU FAMILY</title>
 
+  <!-- PWA Manifest 與 手機捷徑設定 -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#ea580c">
+  
+  <!-- iOS 專屬最佳化標籤（讓 iPhone 也能完美支援全螢幕 App 模式） -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="呂氏家庭">
+  <link rel="apple-touch-icon" href="110417006.jpg">
+
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
@@ -972,13 +982,6 @@
       document.getElementById('profileModalBadge').innerText = data.roleTitle;
       document.getElementById('profileModalJoinYear').innerText = data.joinYear;
       document.getElementById('profileModalBirthplace').innerText = data.birthplace;
-
-      const grid = document.getElementById('profileModalGrid');
-      const thirdCol = document.getElementById('profileModalThirdCol');
-      const thirdTitle = document.getElementById('profileModalThirdTitle');
-      const thirdVal = document.getElementById('profileModalThirdVal');
-
-
 
       const imgEl = document.getElementById('profileModalImg');
       if (data.photo && data.photo.trim() !== '') {
