@@ -23,9 +23,9 @@
 
     .uniform-modal-container {
       width: 100%;
-      max-width: 56rem;
-      height: 82vh;
-      max-height: 750px;
+      max-width: 68rem;
+      height: 88vh;
+      max-height: 850px;
       display: flex;
       flex-direction: column;
     }
@@ -50,7 +50,6 @@
       font-style: italic;
     }
 
-    /* 跑馬燈無限循環滾動動畫 */
     @keyframes marqueeScroll {
       0% { transform: translateX(0); }
       100% { transform: translateX(-50%); }
@@ -98,7 +97,6 @@
         <a href="#home" class="font-black text-base sm:text-lg text-slate-800 hover:text-orange-600 transition-colors tracking-wider uppercase">呂氏家庭 <span class="text-orange-600 text-xs font-bold">LU FAMILY</span></a>
       </div>
 
-      <!-- 電腦版導覽項目 -->
       <div class="hidden lg:flex items-center gap-8 font-bold text-sm text-slate-700 shrink-0">
         <a href="#calendar" class="hover:text-orange-600 transition-colors py-2 tracking-wider">活動資訊 CALENDAR</a>
         
@@ -456,14 +454,14 @@
         </div>
       </div>
 
-      <!-- 隊職幹部區塊 -->
+      <!-- LEADERS 隊職幹部區塊 (仿截圖排版風格：大頭貼卡片 + 右下角黑方塊編號) -->
       <div id="team-staff" class="scroll-mt-24 pt-4">
         <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 relative section-title-watermark px-2">
-          <div class="watermark-text" style="font-size: 5rem; top: -20px;">COACHING & TEAM</div>
+          <div class="watermark-text" style="font-size: 5rem; top: -20px;">LEADERS</div>
           <div class="relative z-10">
-            <span class="text-xs font-black text-slate-800 tracking-wider uppercase block mb-1.5 bg-slate-100 px-3 py-1 rounded-md border border-slate-200 w-fit">主管與幕後團隊</span>
+            <span class="text-xs font-black text-slate-800 tracking-wider uppercase block mb-1.5 bg-slate-100 px-3 py-1 rounded-md border border-slate-200 w-fit">主管與核心領導</span>
             <h2 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight uppercase flex items-center gap-2">
-              COACHING<span class="text-orange-600">&</span>TEAM
+              LEADERS
             </h2>
           </div>
           <div class="mt-4 sm:mt-0 relative z-10">
@@ -473,9 +471,8 @@
           </div>
         </div>
 
-        <div class="space-y-8">
-          <div id="topTeamContainer" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
-          <div id="subTeamContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto" id="topTeamContainer">
+          <!-- 透過 JS 動態渲染仿截圖排版卡片 -->
         </div>
       </div>
 
@@ -568,26 +565,17 @@
     <i class="fa-solid fa-arrow-up"></i>
   </button>
 
-  <!-- 個人簡介彈出視窗 -->
+  <!-- 一般成員彈出視窗 -->
   <div id="profileModal" class="fixed inset-0 z-[200] flex items-center justify-center p-4 sm:p-6 bg-slate-900/60 backdrop-blur-sm hidden" onclick="closeProfileModal()">
     <div class="bg-white text-slate-800 rounded-[35px] shadow-2xl overflow-hidden relative w-full max-w-4xl border border-orange-100 p-6 sm:p-10 text-left flex flex-col md:flex-row gap-8 items-center max-h-[90vh] overflow-y-auto custom-scrollbar" onclick="event.stopPropagation()">
       <button type="button" onclick="closeProfileModal()" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-all cursor-pointer z-10"><i class="fa-solid fa-xmark"></i></button>
       
-      <!-- 左側照片 (支援滑鼠懸停切換排球球員風格照片特效) -->
       <div class="w-full md:w-5/12 shrink-0 flex justify-center">
-        <div id="profileModalImgContainer" class="w-64 h-80 sm:w-72 sm:h-96 rounded-[28px] overflow-hidden shadow-xl border-4 border-orange-100 bg-slate-100 flex items-center justify-center relative group/avatar">
-          <!-- 預設照片 -->
-          <img id="profileModalImg" src="" alt="成員大頭照" class="w-full h-full object-cover transition-opacity duration-300 group-hover/avatar:opacity-0 absolute inset-0">
-          <!-- 懸停時切換的第二張照片 (排球球員風格戰鬥照) -->
-          <img id="profileModalHoverImg" src="" alt="排球球員風格照" class="w-full h-full object-cover opacity-0 transition-opacity duration-300 group-hover/avatar:opacity-100 absolute inset-0">
-          <!-- 懸停提示標籤 -->
-          <div class="absolute bottom-3 left-1/2 -translate-x-1/2 bg-black/70 backdrop-blur-md text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider opacity-0 group-hover/avatar:opacity-100 transition-opacity pointer-events-none z-20">
-            ⚡ VOLLEYBALL PLAYER STYLE
-          </div>
+        <div id="profileModalImgContainer" class="w-64 h-80 sm:w-72 sm:h-96 rounded-[28px] overflow-hidden shadow-xl border-4 border-orange-100 bg-slate-100 flex items-center justify-center relative">
+          <img id="profileModalImg" src="" alt="成員大頭照" class="w-full h-full object-cover">
         </div>
       </div>
 
-      <!-- 右側資訊 -->
       <div class="w-full md:w-7/12 space-y-6">
         <div>
           <span id="profileModalEngRole" class="text-xs font-black text-orange-600 uppercase tracking-widest block mb-1">--</span>
@@ -610,14 +598,9 @@
             <span id="profileModalBirthplace" class="text-xl sm:text-2xl font-black text-slate-900">--</span>
           </div>
           <div id="profileModalThirdCol" class="hidden">
-            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-2" id="profileModalThirdTitle">學歷</span>
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-2" id="profileModalThirdTitle">身分</span>
             <span id="profileModalThirdVal" class="text-lg sm:text-xl font-black text-slate-900">--</span>
           </div>
-        </div>
-
-        <div id="profileModalSkillsArea" class="hidden">
-          <span class="text-xs font-black text-slate-400 uppercase tracking-widest block mb-3">擅長領域</span>
-          <div id="profileModalSkills" class="flex flex-wrap gap-2"></div>
         </div>
 
         <div class="pt-4">
@@ -625,6 +608,110 @@
             關閉視窗
           </button>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 營務官專屬精美風格彈出視窗（含學歷與懸浮大頭照、下方本命女孩照片） -->
+  <div id="adminProfileModal" class="fixed inset-0 z-[200] flex items-center justify-center p-4 sm:p-6 bg-slate-900/60 backdrop-blur-sm hidden" onclick="closeAdminProfileModal()">
+    <div class="bg-white text-slate-800 rounded-[35px] shadow-2xl overflow-hidden relative uniform-modal-container border border-orange-100 p-6 sm:p-10 text-left flex flex-col overflow-y-auto custom-scrollbar" onclick="event.stopPropagation()">
+      <button type="button" onclick="closeAdminProfileModal()" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-all cursor-pointer z-10"><i class="fa-solid fa-xmark"></i></button>
+      
+      <div class="mb-6 border-b border-orange-100 pb-4">
+        <span class="text-xs font-black text-orange-600 tracking-widest uppercase block">個人檔案</span>
+        <h2 class="text-3xl sm:text-5xl font-black tracking-wider uppercase text-slate-900">PROFILE</h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div class="lg:col-span-4 flex flex-col items-center">
+          <div class="w-64 h-80 sm:w-72 sm:h-96 rounded-[28px] overflow-hidden shadow-xl border-4 border-orange-100 bg-slate-100 flex items-center justify-center relative group/avatar mb-4">
+            <img src="110417006.jpg" alt="營務官大頭照" class="w-full h-full object-cover transition-opacity duration-300 group-hover/avatar:opacity-0 absolute inset-0">
+            <img src="volleyball_player_style.jpg" alt="排球球員風格照" class="w-full h-full object-cover opacity-0 transition-opacity duration-300 group-hover/avatar:opacity-100 absolute inset-0">
+            <div class="absolute bottom-3 left-1/2 -translate-x-1/2 bg-black/70 backdrop-blur-md text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider opacity-0 group-hover/avatar:opacity-100 transition-opacity pointer-events-none z-20">
+              ⚡ VOLLEYBALL PLAYER STYLE
+            </div>
+          </div>
+          <div class="text-center">
+            <h3 class="text-2xl font-black text-slate-900">呂佳寯</h3>
+            <p class="text-xs font-bold text-orange-600 uppercase tracking-widest mt-1">ADMIN OFFICER · 營務官</p>
+          </div>
+        </div>
+
+        <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-white rounded-[28px] p-6 border border-slate-200 shadow-sm space-y-5">
+            <div class="flex items-center gap-2 border-b border-slate-100 pb-3">
+              <h4 class="text-lg font-black text-slate-900 tracking-wider">BASIC</h4>
+              <span class="text-xs font-bold text-slate-400">基本資料</span>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4 text-sm">
+              <div>
+                <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-0.5">暱稱</span>
+                <span class="font-black text-slate-800">教官、班長</span>
+              </div>
+              <div>
+                <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-0.5">生日（星座）</span>
+                <span class="font-black text-slate-800">5/1 (金牛座)</span>
+              </div>
+              <div>
+                <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-0.5">出生地</span>
+                <span class="font-black text-slate-800">新北市</span>
+              </div>
+              <div>
+                <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-0.5">語言能力</span>
+                <span class="font-black text-slate-800">中文</span>
+              </div>
+              <div class="col-span-2">
+                <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-0.5">學歷</span>
+                <span class="font-black text-orange-600">聖約翰科技大學創意設計系</span>
+              </div>
+              <div class="col-span-2">
+                <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-0.5">擅長風格</span>
+                <span class="font-black text-orange-600">LOGO設計, 插畫, 視覺平面設計</span>
+              </div>
+              <div class="col-span-2">
+                <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-0.5">特長</span>
+                <span class="font-black text-slate-800">平面設計、視覺排版</span>
+              </div>
+              <div class="col-span-2">
+                <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-0.5">興趣愛好</span>
+                <span class="font-black text-slate-800">喜歡看啦啦隊 (本命女孩：TOKKI CUTIE 朴恩惠)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-[28px] p-6 border border-slate-200 shadow-sm space-y-5">
+            <div class="flex items-center gap-2 border-b border-slate-100 pb-3">
+              <h4 class="text-lg font-black text-slate-900 tracking-wider">CHARACTER</h4>
+              <span class="text-xs font-bold text-slate-400">個性標籤</span>
+            </div>
+
+            <div class="flex flex-wrap gap-2">
+              <span class="px-4 py-2 rounded-full bg-slate-100 text-slate-700 font-black text-xs border border-slate-200 shadow-sm">認真負責</span>
+              <span class="px-4 py-2 rounded-full bg-slate-100 text-slate-700 font-black text-xs border border-slate-200 shadow-sm">靈活應變</span>
+              <span class="px-4 py-2 rounded-full bg-orange-50 text-orange-700 font-black text-xs border border-orange-200 shadow-sm">美學達人</span>
+              <span class="px-4 py-2 rounded-full bg-orange-100 text-orange-800 font-black text-xs border border-orange-300 shadow-sm">💖 朴恩惠應援</span>
+            </div>
+
+            <!-- 本命女孩照片顯示區塊 -->
+            <div class="pt-4 border-t border-slate-100">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-xs font-black text-orange-600 uppercase tracking-wider">我的本命</span>
+                <span class="text-[10px] font-bold text-slate-400">TOKKI CUTIE · 朴恩惠</span>
+              </div>
+              <div class="w-full h-56 rounded-2xl overflow-hidden shadow-md border-2 border-orange-200 bg-slate-100">
+                <img src="eastpower-C-022.jpg" alt="本命女孩朴恩惠" class="w-full h-full object-cover">
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="pt-6 mt-6 border-t border-orange-100">
+        <button type="button" onclick="closeAdminProfileModal()" class="w-full py-3.5 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-black text-sm uppercase transition-all shadow-md cursor-pointer">
+          關閉視窗
+        </button>
       </div>
     </div>
   </div>
@@ -847,75 +934,38 @@
 
     AOS.init({ duration: 1000, once: true });
 
-    // 幹部資料庫：營務官已設定預設大頭照與懸停時顯示的排球球員風格照片 (hoverPhoto)
+    // 幹部資料庫：僅保留家庭長與營務官
     const teamStaffDatabase = {
       director: {
-        name: "家庭長",
+        name: "長官",
         engRole: "DIRECTOR",
-        roleTitle: "主管",
+        roleTitle: "家庭長(主管)",
         joinYear: "2025",
         birthplace: "桃園市",
+        number: "01",
         icon: "fa-crown text-amber-500",
-        photo: "",
-        hoverPhoto: ""
+        photo: "A6AA8149-595E-4860-908E-7C445786C5DC.jpg"
       },
       admin: {
         name: "呂佳寯",
         engRole: "ADMIN OFFICER",
-        roleTitle: "營務",
+        roleTitle: "營務官",
         joinYear: "2025",
         birthplace: "新北市",
         birthday: "2002.05.01",
-        education: "聖約翰科大創設系",
-        skills: ["LOGO設計", "插畫", "視覺平面設計"],
+        number: "02",
         icon: "fa-user-clock text-slate-500",
         photo: "110417006.jpg",
-        hoverPhoto: "volleyball_player_style.jpg" // 可自行替換為排球球員風格戰鬥照檔名
-      },
-      property: {
-        name: "營產官",
-        engRole: "PROPERTY OFFICER",
-        roleTitle: "幕僚",
-        joinYear: "2025",
-        birthplace: "桃園市",
-        icon: "fa-screwdriver-wrench text-blue-600",
-        photo: "",
-        hoverPhoto: ""
-      },
-      design: {
-        name: "呂佳芯",
-        engRole: "DESIGN OFFICER",
-        roleTitle: "美工",
-        joinYear: "2025",
-        birthplace: "新北市",
-        education: "龍華科大文創系",
-        icon: "fa-palette text-purple-600",
-        photo: "",
-        hoverPhoto: ""
-      },
-      adminSpec: {
-        name: "行政專員",
-        engRole: "ADMIN SPECIALIST",
-        roleTitle: "行政",
-        joinYear: "2026",
-        birthplace: "臺中市",
-        icon: "fa-file-lines text-teal-600",
-        photo: "",
-        hoverPhoto: ""
-      },
-      artSpec: {
-        name: "藝術專員",
-        engRole: "ART SPECIALIST",
-        roleTitle: "藝術",
-        joinYear: "2026",
-        birthplace: "臺中市",
-        icon: "fa-feather-pointed text-pink-600",
-        photo: "",
-        hoverPhoto: ""
+        hoverPhoto: "volleyball_player_style.jpg"
       }
     };
 
     function openProfileModal(key) {
+      if (key === 'admin') {
+        document.getElementById('adminProfileModal').classList.remove('hidden');
+        return;
+      }
+
       const data = teamStaffDatabase[key];
       if (!data) return;
 
@@ -930,39 +980,18 @@
       const thirdCol = document.getElementById('profileModalThirdCol');
       const thirdTitle = document.getElementById('profileModalThirdTitle');
       const thirdVal = document.getElementById('profileModalThirdVal');
-      const skillsArea = document.getElementById('profileModalSkillsArea');
 
-      if (key === 'admin') {
+      if (key === 'director') {
         grid.className = "grid grid-cols-3 divide-x divide-slate-200 border-y border-slate-200 py-6 text-center";
         thirdCol.classList.remove('hidden');
-        thirdTitle.innerText = "生日";
-        thirdVal.innerText = data.birthday;
-
-        skillsArea.classList.remove('hidden');
-        const skillsContainer = document.getElementById('profileModalSkills');
-        skillsContainer.innerHTML = '';
-        data.skills.forEach(skill => {
-          const span = document.createElement('span');
-          span.className = "px-4 py-2 rounded-xl bg-orange-50 text-orange-700 font-black text-xs sm:text-sm border border-orange-200";
-          span.innerText = skill;
-          skillsContainer.appendChild(span);
-        });
-      } else if (data.education) {
-        grid.className = "grid grid-cols-3 divide-x divide-slate-200 border-y border-slate-200 py-6 text-center";
-        thirdCol.classList.remove('hidden');
-        thirdTitle.innerText = "學歷";
-        thirdVal.innerText = data.education;
-        skillsArea.classList.add('hidden');
+        thirdTitle.innerText = "身分";
+        thirdVal.innerText = "家庭長";
       } else {
         grid.className = "grid grid-cols-2 divide-x divide-slate-200 border-y border-slate-200 py-6 text-center";
         thirdCol.classList.add('hidden');
-        skillsArea.classList.add('hidden');
       }
 
-      // 大頭貼圖片與懸停切換照片處理
       const imgEl = document.getElementById('profileModalImg');
-      const hoverImgEl = document.getElementById('profileModalHoverImg');
-
       if (data.photo) {
         imgEl.src = data.photo;
         imgEl.classList.remove('hidden');
@@ -971,20 +1000,15 @@
         imgEl.classList.add('hidden');
       }
 
-      if (data.hoverPhoto) {
-        hoverImgEl.src = data.hoverPhoto;
-        hoverImgEl.classList.remove('hidden');
-      } else {
-        // 如果沒有設定第二張照片，則預設懸停時顯示原圖或不變
-        hoverImgEl.src = data.photo || '';
-        hoverImgEl.classList.remove('hidden');
-      }
-
       document.getElementById('profileModal').classList.remove('hidden');
     }
 
     function closeProfileModal() {
       document.getElementById('profileModal').classList.add('hidden');
+    }
+
+    function closeAdminProfileModal() {
+      document.getElementById('adminProfileModal').classList.add('hidden');
     }
 
     const API_URL = "https://script.google.com/macros/s/AKfycbwS-5vgJfq6Prb24jbWuVIpGb6UlHT3yZpXRp4ST4siAAecvzHZ6M8MfNlD_ttlwjuMNQ/exec";
@@ -1052,80 +1076,52 @@
       }
     });
 
+    // 幹部清單：首頁營務官卡片具備懸浮照片效果
     const teamStaffList = [
-      { key: "director", role: "家庭長(主管)", engRole: "DIRECTOR", desc: "綜理單位各項勤(業)務，最高領導與決策。", icon: "fa-crown text-amber-500" },
-      { key: "admin", role: "營務官(行政副主管)", engRole: "ADMIN OFFICER", desc: "總務、行政、政戰事務統籌與溝通協調。", icon: "fa-user-clock text-slate-500", photo: "110417006.jpg" },
-      { key: "property", role: "營產官", engRole: "PROPERTY OFFICER", desc: "資產管理、設備維修與硬體維護。", icon: "fa-screwdriver-wrench text-blue-600" },
-      { key: "design", role: "美工官", engRole: "DESIGN OFFICER", desc: "主視覺設計、攝影紀實與多媒體剪輯。", icon: "fa-palette text-purple-600" },
-      { key: "adminSpec", role: "行政專員", engRole: "ADMIN SPECIALIST", desc: "文書處理、檔案管理與後勤支援。", icon: "fa-file-lines text-teal-600" },
-      { key: "artSpec", role: "藝術專員", engRole: "ART SPECIALIST", desc: "美學設計、創意發想與文宣排版。", icon: "fa-feather-pointed text-pink-600" }
+      { key: "director", name: "家庭長", engName: "DIRECTOR", role: "主管", number: "01", photo: "A6AA8149-595E-4860-908E-7C445786C5DC.jpg" },
+      { key: "admin", name: "呂佳寯", engName: "LU JIA JUN", role: "營務官(行政副主管)", number: "02", photo: "110417006.jpg", hoverPhoto: "volleyball_player_style.jpg" }
     ];
 
     function renderHomeTeamStaff() {
-      const topContainer = document.getElementById('topTeamContainer');
-      const subContainer = document.getElementById('subTeamContainer');
-      if (!topContainer || !subContainer) return;
+      const container = document.getElementById('topTeamContainer');
+      if (!container) return;
+      container.innerHTML = '';
 
-      topContainer.innerHTML = '';
-      subContainer.innerHTML = '';
-
-      const topMembers = teamStaffList.slice(0, 2);
-      const subMembers = teamStaffList.slice(2);
-
-      topMembers.forEach((member) => {
+      teamStaffList.forEach((member) => {
         const item = document.createElement('div');
-        item.className = "bg-white rounded-[32px] p-7 border border-orange-100 shadow-xl flex flex-col justify-between group relative overflow-hidden transition-all cursor-pointer hover:border-orange-400 hover:shadow-2xl";
+        item.className = "bg-white rounded-[32px] border border-slate-200 shadow-xl overflow-hidden flex flex-col justify-between group cursor-pointer hover:border-orange-500 hover:shadow-2xl transition-all";
         item.setAttribute('onclick', `openProfileModal('${member.key}')`);
 
-        const avatarContent = member.photo 
-          ? `<img src="${member.photo}" class="w-full h-full object-cover" alt="${member.role}">`
-          : `<i class="fa-solid ${member.icon} text-5xl"></i>`;
+        let imageHTML = `<img src="${member.photo}" alt="${member.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">`;
+        if (member.hoverPhoto) {
+          imageHTML = `
+            <div class="w-full h-full relative group/avatar">
+              <img src="${member.photo}" alt="${member.name}" class="w-full h-full object-cover transition-opacity duration-300 group-hover/avatar:opacity-0 absolute inset-0">
+              <img src="${member.hoverPhoto}" alt="${member.name}風格照" class="w-full h-full object-cover opacity-0 transition-opacity duration-300 group-hover/avatar:opacity-100 absolute inset-0">
+              <div class="absolute bottom-3 left-1/2 -translate-x-1/2 bg-black/70 backdrop-blur-md text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider opacity-0 group-hover/avatar:opacity-100 transition-opacity pointer-events-none z-20">
+                ⚡ VOLLEYBALL PLAYER STYLE
+              </div>
+            </div>
+          `;
+        }
 
         item.innerHTML = `
-          <div>
-            <div class="flex items-center justify-between mb-6">
-              <span class="px-3.5 py-1.5 rounded-full bg-orange-50 text-orange-700 font-black text-xs uppercase border border-orange-200 tracking-wider">
-                ${member.engRole || 'TEAM LEADER'}
-              </span>
-              <span class="text-xs font-bold text-slate-400">核心幹部 <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-orange-600"></i></span>
+          <div class="relative w-full h-[380px] sm:h-[420px] bg-slate-100 overflow-hidden flex items-center justify-center">
+            ${imageHTML}
+            <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none"></div>
+          </div>
+          <div class="p-6 bg-white border-t border-slate-100 flex items-end justify-between">
+            <div>
+              <h3 class="text-2xl font-black text-slate-900 mb-1">${member.name}</h3>
+              <p class="text-xs font-black text-orange-600 tracking-wider uppercase mb-1">${member.engName}</p>
+              <p class="text-xs font-bold text-slate-400">${member.role}</p>
             </div>
-            <div class="flex flex-col sm:flex-row items-center gap-6 mb-6">
-              <div class="w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-orange-50 border-4 border-orange-100 shadow-inner flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform overflow-hidden">
-                ${avatarContent}
-              </div>
-              <div class="text-center sm:text-left">
-                <h3 class="text-2xl font-black text-slate-900 mb-2">${member.role}</h3>
-                <p class="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">${member.desc}</p>
-              </div>
+            <div class="w-12 h-12 rounded-2xl bg-slate-900 text-white flex items-center justify-center font-black text-base shadow-lg group-hover:bg-orange-600 transition-colors">
+              ${member.number}
             </div>
           </div>
         `;
-        topContainer.appendChild(item);
-      });
-
-      subMembers.forEach((member) => {
-        const item = document.createElement('div');
-        item.className = "bg-white rounded-[28px] p-6 border border-orange-100 shadow-md flex flex-col justify-between group relative overflow-hidden transition-all cursor-pointer hover:border-orange-400 hover:shadow-xl";
-        item.setAttribute('onclick', `openProfileModal('${member.key}')`);
-
-        item.innerHTML = `
-          <div>
-            <div class="flex items-center justify-between mb-4">
-              <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 font-black text-[10px] uppercase border border-slate-200">
-                ${member.engRole || 'STAFF'}
-              </span>
-              <span class="text-[10px] font-bold text-orange-600"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
-            </div>
-            <div class="flex flex-col items-center text-center mb-4">
-              <div class="w-20 h-20 rounded-full bg-orange-50 border-2 border-orange-100 shadow-inner flex items-center justify-center mb-3 group-hover:scale-105 transition-transform">
-                <i class="fa-solid ${member.icon} text-3xl"></i>
-              </div>
-              <h3 class="text-lg font-black text-slate-900 mb-1">${member.role}</h3>
-              <p class="text-xs text-slate-500 font-medium line-clamp-2">${member.desc}</p>
-            </div>
-          </div>
-        `;
-        subContainer.appendChild(item);
+        container.appendChild(item);
       });
     }
 
@@ -1211,54 +1207,6 @@
                 </div>
                 <div class="bg-slate-100 text-slate-800 px-4 py-3 rounded-2xl text-xs sm:text-sm font-black border border-slate-200 flex items-center gap-2">
                   <i class="fa-solid fa-circle-check text-slate-600"></i> 總務、行政、政戰事務
-                </div>
-              </div>
-              <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm flex flex-col justify-between gap-4">
-                <div class="flex items-center gap-4">
-                  <div class="w-12 h-12 rounded-2xl bg-blue-600 text-white flex items-center justify-center text-lg font-black shrink-0 shadow-md"><i class="fa-solid fa-screwdriver-wrench"></i></div>
-                  <div>
-                    <h4 class="text-base font-black text-slate-900">營產官</h4>
-                    <span class="text-xs text-slate-400 font-bold">資產與硬體維護</span>
-                  </div>
-                </div>
-                <div class="bg-blue-50 text-blue-800 px-4 py-3 rounded-2xl text-xs sm:text-sm font-black border border-blue-200 flex items-center gap-2">
-                  <i class="fa-solid fa-circle-check text-blue-600"></i> 營產改善、管理
-                </div>
-              </div>
-              <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm flex flex-col justify-between gap-4">
-                <div class="flex items-center gap-4">
-                  <div class="w-12 h-12 rounded-2xl bg-purple-600 text-white flex items-center justify-center text-lg font-black shrink-0 shadow-md"><i class="fa-solid fa-palette"></i></div>
-                  <div>
-                    <h4 class="text-base font-black text-slate-900">美工官</h4>
-                    <span class="text-xs text-slate-400 font-bold">視覺與數位設計</span>
-                  </div>
-                </div>
-                <div class="bg-purple-50 text-purple-800 px-4 py-3 rounded-2xl text-xs sm:text-sm font-black border border-purple-200 flex items-center gap-2">
-                  <i class="fa-solid fa-circle-check text-purple-600"></i> 主視覺設計、美編與創意發想
-                </div>
-              </div>
-              <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm flex flex-col justify-between gap-4">
-                <div class="flex items-center gap-4">
-                  <div class="w-12 h-12 rounded-2xl bg-teal-600 text-white flex items-center justify-center text-lg font-black shrink-0 shadow-md"><i class="fa-solid fa-file-lines"></i></div>
-                  <div>
-                    <h4 class="text-base font-black text-slate-900">行政專員</h4>
-                    <span class="text-xs text-slate-400 font-bold">文書與後勤支援</span>
-                  </div>
-                </div>
-                <div class="bg-teal-50 text-teal-800 px-4 py-3 rounded-2xl text-xs sm:text-sm font-black border border-teal-200 flex items-center gap-2">
-                  <i class="fa-solid fa-circle-check text-teal-600"></i> 文書處理、檔案管理與行政支援
-                </div>
-              </div>
-              <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm flex flex-col justify-between gap-4">
-                <div class="flex items-center gap-4">
-                  <div class="w-12 h-12 rounded-2xl bg-pink-600 text-white flex items-center justify-center text-lg font-black shrink-0 shadow-md"><i class="fa-solid fa-feather-pointed"></i></div>
-                  <div>
-                    <h4 class="text-base font-black text-slate-900">藝術專員</h4>
-                    <span class="text-xs text-slate-400 font-bold">美學與創意創作</span>
-                  </div>
-                </div>
-                <div class="bg-pink-50 text-pink-800 px-4 py-3 rounded-2xl text-xs sm:text-sm font-black border border-pink-200 flex items-center gap-2">
-                  <i class="fa-solid fa-circle-check text-pink-600"></i> 美學設計、創意發想與文宣排版
                 </div>
               </div>
             </div>
