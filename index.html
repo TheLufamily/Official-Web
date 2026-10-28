@@ -417,7 +417,7 @@
         <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 relative section-title-watermark px-2">
           <div class="watermark-text" style="font-size: 5rem; top: -20px;">LEADERS</div>
           <div class="relative z-10">
-            <span class="text-xs font-black text-slate-800 tracking-wider uppercase block mb-1.5 bg-slate-100 px-3 py-1 rounded-md border border-slate-200 w-fit">主管與核心領導</span>
+            <span class="text-xs font-black text-slate-800 tracking-wider uppercase block mb-1.5 bg-slate-100 px-3 py-1 rounded-md border border-slate-200 w-fit">營運團隊</span>
             <h2 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight uppercase flex items-center gap-2">
               LEADERS
             </h2>
@@ -570,7 +570,7 @@
             <span id="profileModalBirthplace" class="text-xl sm:text-2xl font-black text-slate-900">--</span>
           </div>
           <div id="profileModalThirdCol" class="hidden">
-            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-2" id="profileModalThirdTitle">身分</span>
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-2" id="profileModalThirdTitle"></span>
             <span id="profileModalThirdVal" class="text-lg sm:text-xl font-black text-slate-900">--</span>
           </div>
         </div>
@@ -915,7 +915,7 @@
         joinYear: "2025",
         birthplace: "桃園市",
         number: "01",
-        photo: "A6AA8149-595E-4860-908E-7C445786C5DC.jpg"
+        photo: "Portrait_Placeholder.jpg"
       },
       admin: {
         name: "呂佳寯",
@@ -935,7 +935,7 @@
         joinYear: "2026",
         birthplace: "桃園平鎮",
         number: "03",
-        photo: ""
+        photo: "Portrait_Placeholder.jpg"
       },
       staff04: {
         name: "創意總監",
@@ -944,7 +944,7 @@
         joinYear: "2026",
         birthplace: "新北板橋",
         number: "04",
-        photo: ""
+        photo: "Portrait_Placeholder.jpg"
       },
       staff05: {
         name: "設計總監",
@@ -953,7 +953,7 @@
         joinYear: "2026",
         birthplace: "桃園平鎮",
         number: "05",
-        photo: ""
+        photo: "Portrait_Placeholder.jpg"
       }
     };
 
@@ -978,15 +978,7 @@
       const thirdTitle = document.getElementById('profileModalThirdTitle');
       const thirdVal = document.getElementById('profileModalThirdVal');
 
-      if (key === 'director') {
-        grid.className = "grid grid-cols-3 divide-x divide-slate-200 border-y border-slate-200 py-6 text-center";
-        thirdCol.classList.remove('hidden');
-        thirdTitle.innerText = "身分";
-        thirdVal.innerText = "家庭長";
-      } else {
-        grid.className = "grid grid-cols-2 divide-x divide-slate-200 border-y border-slate-200 py-6 text-center";
-        thirdCol.classList.add('hidden');
-      }
+
 
       const imgEl = document.getElementById('profileModalImg');
       if (data.photo && data.photo.trim() !== '') {
@@ -1075,11 +1067,11 @@
 
     // 幹部清單：包含家庭長、營務官以及 3 位新同仁
     const teamStaffList = [
-      { key: "director", name: "主管", engName: "DIRECTOR", role: "領隊", number: "01", photo: "A6AA8149-595E-4860-908E-7C445786C5DC.jpg" },
+      { key: "director", name: "主管", engName: "DIRECTOR", role: "領隊", number: "01", photo: "Portrait_Placeholder.jpg" },
       { key: "admin", name: "呂佳寯", engName: "LU JIA JUN", role: "團隊經理", number: "02", photo: "110417006.jpg", hoverPhoto: "volleyball_player_style.jpg" },
-      { key: "staff03", name: "營產管理經理", engName: "ASSET MANAGER", role: "", number: "03", photo: "" },
-      { key: "staff04", name: "創意總監", engName: "CREATIVE DIRECTOR", role: "", number: "04", photo: "" },
-      { key: "staff05", name: "設計總監", engName: "DESIGN DIRECTOR", role: "", number: "05", photo: "" }
+      { key: "staff03", name: "營產管理經理", engName: "ASSET MANAGER", role: "", number: "03", photo: "Portrait_Placeholder.jpg" },
+      { key: "staff04", name: "創意總監", engName: "CREATIVE DIRECTOR", role: "", number: "04", photo: "Portrait_Placeholder.jpg" },
+      { key: "staff05", name: "設計總監", engName: "DESIGN DIRECTOR", role: "", number: "05", photo: "Portrait_Placeholder.jpg" }
     ];
 
     function renderHomeTeamStaff() {
