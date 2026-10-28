@@ -1,0 +1,20 @@
+{
+  "name": "呂氏家庭生活資訊網",
+  "short_name": "呂氏家庭",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#fffaf5",
+  "theme_color": "#ea580c",
+  "icons": [
+    {
+      "src": "110417006.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "110417006.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}
