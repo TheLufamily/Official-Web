@@ -458,7 +458,7 @@
         </div>
       </div>
 
-      <!-- 家族分布卡片區塊 -->
+      <!-- 家族分布卡片區塊（可點擊查看各區詳情） -->
       <div class="max-w-7xl mx-auto w-full pt-4">
         <div class="mb-10">
           <span class="text-orange-600 font-black text-xs tracking-widest uppercase block mb-1">家族分布</span>
@@ -466,79 +466,102 @@
             FAMILY <span class="text-orange-600">MAP</span>
           </h1>
           <p class="text-gray-600 text-base sm:text-lg">
-            13位家庭成員，主要分布於新北板橋、桃園平鎮、臺中中區及臺中北區
+            13位家庭成員，主要分布於新北板橋、桃園平鎮、臺中中區及臺中北區（點擊卡片查看詳細名單）
           </p>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div class="bg-gradient-to-b from-orange-600 to-amber-700 rounded-[32px] p-6 text-white shadow-xl flex flex-col justify-between relative overflow-hidden group hover:scale-[1.02] transition-all">
+          
+          <!-- 新北市板橋區 -->
+          <div onclick="openFamilyMapModal('banqiao')" class="bg-gradient-to-b from-orange-600 to-amber-700 rounded-[32px] p-6 text-white shadow-xl flex flex-col justify-between relative overflow-hidden group hover:scale-[1.02] transition-all cursor-pointer">
             <div class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-bl-full pointer-events-none"></div>
             <div>
               <div class="flex items-center justify-between mb-6">
                 <i class="fa-solid fa-location-dot text-xl text-orange-200"></i>
+                <span class="px-3 py-1 rounded-full bg-white/20 text-white text-xs font-black">7 位成員</span>
               </div>
               <div class="w-16 h-16 rounded-2xl bg-white/15 backdrop-blur-md flex items-center justify-center text-3xl font-black mb-6 shadow-inner border border-white/20"><i class="fa-solid fa-house-chimney"></i></div>
               <div class="text-xs font-bold text-orange-100 uppercase tracking-widest mb-1">NEW TAIPEI BANQIAO</div>
               <h3 class="text-2xl font-black tracking-tight mb-4">新北市板橋區</h3>
               <p class="text-xs text-orange-100 font-medium leading-relaxed mb-6"></p>
             </div>
-            <div class="pt-4 border-t border-white/20 flex items-center justify-between text-xs font-black"><span></span><i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i></div>
+            <div class="pt-4 border-t border-white/20 flex items-center justify-between text-xs font-black"><span>點擊查看成員名單</span><i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i></div>
           </div>
 
-          <div class="bg-gradient-to-b from-rose-600 to-pink-700 rounded-[32px] p-6 text-white shadow-xl flex flex-col justify-between relative overflow-hidden group hover:scale-[1.02] transition-all">
+          <!-- 桃園市平鎮區 -->
+          <div onclick="openFamilyMapModal('pingzhen')" class="bg-gradient-to-b from-rose-600 to-pink-700 rounded-[32px] p-6 text-white shadow-xl flex flex-col justify-between relative overflow-hidden group hover:scale-[1.02] transition-all cursor-pointer">
             <div class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-bl-full pointer-events-none"></div>
             <div>
               <div class="flex items-center justify-between mb-6">
                 <i class="fa-solid fa-users text-xl text-rose-200"></i>
+                <span class="px-3 py-1 rounded-full bg-white/20 text-white text-xs font-black">3 位成員</span>
               </div>
               <div class="w-16 h-16 rounded-2xl bg-white/15 backdrop-blur-md flex items-center justify-center text-3xl font-black mb-6 shadow-inner border border-white/20"><i class="fa-solid fa-landmark"></i></div>
               <div class="text-xs font-bold text-rose-100 uppercase tracking-widest mb-1">TAOYUAN PINGZHEN</div>
               <h3 class="text-2xl font-black tracking-tight mb-4">桃園市平鎮區</h3>
               <p class="text-xs text-rose-100 font-medium leading-relaxed mb-6"></p>
             </div>
-            <div class="pt-4 border-t border-white/20 flex items-center justify-between text-xs font-black"><span></span><i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i></div>
+            <div class="pt-4 border-t border-white/20 flex items-center justify-between text-xs font-black"><span>點擊查看成員名單</span><i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i></div>
           </div>
 
-          <div class="bg-gradient-to-b from-indigo-800 to-purple-900 rounded-[32px] p-6 text-white shadow-xl flex flex-col justify-between relative overflow-hidden group hover:scale-[1.02] transition-all">
+          <!-- 臺中市中區 -->
+          <div onclick="openFamilyMapModal('taichung_central')" class="bg-gradient-to-b from-indigo-800 to-purple-900 rounded-[32px] p-6 text-white shadow-xl flex flex-col justify-between relative overflow-hidden group hover:scale-[1.02] transition-all cursor-pointer">
             <div class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-bl-full pointer-events-none"></div>
             <div>
               <div class="flex items-center justify-between mb-6">
                 <i class="fa-solid fa-compass text-xl text-indigo-200"></i>
+                <span class="px-3 py-1 rounded-full bg-white/20 text-white text-xs font-black">3 位成員</span>
               </div>
               <div class="w-16 h-16 rounded-2xl bg-white/15 backdrop-blur-md flex items-center justify-center text-3xl font-black mb-6 shadow-inner border border-white/20"><i class="fa-solid fa-city"></i></div>
               <div class="text-xs font-bold text-indigo-100 uppercase tracking-widest mb-1">TAICHUNG CENTRAL</div>
               <h3 class="text-2xl font-black tracking-tight mb-4">臺中市中區</h3>
               <p class="text-xs text-indigo-100 font-medium leading-relaxed mb-6"></p>
             </div>
-            <div class="pt-4 border-t border-white/20 flex items-center justify-between text-xs font-black"><span></span><i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i></div>
+            <div class="pt-4 border-t border-white/20 flex items-center justify-between text-xs font-black"><span>點擊查看成員名單</span><i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i></div>
           </div>
 
-          <div class="bg-gradient-to-b from-emerald-600 to-teal-800 rounded-[32px] p-6 text-white shadow-xl flex flex-col justify-between relative overflow-hidden group hover:scale-[1.02] transition-all">
+          <!-- 臺中市北區 -->
+          <div onclick="openFamilyMapModal('taichung_north')" class="bg-gradient-to-b from-emerald-600 to-teal-800 rounded-[32px] p-6 text-white shadow-xl flex flex-col justify-between relative overflow-hidden group hover:scale-[1.02] transition-all cursor-pointer">
             <div class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-bl-full pointer-events-none"></div>
             <div>
               <div class="flex items-center justify-between mb-6">
                 <i class="fa-solid fa-seedling text-xl text-emerald-200"></i>
+                <span class="px-3 py-1 rounded-full bg-white/20 text-white text-xs font-black">3 位成員</span>
               </div>
               <div class="w-16 h-16 rounded-2xl bg-white/15 backdrop-blur-md flex items-center justify-center text-3xl font-black mb-6 shadow-inner border border-white/20"><i class="fa-solid fa-tree-city"></i></div>
               <div class="text-xs font-bold text-emerald-100 uppercase tracking-widest mb-1">TAICHUNG NORTH</div>
               <h3 class="text-2xl font-black tracking-tight mb-4">臺中市北區</h3>
               <p class="text-xs text-emerald-100 font-medium leading-relaxed mb-6"></p>
             </div>
-            <div class="pt-4 border-t border-white/20 flex items-center justify-between text-xs font-black"><span></span><i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i></div>
+            <div class="pt-4 border-t border-white/20 flex items-center justify-between text-xs font-black"><span>點擊查看成員名單</span><i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i></div>
           </div>
+
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- 網頁頁尾 Footer -->
+  <!-- 網頁頁尾 Footer（含下載 APP 按鈕） -->
   <footer class="bg-[#fff6ee] text-slate-600 py-8 border-t border-orange-200 mt-auto shadow-inner">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm font-bold text-slate-600 text-center sm:text-left">
-        <div>
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        
+        <div class="text-xs sm:text-sm font-bold text-slate-600 text-center sm:text-left">
           <p>&copy; 2026 呂氏家庭生活資訊網 版權所有 All Rights Reserved.</p>
         </div>
+
+        <div class="flex items-center gap-3">
+          <div class="text-right hidden sm:block">
+            <p class="text-xs font-black text-slate-800">把呂氏家庭變成手機 App</p>
+            <p class="text-[10px] text-slate-500 font-bold">隨時隨地快速存取家族資訊</p>
+          </div>
+          <button type="button" onclick="openInstallAppGuide()" class="px-5 py-2.5 rounded-2xl bg-orange-600 hover:bg-orange-700 text-white font-black text-xs sm:text-sm shadow-md transition-all flex items-center gap-2 cursor-pointer">
+            <i class="fa-solid fa-mobile-screen-button"></i>
+            <span>下載 / 安裝 APP</span>
+          </button>
+        </div>
+
       </div>
     </div>
   </footer>
@@ -578,10 +601,6 @@
           <div>
             <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-2">出生地</span>
             <span id="profileModalBirthplace" class="text-xl sm:text-2xl font-black text-slate-900">--</span>
-          </div>
-          <div id="profileModalThirdCol" class="hidden">
-            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-2" id="profileModalThirdTitle"></span>
-            <span id="profileModalThirdVal" class="text-lg sm:text-xl font-black text-slate-900">--</span>
           </div>
         </div>
 
@@ -651,14 +670,6 @@
                 <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-0.5">擅長風格</span>
                 <span class="font-black text-orange-600">LOGO設計, 插畫, 視覺平面設計</span>
               </div>
-              <div class="col-span-2">
-                <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-0.5">特長</span>
-                <span class="font-black text-slate-800">平面設計、視覺排版</span>
-              </div>
-              <div class="col-span-2">
-                <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-0.5">興趣愛好</span>
-                <span class="font-black text-slate-800">喜歡看啦啦隊 (本命女孩：TOKKI CUTIE 朴恩惠)</span>
-              </div>
             </div>
           </div>
 
@@ -675,7 +686,6 @@
               <span class="px-4 py-2 rounded-full bg-orange-100 text-orange-800 font-black text-xs border border-orange-300 shadow-sm">💖 朴恩惠應援</span>
             </div>
 
-            <!-- 本命女孩照片顯示區塊 -->
             <div class="pt-4 border-t border-slate-100">
               <div class="flex items-center justify-between mb-2">
                 <span class="text-xs font-black text-orange-600 uppercase tracking-wider">我的本命</span>
@@ -695,6 +705,72 @@
           關閉視窗
         </button>
       </div>
+    </div>
+  </div>
+
+  <!-- 家族分布詳情彈出視窗 -->
+  <div id="familyMapModal" class="fixed inset-0 z-[190] flex items-center justify-center p-4 sm:p-6 bg-slate-900/60 backdrop-blur-sm hidden" onclick="closeFamilyMapModal()">
+    <div class="bg-white text-slate-800 rounded-[35px] shadow-2xl overflow-hidden relative max-w-lg w-full border border-orange-100 p-6 sm:p-8 text-left flex flex-col max-h-[85vh] overflow-y-auto custom-scrollbar" onclick="event.stopPropagation()">
+      <button type="button" onclick="closeFamilyMapModal()" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-all cursor-pointer z-10"><i class="fa-solid fa-xmark"></i></button>
+      
+      <div class="flex items-center gap-4 mb-6 pb-4 border-b border-orange-100">
+        <div id="mapModalIconContainer" class="w-14 h-14 rounded-2xl bg-orange-600 text-white flex items-center justify-center text-2xl font-black shadow-md shrink-0">
+          <i id="mapModalIcon" class="fa-solid fa-house-chimney"></i>
+        </div>
+        <div>
+          <span id="mapModalEngTitle" class="text-xs font-black text-orange-600 uppercase tracking-widest block mb-0.5">LOCATION</span>
+          <h3 id="mapModalTitle" class="text-2xl sm:text-3xl font-black text-slate-900">--</h3>
+        </div>
+      </div>
+
+      <div class="mb-6 bg-orange-50/50 rounded-2xl p-4 border border-orange-100 flex items-center justify-between">
+        <span class="text-xs font-black text-slate-600">區域總人口數</span>
+        <span id="mapModalCount" class="text-sm font-black text-orange-600 px-3 py-1 rounded-full bg-white shadow-sm border border-orange-200">-- 名成員</span>
+      </div>
+
+      <div class="space-y-3 mb-6">
+        <span class="text-xs font-black text-slate-400 uppercase tracking-wider block">分部代表成員與說明</span>
+        <div id="mapModalMemberList" class="space-y-2.5">
+          <!-- 動態帶入成員 -->
+        </div>
+      </div>
+
+      <button type="button" onclick="closeFamilyMapModal()" class="w-full py-3.5 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-black text-sm uppercase transition-all shadow-md cursor-pointer">
+        關閉視窗
+      </button>
+    </div>
+  </div>
+
+  <!-- APP 安裝引導彈出視窗 -->
+  <div id="installAppModal" class="fixed inset-0 z-[200] flex items-center justify-center p-4 sm:p-6 bg-slate-900/60 backdrop-blur-sm hidden" onclick="closeInstallAppGuide()">
+    <div class="bg-white text-slate-800 rounded-[35px] shadow-2xl overflow-hidden relative max-w-md w-full border border-orange-100 p-6 sm:p-8 text-left flex flex-col" onclick="event.stopPropagation()">
+      <button type="button" onclick="closeInstallAppGuide()" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-all cursor-pointer z-10"><i class="fa-solid fa-xmark"></i></button>
+      
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-12 h-12 rounded-2xl bg-orange-600 text-white flex items-center justify-center text-xl font-black shadow-md shrink-0">
+          <i class="fa-solid fa-mobile-screen-button"></i>
+        </div>
+        <div>
+          <span class="text-xs font-black text-orange-600 uppercase tracking-widest block">LU FAMILY APP</span>
+          <h3 class="text-xl font-black text-slate-900">如何安裝到手機桌面？</h3>
+        </div>
+      </div>
+
+      <div class="space-y-4 text-xs sm:text-sm font-bold text-slate-700 mb-6">
+        <div class="p-4 rounded-2xl bg-orange-50/70 border border-orange-100 space-y-2">
+          <h4 class="font-black text-orange-800 text-sm flex items-center gap-1.5"><i class="fa-brands fa-apple"></i> iPhone / iPad (Safari 瀏覽器)</h4>
+          <p class="text-slate-600 font-medium">1. 點擊下方工具列的 <i class="fa-solid fa-arrow-up-from-bracket text-orange-600"></i> <strong>「分享」</strong> 按鈕。<br>2. 往下滑動並點選 <strong>「加入主畫面」</strong> 即可完成！</p>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+          <h4 class="font-black text-slate-800 text-sm flex items-center gap-1.5"><i class="fa-brands fa-android"></i> Android 手機 (Chrome 瀏覽器)</h4>
+          <p class="text-slate-600 font-medium">1. 點擊右上角的 <i class="fa-solid fa-ellipsis-vertical text-slate-700"></i> <strong>「三點選單」</strong>。<br>2. 點選 <strong>「安裝應用程式」</strong> 或 <strong>「加到主畫面」</strong>。</p>
+        </div>
+      </div>
+
+      <button type="button" onclick="closeInstallAppGuide()" class="w-full py-3.5 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-black text-sm uppercase transition-all shadow-md cursor-pointer">
+        我知道了
+      </button>
     </div>
   </div>
 
@@ -738,131 +814,6 @@
     </div>
   </div>
 
-  <div id="adminMenuModal" class="fixed inset-0 z-[140] flex items-center justify-center p-4 sm:p-6 bg-slate-900/60 backdrop-blur-sm hidden">
-    <div class="bg-white text-slate-800 rounded-[35px] sm:rounded-[40px] w-full max-w-md shadow-2xl p-6 sm:p-8 text-center relative border border-orange-100">
-      <button type="button" onclick="closeAdminMenuModal()" class="absolute top-5 right-5 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-slate-100 flex items-center justify-center text-slate-700 cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
-      <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-3xl bg-orange-50 text-orange-600 flex items-center justify-center text-2xl sm:text-3xl mx-auto mb-4 border border-orange-100"><i class="fa-solid fa-user-gear"></i></div>
-      <h3 class="text-xl sm:text-2xl font-black text-slate-900 mb-4">後台管理中心</h3>
-      <div class="grid grid-cols-1 gap-3 sm:gap-4 mb-4">
-        <button type="button" onclick="openPublishModalFromSecret()" class="p-4 rounded-3xl bg-orange-50 hover:bg-orange-100 border border-orange-200 text-slate-900 flex items-center gap-4 text-left font-black transition-all cursor-pointer">
-          <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-orange-600 text-white flex items-center justify-center text-lg sm:text-xl shrink-0"><i class="fa-solid fa-user-plus"></i></div>
-          <div><h4 class="text-sm sm:text-base">新增消息</h4><p class="text-xs text-slate-500 font-medium">發布最新公告</p></div>
-        </button>
-        <button type="button" onclick="openHistoryModalFromSecret()" class="p-4 rounded-3xl bg-slate-50 hover:bg-orange-100 border border-orange-200 text-slate-900 flex items-center gap-4 text-left font-black transition-all cursor-pointer">
-          <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-slate-800 text-white flex items-center justify-center text-lg sm:text-xl shrink-0"><i class="fa-solid fa-user-pen"></i></div>
-          <div><h4 class="text-sm sm:text-base">內容管理</h4><p class="text-xs text-slate-500 font-medium">修改或刪除公告</p></div>
-        </button>
-      </div>
-      <button type="button" onclick="closeAdminMenuModal()" class="w-full py-3.5 rounded-2xl bg-slate-100 text-slate-600 font-black text-sm uppercase cursor-pointer">關閉選單</button>
-    </div>
-  </div>
-
-  <div id="historyModal" class="fixed inset-0 z-[160] flex items-center justify-center p-4 sm:p-6 bg-slate-900/60 backdrop-blur-sm hidden" onclick="closeHistoryModal()">
-    <div class="bg-white text-slate-800 rounded-[35px] sm:rounded-[40px] shadow-2xl p-6 sm:p-8 uniform-modal-container border border-orange-100" onclick="event.stopPropagation()">
-      <div class="flex justify-between items-center mb-6 shrink-0">
-        <h3 class="text-xl sm:text-2xl font-black text-slate-900">最新消息管理</h3>
-        <button type="button" onclick="closeHistoryModal()" class="w-8 h-8 rounded-full bg-slate-100 text-slate-700 flex items-center justify-center cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
-      </div>
-      <div class="mb-4 flex flex-col sm:flex-row justify-end items-start sm:items-center gap-3 shrink-0">
-        <div class="flex items-center gap-2">
-          <span class="text-xs font-black text-slate-500">排序方式：</span>
-          <select id="adminSortOrderSelect" onchange="renderHistoryList()" class="px-3 py-1.5 rounded-xl bg-slate-100 border border-slate-200 font-black text-xs text-slate-700 focus:outline-none">
-            <option value="desc">由近而遠 (新 → 舊)</option>
-            <option value="asc">由遠而近 (舊 → 新)</option>
-          </select>
-        </div>
-      </div>
-      <div class="space-y-4 overflow-y-auto custom-scrollbar flex-grow pr-1" id="historyListContainer"></div>
-    </div>
-  </div>
-
-  <div id="publishModal" class="fixed inset-0 z-[170] flex items-center justify-center p-4 sm:p-6 bg-slate-900/60 backdrop-blur-sm hidden" onclick="closePublishModal()">
-    <div class="bg-white text-slate-800 rounded-[35px] sm:rounded-[40px] shadow-2xl p-6 sm:p-8 relative uniform-modal-container border border-orange-100" onclick="event.stopPropagation()">
-      <div class="flex justify-between items-center mb-6 shrink-0">
-        <h3 id="publishModalTitle" class="text-xl sm:text-2xl font-black text-slate-900 flex items-center gap-3">
-          <i class="fa-solid fa-pen-to-square text-orange-600"></i> 新增內容
-        </h3>
-        <button type="button" onclick="closePublishModal()" class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-slate-100 flex items-center justify-center text-slate-700 cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
-      </div>
-      <form id="publishForm" onsubmit="handlePublishSubmit(event)" class="space-y-4 text-left overflow-y-auto custom-scrollbar flex-grow pr-2">
-        <input type="hidden" id="editNoticeId" value="">
-        <input type="hidden" id="pubCategory" value="最新消息">
-        <div><label class="block text-xs font-black text-slate-500 mb-2">標題 Title</label><input type="text" id="pubTitle" required class="w-full px-5 py-3 rounded-2xl bg-slate-50 border border-slate-200 font-bold text-sm text-slate-800"></div>
-        <div><label class="block text-xs font-black text-slate-500 mb-2">日期 Date</label><input type="date" id="pubDate" required class="w-full px-5 py-3 rounded-2xl bg-slate-50 border border-slate-200 font-bold text-sm text-slate-800"></div>
-        <div><label class="block text-xs font-black text-slate-500 mb-2">詳細內容 Content</label><textarea id="pubContent" rows="4" required class="w-full px-5 py-3 rounded-2xl bg-slate-50 border border-slate-200 font-bold text-sm text-slate-800"></textarea></div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div><label class="block text-xs font-black text-orange-600 mb-2"><i class="fa-solid fa-link mr-1"></i> 相關連結網址 URL (選填)</label><input type="url" id="pubLink" placeholder="https://example.com" class="w-full px-5 py-3 rounded-2xl bg-slate-50 border border-slate-200 font-bold text-sm text-slate-800"></div>
-          <div><label class="block text-xs font-black text-orange-600 mb-2"><i class="fa-solid fa-tag mr-1"></i> 連結自訂名稱 (選填)</label><input type="text" id="pubLinkName" placeholder="例如：活動報名表" class="w-full px-5 py-3 rounded-2xl bg-slate-50 border border-slate-200 font-bold text-sm text-slate-800"></div>
-        </div>
-        <div>
-          <label class="block text-xs font-black text-orange-600 mb-2"><i class="fa-solid fa-paperclip mr-1"></i> 相關附件與圖片 (支援多檔上傳)</label>
-          <input type="file" id="pubFiles" multiple class="w-full text-xs font-bold text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-black file:bg-orange-100 file:text-orange-700 hover:file:bg-orange-200 cursor-pointer">
-        </div>
-        <button type="submit" id="pubSubmitBtn" class="w-full py-4 rounded-2xl bg-orange-600 hover:bg-orange-700 text-white font-black uppercase shadow-md text-sm mt-4 transition-all cursor-pointer">立即發布</button>
-      </form>
-    </div>
-  </div>
-
-  <div id="noticeDetailModal" class="fixed inset-0 z-[160] flex items-center justify-center p-4 sm:p-6 bg-slate-900/60 backdrop-blur-sm hidden" onclick="closeNoticeModal()">
-    <div class="bg-white text-slate-800 rounded-[28px] sm:rounded-[32px] shadow-2xl overflow-hidden relative uniform-modal-container border border-orange-100" onclick="event.stopPropagation()">
-      <div class="bg-slate-900 text-white px-6 sm:px-8 py-5 sm:py-6 flex items-center justify-between relative shrink-0">
-        <div class="flex items-center gap-3">
-          <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-orange-600 text-white flex items-center justify-center text-sm font-black shadow-md"><i class="fa-solid fa-bullhorn"></i></div>
-          <div>
-            <span class="text-[9px] sm:text-[10px] font-bold text-orange-400 uppercase tracking-widest block">LU FAMILY OFFICIAL ANNOUNCEMENT</span>
-            <h4 class="text-sm sm:text-base font-black tracking-wide">呂氏家庭發布</h4>
-          </div>
-        </div>
-        <button type="button" onclick="closeNoticeModal()" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-all cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
-      </div>
-      <div class="p-6 sm:p-8 overflow-y-auto custom-scrollbar space-y-6 flex-grow bg-slate-50/50">
-        <div class="flex flex-wrap items-center gap-3 border-b border-slate-200 pb-4">
-          <span id="noticeTag" class="text-xs font-black px-4 py-1.5 rounded-full uppercase bg-orange-600 text-white">最新消息</span>
-          <div class="flex items-center gap-1.5 text-xs font-bold text-slate-500">
-            <i class="fa-regular fa-calendar-days text-orange-600"></i>
-            <span>發布日期：</span><span id="noticeDate">--</span>
-          </div>
-        </div>
-        <div><h3 id="noticeTitle" class="text-xl sm:text-2xl font-black text-slate-900 leading-snug">--</h3></div>
-        <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm">
-          <p id="noticeContent" class="text-slate-700 font-medium text-sm sm:text-base whitespace-pre-line leading-relaxed">--</p>
-        </div>
-        <div id="noticeLinkArea" class="mb-6 hidden">
-          <a id="noticeExternalLink" href="#" target="_blank" class="w-full py-3.5 px-6 rounded-2xl bg-orange-50 hover:bg-orange-100 border border-orange-200 text-orange-700 font-black flex items-center justify-between transition-all shadow-sm">
-            <div class="flex items-center gap-3 truncate">
-              <div class="w-8 h-8 rounded-xl bg-orange-600 text-white flex items-center justify-center shrink-0 text-sm"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
-              <span id="noticeLinkText" class="truncate text-sm">開啟相關網址連結</span>
-            </div>
-            <i class="fa-solid fa-chevron-right text-xs text-orange-500"></i>
-          </a>
-        </div>
-        <div id="noticeImageSliderArea" class="mb-6 hidden">
-          <span class="text-[10px] font-black text-slate-400 uppercase tracking-widest block mb-2"><i class="fa-solid fa-image mr-1"></i> 圖片預覽 (點擊圖片可放大檢視)</span>
-          <div id="noticeImageSliderContent" class="flex gap-4 overflow-x-auto pb-3 custom-scrollbar snap-x"></div>
-        </div>
-        <div id="noticeFileArea" class="mb-6 hidden">
-          <span class="text-[10px] font-black text-slate-400 uppercase tracking-widest block mb-2"><i class="fa-solid fa-paperclip mr-1"></i> 附件與檔案下載</span>
-          <div id="noticeFileContent" class="space-y-2"></div>
-        </div>
-      </div>
-      <div class="p-4 sm:p-6 bg-white border-t border-slate-200 shrink-0 text-center">
-        <button type="button" onclick="closeNoticeModal()" class="w-full py-3.5 rounded-2xl bg-slate-800 hover:bg-slate-900 text-white font-black uppercase text-sm shadow-md transition-all cursor-pointer">關閉視窗</button>
-      </div>
-    </div>
-  </div>
-
-  <div id="imageLightboxModal" class="fixed inset-0 z-[180] flex items-center justify-center p-4 bg-slate-950/90 backdrop-blur-md hidden" onclick="closeImageLightbox()">
-    <div class="relative max-w-5xl max-h-[90vh] flex items-center justify-center w-full h-full" onclick="event.stopPropagation()">
-      <button type="button" onclick="closeImageLightbox()" class="absolute top-4 right-4 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/20 hover:bg-white/40 text-white flex items-center justify-center text-xl transition-all shadow-lg cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
-      <button type="button" onclick="prevLightboxImage()" class="absolute left-2 sm:left-4 z-20 w-10 h-10 sm:w-14 sm:h-14 rounded-full bg-white/20 hover:bg-white/40 text-white flex items-center justify-center text-lg sm:text-2xl transition-all shadow-lg backdrop-blur-sm cursor-pointer"><i class="fa-solid fa-chevron-left"></i></button>
-      <div class="flex flex-col items-center justify-center max-w-full max-h-full">
-        <img id="lightboxImage" src="" class="max-w-[80vw] max-h-[75vh] object-contain rounded-2xl shadow-2xl border border-white/10" alt="放大預覽圖">
-        <div id="lightboxCounter" class="mt-4 px-4 py-1.5 rounded-full bg-white/10 text-white text-xs font-black tracking-widest backdrop-blur-md">1 / 1</div>
-      </div>
-      <button type="button" onclick="nextLightboxImage()" class="absolute right-2 sm:right-4 z-20 w-10 h-10 sm:w-14 sm:h-14 rounded-full bg-white/20 hover:bg-white/40 text-white flex items-center justify-center text-lg sm:text-2xl transition-all shadow-lg backdrop-blur-sm cursor-pointer"><i class="fa-solid fa-chevron-right"></i></button>
-    </div>
-  </div>
-
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
     function toggleMobileMenu() {
@@ -893,78 +844,15 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    let _lightboxCurrentIndex = 0;
-    function openImageLightbox(index) {
-      if (!window._currentNoticeImages || window._currentNoticeImages.length === 0) return;
-      _lightboxCurrentIndex = index;
-      updateLightboxDisplay();
-      document.getElementById('imageLightboxModal').classList.remove('hidden');
-    }
-
-    function updateLightboxDisplay() {
-      const images = window._currentNoticeImages;
-      if (!images || images.length === 0) return;
-      if (_lightboxCurrentIndex < 0) _lightboxCurrentIndex = images.length - 1;
-      if (_lightboxCurrentIndex >= images.length) _lightboxCurrentIndex = 0;
-      document.getElementById('lightboxImage').src = images[_lightboxCurrentIndex].url;
-      document.getElementById('lightboxCounter').innerText = `${_lightboxCurrentIndex + 1} / ${images.length}`;
-    }
-
-    function prevLightboxImage() { _lightboxCurrentIndex--; updateLightboxDisplay(); }
-    function nextLightboxImage() { _lightboxCurrentIndex++; updateLightboxDisplay(); }
-    function closeImageLightbox() { document.getElementById('imageLightboxModal').classList.add('hidden'); }
-
     AOS.init({ duration: 1000, once: true });
 
-    // 幹部資料庫：包含家庭長、營務官以及 3 位新同仁
+    // 幹部資料庫
     const teamStaffDatabase = {
-      director: {
-        name: "領隊",
-        engRole: "DIRECTOR",
-        roleTitle: "主管",
-        joinYear: "2025",
-        birthplace: "桃園市",
-        number: "01",
-        photo: "Portrait_Placeholder.jpg"
-      },
-      admin: {
-        name: "呂佳寯",
-        engRole: "ADMIN OFFICER",
-        roleTitle: "團隊經理",
-        joinYear: "2025",
-        birthplace: "新北市",
-        birthday: "2002.05.01",
-        number: "02",
-        photo: "110417006.jpg",
-        hoverPhoto: "volleyball_player_style.jpg"
-      },
-      staff03: {
-        name: "營產管理經理",
-        engRole: "ASSET MANAGER",
-        roleTitle: "營產",
-        joinYear: "2026",
-        birthplace: "桃園平鎮",
-        number: "03",
-        photo: "Portrait_Placeholder.jpg"
-      },
-      staff04: {
-        name: "創意總監",
-        engRole: "CREATIVE DIRECTOR",
-        roleTitle: "創意",
-        joinYear: "2026",
-        birthplace: "新北板橋",
-        number: "04",
-        photo: "Portrait_Placeholder.jpg"
-      },
-      staff05: {
-        name: "設計總監",
-        engRole: "DESIGN DIRECTOR",
-        roleTitle: "設計",
-        joinYear: "2026",
-        birthplace: "桃園平鎮",
-        number: "05",
-        photo: "Portrait_Placeholder.jpg"
-      }
+      director: { name: "領隊", engRole: "DIRECTOR", roleTitle: "主管", joinYear: "2025", birthplace: "桃園市", number: "01", photo: "Portrait_Placeholder.jpg" },
+      admin: { name: "呂佳寯", engRole: "ADMIN OFFICER", roleTitle: "團隊經理", joinYear: "2025", birthplace: "新北市", birthday: "2002.05.01", number: "02", photo: "110417006.jpg", hoverPhoto: "volleyball_player_style.jpg" },
+      staff03: { name: "營產管理經理", engRole: "ASSET MANAGER", roleTitle: "營產", joinYear: "2026", birthplace: "桃園平鎮", number: "03", photo: "Portrait_Placeholder.jpg" },
+      staff04: { name: "創意總監", engRole: "CREATIVE DIRECTOR", roleTitle: "創意", joinYear: "2026", birthplace: "新北板橋", number: "04", photo: "Portrait_Placeholder.jpg" },
+      staff05: { name: "設計總監", engRole: "DESIGN DIRECTOR", roleTitle: "設計", joinYear: "2026", birthplace: "桃園平鎮", number: "05", photo: "Portrait_Placeholder.jpg" }
     };
 
     function openProfileModal(key) {
@@ -972,103 +860,125 @@
         document.getElementById('adminProfileModal').classList.remove('hidden');
         return;
       }
-
       const data = teamStaffDatabase[key];
       if (!data) return;
-
       document.getElementById('profileModalEngRole').innerText = `${data.engRole} · ${data.roleTitle}`;
       document.getElementById('profileModalName').innerText = data.name;
       document.getElementById('profileModalRoleTitle').innerText = data.roleTitle;
       document.getElementById('profileModalBadge').innerText = data.roleTitle;
       document.getElementById('profileModalJoinYear').innerText = data.joinYear;
       document.getElementById('profileModalBirthplace').innerText = data.birthplace;
-
-      const imgEl = document.getElementById('profileModalImg');
-      if (data.photo && data.photo.trim() !== '') {
-        imgEl.src = data.photo;
-        imgEl.classList.remove('hidden');
-      } else {
-        imgEl.src = '';
-        imgEl.classList.remove('hidden');
-      }
-
+      document.getElementById('profileModalImg').src = data.photo || '';
       document.getElementById('profileModal').classList.remove('hidden');
     }
 
-    function closeProfileModal() {
-      document.getElementById('profileModal').classList.add('hidden');
-    }
+    function closeProfileModal() { document.getElementById('profileModal').classList.add('hidden'); }
+    function closeAdminProfileModal() { document.getElementById('adminProfileModal').classList.add('hidden'); }
 
-    function closeAdminProfileModal() {
-      document.getElementById('adminProfileModal').classList.add('hidden');
-    }
+    // 家族分布詳情資料庫
+    const familyMapDatabase = {
+      banqiao: {
+        title: "新北市板橋區",
+        engTitle: "NEW TAIPEI BANQIAO",
+        count: "7 名成員",
+        icon: "fa-house-chimney",
+        bgColor: "bg-orange-600",
+        members: [
+          { name: "呂成員", role: "領隊", desc: "" },
+          { name: "呂成員", role: "", desc: "" },
+          { name: "阮成員", role: "", desc: "" },
+          { name: "呂成員", role: "", desc: "" },
+          { name: "吳成員", role: "", desc: "" },
+	{ name: "呂成員", role: "團隊經理", desc: "" },
+          { name: "呂成員", role: "創意總監", desc: "" }
+        ]
+      },
+      pingzhen: {
+        title: "桃園市平鎮區",
+        engTitle: "TAOYUAN PINGZHEN",
+        count: "3 名成員",
+        icon: "fa-landmark",
+        bgColor: "bg-rose-600",
+        members: [
+          { name: "劉成員", role: "", desc: "" },
+          { name: "呂成員", role: "", desc: "" },
+          { name: "劉成員", role: "", desc: "" }
+        ]
+      },
+      taichung_central: {
+        title: "臺中市中區",
+        engTitle: "TAICHUNG CENTRAL",
+        count: "3 名成員",
+        icon: "fa-city",
+        bgColor: "bg-indigo-800",
+        members: [
+          { name: "于成員", role: "", desc: "" },
+          { name: "于成員", role: "", desc: "" },
+          { name: "呂成員", role: "", desc: "" }
+        ]
+      },
+      taichung_north: {
+        title: "臺中市北區",
+        engTitle: "TAICHUNG NORTH",
+        count: "3 名成員",
+        icon: "fa-tree-city",
+        bgColor: "bg-emerald-600",
+        members: [
+          { name: "劉成員", role: "", desc: "" },
+          { name: "陳成員", role: "", desc: "" },
+          { name: "陳成員", role: "", desc: "" }
+        ]
+      }
+    };
 
-    const API_URL = "https://script.google.com/macros/s/AKfycbwS-5vgJfq6Prb24jbWuVIpGb6UlHT3yZpXRp4ST4siAAecvzHZ6M8MfNlD_ttlwjuMNQ/exec";
+    function openFamilyMapModal(regionKey) {
+      const data = familyMapDatabase[regionKey];
+      if (!data) return;
 
-    let noticeData = {};
+      document.getElementById('mapModalTitle').innerText = data.title;
+      document.getElementById('mapModalEngTitle').innerText = data.engTitle;
+      document.getElementById('mapModalCount').innerText = data.count;
+      
+      const iconEl = document.getElementById('mapModalIcon');
+      iconEl.className = `fa-solid ${data.icon}`;
+      const iconContainer = document.getElementById('mapModalIconContainer');
+      iconContainer.className = `w-14 h-14 rounded-2xl ${data.bgColor} text-white flex items-center justify-center text-2xl font-black shadow-md shrink-0`;
 
-    function openScholarshipModal(type) {
-      const modal = document.getElementById('scholarshipModal');
-      const body = document.getElementById('scholarshipModalBody');
-      body.innerHTML = '';
-
-      if (type === 'taoyuan') {
-        body.innerHTML = `
-          <div class="space-y-6">
-            <div class="flex items-center gap-3 border-b border-slate-200 pb-4">
-              <span class="text-xs font-black px-4 py-1.5 rounded-full uppercase bg-amber-600 text-white">家族宗親專案</span>
-              <span class="text-xs font-bold text-slate-500"><i class="fa-regular fa-calendar-days text-orange-600 mr-1"></i> 115年度申請</span>
-            </div>
-            <h3 class="text-xl sm:text-2xl font-black text-slate-900 leading-snug">祭祀公業法人桃園縣呂孟生公派下員子女獎學金申請</h3>
-            <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm space-y-4">
-              <h4 class="text-base font-black text-slate-900 border-l-4 border-orange-600 pl-3">申請資格與條件</h4>
-              <ul class="space-y-2 text-slate-700 font-medium text-sm sm:text-base list-disc list-inside">
-                <li>具備祭祀公業法人桃園縣呂孟生公派下員身分之子女。</li>
-                <li>就讀教育部認可之國內公私立國中、高中（職）、大專院校及研究所正規學制學生。</li>
-                <li>學業成績平均達 80 分（或甲等）以上，操行成績甲等（或 80 分）以上。</li>
-              </ul>
-            </div>
-            <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm space-y-4">
-              <h4 class="text-base font-black text-slate-900 border-l-4 border-orange-600 pl-3">應檢附文件</h4>
-              <ul class="space-y-2 text-slate-700 font-medium text-sm sm:text-base list-disc list-inside">
-                <li>獎學金申請書一份。</li>
-                <li>派下員證明文件或相關系統派下全員證明書影本。</li>
-                <li>學生證影本及在學證明。</li>
-                <li>前一學年度（或上學期）成績證明單正本。</li>
-                <li>戶口名簿影本。</li>
-              </ul>
-            </div>
-            <div class="p-4 rounded-2xl bg-orange-50 border border-orange-200 text-orange-800 text-xs sm:text-sm font-black flex items-center gap-3">
-              <i class="fa-solid fa-circle-info text-orange-600 text-lg shrink-0"></i>
-              <span>相關申請資料，請洽營務官</span>
+      const memberListEl = document.getElementById('mapModalMemberList');
+      memberListEl.innerHTML = '';
+      
+      data.members.forEach((m, idx) => {
+        const item = document.createElement('div');
+        item.className = "p-3.5 rounded-2xl bg-white border border-slate-200 shadow-sm flex items-center justify-between";
+        item.innerHTML = `
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-xl bg-orange-100 text-orange-600 flex items-center justify-center font-black text-xs">${idx + 1}</div>
+            <div>
+              <h4 class="font-black text-slate-900 text-sm">${m.name}</h4>
+              <p class="text-[11px] text-slate-500 font-bold">${m.desc}</p>
             </div>
           </div>
+          <span class="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-600 font-black text-[10px]">${m.role}</span>
         `;
-      }
-      modal.classList.remove('hidden');
+        memberListEl.appendChild(item);
+      });
+
+      document.getElementById('familyMapModal').classList.remove('hidden');
     }
 
-    function closeScholarshipModal() {
-      document.getElementById('scholarshipModal').classList.add('hidden');
+    function closeFamilyMapModal() {
+      document.getElementById('familyMapModal').classList.add('hidden');
     }
 
-    let secretKeyBuffer = "";
-    const SECRET_CODE = "03210501";
-    window.addEventListener('keydown', (e) => {
-      if (['INPUT', 'TEXTAREA', 'SELECT'].includes(e.target.tagName)) return;
-      if (/^[0-9]$/.test(e.key)) {
-        secretKeyBuffer += e.key;
-        if (secretKeyBuffer.length > SECRET_CODE.length) {
-          secretKeyBuffer = secretKeyBuffer.slice(-SECRET_CODE.length);
-        }
-        if (secretKeyBuffer === SECRET_CODE) {
-          secretKeyBuffer = "";
-          openAdminMenuModal();
-        }
-      }
-    });
+    function openInstallAppGuide() {
+      document.getElementById('installAppModal').classList.remove('hidden');
+    }
 
-    // 幹部清單：包含家庭長、營務官以及 3 位新同仁
+    function closeInstallAppGuide() {
+      document.getElementById('installAppModal').classList.add('hidden');
+    }
+
+    // 幹部清單渲染
     const teamStaffList = [
       { key: "director", name: "主管", engName: "DIRECTOR", role: "領隊", number: "01", photo: "Portrait_Placeholder.jpg" },
       { key: "admin", name: "呂佳寯", engName: "LU JIA JUN", role: "團隊經理", number: "02", photo: "110417006.jpg", hoverPhoto: "volleyball_player_style.jpg" },
@@ -1081,500 +991,37 @@
       const container = document.getElementById('topTeamContainer');
       if (!container) return;
       container.innerHTML = '';
-
       teamStaffList.forEach((member) => {
         const item = document.createElement('div');
         item.className = "bg-white rounded-[32px] border border-slate-200 shadow-xl overflow-hidden flex flex-col justify-between group cursor-pointer hover:border-orange-500 hover:shadow-2xl transition-all shrink-0 w-full sm:w-[320px] snap-start";
         item.setAttribute('onclick', `openProfileModal('${member.key}')`);
-
+        
         let imageHTML = `<img src="${member.photo}" alt="${member.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">`;
         if (member.hoverPhoto) {
           imageHTML = `
             <div class="w-full h-full relative group/avatar">
               <img src="${member.photo}" alt="${member.name}" class="w-full h-full object-cover transition-opacity duration-300 group-hover/avatar:opacity-0 absolute inset-0">
               <img src="${member.hoverPhoto}" alt="${member.name}風格照" class="w-full h-full object-cover opacity-0 transition-opacity duration-300 group-hover/avatar:opacity-100 absolute inset-0">
-              <div class="absolute bottom-3 left-1/2 -translate-x-1/2 bg-black/70 backdrop-blur-md text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider opacity-0 group-hover/avatar:opacity-100 transition-opacity pointer-events-none z-20">
-                ⚡ VOLLEYBALL PLAYER STYLE
-              </div>
             </div>
           `;
         }
 
         item.innerHTML = `
-          <div class="relative w-full h-[380px] sm:h-[400px] bg-slate-100 overflow-hidden flex items-center justify-center">
-            ${imageHTML}
-            <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none"></div>
-          </div>
+          <div class="relative w-full h-[380px] sm:h-[400px] bg-slate-100 overflow-hidden flex items-center justify-center">${imageHTML}</div>
           <div class="p-6 bg-white border-t border-slate-100 flex items-end justify-between">
             <div>
               <h3 class="text-2xl font-black text-slate-900 mb-1">${member.name}</h3>
               <p class="text-xs font-black text-orange-600 tracking-wider uppercase mb-1">${member.engName}</p>
               <p class="text-xs font-bold text-slate-400">${member.role}</p>
             </div>
-            <div class="w-12 h-12 rounded-2xl bg-slate-900 text-white flex items-center justify-center font-black text-base shadow-lg group-hover:bg-orange-600 transition-colors">
-              ${member.number}
-            </div>
+            <div class="w-12 h-12 rounded-2xl bg-slate-900 text-white flex items-center justify-center font-black text-base shadow-lg group-hover:bg-orange-600 transition-colors">${member.number}</div>
           </div>
         `;
         container.appendChild(item);
       });
-      updateTeamProgress();
-    }
-
-    function scrollTeamContainer(direction) {
-      const container = document.getElementById('topTeamContainer');
-      const cardWidth = 320 + 20;
-      if (direction === 'left') {
-        container.scrollBy({ left: -cardWidth, behavior: 'smooth' });
-      } else {
-        container.scrollBy({ left: cardWidth, behavior: 'smooth' });
-      }
-      setTimeout(updateTeamProgress, 300);
-    }
-
-    function updateTeamProgress() {
-      const container = document.getElementById('topTeamContainer');
-      const progressBar = document.getElementById('teamScrollProgress');
-      const progressThumb = document.getElementById('teamProgressThumb');
-      const currentNumEl = document.getElementById('teamCurrentNum');
-      if (!container || !progressBar) return;
-      const maxScroll = container.scrollWidth - container.clientWidth;
-      
-      let scrollPercent = 0;
-      if (maxScroll > 0) {
-        scrollPercent = (container.scrollLeft / maxScroll) * 100;
-      }
-      const widthVal = Math.max(scrollPercent, 0);
-      progressBar.style.width = Math.max(widthVal, 15) + '%';
-      if (progressThumb) {
-        progressThumb.style.left = widthVal + '%';
-      }
-
-      const totalItems = teamStaffList.length;
-      if (totalItems > 0) {
-        const cardWidth = 320 + 20;
-        let currentIndex = Math.round(container.scrollLeft / cardWidth) + 1;
-        if (currentIndex < 1) currentIndex = 1;
-        if (currentIndex > totalItems) currentIndex = totalItems;
-        if (currentNumEl) {
-          currentNumEl.innerText = String(currentIndex).padStart(2, '0');
-        }
-      }
-    }
-
-    document.getElementById('topTeamContainer')?.addEventListener('scroll', updateTeamProgress);
-
-    function formatDate(d) { if (!d) return ''; return String(d).includes('T') ? String(d).split('T')[0] : d; }
-
-    function openIndependentPage(type, page = 1) {
-      const modal = document.getElementById('independentPageModal');
-      const titleEl = document.getElementById('indModalTitle');
-      const iconEl = document.getElementById('indModalIcon');
-      const bodyEl = document.getElementById('indModalContentBody');
-      const paginationEl = document.getElementById('indPaginationContainer');
-      bodyEl.innerHTML = '';
-      paginationEl.innerHTML = '';
-
-      const pageSize = 10;
-
-      if (type === 'notice') {
-        titleEl.innerText = "最新消息";
-        iconEl.innerHTML = '<i class="fa-solid fa-bullhorn text-white"></i>';
-        const keys = Object.keys(noticeData).sort((a, b) => new Date(noticeData[b].date) - new Date(noticeData[a].date));
-        const totalPages = Math.ceil(keys.length / pageSize) || 1;
-        const startIndex = (page - 1) * pageSize;
-        const currentKeys = keys.slice(startIndex, startIndex + pageSize);
-
-        let html = '<div class="space-y-4"><h3 class="text-xl font-black text-slate-900 mb-4">所有最新消息</h3>';
-        if (currentKeys.length === 0) {
-          html += '<p class="text-center text-slate-400 py-10 font-bold">目前沒有最新消息。</p>';
-        } else {
-          currentKeys.forEach(id => {
-            const item = noticeData[id];
-            html += `
-              <div onclick="openNoticeModal('${id}')" class="p-5 rounded-3xl bg-white border border-slate-200 shadow-sm cursor-pointer hover:border-orange-500 transition-all">
-                <div class="flex justify-between items-center mb-2">
-                  <span class="px-3 py-1 rounded-full bg-orange-100 text-orange-600 text-[10px] font-black uppercase">最新消息</span>
-                  <span class="text-xs font-bold text-slate-400 italic">${formatDate(item.date)}</span>
-                </div>
-                <h4 class="font-black text-slate-900 text-base sm:text-lg">${item.title}</h4>
-              </div>`;
-          });
-        }
-        html += '</div>';
-        bodyEl.innerHTML = html;
-
-        if (totalPages > 1) {
-          for (let i = 1; i <= totalPages; i++) {
-            const btn = document.createElement('button');
-            btn.type = 'button';
-            btn.className = `w-9 h-9 rounded-xl font-black text-xs transition-all cursor-pointer ${i === page ? 'bg-orange-600 text-white shadow-md' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}`;
-            btn.innerText = i;
-            btn.setAttribute('onclick', `openIndependentPage('notice', ${i})`);
-            paginationEl.appendChild(btn);
-          }
-        }
-      }
-      modal.classList.remove('hidden');
-    }
-
-    function closeIndependentPage() {
-      document.getElementById('independentPageModal').classList.add('hidden');
-    }
-
-    async function fetchNoticesFromCloud() {
-      try {
-        const response = await fetch(API_URL);
-        const json = await response.json();
-        noticeData = {};
-        json.forEach(item => {
-          if (item.id) {
-            let filesArr = [];
-            try {
-              if (item.files) {
-                filesArr = typeof item.files === 'string' ? JSON.parse(item.files) : item.files;
-              }
-            } catch(e) { filesArr = []; }
-
-            noticeData[item.id] = {
-              title: item.title,
-              tag: '最新消息',
-              date: item.date,
-              content: item.content,
-              link: item.link || '',
-              linkName: item.linkName || '',
-              files: filesArr
-            };
-          }
-        });
-        renderNotices();
-      } catch (error) {
-        console.log("載入失敗", error);
-        const container = document.getElementById('noticeListContainer');
-        if (container) {
-          container.innerHTML = '<p class="text-center text-red-500 font-bold col-span-full">無法連線至雲端試算表。</p>';
-        }
-      }
-    }
-
-    function renderNotices() {
-      const container = document.getElementById('noticeListContainer');
-      if (!container) return;
-      container.innerHTML = '';
-      const keys = Object.keys(noticeData);
-      
-      if (keys.length === 0) {
-        container.innerHTML = '<p class="text-center text-slate-400 font-bold py-10 col-span-full">目前沒有任何最新消息。</p>';
-        const totalNumEl = document.getElementById('noticeTotalNum');
-        if (totalNumEl) totalNumEl.innerText = "00";
-        return;
-      }
-
-      const sortedIds = keys.sort((a, b) => {
-        return new Date(noticeData[b].date) - new Date(noticeData[a].date);
-      }).slice(0, 10);
-
-      const totalNumEl = document.getElementById('noticeTotalNum');
-      if (totalNumEl) totalNumEl.innerText = String(sortedIds.length).padStart(2, '0');
-
-      sortedIds.forEach(id => {
-        const data = noticeData[id];
-        const newItem = document.createElement('div');
-        newItem.className = "notice-item bg-white rounded-[28px] overflow-hidden border border-orange-100 shadow-md cursor-pointer hover:shadow-xl transition-all flex flex-col justify-between shrink-0 w-full sm:w-[280px] snap-start group";
-        newItem.setAttribute('onclick', `openNoticeModal('${id}')`);
-        
-        const mediaContent = `<img src="New Release.png" alt="訊息發布預覽" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">`;
-
-        newItem.innerHTML = `
-          <div class="relative w-full h-32 sm:h-36 overflow-hidden bg-slate-100 flex items-center justify-center">
-            ${mediaContent}
-            <div class="absolute bottom-3 left-3">
-              <span class="bg-orange-600 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase shadow-md">最新消息</span>
-            </div>
-          </div>
-          <div class="p-5 flex flex-col justify-between flex-grow bg-white">
-            <div class="mb-3">
-              <span class="text-xs font-bold text-orange-600 italic block mb-1.5"><i class="fa-regular fa-calendar-days mr-1"></i> ${formatDate(data.date)}</span>
-              <h3 class="text-base font-black text-slate-900 line-clamp-2 leading-snug">${data.title}</h3>
-            </div>
-            <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-400 group-hover:text-orange-600 transition-colors">
-              <span>檢視完整內容</span>
-              <i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
-            </div>
-          </div>
-        `;
-        container.appendChild(newItem);
-      });
-      updateNoticeProgress();
-    }
-
-    function scrollNoticeContainer(direction) {
-      const container = document.getElementById('noticeListContainer');
-      const cardWidth = 280 + 20;
-      if (direction === 'left') {
-        container.scrollBy({ left: -cardWidth, behavior: 'smooth' });
-      } else {
-        container.scrollBy({ left: cardWidth, behavior: 'smooth' });
-      }
-      setTimeout(updateNoticeProgress, 300);
-    }
-
-    function updateNoticeProgress() {
-      const container = document.getElementById('noticeListContainer');
-      const progressBar = document.getElementById('noticeScrollProgress');
-      const progressThumb = document.getElementById('noticeProgressThumb');
-      const currentNumEl = document.getElementById('noticeCurrentNum');
-      if (!container || !progressBar) return;
-      const maxScroll = container.scrollWidth - container.clientWidth;
-      
-      let scrollPercent = 0;
-      if (maxScroll > 0) {
-        scrollPercent = (container.scrollLeft / maxScroll) * 100;
-      }
-      const widthVal = Math.max(scrollPercent, 0);
-      progressBar.style.width = Math.max(widthVal, 15) + '%';
-      if (progressThumb) {
-        progressThumb.style.left = widthVal + '%';
-      }
-
-      const keys = Object.keys(noticeData).slice(0, 10);
-      const totalItems = keys.length;
-      if (totalItems > 0) {
-        const cardWidth = 280 + 20;
-        let currentIndex = Math.round(container.scrollLeft / cardWidth) + 1;
-        if (currentIndex < 1) currentIndex = 1;
-        if (currentIndex > totalItems) currentIndex = totalItems;
-        if (currentNumEl) {
-          currentNumEl.innerText = String(currentIndex).padStart(2, '0');
-        }
-      }
-    }
-
-    document.getElementById('noticeListContainer')?.addEventListener('scroll', updateNoticeProgress);
-
-    function openNoticeModal(id) {
-      const data = noticeData[id];
-      if(!data) return;
-      document.getElementById('noticeTag').innerText = "最新消息";
-      document.getElementById('noticeDate').innerText = formatDate(data.date);
-      document.getElementById('noticeTitle').innerText = data.title;
-      document.getElementById('noticeContent').innerText = data.content;
-
-      const linkArea = document.getElementById('noticeLinkArea');
-      const externalLink = document.getElementById('noticeExternalLink');
-      const linkText = document.getElementById('noticeLinkText');
-      if (data.link && data.link.trim() !== '') {
-        linkArea.classList.remove('hidden');
-        externalLink.href = data.link;
-        linkText.innerText = (data.linkName && data.linkName.trim() !== '') ? data.linkName : data.link;
-      } else {
-        linkArea.classList.add('hidden');
-      }
-
-      const imageSliderArea = document.getElementById('noticeImageSliderArea');
-      const imageSliderContent = document.getElementById('noticeImageSliderContent');
-      const fileArea = document.getElementById('noticeFileArea');
-      const fileContent = document.getElementById('noticeFileContent');
-      
-      imageSliderContent.innerHTML = '';
-      fileContent.innerHTML = '';
-      window._currentNoticeImages = [];
-
-      let hasImages = false;
-      let hasFiles = false;
-
-      if (data.files && Array.isArray(data.files)) {
-        data.files.forEach((file) => {
-          const isImg = file.type && file.type.startsWith('image/');
-          if (isImg) {
-            hasImages = true;
-            window._currentNoticeImages.push(file);
-            const imgCard = document.createElement('div');
-            imgCard.className = "w-32 h-32 rounded-2xl overflow-hidden shrink-0 border border-slate-200 shadow-sm cursor-pointer relative group/img";
-            imgCard.setAttribute('onclick', `openImageLightbox(${window._currentNoticeImages.length - 1})`);
-            imgCard.innerHTML = `<img src="${file.url}" class="w-full h-full object-cover group-hover/img:scale-105 transition-transform" alt="附件圖片">`;
-            imageSliderContent.appendChild(imgCard);
-          } else {
-            hasFiles = true;
-            const fileItem = document.createElement('a');
-            fileItem.href = file.url;
-            fileItem.target = "_blank";
-            fileItem.className = "p-3 rounded-xl bg-slate-50 hover:bg-orange-50 border border-slate-200 flex items-center justify-between text-xs font-bold text-slate-700 transition-all";
-            fileItem.innerHTML = `<span class="truncate"><i class="fa-solid fa-file-arrow-down text-orange-600 mr-2"></i> ${file.name || '附件檔案'}</span> <i class="fa-solid fa-download text-slate-400"></i>`;
-            fileContent.appendChild(fileItem);
-          }
-        });
-      }
-
-      if (hasImages) { imageSliderArea.classList.remove('hidden'); } else { imageSliderArea.classList.add('hidden'); }
-      if (hasFiles) { fileArea.classList.remove('hidden'); } else { fileArea.classList.add('hidden'); }
-
-      document.getElementById('noticeDetailModal').classList.remove('hidden');
-    }
-
-    function closeNoticeModal() { document.getElementById('noticeDetailModal').classList.add('hidden'); }
-
-    function openAdminMenuModal() { document.getElementById('adminMenuModal').classList.remove('hidden'); }
-    function closeAdminMenuModal() { document.getElementById('adminMenuModal').classList.add('hidden'); }
-
-    function openPublishModalFromSecret() {
-      closeAdminMenuModal();
-      document.getElementById('editNoticeId').value = '';
-      document.getElementById('publishForm').reset();
-      document.getElementById('pubDate').value = new Date().toISOString().split('T')[0];
-      document.getElementById('publishModalTitle').innerHTML = '<i class="fa-solid fa-pen-to-square text-orange-600"></i> 新增發布內容';
-      document.getElementById('pubSubmitBtn').innerText = "立即發布";
-      document.getElementById('publishModal').classList.remove('hidden');
-    }
-
-    function openHistoryModalFromSecret() {
-      closeAdminMenuModal();
-      renderHistoryList();
-      document.getElementById('historyModal').classList.remove('hidden');
-    }
-
-    function closePublishModal() { document.getElementById('publishModal').classList.add('hidden'); }
-    function closeHistoryModal() { document.getElementById('historyModal').classList.add('hidden'); }
-
-    function renderHistoryList() {
-      const historyList = document.getElementById('historyListContainer');
-      if (!historyList) return;
-      historyList.innerHTML = '';
-      const sortDirection = document.getElementById('adminSortOrderSelect') ? document.getElementById('adminSortOrderSelect').value : 'desc';
-
-      const keys = Object.keys(noticeData).sort((a, b) => {
-        const dateA = new Date(noticeData[a].date || 0);
-        const dateB = new Date(noticeData[b].date || 0);
-        if (sortDirection === 'asc') {
-          return dateA - dateB;
-        } else {
-          return dateB - dateA;
-        }
-      });
-
-      if (keys.length === 0) {
-        historyList.innerHTML = '<p class="text-center text-slate-400 font-bold py-6">目前沒有任何紀錄。</p>';
-        return;
-      }
-
-      keys.forEach(id => {
-        const data = noticeData[id];
-        const item = document.createElement('div');
-        item.className = "p-4 rounded-2xl bg-slate-50 border border-slate-200 flex justify-between items-center gap-4";
-        item.innerHTML = `
-          <div class="p-2 truncate">
-            <span class="text-xs font-bold text-slate-400">${formatDate(data.date)} [最新消息]</span>
-            <h4 class="font-black text-slate-800 text-sm sm:text-base truncate">${data.title}</h4>
-          </div>
-          <div class="flex items-center gap-2 shrink-0">
-            <button type="button" onclick="openEditModal('${id}')" class="px-3 py-1.5 rounded-xl bg-orange-600 hover:bg-orange-700 text-white text-xs font-black transition-all cursor-pointer">修改</button>
-            <button type="button" onclick="deleteNotice('${id}')" class="px-3 py-1.5 rounded-xl bg-red-600 hover:bg-red-700 text-white text-xs font-black transition-all cursor-pointer">刪除</button>
-          </div>
-        `;
-        historyList.appendChild(item);
-      });
-    }
-
-    function openEditModal(id) {
-      const data = noticeData[id];
-      if (!data) return;
-      closeHistoryModal();
-      document.getElementById('editNoticeId').value = id;
-      document.getElementById('pubTitle').value = data.title;
-      document.getElementById('pubDate').value = data.date;
-      document.getElementById('pubContent').value = data.content;
-      document.getElementById('pubLink').value = data.link || '';
-      document.getElementById('pubLinkName').value = data.linkName || '';
-      document.getElementById('publishModalTitle').innerHTML = '<i class="fa-solid fa-pen-to-square text-orange-600"></i> 修改發布內容';
-      document.getElementById('pubSubmitBtn').innerText = "確認修改";
-      document.getElementById('publishModal').classList.remove('hidden');
-    }
-
-    async function handlePublishSubmit(e) {
-      e.preventDefault();
-      const id = document.getElementById('editNoticeId').value || 'notice_' + Date.now();
-      const title = document.getElementById('pubTitle').value;
-      const date = document.getElementById('pubDate').value;
-      const content = document.getElementById('pubContent').value;
-      const link = document.getElementById('pubLink').value;
-      const linkName = document.getElementById('pubLinkName').value;
-      const fileInput = document.getElementById('pubFiles');
-
-      let filesArr = noticeData[id] ? (noticeData[id].files || []) : [];
-
-      if (fileInput.files && fileInput.files.length > 0) {
-        for (let i = 0; i < fileInput.files.length; i++) {
-          const file = fileInput.files[i];
-          const reader = new FileReader();
-          await new Promise((resolve) => {
-            reader.onload = function(uploadEvent) {
-              filesArr.push({
-                name: file.name,
-                type: file.type,
-                url: uploadEvent.target.result
-              });
-              resolve();
-            };
-            reader.readAsDataURL(file);
-          });
-        }
-      }
-
-      noticeData[id] = {
-        title,
-        tag: '最新消息',
-        date,
-        content,
-        link,
-        linkName,
-        files: filesArr
-      };
-
-      try {
-        await fetch(API_URL, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            action: document.getElementById('editNoticeId').value ? 'update' : 'create',
-            id,
-            title,
-            date,
-            content,
-            link,
-            linkName,
-            files: JSON.stringify(filesArr)
-          })
-        });
-      } catch (err) {
-        console.log("同步至雲端失敗", err);
-      }
-
-      alert('✅ 發布/修改成功！');
-      closePublishModal();
-      renderNotices();
-    }
-
-    async function deleteNotice(id) {
-      if (!confirm('確定要刪除這則消息嗎？')) return;
-      delete noticeData[id];
-      try {
-        await fetch(API_URL, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ action: 'delete', id })
-        });
-      } catch (err) {
-        console.log("刪除失敗", err);
-      }
-      alert('🗑️ 已刪除！');
-      renderHistoryList();
-      renderNotices();
     }
 
     document.addEventListener('DOMContentLoaded', () => { 
-      fetchNoticesFromCloud(); 
       renderHomeTeamStaff();
     });
   </script>
