@@ -232,35 +232,34 @@
             </div>
           </div>
 
-          <div class="bg-white rounded-[32px] p-7 border-2 border-red-200 shadow-xl flex flex-col justify-between hover:shadow-2xl transition-all group relative overflow-hidden">
-            <div class="absolute top-0 right-0 w-32 h-32 bg-red-500/5 rounded-bl-full pointer-events-none"></div>
+          <!-- 祭祀公業法人桃園縣呂孟生公派下員子女獎學金申請（已改為鎖定狀態） -->
+          <div class="bg-slate-50 rounded-[32px] p-7 border border-slate-200 shadow-sm flex flex-col justify-between group relative overflow-hidden opacity-80">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-slate-500/5 rounded-bl-full pointer-events-none"></div>
             <div>
               <div class="flex items-center justify-between mb-4">
-                <span class="px-3.5 py-1.5 rounded-full bg-red-50 text-red-600 font-black text-xs uppercase border border-red-200 flex items-center gap-1.5">
+                <span class="px-3.5 py-1.5 rounded-full bg-slate-200 text-slate-600 font-black text-xs uppercase border border-slate-300 flex items-center gap-1.5">
                   <i class="fa-solid fa-users"></i> 家族宗親專案
                 </span>
-                <span class="text-xs font-bold text-red-600 tracking-wider flex items-center gap-1">
-                  <i class="fa-regular fa-clock"></i> 31號截止
-                </span>
+                <span class="text-xs font-bold text-slate-400 tracking-wider">115年度</span>
               </div>
-              <h3 class="text-xl sm:text-2xl font-black text-slate-900 mb-3 group-hover:text-red-600 transition-colors leading-snug">
+              <h3 class="text-xl sm:text-2xl font-black text-slate-500 mb-3 leading-snug">
                 祭祀公業法人桃園縣呂孟生公派下員子女獎學金申請
               </h3>
               <div class="space-y-3 mb-6">
-                <div class="flex items-start gap-2.5 text-xs sm:text-sm font-bold text-slate-600">
-                  <i class="fa-solid fa-circle-check text-red-600 mt-1 shrink-0"></i>
-                  <span><strong class="text-slate-800">申辦對象：</strong>祭祀公業法人桃園縣呂孟生公派下員之在學子女。</span>
+                <div class="flex items-start gap-2.5 text-xs sm:text-sm font-bold text-slate-400">
+                  <i class="fa-solid fa-circle-check text-slate-400 mt-1 shrink-0"></i>
+                  <span><strong class="text-slate-500">申辦對象：</strong>祭祀公業法人桃園縣呂孟生公派下員之在學子女。</span>
                 </div>
-                <div class="flex items-start gap-2.5 text-xs sm:text-sm font-bold text-slate-600">
-                  <i class="fa-solid fa-circle-check text-red-600 mt-1 shrink-0"></i>
-                  <span><strong class="text-slate-800">補助重點：</strong>傳承宗親美德、獎勵派下員子女學業優良、勤奮向學。</span>
+                <div class="flex items-start gap-2.5 text-xs sm:text-sm font-bold text-slate-400">
+                  <i class="fa-solid fa-circle-check text-slate-400 mt-1 shrink-0"></i>
+                  <span><strong class="text-slate-500">補助重點：</strong>傳承宗親美德、獎勵派下員子女學業優良、勤奮向學。</span>
                 </div>
               </div>
             </div>
-            <div class="pt-5 border-t border-slate-100 flex items-center justify-between gap-4">
-              <span class="text-xs font-bold text-red-600 flex items-center gap-1"><i class="fa-solid fa-triangle-exclamation"></i> 申辦進行中（本月底截止）</span>
-              <button type="button" onclick="openScholarshipModal('taoyuan')" class="px-5 py-2.5 rounded-xl bg-red-600 hover:bg-red-700 text-white font-black text-xs sm:text-sm shadow-md transition-all flex items-center gap-2 cursor-pointer">
-                <span>查看詳情與辦法</span> <i class="fa-solid fa-arrow-right text-xs"></i>
+            <div class="pt-5 border-t border-slate-200 flex items-center justify-between gap-4">
+              <span class="text-xs font-bold text-slate-400 flex items-center gap-1"><i class="fa-regular fa-clock"></i> 已結束申請</span>
+              <button type="button" disabled class="px-5 py-2.5 rounded-xl bg-slate-200 text-slate-400 font-black text-xs sm:text-sm cursor-not-allowed flex items-center gap-2">
+                <span>已截止無法點選</span> <i class="fa-solid fa-ban text-xs"></i>
               </button>
             </div>
           </div>
@@ -1006,51 +1005,6 @@
     const API_URL = "https://script.google.com/macros/s/AKfycbwS-5vgJfq6Prb24jbWuVIpGb6UlHT3yZpXRp4ST4siAAecvzHZ6M8MfNlD_ttlwjuMNQ/exec";
 
     let noticeData = {};
-
-    function openScholarshipModal(type) {
-      const modal = document.getElementById('scholarshipModal');
-      const body = document.getElementById('scholarshipModalBody');
-      body.innerHTML = '';
-
-      if (type === 'taoyuan') {
-        body.innerHTML = `
-          <div class="space-y-6">
-            <div class="flex items-center gap-3 border-b border-slate-200 pb-4">
-              <span class="text-xs font-black px-4 py-1.5 rounded-full uppercase bg-amber-600 text-white">家族宗親專案</span>
-              <span class="text-xs font-bold text-slate-500"><i class="fa-regular fa-calendar-days text-orange-600 mr-1"></i> 115年度申請</span>
-            </div>
-            <h3 class="text-xl sm:text-2xl font-black text-slate-900 leading-snug">祭祀公業法人桃園縣呂孟生公派下員子女獎學金申請</h3>
-            <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm space-y-4">
-              <h4 class="text-base font-black text-slate-900 border-l-4 border-orange-600 pl-3">申請資格與條件</h4>
-              <ul class="space-y-2 text-slate-700 font-medium text-sm sm:text-base list-disc list-inside">
-                <li>具備祭祀公業法人桃園縣呂孟生公派下員身分之子女。</li>
-                <li>就讀教育部認可之國內公私立國中、高中（職）、大專院校及研究所正規學制學生。</li>
-                <li>學業成績平均達 80 分（或甲等）以上，操行成績甲等（或 80 分）以上。</li>
-              </ul>
-            </div>
-            <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm space-y-4">
-              <h4 class="text-base font-black text-slate-900 border-l-4 border-orange-600 pl-3">應檢附文件</h4>
-              <ul class="space-y-2 text-slate-700 font-medium text-sm sm:text-base list-disc list-inside">
-                <li>獎學金申請書一份。</li>
-                <li>派下員證明文件或相關系統派下全員證明書影本。</li>
-                <li>學生證影本及在學證明。</li>
-                <li>前一學年度（或上學期）成績證明單正本。</li>
-                <li>戶口名簿影本。</li>
-              </ul>
-            </div>
-            <div class="p-4 rounded-2xl bg-orange-50 border border-orange-200 text-orange-800 text-xs sm:text-sm font-black flex items-center gap-3">
-              <i class="fa-solid fa-circle-info text-orange-600 text-lg shrink-0"></i>
-              <span>相關申請資料，請洽營務官</span>
-            </div>
-          </div>
-        `;
-      }
-      modal.classList.remove('hidden');
-    }
-
-    function closeScholarshipModal() {
-      document.getElementById('scholarshipModal').classList.add('hidden');
-    }
 
     let secretKeyBuffer = "";
     const SECRET_CODE = "03210501";
