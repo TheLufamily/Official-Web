@@ -121,31 +121,25 @@
       </div>
     </div>
 
+    <!-- 更新後的漢堡清單選單 -->
     <div id="mobileMenu" class="hidden bg-white border-t border-slate-100 shadow-2xl transition-all lg:hidden">
       <div class="max-w-4xl mx-auto px-6 py-6 flex flex-col gap-6 text-sm">
         <div class="flex flex-col gap-3">
-          <div class="text-xs font-bold text-orange-600 tracking-wider">— 公告資訊</div>
+          <div class="text-xs font-bold text-orange-600 tracking-wider">— 導覽與公告資訊</div>
           <a href="#calendar" onclick="toggleMobileMenu()" class="group py-2.5 px-2 flex items-center justify-between text-slate-800 hover:text-orange-600 transition-colors border-b border-slate-50">
-            <span class="font-bold">活動行程</span>
+            <span class="font-bold">活動資訊 CALENDAR</span>
+            <i class="fa-solid fa-arrow-right text-xs text-orange-500 transform -translate-x-1 group-hover:translate-x-0 transition-all"></i>
+          </a>
+          <a href="#team-staff" onclick="toggleMobileMenu()" class="group py-2.5 px-2 flex items-center justify-between text-slate-800 hover:text-orange-600 transition-colors border-b border-slate-50">
+            <span class="font-bold">關於我們 ABOUT</span>
             <i class="fa-solid fa-arrow-right text-xs text-orange-500 transform -translate-x-1 group-hover:translate-x-0 transition-all"></i>
           </a>
           <a href="#notice" onclick="toggleMobileMenu()" class="group py-2.5 px-2 flex items-center justify-between text-slate-800 hover:text-orange-600 transition-colors border-b border-slate-50">
-            <span class="font-bold">消息發布</span>
+            <span class="font-bold">最新消息 NEWS</span>
             <i class="fa-solid fa-arrow-right text-xs text-orange-500 transform -translate-x-1 group-hover:translate-x-0 transition-all"></i>
           </a>
           <a href="#scholarship" onclick="toggleMobileMenu()" class="group py-2.5 px-2 flex items-center justify-between text-slate-800 hover:text-orange-600 transition-colors border-b border-slate-50">
-            <span class="font-bold">獎學金申請</span>
-            <i class="fa-solid fa-arrow-right text-xs text-orange-500 transform -translate-x-1 group-hover:translate-x-0 transition-all"></i>
-          </a>
-        </div>
-
-        <div class="flex flex-col gap-3 pt-2">
-          <div class="flex items-baseline gap-2 pb-1 border-b border-slate-200">
-            <span class="text-base font-black tracking-wider text-orange-600 uppercase">ABOUT</span>
-            <span class="text-xs font-bold text-slate-400">關於我們</span>
-          </div>
-          <a href="#team-staff" onclick="toggleMobileMenu()" class="group py-2.5 px-2 flex items-center justify-between text-slate-800 hover:text-orange-600 transition-colors border-b border-slate-50">
-            <span class="font-bold">隊職幹部</span>
+            <span class="font-bold">獎學金專區 SCHOLARSHIP</span>
             <i class="fa-solid fa-arrow-right text-xs text-orange-500 transform -translate-x-1 group-hover:translate-x-0 transition-all"></i>
           </a>
         </div>
@@ -232,7 +226,6 @@
             </div>
           </div>
 
-          <!-- 祭祀公業法人桃園縣呂孟生公派下員子女獎學金申請（已改為鎖定狀態） -->
           <div class="bg-slate-50 rounded-[32px] p-7 border border-slate-200 shadow-sm flex flex-col justify-between group relative overflow-hidden opacity-80">
             <div class="absolute top-0 right-0 w-32 h-32 bg-slate-500/5 rounded-bl-full pointer-events-none"></div>
             <div>
@@ -531,13 +524,16 @@
     </div>
   </section>
 
-  <!-- 網頁頁尾 Footer -->
-  <footer class="bg-[#fff6ee] text-slate-600 py-8 border-t border-orange-200 mt-auto shadow-inner">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm font-bold text-slate-600 text-center sm:text-left">
-        <div>
-          <p>&copy; 2026 呂氏家庭生活資訊網 版權所有 All Rights Reserved.</p>
-        </div>
+  <!-- 網頁頁尾 Footer（新增下載 APP 引導按鈕） -->
+  <footer class="bg-[#fff6ee] text-slate-600 py-10 border-t border-orange-200 mt-auto shadow-inner">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div>
+        <p class="text-xs sm:text-sm font-bold text-slate-600">&copy; 2026 呂氏家庭生活資訊網 版權所有 All Rights Reserved.</p>
+      </div>
+      <div>
+        <button type="button" onclick="alert('📲 PWA 安裝提示：\n\n• iOS (iPhone/iPad)：請點選 Safari 瀏覽器的「分享」按鈕，然後選擇「加入主畫面」。\n• Android (Chrome)：請點選瀏覽器右上角選單，選擇「安裝應用程式」或「加到主畫面」。');" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-2xl bg-orange-600 hover:bg-orange-700 text-white font-black text-xs sm:text-sm shadow-md transition-all cursor-pointer">
+          <i class="fa-solid fa-cloud-arrow-down"></i> 下載 APP (PWA 安裝說明)
+        </button>
       </div>
     </div>
   </footer>
@@ -577,10 +573,6 @@
           <div>
             <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-2">出生地</span>
             <span id="profileModalBirthplace" class="text-xl sm:text-2xl font-black text-slate-900">--</span>
-          </div>
-          <div id="profileModalThirdCol" class="hidden">
-            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-2" id="profileModalThirdTitle"></span>
-            <span id="profileModalThirdVal" class="text-lg sm:text-xl font-black text-slate-900">--</span>
           </div>
         </div>
 
@@ -674,7 +666,6 @@
               <span class="px-4 py-2 rounded-full bg-orange-100 text-orange-800 font-black text-xs border border-orange-300 shadow-sm">💖 朴恩惠應援</span>
             </div>
 
-            <!-- 本命女孩照片顯示區塊 -->
             <div class="pt-4 border-t border-slate-100">
               <div class="flex items-center justify-between mb-2">
                 <span class="text-xs font-black text-orange-600 uppercase tracking-wider">我的本命</span>
@@ -693,26 +684,6 @@
         <button type="button" onclick="closeAdminProfileModal()" class="w-full py-3.5 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-black text-sm uppercase transition-all shadow-md cursor-pointer">
           關閉視窗
         </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- 各種 Modal 彈出視窗 -->
-  <div id="scholarshipModal" class="fixed inset-0 z-[160] flex items-center justify-center p-4 sm:p-6 bg-slate-900/60 backdrop-blur-sm hidden">
-    <div class="bg-white text-slate-800 rounded-[28px] sm:rounded-[32px] shadow-2xl overflow-hidden relative uniform-modal-container border border-orange-100">
-      <div class="bg-slate-900 text-white px-6 sm:px-8 py-5 sm:py-6 flex items-center justify-between relative shrink-0">
-        <div class="flex items-center gap-3">
-          <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-orange-600 text-white flex items-center justify-center text-sm font-black shadow-md"><i class="fa-solid fa-graduation-cap"></i></div>
-          <div>
-            <span class="text-[9px] sm:text-[10px] font-bold text-orange-400 uppercase tracking-widest block">LU FAMILY SCHOLARSHIP PORTAL</span>
-            <h4 class="text-sm sm:text-base font-black tracking-wide">獎學金申請辦法詳情</h4>
-          </div>
-        </div>
-        <button type="button" onclick="closeScholarshipModal()" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-all cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
-      </div>
-      <div id="scholarshipModalBody" class="p-6 sm:p-8 overflow-y-auto custom-scrollbar space-y-6 flex-grow bg-slate-50/50"></div>
-      <div class="p-4 sm:p-6 bg-white border-t border-slate-200 shrink-0 text-center">
-        <button type="button" onclick="closeScholarshipModal()" class="w-full py-3.5 rounded-2xl bg-slate-800 hover:bg-slate-900 text-white font-black uppercase text-sm shadow-md transition-all cursor-pointer">關閉視窗</button>
       </div>
     </div>
   </div>
@@ -915,7 +886,6 @@
 
     AOS.init({ duration: 1000, once: true });
 
-    // 幹部資料庫：包含家庭長、營務官以及 3 位新同仁
     const teamStaffDatabase = {
       director: {
         name: "領隊",
@@ -1022,7 +992,6 @@
       }
     });
 
-    // 幹部清單：包含家庭長、營務官以及 3 位新同仁
     const teamStaffList = [
       { key: "director", name: "主管", engName: "DIRECTOR", role: "領隊", number: "01", photo: "Portrait_Placeholder.jpg" },
       { key: "admin", name: "呂佳寯", engName: "LU JIA JUN", role: "團隊經理", number: "02", photo: "110417006.jpg", hoverPhoto: "volleyball_player_style.jpg" },
@@ -1106,7 +1075,9 @@
 
       const totalItems = teamStaffList.length;
       if (totalItems > 0) {
-        const cardWidth = 320 + 20;
+        // 使用動態卡片實際寬度計算，完美支援手機與電腦版數字同步
+        const firstCard = container.querySelector('div');
+        const cardWidth = firstCard ? firstCard.clientWidth + 20 : 340;
         let currentIndex = Math.round(container.scrollLeft / cardWidth) + 1;
         if (currentIndex < 1) currentIndex = 1;
         if (currentIndex > totalItems) currentIndex = totalItems;
@@ -1116,7 +1087,9 @@
       }
     }
 
+    // 確保手機版與電腦版水平滑動時皆能即時觸發同步更新
     document.getElementById('topTeamContainer')?.addEventListener('scroll', updateTeamProgress);
+    window.addEventListener('resize', updateTeamProgress);
 
     function formatDate(d) { if (!d) return ''; return String(d).includes('T') ? String(d).split('T')[0] : d; }
 
