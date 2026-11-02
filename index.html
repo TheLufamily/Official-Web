@@ -170,7 +170,7 @@
   <section class="py-10 flex-grow">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 w-full space-y-20">
       
-      <!-- 獎學金申請專區 -->
+      <!-- 獎學金申請專區 (加入子清單 Tab 篩選) -->
       <div id="scholarship" class="scroll-mt-24 pt-4">
         <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 relative section-title-watermark px-2">
           <div class="watermark-text">SCHOLARSHIP</div>
@@ -178,15 +178,19 @@
             <span class="text-orange-600 font-black text-xs tracking-widest uppercase block mb-1">各項獎學金與補助申請</span>
             <h2 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight uppercase">SCHOLARSHIP</h2>
           </div>
-          <div class="mt-4 sm:mt-0 relative z-10">
-            <span class="inline-flex items-center gap-2 text-xs font-black text-orange-700 bg-orange-50 px-4 py-2 rounded-2xl border border-orange-200 shadow-sm">
-              <i class="fa-solid fa-graduation-cap text-orange-600"></i> 115年度 獎學金申辦專區
-            </span>
+          
+          <!-- 獎學金分類子清單按鈕列 -->
+          <div class="mt-4 sm:mt-0 relative z-10 flex items-center gap-1.5 bg-slate-100 p-1.5 rounded-2xl border border-slate-200">
+            <button type="button" onclick="filterScholarship('all')" id="schTab-all" class="px-4 py-1.5 rounded-xl bg-orange-600 text-white font-black text-xs transition-all cursor-pointer shadow-sm">全部顯示</button>
+            <button type="button" onclick="filterScholarship('local')" id="schTab-local" class="px-4 py-1.5 rounded-xl text-slate-600 hover:text-orange-600 font-black text-xs transition-all cursor-pointer">地方回饋</button>
+            <button type="button" onclick="filterScholarship('clan')" id="schTab-clan" class="px-4 py-1.5 rounded-xl text-slate-600 hover:text-orange-600 font-black text-xs transition-all cursor-pointer">宗親專案</button>
           </div>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div class="bg-slate-50 rounded-[32px] p-7 border border-slate-200 shadow-sm flex flex-col justify-between group relative overflow-hidden opacity-80">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8" id="scholarshipContainer">
+          
+          <!-- 項目 1：地方回饋專案 -->
+          <div class="scholarship-card bg-slate-50 rounded-[32px] p-7 border border-slate-200 shadow-sm flex flex-col justify-between group relative overflow-hidden opacity-80" data-category="local">
             <div class="absolute top-0 right-0 w-32 h-32 bg-slate-500/5 rounded-bl-full pointer-events-none"></div>
             <div>
               <div class="mb-4 bg-orange-100 border border-orange-200 rounded-xl overflow-hidden py-1.5 px-3 flex items-center gap-2">
@@ -226,7 +230,8 @@
             </div>
           </div>
 
-          <div class="bg-slate-50 rounded-[32px] p-7 border border-slate-200 shadow-sm flex flex-col justify-between group relative overflow-hidden opacity-80">
+          <!-- 項目 2：家族宗親專案 -->
+          <div class="scholarship-card bg-slate-50 rounded-[32px] p-7 border border-slate-200 shadow-sm flex flex-col justify-between group relative overflow-hidden opacity-80" data-category="clan">
             <div class="absolute top-0 right-0 w-32 h-32 bg-slate-500/5 rounded-bl-full pointer-events-none"></div>
             <div>
               <div class="flex items-center justify-between mb-4">
@@ -256,6 +261,7 @@
               </button>
             </div>
           </div>
+
         </div>
       </div>
 
@@ -414,7 +420,7 @@
         </div>
       </div>
 
-      <!-- LEADERS 隊職幹部區塊 -->
+      <!-- LEADERS 隊職幹部區塊 (加入子清單 Tab 篩選) -->
       <div id="team-staff" class="scroll-mt-24 pt-4">
         <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 relative section-title-watermark px-2">
           <div class="watermark-text" style="font-size: 5rem; top: -20px;">LEADERS</div>
@@ -424,7 +430,13 @@
               LEADERS
             </h2>
           </div>
-          <div class="mt-4 sm:mt-0 relative z-15"></div>
+          
+          <!-- 營運團隊子清單按鈕列 -->
+          <div class="mt-4 sm:mt-0 relative z-15 flex items-center gap-1.5 bg-slate-100 p-1.5 rounded-2xl border border-slate-200 overflow-x-auto">
+            <button type="button" onclick="filterTeam('all')" id="teamTab-all" class="px-3.5 py-1.5 rounded-xl bg-orange-600 text-white font-black text-xs transition-all cursor-pointer shadow-sm shrink-0">全部顯示</button>
+            <button type="button" onclick="filterTeam('core')" id="teamTab-core" class="px-3.5 py-1.5 rounded-xl text-slate-600 hover:text-orange-600 font-black text-xs transition-all cursor-pointer shrink-0">核心管理</button>
+            <button type="button" onclick="filterTeam('management')" id="teamTab-management" class="px-3.5 py-1.5 rounded-xl text-slate-600 hover:text-orange-600 font-black text-xs transition-all cursor-pointer shrink-0">部門經理/總監</button>
+          </div>
         </div>
 
         <div class="flex flex-col gap-6">
@@ -450,38 +462,43 @@
         </div>
       </div>
 
-      <!-- 家族分布卡片區塊（已將背景圖片改為 bg-cover bg-center 填滿整張卡片） -->
-      <div class="max-w-7xl mx-auto w-full pt-4">
-        <div class="mb-10">
-          <span class="text-orange-600 font-black text-xs tracking-widest uppercase block mb-1">家族分布</span>
-          <h1 class="text-4xl sm:text-6xl font-black tracking-wider uppercase text-gray-900 mb-4">
-            FAMILY <span class="text-orange-600">MAP</span>
-          </h1>
-          <p class="text-gray-600 text-base sm:text-lg">
-            主要分布於新北板橋、桃園平鎮、臺中中區及臺中北區
-          </p>
+      <!-- 家族分布卡片區塊 (加入子清單 Tab 篩選) -->
+      <div class="max-w-7xl mx-auto w-full pt-4" id="family-map">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-10">
+          <div>
+            <span class="text-orange-600 font-black text-xs tracking-widest uppercase block mb-1">家族分布</span>
+            <h1 class="text-4xl sm:text-6xl font-black tracking-wider uppercase text-gray-900 mb-2">
+              FAMILY <span class="text-orange-600">MAP</span>
+            </h1>
+            <p class="text-gray-600 text-base sm:text-lg">
+              主要分布於新北板橋、桃園平鎮、臺中中區及臺中北區
+            </p>
+          </div>
+
+          <!-- 家族分布子清單切換按鈕列 -->
+          <div class="mt-4 sm:mt-0 flex items-center gap-1.5 bg-white p-1.5 rounded-2xl border border-orange-100 shadow-sm overflow-x-auto">
+            <button type="button" onclick="filterMap('all')" id="mapTab-all" class="px-3.5 py-1.5 rounded-xl bg-orange-600 text-white font-black text-xs transition-all cursor-pointer shadow-sm shrink-0">全部顯示</button>
+            <button type="button" onclick="filterMap('newtaipei')" id="mapTab-newtaipei" class="px-3.5 py-1.5 rounded-xl text-slate-600 hover:text-orange-600 font-black text-xs transition-all cursor-pointer shrink-0">新北板橋</button>
+            <button type="button" onclick="filterMap('taoyuan')" id="mapTab-taoyuan" class="px-3.5 py-1.5 rounded-xl text-slate-600 hover:text-orange-600 font-black text-xs transition-all cursor-pointer shrink-0">桃園平鎮</button>
+            <button type="button" onclick="filterMap('taichung')" id="mapTab-taichung" class="px-3.5 py-1.5 rounded-xl text-slate-600 hover:text-orange-600 font-black text-xs transition-all cursor-pointer shrink-0">臺中地區</button>
+          </div>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="mapContainer">
           
           <!-- 新北市板橋區 -->
-          <div class="bg-gradient-to-b from-orange-600 to-amber-700 rounded-[32px] p-6 text-white shadow-xl flex flex-col justify-between relative overflow-hidden group hover:scale-[1.02] transition-all h-96">
+          <div class="map-card bg-gradient-to-b from-orange-600 to-amber-700 rounded-[32px] p-6 text-white shadow-xl flex flex-col justify-between relative overflow-hidden group hover:scale-[1.02] transition-all h-96" data-region="newtaipei">
             <div class="absolute -right-10 -bottom-10 w-64 h-64 bg-white/10 rounded-full pointer-events-none"></div>
-            <!-- 地理輪廓背景圖 (Hover 時浮現，使用 bg-cover bg-center 填滿整張卡片) -->
             <div class="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500 bg-cover bg-center pointer-events-none" style="background-image: url('Banqiao_District.jpg');"></div>
             <div>
               <div class="flex items-center justify-between mb-6 relative z-10">
                 <i class="fa-solid fa-house text-xl text-orange-200"></i>
                 <span class="text-xs font-black tracking-widest uppercase bg-white/20 px-3 py-1 rounded-full backdrop-blur-md">NEW TAIPEI</span>
               </div>
-              <!-- 大標題 (Hover 時浮現) -->
-              <div class="absolute top-4 left-6 text-5xl font-black text-white/10 uppercase tracking-tighter pointer-events-none select-none transition-all group-hover:text-white/25">
-                新北
-              </div>
+              <div class="absolute top-4 left-6 text-5xl font-black text-white/10 uppercase tracking-tighter pointer-events-none select-none transition-all group-hover:text-white/25">新北</div>
               <div class="w-16 h-16 rounded-2xl bg-white/15 backdrop-blur-md flex items-center justify-center text-3xl font-black mb-6 shadow-inner border border-white/20 relative z-10"><i class="fa-solid fa-house-chimney"></i></div>
               <div class="text-xs font-bold text-orange-100 uppercase tracking-widest mb-1 relative z-10">NEW TAIPEI BANQIAO</div>
               <h3 class="text-2xl font-black tracking-tight mb-2 relative z-10">新北市板橋區</h3>
-              <p class="text-xs text-orange-100 font-medium leading-relaxed relative z-10"></p>
             </div>
             <div class="pt-4 border-t border-white/20 relative z-10 flex items-center justify-between text-xs font-bold text-orange-100">
               <span>成員據點</span>
@@ -490,7 +507,7 @@
           </div>
 
           <!-- 桃園市平鎮區 -->
-          <div class="bg-gradient-to-b from-rose-600 to-pink-700 rounded-[32px] p-6 text-white shadow-xl flex flex-col justify-between relative overflow-hidden group hover:scale-[1.02] transition-all h-96">
+          <div class="map-card bg-gradient-to-b from-rose-600 to-pink-700 rounded-[32px] p-6 text-white shadow-xl flex flex-col justify-between relative overflow-hidden group hover:scale-[1.02] transition-all h-96" data-region="taoyuan">
             <div class="absolute -right-10 -bottom-10 w-64 h-64 bg-white/10 rounded-full pointer-events-none"></div>
             <div class="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500 bg-cover bg-center pointer-events-none" style="background-image: url('Pingzhen_district.jpg');"></div>
             <div>
@@ -498,13 +515,10 @@
                 <i class="fa-solid fa-house text-xl text-rose-200"></i>
                 <span class="text-xs font-black tracking-widest uppercase bg-white/20 px-3 py-1 rounded-full backdrop-blur-md">TAOYUAN</span>
               </div>
-              <div class="absolute top-4 left-6 text-5xl font-black text-white/10 uppercase tracking-tighter pointer-events-none select-none transition-all group-hover:text-white/25">
-                桃園
-              </div>
+              <div class="absolute top-4 left-6 text-5xl font-black text-white/10 uppercase tracking-tighter pointer-events-none select-none transition-all group-hover:text-white/25">桃園</div>
               <div class="w-16 h-16 rounded-2xl bg-white/15 backdrop-blur-md flex items-center justify-center text-3xl font-black mb-6 shadow-inner border border-white/20 relative z-10"><i class="fa-solid fa-house-chimney"></i></div>
               <div class="text-xs font-bold text-rose-100 uppercase tracking-widest mb-1 relative z-10">TAOYUAN PINGZHEN</div>
               <h3 class="text-2xl font-black tracking-tight mb-2 relative z-10">桃園市平鎮區</h3>
-              <p class="text-xs text-rose-100 font-medium leading-relaxed relative z-10"></p>
             </div>
             <div class="pt-4 border-t border-white/20 relative z-10 flex items-center justify-between text-xs font-bold text-rose-100">
               <span>成員據點</span>
@@ -513,7 +527,7 @@
           </div>
 
           <!-- 臺中市中區 -->
-          <div class="bg-gradient-to-b from-indigo-800 to-purple-900 rounded-[32px] p-6 text-white shadow-xl flex flex-col justify-between relative overflow-hidden group hover:scale-[1.02] transition-all h-96">
+          <div class="map-card bg-gradient-to-b from-indigo-800 to-purple-900 rounded-[32px] p-6 text-white shadow-xl flex flex-col justify-between relative overflow-hidden group hover:scale-[1.02] transition-all h-96" data-region="taichung">
             <div class="absolute -right-10 -bottom-10 w-64 h-64 bg-white/10 rounded-full pointer-events-none"></div>
             <div class="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500 bg-cover bg-center pointer-events-none" style="background-image: url('中區.jpg');"></div>
             <div>
@@ -521,13 +535,10 @@
                 <i class="fa-solid fa-house text-xl text-indigo-200"></i>
                 <span class="text-xs font-black tracking-widest uppercase bg-white/20 px-3 py-1 rounded-full backdrop-blur-md">TAICHUNG</span>
               </div>
-              <div class="absolute top-4 left-6 text-5xl font-black text-white/10 uppercase tracking-tighter pointer-events-none select-none transition-all group-hover:text-white/25">
-                臺中中區
-              </div>
+              <div class="absolute top-4 left-6 text-5xl font-black text-white/10 uppercase tracking-tighter pointer-events-none select-none transition-all group-hover:text-white/25">臺中中區</div>
               <div class="w-16 h-16 rounded-2xl bg-white/15 backdrop-blur-md flex items-center justify-center text-3xl font-black mb-6 shadow-inner border border-white/20 relative z-10"><i class="fa-solid fa-house-chimney"></i></div>
               <div class="text-xs font-bold text-indigo-100 uppercase tracking-widest mb-1 relative z-10">TAICHUNG CENTRAL</div>
               <h3 class="text-2xl font-black tracking-tight mb-2 relative z-10">臺中市中區</h3>
-              <p class="text-xs text-indigo-100 font-medium leading-relaxed relative z-10"></p>
             </div>
             <div class="pt-4 border-t border-white/20 relative z-10 flex items-center justify-between text-xs font-bold text-indigo-100">
               <span>成員據點</span>
@@ -536,7 +547,7 @@
           </div>
 
           <!-- 臺中市北區 -->
-          <div class="bg-gradient-to-b from-emerald-600 to-teal-800 rounded-[32px] p-6 text-white shadow-xl flex flex-col justify-between relative overflow-hidden group hover:scale-[1.02] transition-all h-96">
+          <div class="map-card bg-gradient-to-b from-emerald-600 to-teal-800 rounded-[32px] p-6 text-white shadow-xl flex flex-col justify-between relative overflow-hidden group hover:scale-[1.02] transition-all h-96" data-region="taichung">
             <div class="absolute -right-10 -bottom-10 w-64 h-64 bg-white/10 rounded-full pointer-events-none"></div>
             <div class="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500 bg-cover bg-center pointer-events-none" style="background-image: url('北區.jpg');"></div>
             <div>
@@ -544,13 +555,10 @@
                 <i class="fa-solid fa-house text-xl text-emerald-200"></i>
                 <span class="text-xs font-black tracking-widest uppercase bg-white/20 px-3 py-1 rounded-full backdrop-blur-md">TAICHUNG</span>
               </div>
-              <div class="absolute top-4 left-6 text-5xl font-black text-white/10 uppercase tracking-tighter pointer-events-none select-none transition-all group-hover:text-white/25">
-                臺中北區
-              </div>
+              <div class="absolute top-4 left-6 text-5xl font-black text-white/10 uppercase tracking-tighter pointer-events-none select-none transition-all group-hover:text-white/25">臺中北區</div>
               <div class="w-16 h-16 rounded-2xl bg-white/15 backdrop-blur-md flex items-center justify-center text-3xl font-black mb-6 shadow-inner border border-white/20 relative z-10"><i class="fa-solid fa-house-chimney"></i></div>
               <div class="text-xs font-bold text-emerald-100 uppercase tracking-widest mb-1 relative z-10">TAICHUNG NORTH</div>
               <h3 class="text-2xl font-black tracking-tight mb-2 relative z-10">臺中市北區</h3>
-              <p class="text-xs text-emerald-100 font-medium leading-relaxed relative z-10"></p>
             </div>
             <div class="pt-4 border-t border-white/20 relative z-10 flex items-center justify-between text-xs font-bold text-emerald-100">
               <span>成員據點</span>
@@ -564,7 +572,7 @@
     </div>
   </section>
 
-  <!-- 網頁頁尾 Footer（新增下載 APP 引導按鈕） -->
+  <!-- 網頁頁尾 Footer -->
   <footer class="bg-[#fff6ee] text-slate-600 py-10 border-t border-orange-200 mt-auto shadow-inner">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-6">
       <div>
@@ -928,9 +936,9 @@
 
     const teamStaffDatabase = {
       director: {
-        name: "領隊",
+        name: "主管",
         engRole: "DIRECTOR",
-        roleTitle: "主管",
+        roleTitle: "領隊",
         joinYear: "2025",
         birthplace: "桃園市",
         number: "01",
@@ -1032,20 +1040,59 @@
       }
     });
 
-    const teamStaffList = [
-      { key: "director", name: "主管", engName: "DIRECTOR", role: "領隊", number: "01", photo: "Portrait_Placeholder.jpg" },
-      { key: "admin", name: "呂佳寯", engName: "LU JIA JUN", role: "團隊經理", number: "02", photo: "110417006.jpg", hoverPhoto: "volleyball_player_style.jpg" },
-      { key: "staff03", name: "營產管理經理", engName: "ASSET MANAGER", role: "", number: "03", photo: "Portrait_Placeholder.jpg" },
-      { key: "staff04", name: "創意總監", engName: "CREATIVE DIRECTOR", role: "", number: "04", photo: "Portrait_Placeholder.jpg" },
-      { key: "staff05", name: "設計總監", engName: "DESIGN DIRECTOR", role: "", number: "05", photo: "Portrait_Placeholder.jpg" }
+    // 獎學金子清單篩選邏輯
+    function filterScholarship(category) {
+      ['all', 'local', 'clan'].forEach(cat => {
+        const btn = document.getElementById(`schTab-${cat}`);
+        if (btn) {
+          btn.className = (cat === category)
+            ? "px-4 py-1.5 rounded-xl bg-orange-600 text-white font-black text-xs transition-all cursor-pointer shadow-sm"
+            : "px-4 py-1.5 rounded-xl text-slate-600 hover:text-orange-600 font-black text-xs transition-all cursor-pointer";
+        }
+      });
+
+      const cards = document.querySelectorAll('.scholarship-card');
+      cards.forEach(card => {
+        const cardCat = card.getAttribute('data-category');
+        if (category === 'all' || cardCat === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    let teamStaffList = [
+      { key: "director", name: "主管", engName: "DIRECTOR", role: "領隊", number: "01", photo: "Portrait_Placeholder.jpg", group: "core" },
+      { key: "admin", name: "呂佳寯", engName: "LU JIA JUN", role: "團隊經理", number: "02", photo: "110417006.jpg", hoverPhoto: "volleyball_player_style.jpg", group: "core" },
+      { key: "staff03", name: "營產管理經理", engName: "ASSET MANAGER", role: "營產", number: "03", photo: "Portrait_Placeholder.jpg", group: "management" },
+      { key: "staff04", name: "創意總監", engName: "CREATIVE DIRECTOR", role: "創意", number: "04", photo: "Portrait_Placeholder.jpg", group: "management" },
+      { key: "staff05", name: "設計總監", engName: "DESIGN DIRECTOR", role: "設計", number: "05", photo: "Portrait_Placeholder.jpg", group: "management" }
     ];
 
-    function renderHomeTeamStaff() {
+    // 營運團隊分類子清單篩選邏輯
+    function filterTeam(category) {
+      ['all', 'core', 'management'].forEach(cat => {
+        const btn = document.getElementById(`teamTab-${cat}`);
+        if (btn) {
+          btn.className = (cat === category) 
+            ? "px-3.5 py-1.5 rounded-xl bg-orange-600 text-white font-black text-xs transition-all cursor-pointer shadow-sm shrink-0" 
+            : "px-3.5 py-1.5 rounded-xl text-slate-600 hover:text-orange-600 font-black text-xs transition-all cursor-pointer shrink-0";
+        }
+      });
+
+      let filteredList = teamStaffList;
+      if (category === 'core') {
+        filteredList = teamStaffList.filter(m => m.group === 'core');
+      } else if (category === 'management') {
+        filteredList = teamStaffList.filter(m => m.group === 'management');
+      }
+
       const container = document.getElementById('topTeamContainer');
       if (!container) return;
       container.innerHTML = '';
 
-      teamStaffList.forEach((member) => {
+      filteredList.forEach((member) => {
         const item = document.createElement('div');
         item.className = "bg-white rounded-[32px] border border-slate-200 shadow-xl overflow-hidden flex flex-col justify-between group cursor-pointer hover:border-orange-500 hover:shadow-2xl transition-all shrink-0 w-full sm:w-[320px] snap-start";
         item.setAttribute('onclick', `openProfileModal('${member.key}')`);
@@ -1082,6 +1129,32 @@
         container.appendChild(item);
       });
       updateTeamProgress();
+    }
+
+    // 家族分布地區子清單篩選邏輯
+    function filterMap(region) {
+      ['all', 'newtaipei', 'taoyuan', 'taichung'].forEach(reg => {
+        const btn = document.getElementById(`mapTab-${reg}`);
+        if (btn) {
+          btn.className = (reg === region)
+            ? "px-3.5 py-1.5 rounded-xl bg-orange-600 text-white font-black text-xs transition-all cursor-pointer shadow-sm shrink-0"
+            : "px-3.5 py-1.5 rounded-xl text-slate-600 hover:text-orange-600 font-black text-xs transition-all cursor-pointer shrink-0";
+        }
+      });
+
+      const cards = document.querySelectorAll('.map-card');
+      cards.forEach(card => {
+        const cardRegion = card.getAttribute('data-region');
+        if (region === 'all' || cardRegion === region) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    function renderHomeTeamStaff() {
+      filterTeam('all');
     }
 
     function scrollTeamContainer(direction) {
@@ -1433,7 +1506,7 @@
           </div>
           <div class="flex items-center gap-2 shrink-0">
             <button type="button" onclick="openEditModal('${id}')" class="px-3 py-1.5 rounded-xl bg-orange-600 hover:bg-orange-700 text-white text-xs font-black transition-all cursor-pointer">修改</button>
-            <button type="button" onclick="deleteNotice('${id}')" class="px-3 py-1.5 rounded-xl bg-red-600 hover:bg-red-700 text-white text-xs font-black transition-all cursor-pointer">刪除浮現</button>
+            <button type="button" onclick="deleteNotice('${id}')" class="px-3 py-1.5 rounded-xl bg-red-600 hover:bg-red-700 text-white text-xs font-black transition-all cursor-pointer">刪除</button>
           </div>
         `;
         historyList.appendChild(item);
@@ -1452,7 +1525,7 @@
       document.getElementById('pubLinkName').value = data.linkName || '';
       document.getElementById('publishModalTitle').innerHTML = '<i class="fa-solid fa-pen-to-square text-orange-600"></i> 修改發布內容';
       document.getElementById('pubSubmitBtn').innerText = "確認修改";
-      document.getElementById('publishModal').classList.add('hidden');
+      document.getElementById('publishModal').classList.remove('hidden');
     }
 
     async function handlePublishSubmit(e) {
@@ -1501,7 +1574,7 @@
           mode: 'no-cors',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            action: document.getElementById('editNoticeId', id),
+            action: document.getElementById('editNoticeId').value ? 'edit' : 'add',
             id,
             title,
             date,
