@@ -130,25 +130,35 @@
     </div>
   </nav>
 
-<!-- 首頁主視覺 HERO 影片區塊 -->
+  <!-- 首頁主視覺 HERO 影片區塊 (21:9 電影規格自動拉伸填滿) -->
   <div id="home" class="max-w-5xl mx-auto z-10 relative py-6 px-4 text-center" data-aos="zoom-in">
-    <div class="glass-card rounded-[35px] shadow-2xl relative overflow-hidden group flex flex-col items-center justify-center bg-white">
-      
-      <!-- 頂部標籤 -->
-
-
-      <!-- 無邊框、無留白的滿版影片播放容器 -->
-      <div class="w-full relative my-2 overflow-hidden bg-slate-900">
+    <div class="glass-card rounded-[35px] shadow-2xl relative overflow-hidden group flex flex-col items-center justify-center bg-black aspect-[21/9] w-full">
+      <div class="w-full h-full relative overflow-hidden bg-black">
         <video src="歡迎蒞臨呂氏家庭生活資訊網.mp4" autoplay loop muted playsinline class="w-full h-full object-cover block"></video>
       </div>
-
-     
     </div>
   </div>
+
   <!-- 主要內容區 -->
   <section class="py-10 flex-grow">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 w-full space-y-20">
       
+      <!-- 跨平台 PWA 下載與安裝專區（自動顯示，支援電腦、手機、平板） -->
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 bg-orange-50 border border-orange-200 rounded-3xl p-5 shadow-sm">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-2xl bg-orange-600 text-white flex items-center justify-center text-xl shadow-md shrink-0">
+            <i class="fa-solid fa-cloud-arrow-down"></i>
+          </div>
+          <div>
+            <h4 class="text-base font-black text-slate-900">跨平台 PWA 應用程式自動下載與安裝</h4>
+            <p class="text-xs text-slate-600 font-medium">支援電腦、手機與平板，一鍵快速加到桌面隨時存取！</p>
+          </div>
+        </div>
+        <button type="button" onclick="triggerPwaInstall()" class="w-full sm:w-auto px-6 py-3 rounded-2xl bg-orange-600 hover:bg-orange-700 text-white font-black text-xs uppercase shadow-md transition-all cursor-pointer shrink-0 flex items-center justify-center gap-2">
+          <i class="fa-solid fa-download"></i> 自動下載 / 安裝 APP
+        </button>
+      </div>
+
       <!-- 水平橫式跑馬燈 -->
       <div class="relative w-screen left-1/2 -translate-x-1/2 overflow-hidden py-3 bg-white border-y border-orange-200 shadow-sm my-4">
         <div class="marquee-track flex whitespace-nowrap items-center font-black tracking-widest text-lg sm:text-xl uppercase">
@@ -167,78 +177,78 @@
         </div>
       </div>
 
-<!-- 最新消息區 -->
-  <div id="notice" class="scroll-mt-24 pt-4">
-    <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 relative section-title-watermark px-2">
-      <div class="watermark-text">NEWS</div>
-      <div class="relative z-10">
-        <span class="text-orange-600 font-black text-xs tracking-widest uppercase block mb-1">最新公告消息</span>
-        <h2 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight uppercase">NEWS</h2>
-      </div>
-      <div class="mt-4 sm:mt-0 relative z-10">
-        <button type="button" onclick="openIndependentPage('notice')" class="inline-flex items-center gap-2 text-xs font-black text-slate-700 hover:text-orange-600 transition-colors group py-2 cursor-pointer">
-          <span>所有消息</span> <i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="flex flex-col gap-6">
-      <div id="noticeListContainer" class="grid grid-flow-col auto-cols-[minmax(340px,1fr)] gap-5 overflow-x-auto pb-4 no-scrollbar snap-x" style="min-height: 460px;">
-        <div class="text-center py-16 text-slate-400 font-bold col-span-full"><i class="fa-solid fa-spinner fa-spin mr-2"></i> 載入中...請稍後</div>
-      </div>
-      <div class="flex items-center justify-between gap-6 pt-2">
-        <div class="flex items-center gap-3 shrink-0">
-          <div class="slider-indicator-num text-lg text-slate-900 flex items-baseline">
-            <span id="noticeCurrentNum">01</span><span class="text-xs text-slate-400 font-bold ml-0.5">/ <span id="noticeTotalNum">10</span></span>
+      <!-- 最新消息區 -->
+      <div id="notice" class="scroll-mt-24 pt-4">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 relative section-title-watermark px-2">
+          <div class="watermark-text">NEWS</div>
+          <div class="relative z-10">
+            <span class="text-orange-600 font-black text-xs tracking-widest uppercase block mb-1">最新公告消息</span>
+            <h2 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight uppercase">NEWS</h2>
           </div>
-          <div class="w-5 h-5 rounded-full bg-orange-500/20 text-orange-600 flex items-center justify-center text-[10px] font-black"><i class="fa-solid fa-plus"></i></div>
-        </div>
-        <div class="flex-grow bg-orange-200/50 h-1.5 rounded-full overflow-hidden relative">
-          <div id="noticeScrollProgress" class="bg-orange-600 h-full w-1/3 transition-all duration-300"></div>
-          <div id="noticeProgressThumb" class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-orange-700 shadow-md border-2 border-white transition-all duration-300 pointer-events-none" style="left: 0%;"></div>
-        </div>
-        <div class="flex items-center gap-2 shrink-0">
-          <button type="button" onclick="scrollNoticeContainer('left')" class="w-10 h-10 rounded-full bg-white hover:bg-orange-50 text-slate-700 hover:text-orange-600 border border-orange-200 flex items-center justify-center transition-all shadow-sm cursor-pointer"><i class="fa-solid fa-chevron-left text-sm"></i></button>
-          <button type="button" onclick="scrollNoticeContainer('right')" class="w-10 h-10 rounded-full bg-white hover:bg-orange-50 text-slate-700 hover:text-orange-600 border border-orange-200 flex items-center justify-center transition-all shadow-sm cursor-pointer"><i class="fa-solid fa-chevron-right text-sm"></i></button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-     <!-- LEADERS 隊職幹部區塊 -->
-  <div id="team-staff" class="scroll-mt-24 pt-4">
-    <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 relative section-title-watermark px-2">
-      <div class="watermark-text" style="font-size: 5rem; top: -20px;">LEADERS</div>
-      <div class="relative z-10">
-        <span class="text-xs font-black text-slate-800 tracking-wider uppercase block mb-1.5 bg-slate-100 px-3 py-1 rounded-md border border-slate-200 w-fit">營運團隊</span>
-        <h2 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight uppercase flex items-center gap-2">
-          LEADERS
-        </h2>
-      </div>
-    </div>
-
-    <div class="flex flex-col gap-6">
-      <div id="topTeamContainer" class="grid grid-flow-col auto-cols-[minmax(320px,1fr)] gap-8 overflow-x-auto pb-4 no-scrollbar snap-x" style="min-height: 480px;">
-        <!-- 透過 JS 動態渲染所有幹部卡片 -->
-      </div>
-      <div class="flex items-center justify-between gap-6 pt-2">
-        <div class="flex items-center gap-3 shrink-0">
-          <div class="slider-indicator-num text-lg text-slate-900 flex items-baseline">
-            <span id="teamCurrentNum">01</span><span class="text-xs text-slate-400 font-bold ml-0.5">/ <span id="teamTotalNum">05</span></span>
+          <div class="mt-4 sm:mt-0 relative z-10">
+            <button type="button" onclick="openIndependentPage('notice')" class="inline-flex items-center gap-2 text-xs font-black text-slate-700 hover:text-orange-600 transition-colors group py-2 cursor-pointer">
+              <span>所有消息</span> <i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
+            </button>
           </div>
-          <div class="w-5 h-5 rounded-full bg-orange-500/20 text-orange-600 flex items-center justify-center text-[10px] font-black"><i class="fa-solid fa-plus"></i></div>
         </div>
-        <div class="flex-grow bg-orange-200/50 h-1.5 rounded-full overflow-hidden relative">
-          <div id="teamScrollProgress" class="bg-orange-600 h-full w-1/3 transition-all duration-300"></div>
-          <div id="teamProgressThumb" class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-orange-700 shadow-md border-2 border-white transition-all duration-300 pointer-events-none" style="left: 0%;"></div>
-        </div>
-        <div class="flex items-center gap-2 shrink-0">
-          <button type="button" onclick="scrollTeamContainer('left')" class="w-10 h-10 rounded-full bg-white hover:bg-orange-50 text-slate-700 hover:text-orange-600 border border-orange-200 flex items-center justify-center transition-all shadow-sm cursor-pointer"><i class="fa-solid fa-chevron-left text-sm"></i></button>
-          <button type="button" onclick="scrollTeamContainer('right')" class="w-10 h-10 rounded-full bg-white hover:bg-orange-50 text-slate-700 hover:text-orange-600 border border-orange-200 flex items-center justify-center transition-all shadow-sm cursor-pointer"><i class="fa-solid fa-chevron-right text-sm"></i></button>
+
+        <div class="flex flex-col gap-6">
+          <div id="noticeListContainer" class="grid grid-flow-col auto-cols-[minmax(340px,1fr)] gap-5 overflow-x-auto pb-4 no-scrollbar snap-x" style="min-height: 460px;">
+            <div class="text-center py-16 text-slate-400 font-bold col-span-full"><i class="fa-solid fa-spinner fa-spin mr-2"></i> 載入中...請稍後</div>
+          </div>
+          <div class="flex items-center justify-between gap-6 pt-2">
+            <div class="flex items-center gap-3 shrink-0">
+              <div class="slider-indicator-num text-lg text-slate-900 flex items-baseline">
+                <span id="noticeCurrentNum">01</span><span class="text-xs text-slate-400 font-bold ml-0.5">/ <span id="noticeTotalNum">10</span></span>
+              </div>
+              <div class="w-5 h-5 rounded-full bg-orange-500/20 text-orange-600 flex items-center justify-center text-[10px] font-black"><i class="fa-solid fa-plus"></i></div>
+            </div>
+            <div class="flex-grow bg-orange-200/50 h-1.5 rounded-full overflow-hidden relative">
+              <div id="noticeScrollProgress" class="bg-orange-600 h-full w-1/3 transition-all duration-300"></div>
+              <div id="noticeProgressThumb" class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-orange-700 shadow-md border-2 border-white transition-all duration-300 pointer-events-none" style="left: 0%;"></div>
+            </div>
+            <div class="flex items-center gap-2 shrink-0">
+              <button type="button" onclick="scrollNoticeContainer('left')" class="w-10 h-10 rounded-full bg-white hover:bg-orange-50 text-slate-700 hover:text-orange-600 border border-orange-200 flex items-center justify-center transition-all shadow-sm cursor-pointer"><i class="fa-solid fa-chevron-left text-sm"></i></button>
+              <button type="button" onclick="scrollNoticeContainer('right')" class="w-10 h-10 rounded-full bg-white hover:bg-orange-50 text-slate-700 hover:text-orange-600 border border-orange-200 flex items-center justify-center transition-all shadow-sm cursor-pointer"><i class="fa-solid fa-chevron-right text-sm"></i></button>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
+
+      <!-- LEADERS 隊職幹部區塊 -->
+      <div id="team-staff" class="scroll-mt-24 pt-4">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 relative section-title-watermark px-2">
+          <div class="watermark-text" style="font-size: 5rem; top: -20px;">LEADERS</div>
+          <div class="relative z-10">
+            <span class="text-xs font-black text-slate-800 tracking-wider uppercase block mb-1.5 bg-slate-100 px-3 py-1 rounded-md border border-slate-200 w-fit">營運團隊</span>
+            <h2 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight uppercase flex items-center gap-2">
+              LEADERS
+            </h2>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-6">
+          <div id="topTeamContainer" class="grid grid-flow-col auto-cols-[minmax(320px,1fr)] gap-8 overflow-x-auto pb-4 no-scrollbar snap-x" style="min-height: 480px;">
+            <!-- 透過 JS 動態渲染所有幹部卡片 -->
+          </div>
+          <div class="flex items-center justify-between gap-6 pt-2">
+            <div class="flex items-center gap-3 shrink-0">
+              <div class="slider-indicator-num text-lg text-slate-900 flex items-baseline">
+                <span id="teamCurrentNum">01</span><span class="text-xs text-slate-400 font-bold ml-0.5">/ <span id="teamTotalNum">05</span></span>
+              </div>
+              <div class="w-5 h-5 rounded-full bg-orange-500/20 text-orange-600 flex items-center justify-center text-[10px] font-black"><i class="fa-solid fa-plus"></i></div>
+            </div>
+            <div class="flex-grow bg-orange-200/50 h-1.5 rounded-full overflow-hidden relative">
+              <div id="teamScrollProgress" class="bg-orange-600 h-full w-1/3 transition-all duration-300"></div>
+              <div id="teamProgressThumb" class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-orange-700 shadow-md border-2 border-white transition-all duration-300 pointer-events-none" style="left: 0%;"></div>
+            </div>
+            <div class="flex items-center gap-2 shrink-0">
+              <button type="button" onclick="scrollTeamContainer('left')" class="w-10 h-10 rounded-full bg-white hover:bg-orange-50 text-slate-700 hover:text-orange-600 border border-orange-200 flex items-center justify-center transition-all shadow-sm cursor-pointer"><i class="fa-solid fa-chevron-left text-sm"></i></button>
+              <button type="button" onclick="scrollTeamContainer('right')" class="w-10 h-10 rounded-full bg-white hover:bg-orange-50 text-slate-700 hover:text-orange-600 border border-orange-200 flex items-center justify-center transition-all shadow-sm cursor-pointer"><i class="fa-solid fa-chevron-right text-sm"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <!-- 家族分布卡片區塊 -->
       <div class="max-w-7xl mx-auto w-full py-16 px-4 sm:px-6" id="family-map">
@@ -351,7 +361,7 @@
         <p class="text-xs sm:text-sm font-bold text-slate-600">&copy; 2026 呂氏家庭生活資訊網 版權所有 All Rights Reserved.</p>
       </div>
       <div>
-        <button type="button" onclick="alert('📲 PWA 安裝提示：\n\n• iOS (iPhone/iPad)：請點選 Safari 瀏覽器的「分享」按鈕，然後選擇「加入主畫面」。\n• Android (Chrome)：請點選瀏覽器右上角選單，選擇「安裝應用程式」或「加到主畫面」。');" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-2xl bg-orange-600 hover:bg-orange-700 text-white font-black text-xs sm:text-sm shadow-md transition-all cursor-pointer">
+        <button type="button" onclick="triggerPwaInstall()" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-2xl bg-orange-600 hover:bg-orange-700 text-white font-black text-xs sm:text-sm shadow-md transition-all cursor-pointer">
           <i class="fa-solid fa-cloud-arrow-down"></i> 下載 APP (PWA 安裝說明)
         </button>
       </div>
@@ -764,6 +774,32 @@
 
     AOS.init({ duration: 1000, once: true });
 
+    // 跨平台 PWA 安裝與引導邏輯
+    let deferredPrompt;
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+    });
+
+    function triggerPwaInstall() {
+      const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+      const isIOS = /ipad|iphone|ipod/.test(userAgent.toLowerCase()) && !window.MSStream;
+
+      if (isIOS) {
+        alert('🍏 Apple iOS (iPhone / iPad) 安裝說明：\n\n1. 請點選下方 Safari 瀏覽器的「分享」按鈕 ⎋。\n2. 在選單中選擇「加入主畫面」 ➕。\n3. 點選右上角的「加入」，即可完成安裝！');
+      } else if (deferredPrompt) {
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then((choiceResult) => {
+          if (choiceResult.outcome === 'accepted') {
+            console.log('使用者已同意安裝 PWA');
+          }
+          deferredPrompt = null;
+        });
+      } else {
+        alert('💻 電腦與平板安裝提示：\n\n• Chrome / Edge 瀏覽器：請點選網址列右側的「安裝」圖示，或點選右上角選單選擇「安裝 呂氏家庭生活資訊網」。\n• 若已安裝過，會直接以獨立 App 視窗開啟！');
+      }
+    }
+
     const teamStaffDatabase = {
       director: {
         name: "主管",
@@ -1045,53 +1081,77 @@
         titleEl.innerText = "活動資訊 CALENDAR";
         iconEl.innerHTML = '<i class="fa-solid fa-calendar-days text-white"></i>';
         bodyEl.innerHTML = `
-          <div class="space-y-6">
-            <div class="flex items-center justify-between">
-              <h3 class="text-xl font-black text-slate-900">2026 年度活動行程</h3>
-              <span class="text-xs font-black text-orange-600 bg-orange-50 px-3 py-1 rounded-xl border border-orange-200">全年度行程表</span>
-            </div>
-            
-            <div class="grid grid-cols-1 gap-4">
-              <div class="bg-gradient-to-br from-orange-600 to-amber-700 text-white rounded-[28px] p-6 shadow-md relative overflow-hidden">
-                <div class="flex items-center justify-between mb-2">
-                  <span class="px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-xs font-black uppercase">特別旅遊行程</span>
-                  <span class="text-xs font-bold bg-black/20 px-3 py-1 rounded-xl">共 5 天 (已結束)</span>
-                </div>
-                <h4 class="text-2xl font-black mb-1">日本行家族旅遊</h4>
-                <div class="text-sm font-bold text-orange-100 mb-2">10.15 - 10.19 (WED - SUN)</div>
-                <div class="flex items-center gap-2 text-xs text-orange-100 font-bold"><i class="fa-solid fa-location-dot"></i> 活動地點：日本東京</div>
+
+            <!-- 下方活動卡片動態顯示區 -->
+            <div>
+              <div class="flex items-center gap-3 mb-4">
+                <span class="w-2.5 h-6 rounded-full bg-rose-600"></span>
+                <h4 id="calendarDateDisplay" class="text-lg font-black tracking-wider text-slate-900 uppercase">2026</h4>
               </div>
 
-              <div class="bg-white rounded-[28px] p-6 border border-slate-200 shadow-sm flex flex-col justify-between">
-                <div class="flex items-center justify-between mb-2">
-                  <span class="px-2.5 py-0.5 rounded-md bg-slate-100 text-slate-500 font-black text-[10px] uppercase">傳統節慶</span>
-                  <span class="text-xs font-bold text-slate-400">2026/01/01</span>
+              <div id="calendarEventsContainer" class="grid grid-cols-1 gap-6">
+                <!-- 預設顯示全部 4 個活動卡片 -->
+                <div class="bg-slate-900 rounded-[32px] p-6 text-white shadow-xl border border-slate-800 flex flex-col justify-between">
+                  <div class="flex items-center justify-between mb-6">
+                    <span class="text-xs font-bold text-slate-300"><i class="fa-solid fa-house-chimney text-rose-500 mr-1.5"></i> 傳統節慶 ｜ 家族聚會</span>
+                    <span class="px-4 py-1.5 rounded-full bg-slate-800 text-slate-300 font-black text-xs">已結束</span>
+                  </div>
+                  <div class="py-4 border-y border-slate-800 my-2">
+                    <h4 class="text-2xl font-black mb-2 text-white">新年團圓圍爐</h4>
+                    <p class="text-sm font-medium text-slate-400">全家齊聚一堂享用豐盛年夜飯，互道恭喜並發放新春紅包（已順利完成）。</p>
+                  </div>
+                  <div class="pt-4 flex items-center justify-between text-xs font-bold text-amber-400">
+                    <span><i class="fa-solid fa-calendar-check mr-1"></i> 日期：2026年1月1日</span>
+                  </div>
                 </div>
-                <h4 class="text-lg font-black text-slate-500 line-through">新年團圓圍爐</h4>
-                <p class="text-xs font-medium text-slate-400">全家齊聚一堂享用豐盛年夜飯 (已結束)</p>
-              </div>
 
-              <div class="bg-white rounded-[28px] p-6 border border-slate-200 shadow-sm flex flex-col justify-between">
-                <div class="flex items-center justify-between mb-2">
-                  <span class="px-2.5 py-0.5 rounded-md bg-slate-100 text-slate-500 font-black text-[10px] uppercase">感恩佳節</span>
-                  <span class="text-xs font-bold text-slate-400">2026/05/10</span>
+                <div class="bg-slate-900 rounded-[32px] p-6 text-white shadow-xl border border-slate-800 flex flex-col justify-between">
+                  <div class="flex items-center justify-between mb-6">
+                    <span class="text-xs font-bold text-slate-300"><i class="fa-solid fa-heart text-rose-500 mr-1.5"></i> 感恩佳節 ｜ 溫馨獻禮</span>
+                    <span class="px-4 py-1.5 rounded-full bg-slate-800 text-slate-300 font-black text-xs">已結束</span>
+                  </div>
+                  <div class="py-4 border-y border-slate-800 my-2">
+                    <h4 class="text-2xl font-black mb-2 text-white">母親節慶祝大會</h4>
+                    <p class="text-sm font-medium text-slate-400">獻上最誠摯的感謝與溫馨獻禮，感恩母親為家庭的辛勞付出（已圓滿落幕）。</p>
+                  </div>
+                  <div class="pt-4 flex items-center justify-between text-xs font-bold text-amber-400">
+                    <span><i class="fa-solid fa-calendar-check mr-1"></i> 日期：2026年5月10日</span>
+                  </div>
                 </div>
-                <h4 class="text-lg font-black text-slate-500 line-through">母親節慶祝</h4>
-                <p class="text-xs font-medium text-slate-400">獻上最誠摯的感謝與溫馨獻禮 (已結束)</p>
-              </div>
 
-              <div class="bg-white rounded-[28px] p-6 border border-slate-200 shadow-sm flex flex-col justify-between">
-                <div class="flex items-center justify-between mb-2">
-                  <span class="px-2.5 py-0.5 rounded-md bg-red-50 text-red-600 font-black text-[10px] uppercase border border-red-200">戶外同樂</span>
-                  <span class="text-xs font-bold text-slate-400">2026/09/25</span>
+                <div class="bg-slate-900 rounded-[32px] p-6 text-white shadow-xl border border-slate-800 flex flex-col justify-between">
+                  <div class="flex items-center justify-between mb-6">
+                    <span class="text-xs font-bold text-slate-300"><i class="fa-solid fa-fire-flame-curved text-rose-500 mr-1.5"></i> 戶外同樂 ｜ 節慶活動</span>
+                    <span class="px-4 py-1.5 rounded-full bg-red-50 text-red-600 border border-red-200 font-black text-xs">取消舉辦</span>
+                  </div>
+                  <div class="py-4 border-y border-slate-800 my-2">
+                    <h4 class="text-2xl font-black mb-2 text-white">中秋烤肉同樂晚會</h4>
+                    <p class="text-sm font-medium text-slate-400">原定舉辦之戶外烤肉賞月談心活動（因故取消舉辦，改期再敘）。</p>
+                  </div>
+                  <div class="pt-4 flex items-center justify-between text-xs font-bold text-amber-400">
+                    <span><i class="fa-solid fa-calendar-check mr-1"></i> 日期：2026年9月25日</span>
+                  </div>
                 </div>
-                <h4 class="text-lg font-black text-slate-500 line-through">中秋烤肉同樂</h4>
-                <p class="text-xs font-medium text-slate-400">戶外烤肉香氣四溢賞月談心 (取消舉辦)</p>
+
+                <div class="bg-slate-900 rounded-[32px] p-6 text-white shadow-xl border border-slate-800 flex flex-col justify-between">
+                  <div class="flex items-center justify-between mb-6">
+                    <span class="text-xs font-bold text-slate-300"><i class="fa-solid fa-plane-departure text-rose-500 mr-1.5"></i> 特別旅遊行程 ｜ 東京五天四夜</span>
+                    <span class="px-4 py-1.5 rounded-full bg-orange-600 text-white font-black text-xs">已結束</span>
+                  </div>
+                  <div class="py-4 border-y border-slate-800 my-2">
+                    <h4 class="text-2xl font-black mb-2 text-white">日本行家族旅遊</h4>
+                    <p class="text-sm font-medium text-slate-400">全家族齊聚一堂前往日本東京享受難得假期，參訪著名景點並共享天倫之樂（已圓滿結束）。</p>
+                  </div>
+                  <div class="pt-4 flex items-center justify-between text-xs font-bold text-amber-400">
+                    <span><i class="fa-solid fa-calendar-check mr-1"></i> 日期：2026年10月15日 - 10月19日</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         `;
       }
+
       else if (type === 'scholarship') {
         titleEl.innerText = "獎學金專區 SCHOLARSHIP";
         iconEl.innerHTML = '<i class="fa-solid fa-graduation-cap text-white"></i>';
@@ -1148,6 +1208,84 @@
       }
 
       modal.classList.remove('hidden');
+    }
+
+    // 月曆點擊切換活動函式
+    function switchFamilyEvent(dateKey) {
+      ['jan01', 'may10', 'sep25', 'oct15'].forEach(k => {
+        const el = document.getElementById(`calDay-${k}`);
+        if (el) {
+          el.className = "py-3 rounded-2xl bg-slate-800 text-slate-300 font-black cursor-pointer hover:bg-rose-600/50 transition-all";
+        }
+      });
+
+      const activeEl = document.getElementById(`calDay-${dateKey}`);
+      if (activeEl) {
+        activeEl.className = "py-3 rounded-2xl bg-rose-600 text-white font-black cursor-pointer shadow-lg shadow-rose-600/30 ring-2 ring-rose-400 transition-all hover:scale-105";
+      }
+
+      const eventsData = {
+        jan01: {
+          dateStr: "2026 / 01 / 01 (新年團圓圍爐)",
+          tag: "傳統節慶 ｜ 家族聚會",
+          status: "已結束",
+          statusBg: "bg-slate-800 text-slate-300",
+          title: "新年團圓圍爐",
+          desc: "全家齊聚一堂享用豐盛年夜飯，互道恭喜並發放新春紅包（已順利完成）。",
+          icon: "fa-solid fa-house-chimney",
+          dateInfo: "2026年1月1日"
+        },
+        may10: {
+          dateStr: "2026 / 05 / 10 (母親節慶祝)",
+          tag: "感恩佳節 ｜ 溫馨獻禮",
+          status: "已結束",
+          statusBg: "bg-slate-800 text-slate-300",
+          title: "母親節慶祝大會",
+          desc: "獻上最誠摯的感謝與溫馨獻禮，感恩母親為家庭的辛勞付出（已圓滿落幕）。",
+          icon: "fa-solid fa-heart",
+          dateInfo: "2026年5月10日"
+        },
+        sep25: {
+          dateStr: "2026 / 09 / 25 (中秋烤肉同樂)",
+          tag: "戶外同樂 ｜ 節慶活動",
+          status: "取消舉辦",
+          statusBg: "bg-red-50 text-red-600 border border-red-200",
+          title: "中秋烤肉同樂晚會",
+          desc: "原定舉辦之戶外烤肉賞月談心活動（因故取消舉辦，改期再敘）。",
+          icon: "fa-solid fa-fire-flame-curved",
+          dateInfo: "2026年9月25日"
+        },
+        oct15: {
+          dateStr: "2026 / 10.15 - 10.19 (日本行家族旅遊)",
+          tag: "特別旅遊行程 ｜ 東京五天四夜",
+          status: "已結束",
+          statusBg: "bg-orange-600 text-white",
+          title: "日本行家族旅遊",
+          desc: "全家族齊聚前往日本東京享受難得的假期，參訪著名景點並共享天倫之樂（已圓滿結束）。",
+          icon: "fa-solid fa-plane-departure",
+          dateInfo: "2026年10月15日 - 10月19日"
+        }
+      };
+
+      const data = eventsData[dateKey];
+      if (!data) return;
+
+      document.getElementById('calendarDateDisplay').innerText = `DATE : ${data.dateStr}`;
+      document.getElementById('calendarEventsContainer').innerHTML = `
+        <div class="bg-slate-900 rounded-[32px] p-6 text-white shadow-xl border border-slate-800 flex flex-col justify-between">
+          <div class="flex items-center justify-between mb-6">
+            <span class="text-xs font-bold text-slate-300"><i class="${data.icon} text-rose-500 mr-1.5"></i> ${data.tag}</span>
+            <span class="px-4 py-1.5 rounded-full ${data.statusBg} font-black text-xs">${data.status}</span>
+          </div>
+          <div class="py-4 border-y border-slate-800 my-2">
+            <h4 class="text-2xl font-black mb-2 text-white">${data.title}</h4>
+            <p class="text-sm font-medium text-slate-400">${data.desc}</p>
+          </div>
+          <div class="pt-4 flex items-center justify-between text-xs font-bold text-amber-400">
+            <span><i class="fa-solid fa-calendar-check mr-1"></i> 日期：${data.dateInfo}</span>
+          </div>
+        </div>
+      `;
     }
 
     function filterModalScholarship(category) {
@@ -1210,7 +1348,7 @@
       }
     }
 
-function renderNotices() {
+    function renderNotices() {
       const container = document.getElementById('noticeListContainer');
       if (!container) return;
       container.innerHTML = '';
