@@ -122,15 +122,15 @@
             <i class="fa-solid fa-arrow-right text-xs text-orange-500 transform -translate-x-1 group-hover:translate-x-0 transition-all"></i>
           </a>
           <a href="https://thelufamily.github.io/tokki-cutie/index.html" class="group py-2.5 px-2 flex items-center justify-between text-slate-800 hover:text-orange-600 transition-colors border-b border-slate-50">
-  <span class="font-bold">獎學金專區 SCHOLARSHIP</span>
-  <i class="fa-solid fa-arrow-right text-xs text-orange-500 transform -translate-x-1 group-hover:translate-x-1 transition-all"></i>
-</a>
+            <span class="font-bold">獎學金專區 SCHOLARSHIP</span>
+            <i class="fa-solid fa-arrow-right text-xs text-orange-500 transform -translate-x-1 group-hover:translate-x-1 transition-all"></i>
+          </a>
         </div>
       </div>
     </div>
   </nav>
 
-<!-- 首頁主視覺 HERO 影片區塊 (21:9 電影規格自動拉伸填滿) -->
+  <!-- 首頁主視覺 HERO 影片區塊 (21:9 電影規格自動拉伸填滿) -->
   <div id="home" class="max-w-5xl mx-auto z-10 relative py-6 px-4 text-center" data-aos="zoom-in">
     <div class="glass-card rounded-[35px] shadow-2xl relative overflow-hidden group flex flex-col items-center justify-center bg-black aspect-[21/9] w-full">
       <div class="w-full h-full relative overflow-hidden bg-black">
@@ -138,6 +138,7 @@
       </div>
     </div>
   </div>
+
   <!-- 主要內容區 -->
   <section class="py-10 flex-grow">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 w-full space-y-20">
@@ -160,78 +161,78 @@
         </div>
       </div>
 
-<!-- 最新消息區 -->
-  <div id="notice" class="scroll-mt-24 pt-4">
-    <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 relative section-title-watermark px-2">
-      <div class="watermark-text">NEWS</div>
-      <div class="relative z-10">
-        <span class="text-orange-600 font-black text-xs tracking-widest uppercase block mb-1">最新公告消息</span>
-        <h2 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight uppercase">NEWS</h2>
-      </div>
-      <div class="mt-4 sm:mt-0 relative z-10">
-        <button type="button" onclick="openIndependentPage('notice')" class="inline-flex items-center gap-2 text-xs font-black text-slate-700 hover:text-orange-600 transition-colors group py-2 cursor-pointer">
-          <span>所有消息</span> <i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="flex flex-col gap-6">
-      <div id="noticeListContainer" class="grid grid-flow-col auto-cols-[minmax(340px,1fr)] gap-5 overflow-x-auto pb-4 no-scrollbar snap-x" style="min-height: 460px;">
-        <div class="text-center py-16 text-slate-400 font-bold col-span-full"><i class="fa-solid fa-spinner fa-spin mr-2"></i> 載入中...請稍後</div>
-      </div>
-      <div class="flex items-center justify-between gap-6 pt-2">
-        <div class="flex items-center gap-3 shrink-0">
-          <div class="slider-indicator-num text-lg text-slate-900 flex items-baseline">
-            <span id="noticeCurrentNum">01</span><span class="text-xs text-slate-400 font-bold ml-0.5">/ <span id="noticeTotalNum">10</span></span>
+      <!-- 最新消息區 -->
+      <div id="notice" class="scroll-mt-24 pt-4">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 relative section-title-watermark px-2">
+          <div class="watermark-text">NEWS</div>
+          <div class="relative z-10">
+            <span class="text-orange-600 font-black text-xs tracking-widest uppercase block mb-1">最新公告消息</span>
+            <h2 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight uppercase">NEWS</h2>
           </div>
-          <div class="w-5 h-5 rounded-full bg-orange-500/20 text-orange-600 flex items-center justify-center text-[10px] font-black"><i class="fa-solid fa-plus"></i></div>
-        </div>
-        <div class="flex-grow bg-orange-200/50 h-1.5 rounded-full overflow-hidden relative">
-          <div id="noticeScrollProgress" class="bg-orange-600 h-full w-1/3 transition-all duration-300"></div>
-          <div id="noticeProgressThumb" class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-orange-700 shadow-md border-2 border-white transition-all duration-300 pointer-events-none" style="left: 0%;"></div>
-        </div>
-        <div class="flex items-center gap-2 shrink-0">
-          <button type="button" onclick="scrollNoticeContainer('left')" class="w-10 h-10 rounded-full bg-white hover:bg-orange-50 text-slate-700 hover:text-orange-600 border border-orange-200 flex items-center justify-center transition-all shadow-sm cursor-pointer"><i class="fa-solid fa-chevron-left text-sm"></i></button>
-          <button type="button" onclick="scrollNoticeContainer('right')" class="w-10 h-10 rounded-full bg-white hover:bg-orange-50 text-slate-700 hover:text-orange-600 border border-orange-200 flex items-center justify-center transition-all shadow-sm cursor-pointer"><i class="fa-solid fa-chevron-right text-sm"></i></button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-     <!-- LEADERS 隊職幹部區塊 -->
-  <div id="team-staff" class="scroll-mt-24 pt-4">
-    <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 relative section-title-watermark px-2">
-      <div class="watermark-text" style="font-size: 5rem; top: -20px;">LEADERS</div>
-      <div class="relative z-10">
-        <span class="text-xs font-black text-slate-800 tracking-wider uppercase block mb-1.5 bg-slate-100 px-3 py-1 rounded-md border border-slate-200 w-fit">營運團隊</span>
-        <h2 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight uppercase flex items-center gap-2">
-          LEADERS
-        </h2>
-      </div>
-    </div>
-
-    <div class="flex flex-col gap-6">
-      <div id="topTeamContainer" class="grid grid-flow-col auto-cols-[minmax(320px,1fr)] gap-8 overflow-x-auto pb-4 no-scrollbar snap-x" style="min-height: 480px;">
-        <!-- 透過 JS 動態渲染所有幹部卡片 -->
-      </div>
-      <div class="flex items-center justify-between gap-6 pt-2">
-        <div class="flex items-center gap-3 shrink-0">
-          <div class="slider-indicator-num text-lg text-slate-900 flex items-baseline">
-            <span id="teamCurrentNum">01</span><span class="text-xs text-slate-400 font-bold ml-0.5">/ <span id="teamTotalNum">05</span></span>
+          <div class="mt-4 sm:mt-0 relative z-10">
+            <button type="button" onclick="openIndependentPage('notice')" class="inline-flex items-center gap-2 text-xs font-black text-slate-700 hover:text-orange-600 transition-colors group py-2 cursor-pointer">
+              <span>所有消息</span> <i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
+            </button>
           </div>
-          <div class="w-5 h-5 rounded-full bg-orange-500/20 text-orange-600 flex items-center justify-center text-[10px] font-black"><i class="fa-solid fa-plus"></i></div>
         </div>
-        <div class="flex-grow bg-orange-200/50 h-1.5 rounded-full overflow-hidden relative">
-          <div id="teamScrollProgress" class="bg-orange-600 h-full w-1/3 transition-all duration-300"></div>
-          <div id="teamProgressThumb" class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-orange-700 shadow-md border-2 border-white transition-all duration-300 pointer-events-none" style="left: 0%;"></div>
-        </div>
-        <div class="flex items-center gap-2 shrink-0">
-          <button type="button" onclick="scrollTeamContainer('left')" class="w-10 h-10 rounded-full bg-white hover:bg-orange-50 text-slate-700 hover:text-orange-600 border border-orange-200 flex items-center justify-center transition-all shadow-sm cursor-pointer"><i class="fa-solid fa-chevron-left text-sm"></i></button>
-          <button type="button" onclick="scrollTeamContainer('right')" class="w-10 h-10 rounded-full bg-white hover:bg-orange-50 text-slate-700 hover:text-orange-600 border border-orange-200 flex items-center justify-center transition-all shadow-sm cursor-pointer"><i class="fa-solid fa-chevron-right text-sm"></i></button>
+
+        <div class="flex flex-col gap-6">
+          <div id="noticeListContainer" class="grid grid-flow-col auto-cols-[minmax(340px,1fr)] gap-5 overflow-x-auto pb-4 no-scrollbar snap-x" style="min-height: 460px;">
+            <div class="text-center py-16 text-slate-400 font-bold col-span-full"><i class="fa-solid fa-spinner fa-spin mr-2"></i> 載入中...請稍後</div>
+          </div>
+          <div class="flex items-center justify-between gap-6 pt-2">
+            <div class="flex items-center gap-3 shrink-0">
+              <div class="slider-indicator-num text-lg text-slate-900 flex items-baseline">
+                <span id="noticeCurrentNum">01</span><span class="text-xs text-slate-400 font-bold ml-0.5">/ <span id="noticeTotalNum">10</span></span>
+              </div>
+              <div class="w-5 h-5 rounded-full bg-orange-500/20 text-orange-600 flex items-center justify-center text-[10px] font-black"><i class="fa-solid fa-plus"></i></div>
+            </div>
+            <div class="flex-grow bg-orange-200/50 h-1.5 rounded-full overflow-hidden relative">
+              <div id="noticeScrollProgress" class="bg-orange-600 h-full w-1/3 transition-all duration-300"></div>
+              <div id="noticeProgressThumb" class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-orange-700 shadow-md border-2 border-white transition-all duration-300 pointer-events-none" style="left: 0%;"></div>
+            </div>
+            <div class="flex items-center gap-2 shrink-0">
+              <button type="button" onclick="scrollNoticeContainer('left')" class="w-10 h-10 rounded-full bg-white hover:bg-orange-50 text-slate-700 hover:text-orange-600 border border-orange-200 flex items-center justify-center transition-all shadow-sm cursor-pointer"><i class="fa-solid fa-chevron-left text-sm"></i></button>
+              <button type="button" onclick="scrollNoticeContainer('right')" class="w-10 h-10 rounded-full bg-white hover:bg-orange-50 text-slate-700 hover:text-orange-600 border border-orange-200 flex items-center justify-center transition-all shadow-sm cursor-pointer"><i class="fa-solid fa-chevron-right text-sm"></i></button>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
+
+      <!-- LEADERS 隊職幹部區塊 -->
+      <div id="team-staff" class="scroll-mt-24 pt-4">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 relative section-title-watermark px-2">
+          <div class="watermark-text" style="font-size: 5rem; top: -20px;">LEADERS</div>
+          <div class="relative z-10">
+            <span class="text-xs font-black text-slate-800 tracking-wider uppercase block mb-1.5 bg-slate-100 px-3 py-1 rounded-md border border-slate-200 w-fit">營運團隊</span>
+            <h2 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight uppercase flex items-center gap-2">
+              LEADERS
+            </h2>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-6">
+          <div id="topTeamContainer" class="grid grid-flow-col auto-cols-[minmax(320px,1fr)] gap-8 overflow-x-auto pb-4 no-scrollbar snap-x" style="min-height: 480px;">
+            <!-- 透過 JS 動態渲染所有幹部卡片 -->
+          </div>
+          <div class="flex items-center justify-between gap-6 pt-2">
+            <div class="flex items-center gap-3 shrink-0">
+              <div class="slider-indicator-num text-lg text-slate-900 flex items-baseline">
+                <span id="teamCurrentNum">01</span><span class="text-xs text-slate-400 font-bold ml-0.5">/ <span id="teamTotalNum">05</span></span>
+              </div>
+              <div class="w-5 h-5 rounded-full bg-orange-500/20 text-orange-600 flex items-center justify-center text-[10px] font-black"><i class="fa-solid fa-plus"></i></div>
+            </div>
+            <div class="flex-grow bg-orange-200/50 h-1.5 rounded-full overflow-hidden relative">
+              <div id="teamScrollProgress" class="bg-orange-600 h-full w-1/3 transition-all duration-300"></div>
+              <div id="teamProgressThumb" class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-orange-700 shadow-md border-2 border-white transition-all duration-300 pointer-events-none" style="left: 0%;"></div>
+            </div>
+            <div class="flex items-center gap-2 shrink-0">
+              <button type="button" onclick="scrollTeamContainer('left')" class="w-10 h-10 rounded-full bg-white hover:bg-orange-50 text-slate-700 hover:text-orange-600 border border-orange-200 flex items-center justify-center transition-all shadow-sm cursor-pointer"><i class="fa-solid fa-chevron-left text-sm"></i></button>
+              <button type="button" onclick="scrollTeamContainer('right')" class="w-10 h-10 rounded-full bg-white hover:bg-orange-50 text-slate-700 hover:text-orange-600 border border-orange-200 flex items-center justify-center transition-all shadow-sm cursor-pointer"><i class="fa-solid fa-chevron-right text-sm"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <!-- 家族分布卡片區塊 -->
       <div class="max-w-7xl mx-auto w-full py-16 px-4 sm:px-6" id="family-map">
@@ -384,7 +385,7 @@
             <span id="profileModalJoinYear" class="text-xl sm:text-2xl font-black text-slate-900">--</span>
           </div>
           <div>
-            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-2">出生地</span>
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-0.5">出生地</span>
             <span id="profileModalBirthplace" class="text-xl sm:text-2xl font-black text-slate-900">--</span>
           </div>
         </div>
@@ -394,6 +395,67 @@
             關閉視窗
           </button>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 主管（領隊）專屬彈出視窗：維持原本左圖右文排版，並在下方加入 QA 區塊 -->
+  <div id="directorProfileModal" class="fixed inset-0 z-[200] flex items-center justify-center p-4 sm:p-6 bg-slate-900/60 backdrop-blur-sm hidden" onclick="closeDirectorProfileModal()">
+    <div class="bg-white text-slate-800 rounded-[35px] shadow-2xl overflow-hidden relative uniform-modal-container border border-orange-100 p-6 sm:p-10 text-left flex flex-col overflow-y-auto custom-scrollbar" onclick="event.stopPropagation()">
+      <button type="button" onclick="closeDirectorProfileModal()" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-all cursor-pointer z-10"><i class="fa-solid fa-xmark"></i></button>
+      
+      <div class="flex-grow space-y-8">
+        <!-- 上方：原本的左右並排版面 -->
+        <div class="flex flex-col md:flex-row gap-8 items-center">
+          <div class="w-full md:w-5/12 shrink-0 flex justify-center">
+            <div class="w-64 h-80 sm:w-72 sm:h-96 rounded-[28px] overflow-hidden shadow-xl border-4 border-orange-100 bg-slate-100 flex items-center justify-center relative">
+              <img src="A6AA8149-595E-4860-908E-7C445786C5DC.jpg" alt="主管大頭照" class="w-full h-full object-cover">
+            </div>
+          </div>
+
+          <div class="w-full md:w-7/12 space-y-6">
+            <div>
+              <span class="text-xs font-black text-orange-600 uppercase tracking-widest block mb-1">DIRECTOR · 領隊</span>
+              <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mb-1">主管</h2>
+              <p class="text-sm font-bold text-slate-400 tracking-wider">領隊</p>
+            </div>
+
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 rounded-full bg-slate-900 text-white font-black text-xs">隊職幹部</span>
+              <span class="px-3 py-1 rounded-full bg-orange-600 text-white font-black text-xs">領隊</span>
+            </div>
+
+            <div class="grid grid-cols-2 divide-x divide-slate-200 border-y border-slate-200 py-6 text-center">
+              <div>
+                <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-2">加入年份</span>
+                <span class="text-xl sm:text-2xl font-black text-slate-900">2025</span>
+              </div>
+              <div>
+                <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-2">出生地</span>
+                <span class="text-xl sm:text-2xl font-black text-slate-900">桃園市</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 下方：QA 區塊 -->
+        <div class="pt-6 border-t border-orange-100">
+          <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm space-y-3 hover:border-orange-400 transition-all max-w-3xl mx-auto w-full">
+            <div class="flex items-center gap-3">
+              <span class="w-8 h-8 rounded-xl bg-orange-600 text-white font-black text-sm flex items-center justify-center shrink-0 shadow-md">Q</span>
+              <h4 class="text-base sm:text-lg font-black text-slate-900">你最重視家庭的什麼？</h4>
+            </div>
+            <div class="pl-11 text-orange-600 font-black text-base sm:text-xl tracking-wide">
+              和諧、團結、陪伴、互相包容。
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pt-6 mt-6 border-t border-orange-100 shrink-0">
+        <button type="button" onclick="closeDirectorProfileModal()" class="w-full py-3.5 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-black text-sm uppercase transition-all shadow-md cursor-pointer">
+          關閉視窗
+        </button>
       </div>
     </div>
   </div>
@@ -501,6 +563,122 @@
     </div>
   </div>
 
+  <!-- 營產管理經理專屬風格彈出視窗 -->
+  <div id="assetManagerProfileModal" class="fixed inset-0 z-[200] flex items-center justify-center p-4 sm:p-6 bg-slate-900/60 backdrop-blur-sm hidden" onclick="closeAssetManagerProfileModal()">
+    <div class="bg-white text-slate-800 rounded-[35px] shadow-2xl overflow-hidden relative uniform-modal-container border border-orange-100 p-6 sm:p-10 text-left flex flex-col overflow-y-auto custom-scrollbar" onclick="event.stopPropagation()">
+      <button type="button" onclick="closeAssetManagerProfileModal()" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-all cursor-pointer z-10"><i class="fa-solid fa-xmark"></i></button>
+      
+      <div class="mb-6 border-b border-orange-100 pb-4">
+        <span class="text-xs font-black text-orange-600 tracking-widest uppercase block">個人檔案</span>
+        <h2 class="text-3xl sm:text-5xl font-black tracking-wider uppercase text-slate-900">PROFILE</h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div class="lg:col-span-4 flex flex-col items-center">
+          <div class="w-64 h-80 sm:w-72 sm:h-96 rounded-[28px] overflow-hidden shadow-xl border-4 border-orange-100 bg-slate-100 flex items-center justify-center relative mb-4">
+            <img src="Portrait_Placeholder.jpg" alt="營產管理經理大頭照" class="w-full h-full object-cover">
+          </div>
+          <div class="text-center">
+            <h3 class="text-2xl font-black text-slate-900">營產管理經理</h3>
+            <p class="text-xs font-bold text-orange-600 uppercase tracking-widest mt-1">ASSET MANAGER · 營產</p>
+          </div>
+        </div>
+
+        <div class="lg:col-span-8">
+          <div class="bg-white rounded-[28px] p-6 border border-slate-200 shadow-sm space-y-5">
+            <div class="flex items-center gap-2 border-b border-slate-100 pb-3">
+              <h4 class="text-lg font-black text-slate-900 tracking-wider">BASIC & EXPERIENCE</h4>
+              <span class="text-xs font-bold text-slate-400">基本與學經歷資料</span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+              <div>
+                <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-0.5">加入年份</span>
+                <span class="font-black text-slate-800">2026</span>
+              </div>
+              <div>
+                <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-0.5">出生地</span>
+                <span class="font-black text-slate-800">桃園平鎮</span>
+              </div>
+              <div class="col-span-2">
+                <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-0.5">學 / 經歷</span>
+                <span class="font-black text-orange-600 text-base">比薩列室內裝修有限公司 負責人及設計總監</span>
+              </div>
+              <div class="col-span-2">
+                <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-0.5">專長</span>
+                <span class="font-black text-slate-800 text-base">木工</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pt-6 mt-6 border-t border-orange-100">
+        <button type="button" onclick="closeAssetManagerProfileModal()" class="w-full py-3.5 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-black text-sm uppercase transition-all shadow-md cursor-pointer">
+          關閉視窗
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 設計總監專屬風格彈出視窗 -->
+  <div id="designDirectorProfileModal" class="fixed inset-0 z-[200] flex items-center justify-center p-4 sm:p-6 bg-slate-900/60 backdrop-blur-sm hidden" onclick="closeDesignDirectorProfileModal()">
+    <div class="bg-white text-slate-800 rounded-[35px] shadow-2xl overflow-hidden relative uniform-modal-container border border-orange-100 p-6 sm:p-10 text-left flex flex-col overflow-y-auto custom-scrollbar" onclick="event.stopPropagation()">
+      <button type="button" onclick="closeDesignDirectorProfileModal()" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-all cursor-pointer z-10"><i class="fa-solid fa-xmark"></i></button>
+      
+      <div class="mb-6 border-b border-orange-100 pb-4">
+        <span class="text-xs font-black text-orange-600 tracking-widest uppercase block">個人檔案</span>
+        <h2 class="text-3xl sm:text-5xl font-black tracking-wider uppercase text-slate-900">PROFILE</h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div class="lg:col-span-4 flex flex-col items-center">
+          <div class="w-64 h-80 sm:w-72 sm:h-96 rounded-[28px] overflow-hidden shadow-xl border-4 border-orange-100 bg-slate-100 flex items-center justify-center relative mb-4">
+            <img src="Portrait_Placeholder.jpg" alt="設計總監大頭照" class="w-full h-full object-cover">
+          </div>
+          <div class="text-center">
+            <h3 class="text-2xl font-black text-slate-900">設計總監</h3>
+            <p class="text-xs font-bold text-orange-600 uppercase tracking-widest mt-1">DESIGN DIRECTOR · 設計</p>
+          </div>
+        </div>
+
+        <div class="lg:col-span-8">
+          <div class="bg-white rounded-[28px] p-6 border border-slate-200 shadow-sm space-y-5">
+            <div class="flex items-center gap-2 border-b border-slate-100 pb-3">
+              <h4 class="text-lg font-black text-slate-900 tracking-wider">BASIC & EXPERIENCE</h4>
+              <span class="text-xs font-bold text-slate-400">基本與學經歷資料</span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+              <div>
+                <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-0.5">加入年份</span>
+                <span class="font-black text-slate-800">2026</span>
+              </div>
+              <div>
+                <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-0.5">出生地</span>
+                <span class="font-black text-slate-800">桃園平鎮</span>
+              </div>
+              <div class="col-span-2">
+                <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-0.5">學 / 經歷</span>
+                <span class="font-black text-orange-600 text-base">國立臺灣師範大學美術學系</span>
+              </div>
+              <div class="col-span-2">
+                <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-0.5">專長</span>
+                <span class="font-black text-slate-800 text-base">美術</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pt-6 mt-6 border-t border-orange-100">
+        <button type="button" onclick="closeDesignDirectorProfileModal()" class="w-full py-3.5 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-black text-sm uppercase transition-all shadow-md cursor-pointer">
+          關閉視窗
+        </button>
+      </div>
+    </div>
+  </div>
+
   <!-- 創意總監專屬風格彈出視窗 -->
   <div id="creativeProfileModal" class="fixed inset-0 z-[200] flex items-center justify-center p-4 sm:p-6 bg-slate-900/60 backdrop-blur-sm hidden" onclick="closeCreativeProfileModal()">
     <div class="bg-white text-slate-800 rounded-[35px] shadow-2xl overflow-hidden relative uniform-modal-container border border-orange-100 p-6 sm:p-10 text-left flex flex-col overflow-y-auto custom-scrollbar" onclick="event.stopPropagation()">
@@ -525,8 +703,8 @@
         <div class="lg:col-span-8">
           <div class="bg-white rounded-[28px] p-6 border border-slate-200 shadow-sm space-y-5">
             <div class="flex items-center gap-2 border-b border-slate-100 pb-3">
-              <h4 class="text-lg font-black text-slate-900 tracking-wider">BASIC</h4>
-              <span class="text-xs font-bold text-slate-400">基本資料</span>
+              <h4 class="text-lg font-black text-slate-900 tracking-wider">BASIC & SKILLS</h4>
+              <span class="text-xs font-bold text-slate-400">基本資料與專長</span>
             </div>
 
             <div class="grid grid-cols-2 gap-4 text-sm">
@@ -541,6 +719,10 @@
               <div>
                 <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-0.5">語言能力</span>
                 <span class="font-black text-slate-800">中文、日文(基本)</span>
+              </div>
+              <div>
+                <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-0.5">專長</span>
+                <span class="font-black text-slate-800">3D設計</span>
               </div>
               <div class="col-span-2">
                 <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-0.5">學歷</span>
@@ -784,6 +966,8 @@
         roleTitle: "營產",
         joinYear: "2026",
         birthplace: "桃園平鎮",
+        educationOrExperience: "比薩列室內裝修有限公司 負責人及設計總監",
+        skills: "木工",
         number: "03",
         photo: "Portrait_Placeholder.jpg"
       },
@@ -796,6 +980,7 @@
         birthday: "8/21 (獅子座)",
         education: "龍華科技大學文創系",
         languages: "中文、日文(基本)",
+        skills: "3D設計",
         number: "04",
         photo: "1100217008.jpg"
       },
@@ -805,18 +990,32 @@
         roleTitle: "設計",
         joinYear: "2026",
         birthplace: "桃園平鎮",
+        educationOrExperience: "國立臺灣師範大學美術學系",
+        skills: "美術",
         number: "05",
         photo: "Portrait_Placeholder.jpg"
       }
     };
 
     function openProfileModal(key) {
+      if (key === 'director') {
+        document.getElementById('directorProfileModal').classList.remove('hidden');
+        return;
+      }
       if (key === 'admin') {
         document.getElementById('adminProfileModal').classList.remove('hidden');
         return;
       }
+      if (key === 'staff03') {
+        document.getElementById('assetManagerProfileModal').classList.remove('hidden');
+        return;
+      }
       if (key === 'staff04') {
         document.getElementById('creativeProfileModal').classList.remove('hidden');
+        return;
+      }
+      if (key === 'staff05') {
+        document.getElementById('designDirectorProfileModal').classList.remove('hidden');
         return;
       }
 
@@ -847,8 +1046,20 @@
       document.getElementById('profileModal').classList.add('hidden');
     }
 
+    function closeDirectorProfileModal() {
+      document.getElementById('directorProfileModal').classList.add('hidden');
+    }
+
     function closeAdminProfileModal() {
       document.getElementById('adminProfileModal').classList.add('hidden');
+    }
+
+    function closeAssetManagerProfileModal() {
+      document.getElementById('assetManagerProfileModal').classList.add('hidden');
+    }
+
+    function closeDesignDirectorProfileModal() {
+      document.getElementById('designDirectorProfileModal').classList.add('hidden');
     }
 
     function closeCreativeProfileModal() {
@@ -1034,36 +1245,12 @@
           }
         }
       } 
-else if (type === 'calendar') {
-    // 直接跳轉至指定的活動資訊外部網址
-    window.location.href = "https://thelufamily.github.io/Family-activities/";
-    return;
-  }
-
-
+      else if (type === 'calendar') {
+        window.location.href = "https://thelufamily.github.io/Family-activities/";
+        return;
+      }
 
       modal.classList.remove('hidden');
-    }
-
-    function filterModalScholarship(category) {
-      ['all', 'local', 'clan'].forEach(cat => {
-        const btn = document.getElementById(`mSchTab-${cat}`);
-        if (btn) {
-          btn.className = (cat === category)
-            ? "px-3.5 py-1.5 rounded-xl bg-orange-600 text-white font-black text-xs transition-all cursor-pointer shadow-sm"
-            : "px-3.5 py-1.5 rounded-xl text-slate-600 hover:text-orange-600 font-black text-xs transition-all cursor-pointer";
-        }
-      });
-
-      const cards = document.querySelectorAll('.modal-sch-card');
-      cards.forEach(card => {
-        const cardCat = card.getAttribute('data-category');
-        if (category === 'all' || cardCat === category) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
-        }
-      });
     }
 
     function closeIndependentPage() {
@@ -1105,7 +1292,7 @@ else if (type === 'calendar') {
       }
     }
 
-function renderNotices() {
+    function renderNotices() {
       const container = document.getElementById('noticeListContainer');
       if (!container) return;
       container.innerHTML = '';
