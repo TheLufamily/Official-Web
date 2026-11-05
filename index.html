@@ -514,7 +514,7 @@
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         <div class="lg:col-span-4 flex flex-col items-center">
           <div class="w-64 h-80 sm:w-72 sm:h-96 rounded-[28px] overflow-hidden shadow-xl border-4 border-orange-100 bg-slate-100 flex items-center justify-center relative mb-4">
-            <img src="Portrait_Placeholder.jpg" alt="創意總監大頭照" class="w-full h-full object-cover">
+            <img src="1100217008.jpg" alt="創意總監大頭照" class="w-full h-full object-cover">
           </div>
           <div class="text-center">
             <h3 class="text-2xl font-black text-slate-900">創意總監</h3>
@@ -765,7 +765,7 @@
         joinYear: "2025",
         birthplace: "桃園市",
         number: "01",
-        photo: "Portrait_Placeholder.jpg"
+        photo: "A6AA8149-595E-4860-908E-7C445786C5DC.jpg"
       },
       admin: {
         name: "呂佳寯",
@@ -797,7 +797,7 @@
         education: "龍華科技大學文創系",
         languages: "中文、日文(基本)",
         number: "04",
-        photo: "Portrait_Placeholder.jpg"
+        photo: "1100217008.jpg"
       },
       staff05: {
         name: "設計總監",
@@ -876,10 +876,10 @@
     });
 
     let teamStaffList = [
-      { key: "director", name: "主管", engName: "DIRECTOR", role: "領隊", number: "01", photo: "Portrait_Placeholder.jpg", group: "core" },
+      { key: "director", name: "主管", engName: "DIRECTOR", role: "領隊", number: "01", photo: "A6AA8149-595E-4860-908E-7C445786C5DC.jpg", group: "core" },
       { key: "admin", name: "呂佳寯", engName: "LU JIA JUN", role: "團隊經理", number: "02", photo: "110417006.jpg", hoverPhoto: "volleyball_player_style.jpg", group: "core" },
       { key: "staff03", name: "營產管理經理", engName: "ASSET MANAGER", role: "營產", number: "03", photo: "Portrait_Placeholder.jpg", group: "management" },
-      { key: "staff04", name: "創意總監", engName: "CREATIVE DIRECTOR", role: "創意", number: "04", photo: "Portrait_Placeholder.jpg", group: "management" },
+      { key: "staff04", name: "創意總監", engName: "CREATIVE DIRECTOR", role: "創意", number: "04", photo: "1100217008.jpg", group: "management" },
       { key: "staff05", name: "設計總監", engName: "DESIGN DIRECTOR", role: "設計", number: "05", photo: "Portrait_Placeholder.jpg", group: "management" }
     ];
 
@@ -1041,60 +1041,6 @@ else if (type === 'calendar') {
   }
 
 
-else if (type === 'scholarship') {
-        titleEl.innerText = "獎學金專區 SCHOLARSHIP";
-        iconEl.innerHTML = '<i class="fa-solid fa-graduation-cap text-white"></i>';
-        bodyEl.innerHTML = `
-          <div class="space-y-6">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-              <h3 class="text-xl font-black text-slate-900">各項獎學金與補助申請</h3>
-              <div class="flex items-center gap-1.5 bg-slate-100 p-1.5 rounded-2xl border border-slate-200">
-                <button type="button" onclick="filterModalScholarship('all')" id="mSchTab-all" class="px-3.5 py-1.5 rounded-xl bg-orange-600 text-white font-black text-xs transition-all cursor-pointer shadow-sm">全部顯示</button>
-                <button type="button" onclick="filterModalScholarship('local')" id="mSchTab-local" class="px-3.5 py-1.5 rounded-xl text-slate-600 hover:text-orange-600 font-black text-xs transition-all cursor-pointer">地方回饋</button>
-                <button type="button" onclick="filterModalScholarship('clan')" id="mSchTab-clan" class="px-3.5 py-1.5 rounded-xl text-slate-600 hover:text-orange-600 font-black text-xs transition-all cursor-pointer">宗親專案</button>
-              </div>
-            </div>
-
-            <div class="grid grid-cols-1 gap-6" id="modalScholarshipContainer">
-              <div class="modal-sch-card bg-slate-50 rounded-[28px] p-6 border border-slate-200 shadow-sm flex flex-col justify-between opacity-80" data-category="local">
-                <div>
-                  <div class="flex items-center justify-between mb-3">
-                    <span class="px-3 py-1 rounded-full bg-slate-200 text-slate-600 font-black text-xs uppercase flex items-center gap-1.5"><i class="fa-solid fa-location-dot"></i> 新北市回饋地方專案</span>
-                    <span class="text-xs font-bold text-slate-400">115年度</span>
-                  </div>
-                  <h4 class="text-xl font-black text-slate-500 mb-3">新北市立殯儀館及火化場 115 年度回饋地方經費勤學獎助學金</h4>
-                  <div class="space-y-2 text-xs font-bold text-slate-400 mb-4">
-                    <p>• 申辦對象：設籍於宏翠里學生奮發向學，獎勵品學兼優之學子。</p>
-                    <p>• 發放時間：115 年 11 月 7 日（已發放結束）。</p>
-                  </div>
-                </div>
-                <div class="pt-4 border-t border-slate-200 flex items-center justify-between">
-                  <span class="text-xs font-bold text-slate-400"><i class="fa-regular fa-clock"></i> 已結束申請</span>
-                  <button type="button" disabled class="px-4 py-2 rounded-xl bg-slate-200 text-slate-400 font-black text-xs cursor-not-allowed">已截止無法點選</button>
-                </div>
-              </div>
-
-              <div class="modal-sch-card bg-slate-50 rounded-[28px] p-6 border border-slate-200 shadow-sm flex flex-col justify-between opacity-80" data-category="clan">
-                <div>
-                  <div class="flex items-center justify-between mb-3">
-                    <span class="px-3 py-1 rounded-full bg-slate-200 text-slate-600 font-black text-xs uppercase flex items-center gap-1.5"><i class="fa-solid fa-users"></i> 家族宗親專案</span>
-                    <span class="text-xs font-bold text-slate-400">115年度</span>
-                  </div>
-                  <h4 class="text-xl font-black text-slate-500 mb-3">祭祀公業法人桃園縣呂孟生公派下員子女獎學金申請</h4>
-                  <div class="space-y-2 text-xs font-bold text-slate-400 mb-4">
-                    <p>• 申辦對象：祭祀公業法人桃園縣呂孟生公派下員之在學子女。</p>
-                    <p>• 補助重點：傳承宗親美德、獎勵派下員子女學業優良。</p>
-                  </div>
-                </div>
-                <div class="pt-4 border-t border-slate-200 flex items-center justify-between">
-                  <span class="text-xs font-bold text-slate-400"><i class="fa-regular fa-clock"></i> 已結束申請</span>
-                  <button type="button" disabled class="px-4 py-2 rounded-xl bg-slate-200 text-slate-400 font-black text-xs cursor-not-allowed">已截止無法點選</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        `;
-      }
 
       modal.classList.remove('hidden');
     }
