@@ -91,10 +91,10 @@
       </div>
 
       <div class="hidden lg:flex items-center gap-8 font-bold text-sm text-slate-700 shrink-0">
-        <button type="button" onclick="openIndependentPage('calendar')" class="hover:text-orange-600 transition-colors py-2 tracking-wider cursor-pointer bg-transparent border-0 font-bold text-sm text-slate-700">活動資訊 CALENDAR</button>
+        <a href="https://thelufamily.github.io/ACTUVITES/" target="_blank" class="hover:text-orange-600 transition-colors py-2 tracking-wider font-bold text-sm text-slate-700">活動資訊 CALENDAR</a>
         <a href="#team-staff" class="hover:text-orange-600 transition-colors py-2 tracking-wider">關於我們 ABOUT</a>
         <a href="#notice" class="hover:text-orange-600 transition-colors py-2 tracking-wider">最新消息 NEWS</a> 
-       <a href="https://thelufamily.github.io/SCHOLARSHIP/" class="hover:text-orange-600 transition-colors py-2 tracking-wider font-bold text-sm text-slate-700">獎學金專區 SCHOLARSHIP</a>
+        <a href="https://thelufamily.github.io/SCHOLARSHIP/" target="_blank" class="hover:text-orange-600 transition-colors py-2 tracking-wider font-bold text-sm text-slate-700">獎學金專區 SCHOLARSHIP</a>
       </div>
 
       <div class="flex items-center gap-3">
@@ -109,10 +109,10 @@
       <div class="max-w-4xl mx-auto px-6 py-6 flex flex-col gap-6 text-sm">
         <div class="flex flex-col gap-3">
           <div class="text-xs font-bold text-orange-600 tracking-wider">— 導覽資訊</div>
-          <button type="button" onclick="toggleMobileMenu(); openIndependentPage('calendar');" class="group py-2.5 px-2 flex items-center justify-between text-slate-800 hover:text-orange-600 transition-colors border-b border-slate-50 bg-transparent border-0 text-left w-full cursor-pointer">
+          <a href="https://thelufamily.github.io/ACTUVITES/" target="_blank" onclick="toggleMobileMenu()" class="group py-2.5 px-2 flex items-center justify-between text-slate-800 hover:text-orange-600 transition-colors border-b border-slate-50">
             <span class="font-bold">活動資訊 CALENDAR</span>
             <i class="fa-solid fa-arrow-right text-xs text-orange-500 transform -translate-x-1 group-hover:translate-x-0 transition-all"></i>
-          </button>
+          </a>
           <a href="#team-staff" onclick="toggleMobileMenu()" class="group py-2.5 px-2 flex items-center justify-between text-slate-800 hover:text-orange-600 transition-colors border-b border-slate-50">
             <span class="font-bold">關於我們 ABOUT</span>
             <i class="fa-solid fa-arrow-right text-xs text-orange-500 transform -translate-x-1 group-hover:translate-x-0 transition-all"></i>
@@ -121,7 +121,7 @@
             <span class="font-bold">最新消息 NEWS</span>
             <i class="fa-solid fa-arrow-right text-xs text-orange-500 transform -translate-x-1 group-hover:translate-x-0 transition-all"></i>
           </a>
-          <a href="https://thelufamily.github.io/SCHOLARSHIP/" class="group py-2.5 px-2 flex items-center justify-between text-slate-800 hover:text-orange-600 transition-colors border-b border-slate-50">
+          <a href="https://thelufamily.github.io/SCHOLARSHIP/" target="_blank" onclick="toggleMobileMenu()" class="group py-2.5 px-2 flex items-center justify-between text-slate-800 hover:text-orange-600 transition-colors border-b border-slate-50">
             <span class="font-bold">獎學金專區 SCHOLARSHIP</span>
             <i class="fa-solid fa-arrow-right text-xs text-orange-500 transform -translate-x-1 group-hover:translate-x-1 transition-all"></i>
           </a>
@@ -244,7 +244,7 @@
               FAMILY <span class="text-orange-600">MAP</span>
             </h1>
             <p class="text-gray-600 text-base sm:text-lg">
-              主要分布於新北板橋、桃園平鎮、臺中中區及臺中北區
+              主要分布於新北板橋、桃園平鎮、臺中中區及臺中北区
             </p>
           </div>
 
@@ -1244,10 +1244,6 @@
             paginationEl.appendChild(btn);
           }
         }
-      } 
-      else if (type === 'calendar') {
-        window.location.href = "https://thelufamily.github.io/Family-activities/";
-        return;
       }
 
       modal.classList.remove('hidden');
