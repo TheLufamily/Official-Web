@@ -91,10 +91,10 @@
       </div>
 
       <div class="hidden lg:flex items-center gap-8 font-bold text-sm text-slate-700 shrink-0">
-        <a href="https://thelufamily.github.io/ACTUVITES/" target="_blank" class="hover:text-orange-600 transition-colors py-2 tracking-wider font-bold text-sm text-slate-700">活動資訊 CALENDAR</a>
+        <a href="#calendar-section" class="hover:text-orange-600 transition-colors py-2 tracking-wider font-bold text-sm text-slate-700">活動資訊 CALENDAR</a>
         <a href="#team-staff" class="hover:text-orange-600 transition-colors py-2 tracking-wider">關於我們 ABOUT</a>
         <a href="#notice" class="hover:text-orange-600 transition-colors py-2 tracking-wider">最新消息 NEWS</a> 
-        <a href="https://thelufamily.github.io/SCHOLARSHIP/" target="_blank" class="hover:text-orange-600 transition-colors py-2 tracking-wider font-bold text-sm text-slate-700">獎學金專區 SCHOLARSHIP</a>
+        <a href="#scholarship-section" class="hover:text-orange-600 transition-colors py-2 tracking-wider font-bold text-sm text-slate-700">獎學金專區 SCHOLARSHIP</a>
       </div>
 
       <div class="flex items-center gap-3">
@@ -109,7 +109,7 @@
       <div class="max-w-4xl mx-auto px-6 py-6 flex flex-col gap-6 text-sm">
         <div class="flex flex-col gap-3">
           <div class="text-xs font-bold text-orange-600 tracking-wider">— 導覽資訊</div>
-          <a href="https://thelufamily.github.io/ACTUVITES/" target="_blank" onclick="toggleMobileMenu()" class="group py-2.5 px-2 flex items-center justify-between text-slate-800 hover:text-orange-600 transition-colors border-b border-slate-50">
+          <a href="#calendar-section" onclick="toggleMobileMenu()" class="group py-2.5 px-2 flex items-center justify-between text-slate-800 hover:text-orange-600 transition-colors border-b border-slate-50">
             <span class="font-bold">活動資訊 CALENDAR</span>
             <i class="fa-solid fa-arrow-right text-xs text-orange-500 transform -translate-x-1 group-hover:translate-x-0 transition-all"></i>
           </a>
@@ -121,7 +121,7 @@
             <span class="font-bold">最新消息 NEWS</span>
             <i class="fa-solid fa-arrow-right text-xs text-orange-500 transform -translate-x-1 group-hover:translate-x-0 transition-all"></i>
           </a>
-          <a href="https://thelufamily.github.io/SCHOLARSHIP/" target="_blank" onclick="toggleMobileMenu()" class="group py-2.5 px-2 flex items-center justify-between text-slate-800 hover:text-orange-600 transition-colors border-b border-slate-50">
+          <a href="#scholarship-section" onclick="toggleMobileMenu()" class="group py-2.5 px-2 flex items-center justify-between text-slate-800 hover:text-orange-600 transition-colors border-b border-slate-50">
             <span class="font-bold">獎學金專區 SCHOLARSHIP</span>
             <i class="fa-solid fa-arrow-right text-xs text-orange-500 transform -translate-x-1 group-hover:translate-x-1 transition-all"></i>
           </a>
@@ -161,12 +161,29 @@
         </div>
       </div>
 
+      <!-- 活動資訊專區 (Calendar) 內嵌版 -->
+      <div id="calendar-section" class="scroll-mt-24 pt-4">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 relative section-title-watermark px-2">
+          <div class="watermark-text">CALENDAR</div>
+          <div class="relative z-10">
+            <span class="text-orange-600 font-black text-xs tracking-widest uppercase block mb-1"> 活動資訊</span>
+            <h2 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight uppercase">CALENDAR</h2>
+          </div>
+        </div>
+
+
+        <!-- 活動卡片列表 -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="eventsContainer">
+          <!-- 透過 JS 動態渲染 -->
+        </div>
+      </div>
+
       <!-- 最新消息區 -->
       <div id="notice" class="scroll-mt-24 pt-4">
         <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 relative section-title-watermark px-2">
           <div class="watermark-text">NEWS</div>
           <div class="relative z-10">
-            <span class="text-orange-600 font-black text-xs tracking-widest uppercase block mb-1">最新公告消息</span>
+            <span class="text-orange-600 font-black text-xs tracking-widest uppercase block mb-1">最新消息</span>
             <h2 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight uppercase">NEWS</h2>
           </div>
           <div class="mt-4 sm:mt-0 relative z-10">
@@ -231,6 +248,22 @@
               <button type="button" onclick="scrollTeamContainer('right')" class="w-10 h-10 rounded-full bg-white hover:bg-orange-50 text-slate-700 hover:text-orange-600 border border-orange-200 flex items-center justify-center transition-all shadow-sm cursor-pointer"><i class="fa-solid fa-chevron-right text-sm"></i></button>
             </div>
           </div>
+        </div>
+      </div>
+
+      <!-- 獎學金專區 (Scholarship) 內嵌版 -->
+      <div id="scholarship-section" class="scroll-mt-24 pt-4">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 relative section-title-watermark px-2">
+          <div class="watermark-text">SCHOLARSHIP</div>
+          <div class="relative z-10">
+            <span class="text-orange-600 font-black text-xs tracking-widest uppercase block mb-1"> 獎學金專區</span>
+            <h2 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight uppercase">SCHOLARSHIP</h2>
+          </div>
+        </div>
+
+        <!-- 獎學金卡片列表 -->
+        <div class="space-y-6" id="scholarshipsContainer">
+          <!-- 透過 JS 動態渲染 -->
         </div>
       </div>
 
@@ -345,13 +378,7 @@
         <p class="text-xs sm:text-sm font-bold text-slate-600">&copy; 2026 呂氏家庭生活資訊網 版權所有 All Rights Reserved.</p>
       </div>
       <div>
-        <button type="button" onclick="alert('📲 PWA 安裝提示：\n\n• iOS (iPhone/iPad)：請點選 Safari 瀏覽器的「分享」按鈕，然後選擇「加入主畫面」。\n• Android (Chrome)：請點選瀏覽器右上角選單，選擇「安裝應用程式」或「加到主畫面」。');" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-2xl bg-orange-600 hover:bg-orange-700 text-white font-black text-xs sm:text-sm shadow-md transition-all cursor-pointer">
-          <i class="fa-solid fa-cloud-arrow-down"></i> 下載 APP (PWA 安裝說明)
-        </button>
-      </div>
-    </div>
-  </footer>
-
+        
   <button type="button" id="scrollTopBtn" onclick="scrollToTop()" class="fixed right-6 bottom-6 z-50 w-12 h-12 rounded-full bg-gradient-to-br from-orange-500 to-orange-700 text-white shadow-2xl flex items-center justify-center text-lg hover:scale-110 transition-all duration-300 opacity-0 invisible cursor-pointer border-2 border-white">
     <i class="fa-solid fa-arrow-up"></i>
   </button>
@@ -399,13 +426,12 @@
     </div>
   </div>
 
-  <!-- 主管（領隊）專屬彈出視窗：維持原本左圖右文排版，並在下方加入 QA 區塊 -->
+  <!-- 主管（領隊）專屬彈出視窗 -->
   <div id="directorProfileModal" class="fixed inset-0 z-[200] flex items-center justify-center p-4 sm:p-6 bg-slate-900/60 backdrop-blur-sm hidden" onclick="closeDirectorProfileModal()">
     <div class="bg-white text-slate-800 rounded-[35px] shadow-2xl overflow-hidden relative uniform-modal-container border border-orange-100 p-6 sm:p-10 text-left flex flex-col overflow-y-auto custom-scrollbar" onclick="event.stopPropagation()">
       <button type="button" onclick="closeDirectorProfileModal()" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-all cursor-pointer z-10"><i class="fa-solid fa-xmark"></i></button>
       
       <div class="flex-grow space-y-8">
-        <!-- 上方：原本的左右並排版面 -->
         <div class="flex flex-col md:flex-row gap-8 items-center">
           <div class="w-full md:w-5/12 shrink-0 flex justify-center">
             <div class="w-64 h-80 sm:w-72 sm:h-96 rounded-[28px] overflow-hidden shadow-xl border-4 border-orange-100 bg-slate-100 flex items-center justify-center relative">
@@ -438,7 +464,6 @@
           </div>
         </div>
 
-        <!-- 下方：QA 區塊 -->
         <div class="pt-6 border-t border-orange-100">
           <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm space-y-3 hover:border-orange-400 transition-all max-w-3xl mx-auto w-full">
             <div class="flex items-center gap-3">
@@ -741,6 +766,68 @@
     </div>
   </div>
 
+  <!-- 活動詳情彈出視窗 -->
+  <div id="eventDetailModal" class="fixed inset-0 z-[160] flex items-center justify-center p-4 sm:p-6 bg-slate-900/60 backdrop-blur-sm hidden" onclick="closeEventDetailModal()">
+    <div class="bg-white text-slate-800 rounded-[28px] sm:rounded-[32px] shadow-2xl overflow-hidden relative uniform-modal-container border border-orange-100" onclick="event.stopPropagation()">
+      <div class="bg-slate-900 text-white px-6 sm:px-8 py-5 sm:py-6 flex items-center justify-between relative shrink-0">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-orange-600 text-white flex items-center justify-center text-sm font-black shadow-md"><i class="fa-solid fa-calendar-days"></i></div>
+          <div>
+            <span class="text-[9px] sm:text-[10px] font-bold text-orange-400 uppercase tracking-widest block">LU FAMILY EVENT DETAIL</span>
+            <h4 class="text-sm sm:text-base font-black tracking-wide">活動詳細資訊</h4>
+          </div>
+        </div>
+        <button type="button" onclick="closeEventDetailModal()" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-all cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="p-6 sm:p-8 overflow-y-auto custom-scrollbar space-y-6 flex-grow bg-slate-50/50">
+        <div class="flex flex-wrap items-center gap-3 border-b border-slate-200 pb-4">
+          <span id="modalEventTag" class="text-xs font-black px-4 py-1.5 rounded-full uppercase bg-orange-600 text-white">傳統節慶</span>
+          <div class="flex items-center gap-1.5 text-xs font-bold text-slate-500">
+            <i class="fa-regular fa-calendar-days text-orange-600"></i>
+            <span>活動日期：</span><span id="modalEventDate">--</span>
+          </div>
+        </div>
+        <div><h3 id="modalEventTitle" class="text-xl sm:text-2xl font-black text-slate-900 leading-snug">--</h3></div>
+        <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm">
+          <p id="modalEventDesc" class="text-slate-700 font-medium text-sm sm:text-base whitespace-pre-line leading-relaxed">--</p>
+        </div>
+      </div>
+      <div class="p-4 sm:p-6 bg-white border-t border-slate-200 shrink-0 text-center">
+        <button type="button" onclick="closeEventDetailModal()" class="w-full py-3.5 rounded-2xl bg-slate-800 hover:bg-slate-900 text-white font-black uppercase text-sm shadow-md transition-all cursor-pointer">關閉視窗</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 獎學金詳情彈出視窗 -->
+  <div id="scholarshipDetailModal" class="fixed inset-0 z-[160] flex items-center justify-center p-4 sm:p-6 bg-slate-900/60 backdrop-blur-sm hidden" onclick="closeScholarshipDetailModal()">
+    <div class="bg-white text-slate-800 rounded-[28px] sm:rounded-[32px] shadow-2xl overflow-hidden relative uniform-modal-container border border-orange-100" onclick="event.stopPropagation()">
+      <div class="bg-slate-900 text-white px-6 sm:px-8 py-5 sm:py-6 flex items-center justify-between relative shrink-0">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-orange-600 text-white flex items-center justify-center text-sm font-black shadow-md"><i class="fa-solid fa-award"></i></div>
+          <div>
+            <span class="text-[9px] sm:text-[10px] font-bold text-orange-400 uppercase tracking-widest block">LU FAMILY SCHOLARSHIP DETAIL</span>
+            <h4 class="text-sm sm:text-base font-black tracking-wide">獎學金辦法詳細說明</h4>
+          </div>
+        </div>
+        <button type="button" onclick="closeScholarshipDetailModal()" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-all cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="p-6 sm:p-8 overflow-y-auto custom-scrollbar space-y-6 flex-grow bg-slate-50/50">
+        <div class="flex flex-wrap items-center gap-3 border-b border-slate-200 pb-4">
+          <span id="modalSchTag" class="text-xs font-black px-4 py-1.5 rounded-full uppercase bg-orange-600 text-white">地方回饋專案</span>
+          <span id="modalSchYear" class="text-xs font-black px-4 py-1.5 rounded-full uppercase bg-slate-900 text-white">115年度</span>
+        </div>
+        <div><h3 id="modalSchTitle" class="text-xl sm:text-2xl font-black text-slate-900 leading-snug">--</h3></div>
+        <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm space-y-4">
+          <h4 class="text-sm font-black text-orange-600 uppercase tracking-wider">詳細辦法與內容：</h4>
+          <p id="modalSchContent" class="text-slate-700 font-medium text-sm sm:text-base whitespace-pre-line leading-relaxed">--</p>
+        </div>
+      </div>
+      <div class="p-4 sm:p-6 bg-white border-t border-slate-200 shrink-0 text-center">
+        <button type="button" onclick="closeScholarshipDetailModal()" class="w-full py-3.5 rounded-2xl bg-slate-800 hover:bg-slate-900 text-white font-black uppercase text-sm shadow-md transition-all cursor-pointer">關閉視窗</button>
+      </div>
+    </div>
+  </div>
+
   <div id="independentPageModal" class="fixed inset-0 z-[150] flex items-center justify-center p-4 sm:p-6 bg-slate-900/60 backdrop-blur-md hidden">
     <div class="bg-white text-slate-800 rounded-[35px] sm:rounded-[45px] shadow-2xl overflow-hidden relative uniform-modal-container border border-orange-100">
       <div class="bg-slate-900 text-white px-6 sm:px-8 py-5 sm:py-6 flex items-center justify-between relative shrink-0">
@@ -938,6 +1025,201 @@
     function closeImageLightbox() { document.getElementById('imageLightboxModal').classList.add('hidden'); }
 
     AOS.init({ duration: 1000, once: true });
+
+    /* --- 內嵌活動資訊 (Calendar) 資料與邏輯 --- */
+    const eventsDatabase = [
+      {
+        id: 'ev1',
+        category: '傳統節慶',
+        subCategory: '家族聚會',
+        status: '已順利完成',
+        statusClass: 'bg-emerald-600 text-white',
+        title: '新年團團圓爐',
+        date: '2026年1月1日',
+        desc: '全家齊聚一堂享用豐盛年夜飯，互道恭喜並發放新春紅包（已順利完成）。'
+      },
+      {
+        id: 'ev2',
+        category: '傳統節慶',
+        subCategory: '溫馨獻禮',
+        status: '已圓滿落幕',
+        statusClass: 'bg-rose-600 text-white',
+        title: '母親節慶祝大會',
+        date: '2026年5月10日',
+        desc: '獻上最誠摯的感謝與溫馨獻禮，感恩母親為家庭的辛勞付出（已圓滿落幕）。'
+      },
+      {
+        id: 'ev3',
+        category: '特別旅遊',
+        subCategory: '節慶活動',
+        status: '取消舉辦',
+        statusClass: 'bg-slate-700 text-white',
+        title: '中秋烤肉同樂晚會',
+        date: '2026年9月25日',
+        desc: '原定舉辦之戶外烤肉賞月談心活動（因故取消舉辦，改期再敘）。'
+      }
+    ];
+
+    function renderEvents(filter = 'all', keyword = '') {
+      const container = document.getElementById('eventsContainer');
+      if (!container) return;
+      container.innerHTML = '';
+
+      const filtered = eventsDatabase.filter(ev => {
+        const matchCat = (filter === 'all' || ev.category === filter);
+        const matchKey = (ev.title.includes(keyword) || ev.desc.includes(keyword) || ev.date.includes(keyword));
+        return matchCat && matchKey;
+      });
+
+      if (filtered.length === 0) {
+        container.innerHTML = '<p class="text-center text-slate-400 font-bold py-12 col-span-full">沒有找到符合條件的活動行程。</p>';
+        return;
+      }
+
+      filtered.forEach(ev => {
+        const card = document.createElement('div');
+        card.className = "bg-gradient-to-b from-orange-600 to-amber-700 rounded-[32px] p-6 text-white shadow-xl flex flex-col justify-between relative overflow-hidden group hover:scale-[1.02] transition-all min-h-[360px]";
+        card.innerHTML = `
+          <div class="absolute -right-10 -bottom-10 w-64 h-64 bg-white/10 rounded-full pointer-events-none"></div>
+          <div class="relative z-10">
+            <div class="flex items-center justify-between mb-6">
+              <span class="text-xs font-black tracking-widest uppercase bg-white/20 px-3 py-1 rounded-full backdrop-blur-md">${ev.category} | ${ev.subCategory}</span>
+              <span class="text-xs font-black px-3 py-1 rounded-full ${ev.statusClass} shadow-md">${ev.status}</span>
+            </div>
+            <h3 class="text-2xl font-black tracking-tight mb-3">${ev.title}</h3>
+            <div class="text-xs font-bold text-orange-100 flex items-center gap-1.5 mb-3">
+              <i class="fa-regular fa-calendar-days"></i> ${ev.date}
+            </div>
+            <p class="text-xs text-orange-100 line-clamp-3 leading-relaxed mb-4">${ev.desc}</p>
+          </div>
+          <div class="pt-4 border-t border-white/20 relative z-10 flex items-center justify-between text-xs font-black text-white">
+            <span>LU FAMILY</span>
+            <button type="button" onclick="openEventDetail('${ev.id}')" class="hover:underline flex items-center gap-1 cursor-pointer">了解更多 <i class="fa-solid fa-arrow-right text-[10px]"></i></button>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function filterEvents(category) {
+      document.querySelectorAll('.event-filter-btn').forEach(btn => {
+        btn.className = "event-filter-btn px-6 py-2.5 rounded-2xl bg-slate-100 hover:bg-orange-50 text-slate-700 font-black text-xs sm:text-sm transition-all cursor-pointer";
+      });
+      event.target.className = "event-filter-btn px-6 py-2.5 rounded-2xl bg-orange-600 text-white font-black text-xs sm:text-sm shadow-md transition-all cursor-pointer";
+      
+      const keyword = document.getElementById('eventSearchInput').value.trim();
+      renderEvents(category, keyword);
+    }
+
+    function searchEvents() {
+      const keyword = document.getElementById('eventSearchInput').value.trim();
+      renderEvents('all', keyword);
+    }
+
+    function openEventDetail(id) {
+      const ev = eventsDatabase.find(item => item.id === id);
+      if (!ev) return;
+      document.getElementById('modalEventTag').innerText = ev.category;
+      document.getElementById('modalEventDate').innerText = ev.date;
+      document.getElementById('modalEventTitle').innerText = ev.title;
+      document.getElementById('modalEventDesc').innerText = ev.desc;
+      document.getElementById('eventDetailModal').classList.remove('hidden');
+    }
+
+    function closeEventDetailModal() {
+      document.getElementById('eventDetailModal').classList.add('hidden');
+    }
+
+    /* --- 內嵌獎學金專區 (Scholarship) 資料與邏輯 --- */
+    const scholarshipsDatabase = [
+      {
+        id: 'sch1',
+        category: '地方回饋專案',
+        year: '115年度',
+        status: '已截止',
+        title: '新北市立殯儀館及火化場 115 年度回饋地方經費勤學獎助學金',
+        content: `• 申辦對象：設籍於新北市板橋區宏翠里學生，奮發向學且品學兼優之學子。
+• 發放與截止：115年度申請與發放作業已於 11.月 7 日圓滿完成。
+• 檢附文件：申請書、在學證明或學生證正反面影本、前一學期成績單及戶口名簿。`
+      },
+      {
+        id: 'sch2',
+        category: '宗親專案',
+        year: '115年度',
+        status: '已截止',
+        title: '祭祀公業法人桃園縣呂孟生公派下員子女獎學金申請',
+        content: `• 申辦對象：祭祀公業法人桃園縣呂孟生公派下之在學子女。
+• 設立宗旨：鼓勵宗親後代勤奮向學、傳承家族優良美德與文化。
+• 審查重點：依據各學制學期總平均成績與操行表現進行綜合評定。`
+      }
+    ];
+
+    function renderScholarships(filter = 'all') {
+      const container = document.getElementById('scholarshipsContainer');
+      if (!container) return;
+      container.innerHTML = '';
+
+      const filtered = scholarshipsDatabase.filter(sch => {
+        return (filter === 'all' || sch.category === filter);
+      });
+
+      if (filtered.length === 0) {
+        container.innerHTML = '<p class="text-center text-slate-400 font-bold py-12">沒有找到符合條件的獎學金專案。</p>';
+        return;
+      }
+
+      filtered.forEach(sch => {
+        const card = document.createElement('div');
+        card.className = "bg-white rounded-[32px] p-6 sm:p-8 border border-slate-200 shadow-xl relative overflow-hidden flex flex-col justify-between gap-6 hover:border-orange-500 transition-all";
+        card.innerHTML = `
+          <div>
+            <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+              <div class="flex items-center gap-3">
+                <span class="px-4 py-1.5 rounded-full bg-orange-100 text-orange-700 font-black text-xs uppercase"><i class="fa-solid fa-location-dot mr-1"></i> ${sch.category}</span>
+                <span class="text-xs font-bold text-slate-400">${sch.year}</span>
+              </div>
+              <span class="text-xs font-black px-3.5 py-1 rounded-full bg-slate-100 text-slate-600">${sch.year}</span>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-black text-slate-900 mb-4">${sch.title}</h3>
+            <div class="bg-slate-50 rounded-2xl p-5 border border-slate-100">
+              <p class="text-slate-700 font-medium text-xs sm:text-sm whitespace-pre-line leading-relaxed">${sch.content}</p>
+            </div>
+          </div>
+          <div class="pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="text-xs font-bold text-slate-400 flex items-center gap-1.5">
+              <i class="fa-regular fa-clock text-orange-600"></i> 申請狀態：${sch.status}
+            </div>
+            <button type="button" onclick="openScholarshipDetail('${sch.id}')" class="w-full sm:w-auto px-6 py-3 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-black text-xs uppercase shadow-md transition-all cursor-pointer">
+              查看詳細辦法
+            </button>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function filterScholarships(category) {
+      document.querySelectorAll('.scholarship-filter-btn').forEach(btn => {
+        btn.className = "scholarship-filter-btn px-6 py-2.5 rounded-2xl bg-slate-100 hover:bg-orange-50 text-slate-700 font-black text-xs sm:text-sm transition-all cursor-pointer";
+      });
+      event.target.className = "scholarship-filter-btn px-6 py-2.5 rounded-2xl bg-orange-600 text-white font-black text-xs sm:text-sm shadow-md transition-all cursor-pointer";
+      
+      renderScholarships(category);
+    }
+
+    function openScholarshipDetail(id) {
+      const sch = scholarshipsDatabase.find(item => item.id === id);
+      if (!sch) return;
+      document.getElementById('modalSchTag').innerText = sch.category;
+      document.getElementById('modalSchYear').innerText = sch.year;
+      document.getElementById('modalSchTitle').innerText = sch.title;
+      document.getElementById('modalSchContent').innerText = sch.content;
+      document.getElementById('scholarshipDetailModal').classList.remove('hidden');
+    }
+
+    function closeScholarshipDetailModal() {
+      document.getElementById('scholarshipDetailModal').classList.add('hidden');
+    }
 
     const teamStaffDatabase = {
       director: {
@@ -1603,6 +1885,8 @@
     document.addEventListener('DOMContentLoaded', () => { 
       fetchNoticesFromCloud(); 
       renderHomeTeamStaff();
+      renderEvents();
+      renderScholarships();
     });
   </script>
 </body>
