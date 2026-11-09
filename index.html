@@ -94,6 +94,7 @@
         <a href="#calendar-section" class="hover:text-orange-600 transition-colors py-2 tracking-wider font-bold text-sm text-slate-700">活動資訊 CALENDAR</a>
         <a href="#notice" class="hover:text-orange-600 transition-colors py-2 tracking-wider">最新消息 NEWS</a> 
         <a href="#team-staff" class="hover:text-orange-600 transition-colors py-2 tracking-wider">團隊介紹 LEADERS</a>
+ <a href="#family-map" class="hover:text-orange-600 transition-colors py-2 tracking-wider">單位介紹 family-map</a>
      
         <a href="#scholarship-section" class="inline-flex items-center px-4 py-1.5 border border-orange-500 rounded-full text-orange-600 hover:bg-orange-50 transition-colors tracking-wider font-bold text-sm">
           <span class="w-2 h-2 rounded-full bg-orange-600 mr-2"></span>
@@ -112,7 +113,7 @@
     <div id="mobileMenu" class="hidden bg-white border-t border-slate-100 shadow-2xl transition-all lg:hidden">
       <div class="max-w-4xl mx-auto px-6 py-6 flex flex-col gap-6 text-sm">
         <div class="flex flex-col gap-3">
-          <div class="text-xs font-bold text-orange-600 tracking-wider">— 導覽資訊</div>
+          <div class="text-xs font-bold text-orange-600 tracking-wider">— </div>
           <a href="#calendar-section" onclick="toggleMobileMenu()" class="group py-2.5 px-2 flex items-center justify-between text-slate-800 hover:text-orange-600 transition-colors border-b border-slate-50">
             <span class="font-bold">活動資訊 CALENDAR</span>
             <i class="fa-solid fa-arrow-right text-xs text-orange-500 transform -translate-x-1 group-hover:translate-x-0 transition-all"></i>
@@ -125,12 +126,11 @@
             <span class="font-bold">團隊介紹 LEADERS</span>
             <i class="fa-solid fa-arrow-right text-xs text-orange-500 transform -translate-x-1 group-hover:translate-x-0 transition-all"></i>
           </a>
-          
-          <a href="#scholarship-section" class="inline-flex items-center px-4 py-1.5 border border-orange-500 rounded-full text-orange-600 hover:bg-orange-50 transition-colors tracking-wider font-bold text-sm w-fit">
-            <span class="w-2 h-2 rounded-full bg-orange-600 mr-2"></span>
-            獎學金專區 SCHOLARSHIP
+<a href="#family-map" onclick="toggleMobileMenu()" class="group py-2.5 px-2 flex items-center justify-between text-slate-800 hover:text-orange-600 transition-colors border-b border-slate-50">
+            <span class="font-bold">單位介紹 family-map</span>
+            <i class="fa-solid fa-arrow-right text-xs text-orange-500 transform -translate-x-1 group-hover:translate-x-0 transition-all"></i>
           </a>
-        </div>
+                </div>
       </div>
     </div>
   </nav>
@@ -266,8 +266,8 @@
         </div>
 
         <!-- 獎學金卡片橫式並排滾動列表 -->
-        <div class="flex flex-col gap-6">
-          <div id="scholarshipsContainer" class="grid grid-flow-col auto-cols-[minmax(380px,1fr)] gap-6 overflow-x-auto pb-4 no-scrollbar snap-x" style="min-height: 380px;">
+        <div class="flex flex-col gap-4">
+         <div id="scholarshipsContainer" class="grid grid-flow-col auto-cols-[minmax(300px,380px)] gap-4 overflow-x-auto pb-4 no-scrollbar snap-x" style="min-height: 350px;">
             <!-- 透過 JS 動態渲染 -->
           </div>
         </div>
@@ -296,11 +296,11 @@
               <div>
                 <div class="flex items-center justify-between mb-6 relative z-10">
                   <i class="fa-solid fa-house text-xl text-orange-200"></i>
-                  <span class="text-xs font-black tracking-widest uppercase bg-white/20 px-3 py-1 rounded-full backdrop-blur-md">NEW TAIPEI</span>
+                  <span class="text-xs font-black tracking-widest uppercase bg-white/20 px-3 py-1 rounded-full backdrop-blur-md">NEW TAIPEI CITY</span>
                 </div>
                 <div class="absolute top-4 left-6 text-5xl font-black text-white/10 uppercase tracking-tighter pointer-events-none select-none transition-all group-hover:text-white/25">新北</div>
                 <div class="w-16 h-16 rounded-2xl bg-white/15 backdrop-blur-md flex items-center justify-center text-3xl font-black mb-6 shadow-inner border border-white/20 relative z-10"><i class="fa-solid fa-house-chimney"></i></div>
-                <div class="text-xs font-bold text-orange-100 uppercase tracking-widest mb-1 relative z-10">NEW TAIPEI</div>
+                <div class="text-xs font-bold text-orange-100 uppercase tracking-widest mb-1 relative z-10">Banqiao</div>
                 <h3 class="text-2xl font-black tracking-tight mb-2 relative z-10">總部</h3>
               </div>
               <div class="pt-4 border-t border-white/20 relative z-10 flex items-center justify-between text-xs font-bold text-orange-100">
@@ -320,7 +320,7 @@
                 </div>
                 <div class="absolute top-4 left-6 text-5xl font-black text-white/10 uppercase tracking-tighter pointer-events-none select-none transition-all group-hover:text-white/25">桃園</div>
                 <div class="w-16 h-16 rounded-2xl bg-white/15 backdrop-blur-md flex items-center justify-center text-3xl font-black mb-6 shadow-inner border border-white/20 relative z-10"><i class="fa-solid fa-house-chimney"></i></div>
-                <div class="text-xs font-bold text-rose-100 uppercase tracking-widest mb-1 relative z-10">TAOYUAN PINGZHEN</div>
+                <div class="text-xs font-bold text-rose-100 uppercase tracking-widest mb-1 relative z-10"> PINGZHEN</div>
                 <h3 class="text-2xl font-black tracking-tight mb-2 relative z-10">桃園分部</h3>
               </div>
               <div class="pt-4 border-t border-white/20 relative z-10 flex items-center justify-between text-xs font-bold text-rose-100">
@@ -340,7 +340,7 @@
                 </div>
                 <div class="absolute top-4 left-6 text-5xl font-black text-white/10 uppercase tracking-tighter pointer-events-none select-none transition-all group-hover:text-white/25">臺中中區</div>
                 <div class="w-16 h-16 rounded-2xl bg-white/15 backdrop-blur-md flex items-center justify-center text-3xl font-black mb-6 shadow-inner border border-white/20 relative z-10"><i class="fa-solid fa-house-chimney"></i></div>
-                <div class="text-xs font-bold text-indigo-100 uppercase tracking-widest mb-1 relative z-10">TAICHUNG CENTRAL</div>
+                <div class="text-xs font-bold text-indigo-100 uppercase tracking-widest mb-1 relative z-10">CENTRAL</div>
                 <h3 class="text-2xl font-black tracking-tight mb-2 relative z-10">臺中第一分部</h3>
               </div>
               <div class="pt-4 border-t border-white/20 relative z-10 flex items-center justify-between text-xs font-bold text-indigo-100">
@@ -360,7 +360,7 @@
                 </div>
                 <div class="absolute top-4 left-6 text-5xl font-black text-white/10 uppercase tracking-tighter pointer-events-none select-none transition-all group-hover:text-white/25">臺中北區</div>
                 <div class="w-16 h-16 rounded-2xl bg-white/15 backdrop-blur-md flex items-center justify-center text-3xl font-black mb-6 shadow-inner border border-white/20 relative z-10"><i class="fa-solid fa-house-chimney"></i></div>
-                <div class="text-xs font-bold text-emerald-100 uppercase tracking-widest mb-1 relative z-10">TAICHUNG NORTH</div>
+                <div class="text-xs font-bold text-emerald-100 uppercase tracking-widest mb-1 relative z-10">NORTH</div>
                 <h3 class="text-2xl font-black tracking-tight mb-2 relative z-10">臺中第二分部</h3>
               </div>
               <div class="pt-4 border-t border-white/20 relative z-10 flex items-center justify-between text-xs font-bold text-emerald-100">
@@ -1162,7 +1162,7 @@
 
       filtered.forEach(sch => {
         const card = document.createElement('div');
-        card.className = "bg-white rounded-[32px] p-6 sm:p-8 border border-slate-200 shadow-xl relative overflow-hidden flex flex-col justify-between gap-6 hover:border-orange-500 transition-all shrink-0 w-full sm:w-[400px] snap-start";
+        card.className = "bg-white rounded-[32px] p-6 sm:p-8 border border-slate-200 shadow-xl relative overflow-hidden flex flex-col justify-between gap-6 hover:border-orange-500 transition-all shrink-0 w-full sm:w-[350px] snap-start";
         card.innerHTML = `
           <div>
             <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
