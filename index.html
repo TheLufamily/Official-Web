@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>呂氏家庭生活資訊網 - LU FAMILY</title>
+  <title>呂氏家庭生活資訊網</title>
 
   <!-- PWA Manifest 與 手機捷徑設定 -->
   <link rel="manifest" href="manifest.json">
@@ -92,9 +92,13 @@
 
       <div class="hidden lg:flex items-center gap-8 font-bold text-sm text-slate-700 shrink-0">
         <a href="#calendar-section" class="hover:text-orange-600 transition-colors py-2 tracking-wider font-bold text-sm text-slate-700">活動資訊 CALENDAR</a>
-        <a href="#team-staff" class="hover:text-orange-600 transition-colors py-2 tracking-wider">關於我們 ABOUT</a>
         <a href="#notice" class="hover:text-orange-600 transition-colors py-2 tracking-wider">最新消息 NEWS</a> 
-        <a href="#scholarship-section" class="hover:text-orange-600 transition-colors py-2 tracking-wider font-bold text-sm text-slate-700">獎學金專區 SCHOLARSHIP</a>
+        <a href="#team-staff" class="hover:text-orange-600 transition-colors py-2 tracking-wider">團隊介紹 LEADERS</a>
+     
+        <a href="#scholarship-section" class="inline-flex items-center px-4 py-1.5 border border-orange-500 rounded-full text-orange-600 hover:bg-orange-50 transition-colors tracking-wider font-bold text-sm">
+          <span class="w-2 h-2 rounded-full bg-orange-600 mr-2"></span>
+          獎學金專區 SCHOLARSHIP
+        </a>
       </div>
 
       <div class="flex items-center gap-3">
@@ -113,17 +117,18 @@
             <span class="font-bold">活動資訊 CALENDAR</span>
             <i class="fa-solid fa-arrow-right text-xs text-orange-500 transform -translate-x-1 group-hover:translate-x-0 transition-all"></i>
           </a>
-          <a href="#team-staff" onclick="toggleMobileMenu()" class="group py-2.5 px-2 flex items-center justify-between text-slate-800 hover:text-orange-600 transition-colors border-b border-slate-50">
-            <span class="font-bold">關於我們 ABOUT</span>
-            <i class="fa-solid fa-arrow-right text-xs text-orange-500 transform -translate-x-1 group-hover:translate-x-0 transition-all"></i>
-          </a>
           <a href="#notice" onclick="toggleMobileMenu()" class="group py-2.5 px-2 flex items-center justify-between text-slate-800 hover:text-orange-600 transition-colors border-b border-slate-50">
             <span class="font-bold">最新消息 NEWS</span>
             <i class="fa-solid fa-arrow-right text-xs text-orange-500 transform -translate-x-1 group-hover:translate-x-0 transition-all"></i>
           </a>
-          <a href="#scholarship-section" onclick="toggleMobileMenu()" class="group py-2.5 px-2 flex items-center justify-between text-slate-800 hover:text-orange-600 transition-colors border-b border-slate-50">
-            <span class="font-bold">獎學金專區 SCHOLARSHIP</span>
-            <i class="fa-solid fa-arrow-right text-xs text-orange-500 transform -translate-x-1 group-hover:translate-x-1 transition-all"></i>
+          <a href="#team-staff" onclick="toggleMobileMenu()" class="group py-2.5 px-2 flex items-center justify-between text-slate-800 hover:text-orange-600 transition-colors border-b border-slate-50">
+            <span class="font-bold">團隊介紹 LEADERS</span>
+            <i class="fa-solid fa-arrow-right text-xs text-orange-500 transform -translate-x-1 group-hover:translate-x-0 transition-all"></i>
+          </a>
+          
+          <a href="#scholarship-section" class="inline-flex items-center px-4 py-1.5 border border-orange-500 rounded-full text-orange-600 hover:bg-orange-50 transition-colors tracking-wider font-bold text-sm w-fit">
+            <span class="w-2 h-2 rounded-full bg-orange-600 mr-2"></span>
+            獎學金專區 SCHOLARSHIP
           </a>
         </div>
       </div>
@@ -170,7 +175,6 @@
             <h2 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight uppercase">CALENDAR</h2>
           </div>
         </div>
-
 
         <!-- 活動卡片列表 -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="eventsContainer">
@@ -261,9 +265,11 @@
           </div>
         </div>
 
-        <!-- 獎學金卡片列表 -->
-        <div class="space-y-6" id="scholarshipsContainer">
-          <!-- 透過 JS 動態渲染 -->
+        <!-- 獎學金卡片橫式並排滾動列表 -->
+        <div class="flex flex-col gap-6">
+          <div id="scholarshipsContainer" class="grid grid-flow-col auto-cols-[minmax(380px,1fr)] gap-6 overflow-x-auto pb-4 no-scrollbar snap-x" style="min-height: 380px;">
+            <!-- 透過 JS 動態渲染 -->
+          </div>
         </div>
       </div>
 
@@ -377,8 +383,9 @@
       <div>
         <p class="text-xs sm:text-sm font-bold text-slate-600">&copy; 2026 呂氏家庭生活資訊網 版權所有 All Rights Reserved.</p>
       </div>
-      <div>
-        
+    </div>
+  </footer>
+
   <button type="button" id="scrollTopBtn" onclick="scrollToTop()" class="fixed right-6 bottom-6 z-50 w-12 h-12 rounded-full bg-gradient-to-br from-orange-500 to-orange-700 text-white shadow-2xl flex items-center justify-center text-lg hover:scale-110 transition-all duration-300 opacity-0 invisible cursor-pointer border-2 border-white">
     <i class="fa-solid fa-arrow-up"></i>
   </button>
@@ -1101,21 +1108,6 @@
       });
     }
 
-    function filterEvents(category) {
-      document.querySelectorAll('.event-filter-btn').forEach(btn => {
-        btn.className = "event-filter-btn px-6 py-2.5 rounded-2xl bg-slate-100 hover:bg-orange-50 text-slate-700 font-black text-xs sm:text-sm transition-all cursor-pointer";
-      });
-      event.target.className = "event-filter-btn px-6 py-2.5 rounded-2xl bg-orange-600 text-white font-black text-xs sm:text-sm shadow-md transition-all cursor-pointer";
-      
-      const keyword = document.getElementById('eventSearchInput').value.trim();
-      renderEvents(category, keyword);
-    }
-
-    function searchEvents() {
-      const keyword = document.getElementById('eventSearchInput').value.trim();
-      renderEvents('all', keyword);
-    }
-
     function openEventDetail(id) {
       const ev = eventsDatabase.find(item => item.id === id);
       if (!ev) return;
@@ -1139,8 +1131,8 @@
         status: '已截止',
         title: '新北市立殯儀館及火化場 115 年度回饋地方經費勤學獎助學金',
         content: `• 申辦對象：設籍於新北市板橋區宏翠里學生，奮發向學且品學兼優之學子。
-• 發放與截止：115年度申請與發放作業已於 11.月 7 日圓滿完成。
-• 檢附文件：申請書、在學證明或學生證正反面影本、前一學期成績單及戶口名簿。`
+- 發放與截止：115年度申請與發放作業已於 11.月 7 日圓滿完成。
+- 檢附文件：申請書、在學證明或學生證正反面影本、前一學期成績單及戶口名簿。`
       },
       {
         id: 'sch2',
@@ -1149,8 +1141,8 @@
         status: '已截止',
         title: '祭祀公業法人桃園縣呂孟生公派下員子女獎學金申請',
         content: `• 申辦對象：祭祀公業法人桃園縣呂孟生公派下之在學子女。
-• 設立宗旨：鼓勵宗親後代勤奮向學、傳承家族優良美德與文化。
-• 審查重點：依據各學制學期總平均成績與操行表現進行綜合評定。`
+- 設立宗旨：鼓勵宗親後代勤奮向學、傳承家族優良美德與文化。
+- 審查重點：依據各學制學期總平均成績與操行表現進行綜合評定。`
       }
     ];
 
@@ -1164,13 +1156,13 @@
       });
 
       if (filtered.length === 0) {
-        container.innerHTML = '<p class="text-center text-slate-400 font-bold py-12">沒有找到符合條件的獎學金專案。</p>';
+        container.innerHTML = '<p class="text-center text-slate-400 font-bold py-12 col-span-full">沒有找到符合條件的獎學金專案。</p>';
         return;
       }
 
       filtered.forEach(sch => {
         const card = document.createElement('div');
-        card.className = "bg-white rounded-[32px] p-6 sm:p-8 border border-slate-200 shadow-xl relative overflow-hidden flex flex-col justify-between gap-6 hover:border-orange-500 transition-all";
+        card.className = "bg-white rounded-[32px] p-6 sm:p-8 border border-slate-200 shadow-xl relative overflow-hidden flex flex-col justify-between gap-6 hover:border-orange-500 transition-all shrink-0 w-full sm:w-[400px] snap-start";
         card.innerHTML = `
           <div>
             <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
@@ -1178,33 +1170,23 @@
                 <span class="px-4 py-1.5 rounded-full bg-orange-100 text-orange-700 font-black text-xs uppercase"><i class="fa-solid fa-location-dot mr-1"></i> ${sch.category}</span>
                 <span class="text-xs font-bold text-slate-400">${sch.year}</span>
               </div>
-              <span class="text-xs font-black px-3.5 py-1 rounded-full bg-slate-100 text-slate-600">${sch.year}</span>
             </div>
-            <h3 class="text-xl sm:text-2xl font-black text-slate-900 mb-4">${sch.title}</h3>
-            <div class="bg-slate-50 rounded-2xl p-5 border border-slate-100">
-              <p class="text-slate-700 font-medium text-xs sm:text-sm whitespace-pre-line leading-relaxed">${sch.content}</p>
+            <h3 class="text-xl font-black text-slate-900 mb-4 line-clamp-2">${sch.title}</h3>
+            <div class="bg-slate-50 rounded-2xl p-4 border border-slate-100">
+              <p class="text-slate-700 font-medium text-xs sm:text-sm line-clamp-3 leading-relaxed">${sch.content}</p>
             </div>
           </div>
-          <div class="pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div class="pt-4 border-t border-slate-100 flex items-center justify-between gap-4">
             <div class="text-xs font-bold text-slate-400 flex items-center gap-1.5">
-              <i class="fa-regular fa-clock text-orange-600"></i> 申請狀態：${sch.status}
+              <i class="fa-regular fa-clock text-orange-600"></i> ${sch.status}
             </div>
-            <button type="button" onclick="openScholarshipDetail('${sch.id}')" class="w-full sm:w-auto px-6 py-3 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-black text-xs uppercase shadow-md transition-all cursor-pointer">
+            <button type="button" onclick="openScholarshipDetail('${sch.id}')" class="px-5 py-2.5 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-black text-xs uppercase shadow-md transition-all cursor-pointer">
               查看詳細辦法
             </button>
           </div>
         `;
         container.appendChild(card);
       });
-    }
-
-    function filterScholarships(category) {
-      document.querySelectorAll('.scholarship-filter-btn').forEach(btn => {
-        btn.className = "scholarship-filter-btn px-6 py-2.5 rounded-2xl bg-slate-100 hover:bg-orange-50 text-slate-700 font-black text-xs sm:text-sm transition-all cursor-pointer";
-      });
-      event.target.className = "scholarship-filter-btn px-6 py-2.5 rounded-2xl bg-orange-600 text-white font-black text-xs sm:text-sm shadow-md transition-all cursor-pointer";
-      
-      renderScholarships(category);
     }
 
     function openScholarshipDetail(id) {
@@ -1320,33 +1302,15 @@
         imgEl.classList.remove('hidden');
       }
 
-      document.getElementById('profileModal').classList.add('hidden');
       document.getElementById('profileModal').classList.remove('hidden');
     }
 
-    function closeProfileModal() {
-      document.getElementById('profileModal').classList.add('hidden');
-    }
-
-    function closeDirectorProfileModal() {
-      document.getElementById('directorProfileModal').classList.add('hidden');
-    }
-
-    function closeAdminProfileModal() {
-      document.getElementById('adminProfileModal').classList.add('hidden');
-    }
-
-    function closeAssetManagerProfileModal() {
-      document.getElementById('assetManagerProfileModal').classList.add('hidden');
-    }
-
-    function closeDesignDirectorProfileModal() {
-      document.getElementById('designDirectorProfileModal').classList.add('hidden');
-    }
-
-    function closeCreativeProfileModal() {
-      document.getElementById('creativeProfileModal').classList.add('hidden');
-    }
+    function closeProfileModal() { document.getElementById('profileModal').classList.add('hidden'); }
+    function closeDirectorProfileModal() { document.getElementById('directorProfileModal').classList.add('hidden'); }
+    function closeAdminProfileModal() { document.getElementById('adminProfileModal').classList.add('hidden'); }
+    function closeAssetManagerProfileModal() { document.getElementById('assetManagerProfileModal').classList.add('hidden'); }
+    function closeDesignDirectorProfileModal() { document.getElementById('designDirectorProfileModal').classList.add('hidden'); }
+    function closeCreativeProfileModal() { document.getElementById('creativeProfileModal').classList.add('hidden'); }
 
     const API_URL = "https://script.google.com/macros/s/AKfycbwS-5vgJfq6Prb24jbWuVIpGb6UlHT3yZpXRp4ST4siAAecvzHZ6M8MfNlD_ttlwjuMNQ/exec";
 
@@ -1427,9 +1391,7 @@
       updateTeamProgress();
     }
 
-    function renderHomeTeamStaff() {
-      filterTeam('all');
-    }
+    function renderHomeTeamStaff() { filterTeam('all'); }
 
     function scrollTeamContainer(direction) {
       const container = document.getElementById('topTeamContainer');
@@ -1531,9 +1493,7 @@
       modal.classList.remove('hidden');
     }
 
-    function closeIndependentPage() {
-      document.getElementById('independentPageModal').classList.add('hidden');
-    }
+    function closeIndependentPage() { document.getElementById('independentPageModal').classList.add('hidden'); }
 
     async function fetchNoticesFromCloud() {
       try {
