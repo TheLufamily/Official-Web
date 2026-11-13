@@ -133,11 +133,20 @@
     </div>
   </nav>
 
- <!-- 首頁主視覺 HERO 圖片區塊 (21:9 電影規格自動拉伸填滿) -->
+  <!-- 首頁主視覺 HERO 文字區塊 (21:9 電影規格自動拉伸填滿) -->
   <div id="home" class="max-w-5xl mx-auto z-10 relative py-6 px-4 text-center" data-aos="zoom-in">
-    <div class="glass-card rounded-[35px] shadow-2xl relative overflow-hidden group flex flex-col items-center justify-center bg-black aspect-[21/9] w-full">
-      <div class="w-full h-full relative overflow-hidden bg-black">
-        <img src="CF.png" alt="歡迎蒞臨呂氏家庭" class="w-full h-full object-cover block">
+    <div class="glass-card rounded-[35px] shadow-2xl relative overflow-hidden group flex flex-col items-center justify-center bg-gradient-to-br from-orange-50 via-white to-amber-50 aspect-[21/9] w-full border border-orange-100 p-6 sm:p-12">
+      <div class="absolute inset-0 bg-[radial-gradient(#ea580c_1px,transparent_1px)] [background-size:16px_16px] opacity-10 pointer-events-none"></div>
+      <div class="relative z-10 flex flex-col items-center justify-center space-y-3 sm:space-y-4">
+        <span class="px-4 py-1.5 rounded-full bg-orange-100 text-orange-700 text-xs sm:text-sm font-black tracking-widest uppercase shadow-sm border border-orange-200">
+          LU FAMILY INFORMATION NETWORK
+        </span>
+        <h1 class="text-3xl sm:text-6xl font-black text-slate-900 tracking-wider uppercase">
+          歡迎蒞臨 <span class="text-orange-600">呂氏家庭</span>
+        </h1>
+        <p class="text-xs sm:text-base font-bold text-slate-500 tracking-widest uppercase">
+          凝聚家族情感・共創美好未來
+        </p>
       </div>
     </div>
   </div>
@@ -146,24 +155,6 @@
   <section class="py-10 flex-grow">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 w-full space-y-20">
       
-      <!-- 水平橫式跑馬燈 -->
-      <div class="relative w-screen left-1/2 -translate-x-1/2 overflow-hidden py-3 bg-white border-y border-orange-200 shadow-sm my-4">
-        <div class="marquee-track flex whitespace-nowrap items-center font-black tracking-widest text-lg sm:text-xl uppercase">
-          <div class="flex items-center gap-8 px-4">
-            <span class="outline-text">呂氏家庭 LU FAMILY 凝聚家族情感・共創美好未來</span> <i class="fa-solid fa-star-of-life text-orange-600 text-sm"></i>
-            <span class="outline-text">呂氏家庭 LU FAMILY 凝聚家族情感・共創美好未來</span> <i class="fa-solid fa-star-of-life text-orange-600 text-sm"></i>
-            <span class="outline-text">呂氏家庭 LU FAMILY 凝聚家族情感・共創美好未來</span> <i class="fa-solid fa-star-of-life text-orange-600 text-sm"></i>
-            <span class="outline-text">呂氏家庭 LU FAMILY 凝聚家族情感・共創美好未來</span> <i class="fa-solid fa-star-of-life text-orange-600 text-sm"></i>
-          </div>
-          <div class="flex items-center gap-8 px-4" aria-hidden="true">
-            <span class="outline-text">呂氏家庭 LU FAMILY 凝聚家族情感・共創美好未來</span> <i class="fa-solid fa-star-of-life text-orange-600 text-sm"></i>
-            <span class="outline-text">呂氏家庭 LU FAMILY 凝聚家族情感・共創美好未來</span> <i class="fa-solid fa-star-of-life text-orange-600 text-sm"></i>
-            <span class="outline-text">呂氏家庭 LU FAMILY 凝聚家族情感・共創美好未來</span> <i class="fa-solid fa-star-of-life text-orange-600 text-sm"></i>
-            <span class="outline-text">呂氏家庭 LU FAMILY 凝聚家族情感・共創美好未來</span> <i class="fa-solid fa-star-of-life text-orange-600 text-sm"></i>
-          </div>
-        </div>
-      </div>
-
       <!-- 活動資訊專區 (Calendar) 橫式滑動內嵌版 -->
       <div id="calendar-section" class="scroll-mt-24 pt-4">
         <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 relative section-title-watermark px-2">
@@ -280,9 +271,25 @@
           </div>
         </div>
 
-        <div class="flex flex-col gap-4">
-         <div id="scholarshipsContainer" class="grid grid-flow-col auto-cols-[minmax(300px,380px)] gap-4 overflow-x-auto pb-4 no-scrollbar snap-x" style="min-height: 350px;">
+        <div class="flex flex-col gap-6">
+          <div id="scholarshipsContainer" class="grid grid-flow-col auto-cols-[minmax(300px,380px)] gap-4 overflow-x-auto pb-4 no-scrollbar snap-x" style="min-height: 350px;">
             <!-- 透過 JS 動態渲染 -->
+          </div>
+          <div class="flex items-center justify-between gap-6 pt-2">
+            <div class="flex items-center gap-3 shrink-0">
+              <div class="slider-indicator-num text-lg text-slate-900 flex items-baseline">
+                <span id="scholarshipCurrentNum">01</span><span class="text-xs text-slate-400 font-bold ml-0.5">/ <span id="scholarshipTotalNum">02</span></span>
+              </div>
+              <div class="w-5 h-5 rounded-full bg-orange-500/20 text-orange-600 flex items-center justify-center text-[10px] font-black"><i class="fa-solid fa-plus"></i></div>
+            </div>
+            <div class="flex-grow bg-orange-200/50 h-1.5 rounded-full overflow-hidden relative">
+              <div id="scholarshipScrollProgress" class="bg-orange-600 h-full w-1/3 transition-all duration-300"></div>
+              <div id="scholarshipProgressThumb" class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-orange-700 shadow-md border-2 border-white transition-all duration-300 pointer-events-none" style="left: 0%;"></div>
+            </div>
+            <div class="flex items-center gap-2 shrink-0">
+              <button type="button" onclick="scrollScholarshipContainer('left')" class="w-10 h-10 rounded-full bg-white hover:bg-orange-50 text-slate-700 hover:text-orange-600 border border-orange-200 flex items-center justify-center transition-all shadow-sm cursor-pointer"><i class="fa-solid fa-chevron-left text-sm"></i></button>
+              <button type="button" onclick="scrollScholarshipContainer('right')" class="w-10 h-10 rounded-full bg-white hover:bg-orange-50 text-slate-700 hover:text-orange-600 border border-orange-200 flex items-center justify-center transition-all shadow-sm cursor-pointer"><i class="fa-solid fa-chevron-right text-sm"></i></button>
+            </div>
           </div>
         </div>
       </div>
@@ -1192,6 +1199,9 @@
         return (filter === 'all' || sch.category === filter);
       });
 
+      const totalNumEl = document.getElementById('scholarshipTotalNum');
+      if (totalNumEl) totalNumEl.innerText = String(filtered.length).padStart(2, '0');
+
       if (filtered.length === 0) {
         container.innerHTML = '<p class="text-center text-slate-400 font-bold py-12 col-span-full">沒有找到符合條件的獎學金專案。</p>';
         return;
@@ -1224,7 +1234,51 @@
         `;
         container.appendChild(card);
       });
+      updateScholarshipProgress();
     }
+
+    function scrollScholarshipContainer(direction) {
+      const container = document.getElementById('scholarshipsContainer');
+      const cardWidth = 350 + 16;
+      if (direction === 'left') {
+        container.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+      } else {
+        container.scrollBy({ left: cardWidth, behavior: 'smooth' });
+      }
+      setTimeout(updateScholarshipProgress, 300);
+    }
+
+    function updateScholarshipProgress() {
+      const container = document.getElementById('scholarshipsContainer');
+      const progressBar = document.getElementById('scholarshipScrollProgress');
+      const progressThumb = document.getElementById('scholarshipProgressThumb');
+      const currentNumEl = document.getElementById('scholarshipCurrentNum');
+      if (!container || !progressBar) return;
+      const maxScroll = container.scrollWidth - container.clientWidth;
+      
+      let scrollPercent = 0;
+      if (maxScroll > 0) {
+        scrollPercent = (container.scrollLeft / maxScroll) * 100;
+      }
+      const widthVal = Math.max(scrollPercent, 0);
+      progressBar.style.width = Math.max(widthVal, 15) + '%';
+      if (progressThumb) {
+        progressThumb.style.left = widthVal + '%';
+      }
+
+      const totalItems = scholarshipsDatabase.length;
+      if (totalItems > 0) {
+        const cardWidth = 350 + 16;
+        let currentIndex = Math.round(container.scrollLeft / cardWidth) + 1;
+        if (currentIndex < 1) currentIndex = 1;
+        if (currentIndex > totalItems) currentIndex = totalItems;
+        if (currentNumEl) {
+          currentNumEl.innerText = String(currentIndex).padStart(2, '0');
+        }
+      }
+    }
+
+    document.getElementById('scholarshipsContainer')?.addEventListener('scroll', updateScholarshipProgress);
 
     function openScholarshipDetail(id) {
       const sch = scholarshipsDatabase.find(item => item.id === id);
