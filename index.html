@@ -133,23 +133,24 @@
     </div>
   </nav>
 
-  <!-- 首頁主視覺 HERO 文字區塊 (21:9 電影規格自動拉伸填滿) -->
+ <!-- 首頁主視覺 HERO 文字區塊 (響應式優化，避免在手機被切掉) -->
   <div id="home" class="max-w-5xl mx-auto z-10 relative py-6 px-4 text-center" data-aos="zoom-in">
-    <div class="glass-card rounded-[35px] shadow-2xl relative overflow-hidden group flex flex-col items-center justify-center bg-gradient-to-br from-orange-50 via-white to-amber-50 aspect-[21/9] w-full border border-orange-100 p-6 sm:p-12">
+    <div class="glass-card rounded-[28px] sm:rounded-[35px] shadow-2xl relative overflow-hidden group flex flex-col items-center justify-center bg-gradient-to-br from-orange-50 via-white to-amber-50 min-h-[280px] sm:aspect-[21/9] sm:min-h-[auto] w-full border border-orange-100 p-6 sm:p-12">
       <div class="absolute inset-0 bg-[radial-gradient(#ea580c_1px,transparent_1px)] [background-size:16px_16px] opacity-10 pointer-events-none"></div>
-      <div class="relative z-10 flex flex-col items-center justify-center space-y-3 sm:space-y-4">
-        <span class="px-4 py-1.5 rounded-full bg-orange-100 text-orange-700 text-xs sm:text-sm font-black tracking-widest uppercase shadow-sm border border-orange-200">
+      <div class="relative z-10 flex flex-col items-center justify-center space-y-2 sm:space-y-4 max-w-2xl mx-auto">
+        <span class="px-3.5 py-1 rounded-full bg-orange-100 text-orange-700 text-[10px] sm:text-sm font-black tracking-widest uppercase shadow-sm border border-orange-200">
           LU FAMILY INFORMATION NETWORK
         </span>
-        <h1 class="text-3xl sm:text-6xl font-black text-slate-900 tracking-wider uppercase">
-          歡迎蒞臨 <span class="text-orange-600">呂氏家庭</span>
+        <h1 class="text-2xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-wider uppercase leading-tight">
+          歡迎蒞臨 <span class="text-orange-600 block sm:inline">呂氏家庭</span>
         </h1>
-        <p class="text-xs sm:text-base font-bold text-slate-500 tracking-widest uppercase">
+        <p class="text-[11px] sm:text-base font-bold text-slate-500 tracking-widest uppercase">
           凝聚家族情感・共創美好未來
         </p>
       </div>
     </div>
   </div>
+
 
   <!-- 主要內容區 -->
   <section class="py-10 flex-grow">
