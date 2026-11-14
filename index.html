@@ -93,8 +93,7 @@
       <div class="hidden lg:flex items-center gap-8 font-bold text-sm text-slate-700 shrink-0">
         <a href="#calendar-section" class="hover:text-orange-600 transition-colors py-2 tracking-wider font-bold text-sm text-slate-700">活動資訊 CALENDAR</a>
         <a href="#notice" class="hover:text-orange-600 transition-colors py-2 tracking-wider">最新消息 NEWS</a> 
-        <a href="#team-staff" class="hover:text-orange-600 transition-colors py-2 tracking-wider">團隊介紹 LEADERS</a>
-        <a href="#family-map" class="hover:text-orange-600 transition-colors py-2 tracking-wider">單位介紹 family-map</a>
+        <a href="#family-map" class="hover:text-orange-600 transition-colors py-2 tracking-wider">家族分布 family-map</a>
         <a href="#scholarship-section" class="inline-flex items-center px-4 py-1.5 border border-orange-500 rounded-full text-orange-600 hover:bg-orange-50 transition-colors tracking-wider font-bold text-sm">
           <span class="w-2 h-2 rounded-full bg-orange-600 mr-2"></span>
           獎學金專區 SCHOLARSHIP
@@ -120,12 +119,13 @@
             <span class="font-bold">最新消息 NEWS</span>
             <i class="fa-solid fa-arrow-right text-xs text-orange-500 transform -translate-x-1 group-hover:translate-x-0 transition-all"></i>
           </a>
-          <a href="#team-staff" onclick="toggleMobileMenu()" class="group py-2.5 px-2 flex items-center justify-between text-slate-800 hover:text-orange-600 transition-colors border-b border-slate-50">
-            <span class="font-bold">團隊介紹 LEADERS</span>
+ 	<a href="#scholarship-section" onclick="toggleMobileMenu()" class="group py-2.5 px-2 flex items-center justify-between text-slate-800 hover:text-orange-600 transition-colors border-b border-slate-50">
+            <span class="font-bold">獎學金專區 family-map</span>
             <i class="fa-solid fa-arrow-right text-xs text-orange-500 transform -translate-x-1 group-hover:translate-x-0 transition-all"></i>
           </a>
+
           <a href="#family-map" onclick="toggleMobileMenu()" class="group py-2.5 px-2 flex items-center justify-between text-slate-800 hover:text-orange-600 transition-colors border-b border-slate-50">
-            <span class="font-bold">單位介紹 family-map</span>
+            <span class="font-bold">家族分布 family-map</span>
             <i class="fa-solid fa-arrow-right text-xs text-orange-500 transform -translate-x-1 group-hover:translate-x-0 transition-all"></i>
           </a>
         </div>
@@ -133,7 +133,7 @@
     </div>
   </nav>
 
- <!-- 首頁主視覺 HERO 文字區塊 (響應式優化，避免在手機被切掉) -->
+  <!-- 首頁主視覺 HERO 文字區塊 (響應式優化，避免在手機被切掉) -->
   <div id="home" class="max-w-5xl mx-auto z-10 relative py-6 px-4 text-center" data-aos="zoom-in">
     <div class="glass-card rounded-[28px] sm:rounded-[35px] shadow-2xl relative overflow-hidden group flex flex-col items-center justify-center bg-gradient-to-br from-orange-50 via-white to-amber-50 min-h-[280px] sm:aspect-[21/9] sm:min-h-[auto] w-full border border-orange-100 p-6 sm:p-12">
       <div class="absolute inset-0 bg-[radial-gradient(#ea580c_1px,transparent_1px)] [background-size:16px_16px] opacity-10 pointer-events-none"></div>
@@ -222,41 +222,6 @@
             <div class="flex items-center gap-2 shrink-0">
               <button type="button" onclick="scrollNoticeContainer('left')" class="w-10 h-10 rounded-full bg-white hover:bg-orange-50 text-slate-700 hover:text-orange-600 border border-orange-200 flex items-center justify-center transition-all shadow-sm cursor-pointer"><i class="fa-solid fa-chevron-left text-sm"></i></button>
               <button type="button" onclick="scrollNoticeContainer('right')" class="w-10 h-10 rounded-full bg-white hover:bg-orange-50 text-slate-700 hover:text-orange-600 border border-orange-200 flex items-center justify-center transition-all shadow-sm cursor-pointer"><i class="fa-solid fa-chevron-right text-sm"></i></button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- LEADERS 隊職幹部區塊 -->
-      <div id="team-staff" class="scroll-mt-24 pt-4">
-        <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 relative section-title-watermark px-2">
-          <div class="watermark-text" style="font-size: 5rem; top: -20px;">LEADERS</div>
-          <div class="relative z-10">
-            <span class="text-xs font-black text-slate-800 tracking-wider uppercase block mb-1.5 bg-slate-100 px-3 py-1 rounded-md border border-slate-200 w-fit">營運團隊</span>
-            <h2 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight uppercase flex items-center gap-2">
-              LEADERS
-            </h2>
-          </div>
-        </div>
-
-        <div class="flex flex-col gap-6">
-          <div id="topTeamContainer" class="grid grid-flow-col auto-cols-[minmax(320px,1fr)] gap-8 overflow-x-auto pb-4 no-scrollbar snap-x" style="min-height: 480px;">
-            <!-- 透過 JS 動態渲染所有幹部卡片 -->
-          </div>
-          <div class="flex items-center justify-between gap-6 pt-2">
-            <div class="flex items-center gap-3 shrink-0">
-              <div class="slider-indicator-num text-lg text-slate-900 flex items-baseline">
-                <span id="teamCurrentNum">01</span><span class="text-xs text-slate-400 font-bold ml-0.5">/ <span id="teamTotalNum">05</span></span>
-              </div>
-              <div class="w-5 h-5 rounded-full bg-orange-500/20 text-orange-600 flex items-center justify-center text-[10px] font-black"><i class="fa-solid fa-plus"></i></div>
-            </div>
-            <div class="flex-grow bg-orange-200/50 h-1.5 rounded-full overflow-hidden relative">
-              <div id="teamScrollProgress" class="bg-orange-600 h-full w-1/3 transition-all duration-300"></div>
-              <div id="teamProgressThumb" class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-orange-700 shadow-md border-2 border-white transition-all duration-300 pointer-events-none" style="left: 0%;"></div>
-            </div>
-            <div class="flex items-center gap-2 shrink-0">
-              <button type="button" onclick="scrollTeamContainer('left')" class="w-10 h-10 rounded-full bg-white hover:bg-orange-50 text-slate-700 hover:text-orange-600 border border-orange-200 flex items-center justify-center transition-all shadow-sm cursor-pointer"><i class="fa-solid fa-chevron-left text-sm"></i></button>
-              <button type="button" onclick="scrollTeamContainer('right')" class="w-10 h-10 rounded-full bg-white hover:bg-orange-50 text-slate-700 hover:text-orange-600 border border-orange-200 flex items-center justify-center transition-all shadow-sm cursor-pointer"><i class="fa-solid fa-chevron-right text-sm"></i></button>
             </div>
           </div>
         </div>
@@ -411,389 +376,6 @@
   <button type="button" id="scrollTopBtn" onclick="scrollToTop()" class="fixed right-6 bottom-6 z-50 w-12 h-12 rounded-full bg-gradient-to-br from-orange-500 to-orange-700 text-white shadow-2xl flex items-center justify-center text-lg hover:scale-110 transition-all duration-300 opacity-0 invisible cursor-pointer border-2 border-white">
     <i class="fa-solid fa-arrow-up"></i>
   </button>
-
-  <!-- 一般成員彈出視窗 -->
-  <div id="profileModal" class="fixed inset-0 z-[200] flex items-center justify-center p-4 sm:p-6 bg-slate-900/60 backdrop-blur-sm hidden" onclick="closeProfileModal()">
-    <div class="bg-white text-slate-800 rounded-[35px] shadow-2xl overflow-hidden relative w-full max-w-4xl border border-orange-100 p-6 sm:p-10 text-left flex flex-col md:flex-row gap-8 items-center max-h-[90vh] overflow-y-auto custom-scrollbar" onclick="event.stopPropagation()">
-      <button type="button" onclick="closeProfileModal()" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-all cursor-pointer z-10"><i class="fa-solid fa-xmark"></i></button>
-      
-      <div class="w-full md:w-5/12 shrink-0 flex justify-center">
-        <div id="profileModalImgContainer" class="w-64 h-80 sm:w-72 sm:h-96 rounded-[28px] overflow-hidden shadow-xl border-4 border-orange-100 bg-slate-100 flex items-center justify-center relative">
-          <img id="profileModalImg" src="" alt="成員大頭照" class="w-full h-full object-cover">
-        </div>
-      </div>
-
-      <div class="w-full md:w-7/12 space-y-6">
-        <div>
-          <span id="profileModalEngRole" class="text-xs font-black text-orange-600 uppercase tracking-widest block mb-1">--</span>
-          <h2 id="profileModalName" class="text-3xl sm:text-4xl font-black text-slate-900 mb-1">--</h2>
-          <p id="profileModalRoleTitle" class="text-sm font-bold text-slate-400 tracking-wider">--</p>
-        </div>
-
-        <div class="flex flex-wrap gap-2">
-          <span class="px-3 py-1 rounded-full bg-slate-900 text-white font-black text-xs">隊職幹部</span>
-          <span id="profileModalBadge" class="px-3 py-1 rounded-full bg-orange-600 text-white font-black text-xs">--</span>
-        </div>
-
-        <div id="profileModalGrid" class="grid grid-cols-2 divide-x divide-slate-200 border-y border-slate-200 py-6 text-center">
-          <div>
-            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-2">加入年份</span>
-            <span id="profileModalJoinYear" class="text-xl sm:text-2xl font-black text-slate-900">--</span>
-          </div>
-          <div>
-            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-0.5">出生地</span>
-            <span id="profileModalBirthplace" class="text-xl sm:text-2xl font-black text-slate-900">--</span>
-          </div>
-        </div>
-
-        <div class="pt-4">
-          <button type="button" onclick="closeProfileModal()" class="w-full py-3.5 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-black text-sm uppercase transition-all shadow-md cursor-pointer">
-            關閉視窗
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 主管（領隊）專屬彈出視窗 -->
-  <div id="directorProfileModal" class="fixed inset-0 z-[200] flex items-center justify-center p-4 sm:p-6 bg-slate-900/60 backdrop-blur-sm hidden" onclick="closeDirectorProfileModal()">
-    <div class="bg-white text-slate-800 rounded-[35px] shadow-2xl overflow-hidden relative uniform-modal-container border border-orange-100 p-6 sm:p-10 text-left flex flex-col overflow-y-auto custom-scrollbar" onclick="event.stopPropagation()">
-      <button type="button" onclick="closeDirectorProfileModal()" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-all cursor-pointer z-10"><i class="fa-solid fa-xmark"></i></button>
-      
-      <div class="flex-grow space-y-8">
-        <div class="flex flex-col md:flex-row gap-8 items-center">
-          <div class="w-full md:w-5/12 shrink-0 flex justify-center">
-            <div class="w-64 h-80 sm:w-72 sm:h-96 rounded-[28px] overflow-hidden shadow-xl border-4 border-orange-100 bg-slate-100 flex items-center justify-center relative">
-              <img src="A6AA8149-595E-4860-908E-7C445786C5DC.jpg" alt="主管大頭照" class="w-full h-full object-cover">
-            </div>
-          </div>
-
-          <div class="w-full md:w-7/12 space-y-6">
-            <div>
-              <span class="text-xs font-black text-orange-600 uppercase tracking-widest block mb-1">DIRECTOR · 領隊</span>
-              <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mb-1">主管</h2>
-              <p class="text-sm font-bold text-slate-400 tracking-wider">領隊</p>
-            </div>
-
-            <div class="flex flex-wrap gap-2">
-              <span class="px-3 py-1 rounded-full bg-slate-900 text-white font-black text-xs">隊職幹部</span>
-              <span class="px-3 py-1 rounded-full bg-orange-600 text-white font-black text-xs">領隊</span>
-            </div>
-
-            <div class="grid grid-cols-2 divide-x divide-slate-200 border-y border-slate-200 py-6 text-center">
-              <div>
-                <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-2">加入年份</span>
-                <span class="text-xl sm:text-2xl font-black text-slate-900">2025</span>
-              </div>
-              <div>
-                <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-2">出生地</span>
-                <span class="text-xl sm:text-2xl font-black text-slate-900">桃園市</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="pt-6 border-t border-orange-100">
-          <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm space-y-3 hover:border-orange-400 transition-all max-w-3xl mx-auto w-full">
-            <div class="flex items-center gap-3">
-              <span class="w-8 h-8 rounded-xl bg-orange-600 text-white font-black text-sm flex items-center justify-center shrink-0 shadow-md">Q</span>
-              <h4 class="text-base sm:text-lg font-black text-slate-900">你最重視家庭的什麼？</h4>
-            </div>
-            <div class="pl-11 text-orange-600 font-black text-base sm:text-xl tracking-wide">
-              和諧、團結、陪伴、互相包容。
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="pt-6 mt-6 border-t border-orange-100 shrink-0">
-        <button type="button" onclick="closeDirectorProfileModal()" class="w-full py-3.5 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-black text-sm uppercase transition-all shadow-md cursor-pointer">
-          關閉視窗
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- 營務官專屬精美風格彈出視窗 -->
-  <div id="adminProfileModal" class="fixed inset-0 z-[200] flex items-center justify-center p-4 sm:p-6 bg-slate-900/60 backdrop-blur-sm hidden" onclick="closeAdminProfileModal()">
-    <div class="bg-white text-slate-800 rounded-[35px] shadow-2xl overflow-hidden relative uniform-modal-container border border-orange-100 p-6 sm:p-10 text-left flex flex-col overflow-y-auto custom-scrollbar" onclick="event.stopPropagation()">
-      <button type="button" onclick="closeAdminProfileModal()" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-all cursor-pointer z-10"><i class="fa-solid fa-xmark"></i></button>
-      
-      <div class="mb-6 border-b border-orange-100 pb-4">
-        <span class="text-xs font-black text-orange-600 tracking-widest uppercase block">個人檔案</span>
-        <h2 class="text-3xl sm:text-5xl font-black tracking-wider uppercase text-slate-900">PROFILE</h2>
-      </div>
-
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        <div class="lg:col-span-4 flex flex-col items-center">
-          <div class="w-64 h-80 sm:w-72 sm:h-96 rounded-[28px] overflow-hidden shadow-xl border-4 border-orange-100 bg-slate-100 flex items-center justify-center relative group/avatar mb-4">
-            <img src="110417006.jpg" alt="營務官大頭照" class="w-full h-full object-cover transition-opacity duration-300 group-hover/avatar:opacity-0 absolute inset-0">
-            <img src="volleyball_player_style.jpg" alt="排球球員風格照" class="w-full h-full object-cover opacity-0 transition-opacity duration-300 group-hover/avatar:opacity-100 absolute inset-0">
-            <div class="absolute bottom-3 left-1/2 -translate-x-1/2 bg-black/70 backdrop-blur-md text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider opacity-0 group-hover/avatar:opacity-100 transition-opacity pointer-events-none z-20">
-              ⚡ VOLLEYBALL PLAYER STYLE
-            </div>
-          </div>
-          <div class="text-center">
-            <h3 class="text-2xl font-black text-slate-900">呂佳寯</h3>
-            <p class="text-xs font-bold text-orange-600 uppercase tracking-widest mt-1">ADMIN OFFICER · 團隊經理</p>
-          </div>
-        </div>
-
-        <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div class="bg-white rounded-[28px] p-6 border border-slate-200 shadow-sm space-y-5">
-            <div class="flex items-center gap-2 border-b border-slate-100 pb-3">
-              <h4 class="text-lg font-black text-slate-900 tracking-wider">BASIC</h4>
-              <span class="text-xs font-bold text-slate-400">基本資料</span>
-            </div>
-
-            <div class="grid grid-cols-2 gap-4 text-sm">
-              <div>
-                <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-0.5">暱稱</span>
-                <span class="font-black text-slate-800">教官、班長</span>
-              </div>
-              <div>
-                <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-0.5">生日（星座）</span>
-                <span class="font-black text-slate-800">5/1 (金牛座)</span>
-              </div>
-              <div>
-                <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-0.5">出生地</span>
-                <span class="font-black text-slate-800">新北市</span>
-              </div>
-              <div>
-                <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-0.5">語言能力</span>
-                <span class="font-black text-slate-800">中文</span>
-              </div>
-              <div class="col-span-2">
-                <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-0.5">學歷</span>
-                <span class="font-black text-orange-600">聖約翰科技大學創意設計系</span>
-              </div>
-              <div class="col-span-2">
-                <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-0.5">擅長風格</span>
-                <span class="font-black text-orange-600">LOGO設計, 插畫, 視覺平面設計</span>
-              </div>
-              <div class="col-span-2">
-                <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-0.5">特長</span>
-                <span class="font-black text-slate-800">平面設計、視覺排版</span>
-              </div>
-              <div class="col-span-2">
-                <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-0.5">興趣愛好</span>
-                <span class="font-black text-slate-800">喜歡看啦啦隊 (本命女孩：TOKKI CUTIE 朴恩惠)</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="bg-white rounded-[28px] p-6 border border-slate-200 shadow-sm space-y-5">
-            <div class="flex items-center gap-2 border-b border-slate-100 pb-3">
-              <h4 class="text-lg font-black text-slate-900 tracking-wider">CHARACTER</h4>
-              <span class="text-xs font-bold text-slate-400">個性標籤</span>
-            </div>
-
-            <div class="flex flex-wrap gap-2">
-              <span class="px-4 py-2 rounded-full bg-slate-100 text-slate-700 font-black text-xs border border-slate-200 shadow-sm">認真負責</span>
-              <span class="px-4 py-2 rounded-full bg-slate-100 text-slate-700 font-black text-xs border border-slate-200 shadow-sm">靈活應變</span>
-              <span class="px-4 py-2 rounded-full bg-orange-50 text-orange-700 font-black text-xs border border-orange-200 shadow-sm">美學達人</span>
-              <span class="px-4 py-2 rounded-full bg-orange-100 text-orange-800 font-black text-xs border border-orange-300 shadow-sm">💖 朴恩惠應援</span>
-            </div>
-
-            <div class="pt-4 border-t border-slate-100">
-              <div class="flex items-center justify-between mb-2">
-                <span class="text-xs font-black text-orange-600 uppercase tracking-wider">我的本命</span>
-                <span class="text-[10px] font-bold text-slate-400">TOKKI CUTIE · 朴恩惠</span>
-              </div>
-              <div class="w-full h-56 rounded-2xl overflow-hidden shadow-md border-2 border-orange-200 bg-slate-100">
-                <img src="eastpower-C-022.jpg" alt="本命女孩朴恩惠" class="w-full h-full object-cover">
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-      <div class="pt-6 mt-6 border-t border-orange-100">
-        <button type="button" onclick="closeAdminProfileModal()" class="w-full py-3.5 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-black text-sm uppercase transition-all shadow-md cursor-pointer">
-          關閉視窗
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- 營產管理經理專屬風格彈出視窗 -->
-  <div id="assetManagerProfileModal" class="fixed inset-0 z-[200] flex items-center justify-center p-4 sm:p-6 bg-slate-900/60 backdrop-blur-sm hidden" onclick="closeAssetManagerProfileModal()">
-    <div class="bg-white text-slate-800 rounded-[35px] shadow-2xl overflow-hidden relative uniform-modal-container border border-orange-100 p-6 sm:p-10 text-left flex flex-col overflow-y-auto custom-scrollbar" onclick="event.stopPropagation()">
-      <button type="button" onclick="closeAssetManagerProfileModal()" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-all cursor-pointer z-10"><i class="fa-solid fa-xmark"></i></button>
-      
-      <div class="mb-6 border-b border-orange-100 pb-4">
-        <span class="text-xs font-black text-orange-600 tracking-widest uppercase block">個人檔案</span>
-        <h2 class="text-3xl sm:text-5xl font-black tracking-wider uppercase text-slate-900">PROFILE</h2>
-      </div>
-
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        <div class="lg:col-span-4 flex flex-col items-center">
-          <div class="w-64 h-80 sm:w-72 sm:h-96 rounded-[28px] overflow-hidden shadow-xl border-4 border-orange-100 bg-slate-100 flex items-center justify-center relative mb-4">
-            <img src="營產管理經理.png" alt="營產管理經理大頭照" class="w-full h-full object-cover">
-          </div>
-          <div class="text-center">
-            <h3 class="text-2xl font-black text-slate-900">營產管理經理</h3>
-            <p class="text-xs font-bold text-orange-600 uppercase tracking-widest mt-1">ASSET MANAGER · 營產</p>
-          </div>
-        </div>
-
-        <div class="lg:col-span-8">
-          <div class="bg-white rounded-[28px] p-6 border border-slate-200 shadow-sm space-y-5">
-            <div class="flex items-center gap-2 border-b border-slate-100 pb-3">
-              <h4 class="text-lg font-black text-slate-900 tracking-wider">BASIC & EXPERIENCE</h4>
-              <span class="text-xs font-bold text-slate-400">基本與學經歷資料</span>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
-              <div>
-                <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-0.5">加入年份</span>
-                <span class="font-black text-slate-800">2026</span>
-              </div>
-              <div>
-                <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-0.5">出生地</span>
-                <span class="font-black text-slate-800">桃園平鎮</span>
-              </div>
-              <div class="col-span-2">
-                <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-0.5">學 / 經歷</span>
-                <span class="font-black text-orange-600 text-base">比薩列室內裝修有限公司 負責人</span>
-              </div>
-              <div class="col-span-2">
-                <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-0.5">專長</span>
-                <span class="font-black text-slate-800 text-base">木工</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="pt-6 mt-6 border-t border-orange-100">
-        <button type="button" onclick="closeAssetManagerProfileModal()" class="w-full py-3.5 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-black text-sm uppercase transition-all shadow-md cursor-pointer">
-          關閉視窗
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- 設計總監專屬風格彈出視窗 -->
-  <div id="designDirectorProfileModal" class="fixed inset-0 z-[200] flex items-center justify-center p-4 sm:p-6 bg-slate-900/60 backdrop-blur-sm hidden" onclick="closeDesignDirectorProfileModal()">
-    <div class="bg-white text-slate-800 rounded-[35px] shadow-2xl overflow-hidden relative uniform-modal-container border border-orange-100 p-6 sm:p-10 text-left flex flex-col overflow-y-auto custom-scrollbar" onclick="event.stopPropagation()">
-      <button type="button" onclick="closeDesignDirectorProfileModal()" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-all cursor-pointer z-10"><i class="fa-solid fa-xmark"></i></button>
-      
-      <div class="mb-6 border-b border-orange-100 pb-4">
-        <span class="text-xs font-black text-orange-600 tracking-widest uppercase block">個人檔案</span>
-        <h2 class="text-3xl sm:text-5xl font-black tracking-wider uppercase text-slate-900">PROFILE</h2>
-      </div>
-
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        <div class="lg:col-span-4 flex flex-col items-center">
-          <div class="w-64 h-80 sm:w-72 sm:h-96 rounded-[28px] overflow-hidden shadow-xl border-4 border-orange-100 bg-slate-100 flex items-center justify-center relative mb-4">
-            <img src="Portrait_Placeholder.jpg" alt="設計總監大頭照" class="w-full h-full object-cover">
-          </div>
-          <div class="text-center">
-            <h3 class="text-2xl font-black text-slate-900">設計總監</h3>
-            <p class="text-xs font-bold text-orange-600 uppercase tracking-widest mt-1">DESIGN DIRECTOR · 設計</p>
-          </div>
-        </div>
-
-        <div class="lg:col-span-8">
-          <div class="bg-white rounded-[28px] p-6 border border-slate-200 shadow-sm space-y-5">
-            <div class="flex items-center gap-2 border-b border-slate-100 pb-3">
-              <h4 class="text-lg font-black text-slate-900 tracking-wider">BASIC & EXPERIENCE</h4>
-              <span class="text-xs font-bold text-slate-400">基本與學經歷資料</span>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
-              <div>
-                <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-0.5">加入年份</span>
-                <span class="font-black text-slate-800">2026</span>
-              </div>
-              <div>
-                <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-0.5">出生地</span>
-                <span class="font-black text-slate-800">桃園平鎮</span>
-              </div>
-              <div class="col-span-2">
-                <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-0.5">學 / 經歷</span>
-                <span class="font-black text-orange-600 text-base">國立臺灣師範大學美術學系</span>
-              </div>
-              <div class="col-span-2">
-                <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-0.5">專長</span>
-                <span class="font-black text-slate-800 text-base">美術</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="pt-6 mt-6 border-t border-orange-100">
-        <button type="button" onclick="closeDesignDirectorProfileModal()" class="w-full py-3.5 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-black text-sm uppercase transition-all shadow-md cursor-pointer">
-          關閉視窗
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- 創意總監專屬風格彈出視窗 -->
-  <div id="creativeProfileModal" class="fixed inset-0 z-[200] flex items-center justify-center p-4 sm:p-6 bg-slate-900/60 backdrop-blur-sm hidden" onclick="closeCreativeProfileModal()">
-    <div class="bg-white text-slate-800 rounded-[35px] shadow-2xl overflow-hidden relative uniform-modal-container border border-orange-100 p-6 sm:p-10 text-left flex flex-col overflow-y-auto custom-scrollbar" onclick="event.stopPropagation()">
-      <button type="button" onclick="closeCreativeProfileModal()" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-all cursor-pointer z-10"><i class="fa-solid fa-xmark"></i></button>
-      
-      <div class="mb-6 border-b border-orange-100 pb-4">
-        <span class="text-xs font-black text-orange-600 tracking-widest uppercase block">個人檔案</span>
-        <h2 class="text-3xl sm:text-5xl font-black tracking-wider uppercase text-slate-900">PROFILE</h2>
-      </div>
-
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        <div class="lg:col-span-4 flex flex-col items-center">
-          <div class="w-64 h-80 sm:w-72 sm:h-96 rounded-[28px] overflow-hidden shadow-xl border-4 border-orange-100 bg-slate-100 flex items-center justify-center relative mb-4">
-            <img src="1100217008.jpg" alt="創意總監大頭照" class="w-full h-full object-cover">
-          </div>
-          <div class="text-center">
-            <h3 class="text-2xl font-black text-slate-900">創意總監</h3>
-            <p class="text-xs font-bold text-orange-600 uppercase tracking-widest mt-1">CREATIVE DIRECTOR · 創意</p>
-          </div>
-        </div>
-
-        <div class="lg:col-span-8">
-          <div class="bg-white rounded-[28px] p-6 border border-slate-200 shadow-sm space-y-5">
-            <div class="flex items-center gap-2 border-b border-slate-100 pb-3">
-              <h4 class="text-lg font-black text-slate-900 tracking-wider">BASIC & SKILLS</h4>
-              <span class="text-xs font-bold text-slate-400">基本資料與專長</span>
-            </div>
-
-            <div class="grid grid-cols-2 gap-4 text-sm">
-              <div>
-                <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-0.5">生日（星座）</span>
-                <span class="font-black text-slate-800">8/21 (獅子座)</span>
-              </div>
-              <div>
-                <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-0.5">出生地</span>
-                <span class="font-black text-slate-800">新北市</span>
-              </div>
-              <div>
-                <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-0.5">語言能力</span>
-                <span class="font-black text-slate-800">中文、日文(基本)</span>
-              </div>
-              <div>
-                <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-0.5">專長</span>
-                <span class="font-black text-slate-800">3D設計</span>
-              </div>
-              <div class="col-span-2">
-                <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-0.5">學歷</span>
-                <span class="font-black text-orange-600">龍華科技大學文創系</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="pt-6 mt-6 border-t border-orange-100">
-        <button type="button" onclick="closeCreativeProfileModal()" class="w-full py-3.5 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-black text-sm uppercase transition-all shadow-md cursor-pointer">
-          關閉視窗
-        </button>
-      </div>
-    </div>
-  </div>
 
   <!-- 獎學金詳情彈出視窗 -->
   <div id="scholarshipDetailModal" class="fixed inset-0 z-[160] flex items-center justify-center p-4 sm:p-6 bg-slate-900/60 backdrop-blur-sm hidden" onclick="closeScholarshipDetailModal()">
@@ -1177,7 +759,7 @@
         title: '新北市立殯儀館及火化場 115 年度回饋地方經費勤學獎助學金',
         content: `• 申辦對象：設籍於新北市板橋區宏翠里學生，奮發向學且品學兼優之學子。
 - 發放與截止：115年度申請與發放作業已於 11.月 7 日圓滿完成。
-- 檢附文件：申請書、在學證明或學生證正反面影本、前一學期成績單及戶口名簿。`
+- 檢附文件：申請書、在學證明 or 學生證正反面影本、前一學期成績單及戶口名簿。`
       },
       {
         id: 'sch2',
@@ -1295,115 +877,6 @@
       document.getElementById('scholarshipDetailModal').classList.add('hidden');
     }
 
-    const teamStaffDatabase = {
-      director: {
-        name: "主管",
-        engRole: "DIRECTOR",
-        roleTitle: "領隊",
-        joinYear: "2025",
-        birthplace: "桃園市",
-        number: "01",
-        photo: "A6AA8149-595E-4860-908E-7C445786C5DC.jpg"
-      },
-      admin: {
-        name: "呂佳寯",
-        engRole: "ADMIN OFFICER",
-        roleTitle: "團隊經理",
-        joinYear: "2025",
-        birthplace: "新北市",
-        birthday: "2002.05.01",
-        number: "02",
-        photo: "110417006.jpg",
-        hoverPhoto: "volleyball_player_style.jpg"
-      },
-      staff03: {
-        name: "營產管理經理",
-        engRole: "ASSET MANAGER",
-        roleTitle: "營產",
-        joinYear: "2026",
-        birthplace: "桃園平鎮",
-        educationOrExperience: "比薩列室內裝修有限公司 負責人",
-        skills: "木工",
-        number: "03",
-        photo: "營產管理經理.png"
-      },
-      staff04: {
-        name: "創意總監",
-        engRole: "CREATIVE DIRECTOR",
-        roleTitle: "創意",
-        joinYear: "2026",
-        birthplace: "新北市",
-        birthday: "8/21 (獅子座)",
-        education: "龍華科技大學文創系",
-        languages: "中文、日文(基本)",
-        skills: "3D設計",
-        number: "04",
-        photo: "1100217008.jpg"
-      },
-      staff05: {
-        name: "設計總監",
-        engRole: "DESIGN DIRECTOR",
-        roleTitle: "設計",
-        joinYear: "2026",
-        birthplace: "桃園平鎮",
-        educationOrExperience: "國立臺灣師範大學美術學系",
-        skills: "美術",
-        number: "05",
-        photo: "Portrait_Placeholder.jpg"
-      }
-    };
-
-    function openProfileModal(key) {
-      if (key === 'director') {
-        document.getElementById('directorProfileModal').classList.remove('hidden');
-        return;
-      }
-      if (key === 'admin') {
-        document.getElementById('adminProfileModal').classList.remove('hidden');
-        return;
-      }
-      if (key === 'staff03') {
-        document.getElementById('assetManagerProfileModal').classList.remove('hidden');
-        return;
-      }
-      if (key === 'staff04') {
-        document.getElementById('creativeProfileModal').classList.remove('hidden');
-        return;
-      }
-      if (key === 'staff05') {
-        document.getElementById('designDirectorProfileModal').classList.remove('hidden');
-        return;
-      }
-
-      const data = teamStaffDatabase[key];
-      if (!data) return;
-
-      document.getElementById('profileModalEngRole').innerText = `${data.engRole} · ${data.roleTitle}`;
-      document.getElementById('profileModalName').innerText = data.name;
-      document.getElementById('profileModalRoleTitle').innerText = data.roleTitle;
-      document.getElementById('profileModalBadge').innerText = data.roleTitle;
-      document.getElementById('profileModalJoinYear').innerText = data.joinYear;
-      document.getElementById('profileModalBirthplace').innerText = data.birthplace;
-
-      const imgEl = document.getElementById('profileModalImg');
-      if (data.photo && data.photo.trim() !== '') {
-        imgEl.src = data.photo;
-        imgEl.classList.remove('hidden');
-      } else {
-        imgEl.src = '';
-        imgEl.classList.remove('hidden');
-      }
-
-      document.getElementById('profileModal').classList.remove('hidden');
-    }
-
-    function closeProfileModal() { document.getElementById('profileModal').classList.add('hidden'); }
-    function closeDirectorProfileModal() { document.getElementById('directorProfileModal').classList.add('hidden'); }
-    function closeAdminProfileModal() { document.getElementById('adminProfileModal').classList.add('hidden'); }
-    function closeAssetManagerProfileModal() { document.getElementById('assetManagerProfileModal').classList.add('hidden'); }
-    function closeDesignDirectorProfileModal() { document.getElementById('designDirectorProfileModal').classList.add('hidden'); }
-    function closeCreativeProfileModal() { document.getElementById('creativeProfileModal').classList.add('hidden'); }
-
     const API_URL = "https://script.google.com/macros/s/AKfycbwS-5vgJfq6Prb24jbWuVIpGb6UlHT3yZpXRp4ST4siAAecvzHZ6M8MfNlD_ttlwjuMNQ/exec";
 
     let noticeData = {};
@@ -1423,112 +896,6 @@
         }
       }
     });
-
-    let teamStaffList = [
-      { key: "director", name: "主管", engName: "DIRECTOR", role: "領隊", number: "01", photo: "A6AA8149-595E-4860-908E-7C445786C5DC.jpg", group: "core" },
-      { key: "admin", name: "呂佳寯", engName: "LU JIA JUN", role: "團隊經理", number: "02", photo: "110417006.jpg", hoverPhoto: "volleyball_player_style.jpg", group: "core" },
-      { key: "staff03", name: "營產管理經理", engName: "ASSET MANAGER", role: "營產", number: "03", photo: "營產管理經理.png", group: "management" },
-      { key: "staff04", name: "創意總監", engName: "CREATIVE DIRECTOR", role: "創意", number: "04", photo: "1100217008.jpg", group: "management" },
-      { key: "staff05", name: "設計總監", engName: "DESIGN DIRECTOR", role: "設計", number: "05", photo: "Portrait_Placeholder.jpg", group: "management" }
-    ];
-
-    function filterTeam(category) {
-      let filteredList = teamStaffList;
-      if (category === 'core') {
-        filteredList = teamStaffList.filter(m => m.group === 'core');
-      } else if (category === 'management') {
-        filteredList = teamStaffList.filter(m => m.group === 'management');
-      }
-
-      const container = document.getElementById('topTeamContainer');
-      if (!container) return;
-      container.innerHTML = '';
-
-      filteredList.forEach((member) => {
-        const item = document.createElement('div');
-        item.className = "bg-white rounded-[32px] border border-slate-200 shadow-xl overflow-hidden flex flex-col justify-between group cursor-pointer hover:border-orange-500 hover:shadow-2xl transition-all shrink-0 w-full sm:w-[320px] snap-start";
-        item.setAttribute('onclick', `openProfileModal('${member.key}')`);
-
-        let imageHTML = `<img src="${member.photo}" alt="${member.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">`;
-        if (member.hoverPhoto) {
-          imageHTML = `
-            <div class="w-full h-full relative group/avatar">
-              <img src="${member.photo}" alt="${member.name}" class="w-full h-full object-cover transition-opacity duration-300 group-hover/avatar:opacity-0 absolute inset-0">
-              <img src="${member.hoverPhoto}" alt="${member.name}風格照" class="w-full h-full object-cover opacity-0 transition-opacity duration-300 group-hover/avatar:opacity-100 absolute inset-0">
-              <div class="absolute bottom-3 left-1/2 -translate-x-1/2 bg-black/70 backdrop-blur-md text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider opacity-0 group-hover/avatar:opacity-100 transition-opacity pointer-events-none z-20">
-                ⚡ VOLLEYBALL PLAYER STYLE
-              </div>
-            </div>
-          `;
-        }
-
-        item.innerHTML = `
-          <div class="relative w-full h-[380px] sm:h-[400px] bg-slate-100 overflow-hidden flex items-center justify-center">
-            ${imageHTML}
-            <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none"></div>
-          </div>
-          <div class="p-6 bg-white border-t border-slate-100 flex items-end justify-between">
-            <div>
-              <h3 class="text-2xl font-black text-slate-900 mb-1">${member.name}</h3>
-              <p class="text-xs font-black text-orange-600 tracking-wider uppercase mb-1">${member.engName}</p>
-              <p class="text-xs font-bold text-slate-400">${member.role}</p>
-            </div>
-            <div class="w-12 h-12 rounded-2xl bg-slate-900 text-white flex items-center justify-center font-black text-base shadow-lg group-hover:bg-orange-600 transition-colors">
-              ${member.number}
-            </div>
-          </div>
-        `;
-        container.appendChild(item);
-      });
-      updateTeamProgress();
-    }
-
-    function renderHomeTeamStaff() { filterTeam('all'); }
-
-    function scrollTeamContainer(direction) {
-      const container = document.getElementById('topTeamContainer');
-      const cardWidth = 320 + 32;
-      if (direction === 'left') {
-        container.scrollBy({ left: -cardWidth, behavior: 'smooth' });
-      } else {
-        container.scrollBy({ left: cardWidth, behavior: 'smooth' });
-      }
-      setTimeout(updateTeamProgress, 300);
-    }
-
-    function updateTeamProgress() {
-      const container = document.getElementById('topTeamContainer');
-      const progressBar = document.getElementById('teamScrollProgress');
-      const progressThumb = document.getElementById('teamProgressThumb');
-      const currentNumEl = document.getElementById('teamCurrentNum');
-      if (!container || !progressBar) return;
-      const maxScroll = container.scrollWidth - container.clientWidth;
-      
-      let scrollPercent = 0;
-      if (maxScroll > 0) {
-        scrollPercent = (container.scrollLeft / maxScroll) * 100;
-      }
-      const widthVal = Math.max(scrollPercent, 0);
-      progressBar.style.width = Math.max(widthVal, 15) + '%';
-      if (progressThumb) {
-        progressThumb.style.left = widthVal + '%';
-      }
-
-      const totalItems = teamStaffList.length;
-      if (totalItems > 0) {
-        const firstCard = container.querySelector('div');
-        const cardWidth = firstCard ? firstCard.clientWidth + 32 : 352;
-        let currentIndex = Math.round(container.scrollLeft / cardWidth) + 1;
-        if (currentIndex < 1) currentIndex = 1;
-        if (currentIndex > totalItems) currentIndex = totalItems;
-        if (currentNumEl) {
-          currentNumEl.innerText = String(currentIndex).padStart(2, '0');
-        }
-      }
-    }
-
-    document.getElementById('topTeamContainer')?.addEventListener('scroll', updateTeamProgress);
-    window.addEventListener('resize', updateTeamProgress);
 
     function formatDate(d) { if (!d) return ''; return String(d).includes('T') ? String(d).split('T')[0] : d; }
 
@@ -1936,7 +1303,6 @@
 
     document.addEventListener('DOMContentLoaded', () => { 
       fetchNoticesFromCloud(); 
-      renderHomeTeamStaff();
       renderEvents();
       renderScholarships();
     });
