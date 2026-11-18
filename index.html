@@ -54,7 +54,7 @@
       <div class="hidden lg:flex items-center gap-8 font-bold text-sm text-slate-700 shrink-0">
         <a href="#calendar-section" class="hover:text-orange-600 transition-colors py-2 tracking-wider">活動資訊 CALENDAR</a>
         <a href="#notice" class="hover:text-orange-600 transition-colors py-2 tracking-wider">最新消息 NEWS</a> 
-
+	<a href="#operations-team" class="hover:text-orange-600 transition-colors py-2 tracking-wider">營運團隊 OPERATIONS TEAM</a> 
         <a href="#family-map" class="hover:text-orange-600 transition-colors py-2 tracking-wider">家族分布 FAMILY-MAP</a>
         <a href="#highlights-section" class="hover:text-orange-600 transition-colors py-2 tracking-wider">活動花絮 HIGHLIGHTS</a>
       </div>
@@ -78,7 +78,10 @@
             <span class="font-bold">最新消息 NEWS</span>
             <i class="fa-solid fa-arrow-right text-xs text-orange-500 transform -translate-x-1 group-hover:translate-x-0 transition-all"></i>
           </a>
-
+          <a href="#operations-team" onclick="toggleMobileMenu()" class="group py-2.5 px-2 flex items-center justify-between text-slate-800 hover:text-orange-600 transition-colors border-b border-slate-50">
+            <span class="font-bold">營運團隊 OPERATIONS TEAM</span>
+            <i class="fa-solid fa-arrow-right text-xs text-orange-500 transform -translate-x-1 group-hover:translate-x-0 transition-all"></i>
+          </a>
           <a href="#family-map" onclick="toggleMobileMenu()" class="group py-2.5 px-2 flex items-center justify-between text-slate-800 hover:text-orange-600 transition-colors border-b border-slate-50">
             <span class="font-bold">家族分布 FAMILY-MAP</span>
             <i class="fa-solid fa-arrow-right text-xs text-orange-500 transform -translate-x-1 group-hover:translate-x-0 transition-all"></i>
@@ -190,8 +193,285 @@
         </div>
       </div>
 
+<!-- 營運團隊專區 -->
+      <div class="max-w-7xl mx-auto w-full py-16 px-4 sm:px-6 lg:px-8" id="operations-team">
+        <div class="flex flex-col gap-8 items-start">
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 w-full">
+            <div>
+              <span class="text-orange-600 font-black text-xs tracking-widest uppercase block mb-1">隊職員</span>
+              <h1 class="text-4xl sm:text-5xl font-black tracking-wider uppercase text-gray-900 mb-2 leading-tight">
+                OPERATIONS <span class="text-orange-600">TEAM</span>
+              </h1>
+              <p class="text-gray-600 text-base sm:text-lg">設置核心幹部專責管理行政、宣傳與設計業務（點擊卡片可查看詳細資訊）</p>
+            </div>
+            <div class="inline-flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-orange-50 border border-orange-200 text-xs font-bold text-orange-800 shadow-sm w-fit">
+              <i class="fa-regular fa-clock text-orange-600"></i>
+              <span>服務時間：8:30-17:00（六日及國定假日不服務）</span>
+            </div>
+          </div>
 
-      <!-- 家族分布卡片區塊 -->
+          <!-- 三大核心幹部輪播/滑動容器與仿圖八風格進度條、切換按鈕 -->
+          <div class="w-full relative">
+            <div id="staffTrack" class="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-none" style="scroll-behavior: smooth;">
+              <!-- 總經理 -->
+              <div onclick="openStaffModal('gm')" class="min-w-[280px] sm:min-w-[320px] max-w-[350px] flex-shrink-0 snap-start bg-white rounded-[32px] overflow-hidden border border-slate-100 shadow-lg flex flex-col group hover:shadow-xl transition-all cursor-pointer">
+                <div class="relative w-full aspect-[3/4] bg-slate-100 overflow-hidden">
+                  <img src="A6AA8149-595E-4860-908E-7C445786C5DC.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="總經理照片">
+                </div>
+                <div class="p-5 sm:p-6 flex flex-col justify-between bg-white">
+                  <div>
+                    <span class="px-2.5 py-1 rounded-md bg-orange-100 text-orange-700 text-[10px] font-black tracking-wider uppercase inline-block mb-2">總經理</span>
+                    <h3 class="text-xl font-black text-slate-900 tracking-tight mb-1">呂陳英妹</h3>
+                    <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">GENERAL MANAGER</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 營運經理 -->
+              <div onclick="openStaffModal('om')" class="min-w-[280px] sm:min-w-[320px] max-w-[350px] flex-shrink-0 snap-start bg-white rounded-[32px] overflow-hidden border border-slate-100 shadow-lg flex flex-col group hover:shadow-xl transition-all cursor-pointer">
+                <div class="relative w-full aspect-[3/4] bg-slate-100 overflow-hidden">
+                  <img src="volleyball_player_style.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="營運經理照片">
+                </div>
+                <div class="p-5 sm:p-6 flex flex-col justify-between bg-white">
+                  <div>
+                    <span class="px-2.5 py-1 rounded-md bg-orange-100 text-orange-700 text-[10px] font-black tracking-wider uppercase inline-block mb-2">營運經理</span>
+                    <h3 class="text-xl font-black text-slate-900 tracking-tight mb-1">呂佳寯</h3>
+                    <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">OPERATIONS MANAGER</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 設計副理 -->
+              <div onclick="openStaffModal('dm')" class="min-w-[280px] sm:min-w-[320px] max-w-[350px] flex-shrink-0 snap-start bg-white rounded-[32px] overflow-hidden border border-slate-100 shadow-lg flex flex-col group hover:shadow-xl transition-all cursor-pointer">
+                <div class="relative w-full aspect-[3/4] bg-slate-100 overflow-hidden">
+                  <img src="Portrait_Placeholder.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="設計副理照片">
+                </div>
+                <div class="p-5 sm:p-6 flex flex-col justify-between bg-white">
+                  <div>
+                    <span class="px-2.5 py-1 rounded-md bg-indigo-100 text-indigo-700 text-[10px] font-black tracking-wider uppercase inline-block mb-2">設計副理</span>
+                    <h3 class="text-xl font-black text-slate-900 tracking-tight mb-1">呂佳芯</h3>
+                    <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">DEPUTY DESIGN MANAGER</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 進度條與切換按鈕區 (加入 scrollbar-none 隱藏預設滾動條) -->
+            <div class="flex items-center justify-between mt-6 px-2 gap-4">
+              <!-- 左側頁碼與加號按鈕 -->
+              <div class="flex items-center gap-3 shrink-0">
+                <span id="staffPageIndicator" class="text-sm font-black text-slate-800 tracking-wider">01<span class="text-orange-300 font-normal">/03</span></span>
+                <button onclick="openAddStaffModal()" id="addStaffBtn" class="hidden w-8 h-8 rounded-full bg-orange-100 hover:bg-orange-200 text-orange-600 items-center justify-center font-bold text-xs transition-colors shadow-sm">
+                  <i class="fa-solid fa-plus"></i>
+                </button>
+              </div>
+
+              <!-- 中間細長進度條 -->
+              <div class="flex-grow h-[3px] bg-orange-100 rounded-full overflow-hidden relative">
+                <div id="staffProgressBar" class="absolute top-0 left-0 h-full bg-orange-600 transition-all duration-300 rounded-full" style="width: 33%;"></div>
+              </div>
+
+              <!-- 右側左右切換圓形按鈕 -->
+              <div class="flex items-center gap-2 shrink-0">
+                <button onclick="scrollStaffTrack('left')" class="w-10 h-10 rounded-full bg-white border border-orange-200 shadow-sm flex items-center justify-center text-orange-600 hover:bg-orange-50 transition-all">
+                  <i class="fa-solid fa-chevron-left text-xs"></i>
+                </button>
+                <button onclick="scrollStaffTrack('right')" class="w-10 h-10 rounded-full bg-white border border-orange-200 shadow-sm flex items-center justify-center text-orange-600 hover:bg-orange-50 transition-all">
+                  <i class="fa-solid fa-chevron-right text-xs"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- 隊職員詳細資料互動 Modal (固定尺寸、版面樣式一致) -->
+      <div id="staffModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 p-4">
+        <div id="staffModalContent" class="bg-white rounded-[36px] max-w-4xl w-full h-[580px] max-h-[90vh] shadow-2xl transform scale-95 transition-transform duration-300 flex flex-col md:flex-row overflow-hidden relative">
+          <!-- 關閉按鈕 -->
+          <button onclick="closeStaffModal()" class="absolute top-5 right-5 z-20 w-10 h-10 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-colors">
+            <i class="fa-solid fa-xmark text-lg"></i>
+          </button>
+
+          <!-- 左側相片固定比例區 -->
+          <div class="w-full md:w-5/12 bg-slate-100 relative h-64 md:h-full shrink-0 overflow-hidden">
+            <img id="modalImg" src="" alt="成員照片" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent md:hidden"></div>
+          </div>
+
+          <!-- 右側詳細資訊區 -->
+          <div class="w-full md:w-7/12 p-6 sm:p-8 flex flex-col justify-between bg-white h-full overflow-y-auto">
+            <div>
+              <div class="text-xs font-medium text-slate-400 mb-2" id="modalBreadcrumb">首頁 / 營運團隊 / 幹部資訊</div>
+              <span class="text-orange-600 font-black text-xs tracking-widest uppercase block mb-1">TEAM STAFF</span>
+              <h2 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight mb-1" id="modalName">姓名</h2>
+              <p class="text-base sm:text-lg font-bold text-slate-400 uppercase tracking-wider mb-6" id="modalEngName">ENGLISH NAME</p>
+
+              <!-- 職務與身份標籤 -->
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="px-3.5 py-1.5 rounded-xl bg-slate-900 text-white text-xs font-black" id="modalRoleTag">隊職員</span>
+                <span class="px-3.5 py-1.5 rounded-xl bg-orange-600 text-white text-xs font-black shadow-sm" id="modalSubTag">職稱</span>
+              </div>
+
+              <!-- 加入年份與出生地表格欄位 -->
+              <div class="grid grid-cols-2 gap-4 border-t border-b border-slate-100 py-4 mb-6">
+                <div>
+                  <span class="text-xs font-bold text-slate-400 block mb-1">加入年份</span>
+                  <span class="text-lg font-black text-slate-900" id="modalJoinYear">2025</span>
+                </div>
+                <div>
+                  <span class="text-xs font-bold text-slate-400 block mb-1">出生地</span>
+                  <span class="text-lg font-black text-slate-900" id="modalBirthplace">臺北市</span>
+                </div>
+              </div>
+
+              <!-- 擅長領域 (僅營運經理顯示) -->
+              <div class="mb-6 min-h-[50px]" id="modalSkillsContainer">
+                <span class="text-xs font-bold text-slate-400 block mb-2">擅長領域</span>
+                <div class="flex flex-wrap gap-2" id="modalSkills">
+                  <!-- 動態帶入 -->
+                </div>
+              </div>
+
+              <!-- 負責業務 -->
+              <div class="mb-6 hidden" id="modalDutiesContainer">
+                <span class="text-xs font-bold text-slate-400 block mb-2">負責業務</span>
+                <p class="text-sm font-medium text-slate-700 leading-relaxed bg-orange-50/50 p-4 rounded-2xl border border-orange-100" id="modalDuties">
+                  <!-- 動態帶入 -->
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <style>
+        /* 隱藏原生捲軸但保留滑動功能 */
+        #staffTrack::-webkit-scrollbar {
+          display: none;
+        }
+        #staffTrack {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+      </style>
+
+      <script>
+        const staffData = {
+          gm: {
+            name: "呂陳英妹",
+            engName: "LU CHEN YING MEI",
+            role: "隊職員",
+            subTag: "總經理",
+            joinYear: "2025",
+            birthplace: "新北市板橋區",
+            skills: [],
+            duties: "",
+            img: "A6AA8149-595E-4860-908E-7C445786C5DC.jpg"
+          },
+          om: {
+            name: "呂佳寯",
+            engName: "LU JIA JUN",
+            role: "隊職員",
+            subTag: "營運經理",
+            joinYear: "2025",
+            birthplace: "新北市板橋區",
+            skills: ["營運管理", "行銷規劃", "影片拍攝企劃", "LOGO設計", "視覺平面設計"],
+            duties: "",
+            img: "volleyball_player_style.jpg"
+          },
+          dm: {
+            name: "呂佳芯",
+            engName: "LU JIA XIN",
+            role: "隊職員",
+            subTag: "設計副理",
+            joinYear: "2025",
+            birthplace: "新北市板橋區",
+            skills: [],
+            duties: "",
+            img: "Portrait_Placeholder.jpg"
+          }
+        };
+
+        function openStaffModal(key) {
+          const data = staffData[key];
+          if (!data) return;
+
+          document.getElementById('modalName').textContent = data.name;
+          document.getElementById('modalEngName').textContent = data.engName;
+          document.getElementById('modalRoleTag').textContent = data.role;
+          document.getElementById('modalSubTag').textContent = data.subTag;
+          document.getElementById('modalJoinYear').textContent = data.joinYear;
+          document.getElementById('modalBirthplace').textContent = data.birthplace;
+          document.getElementById('modalImg').src = data.img;
+
+          const skillsContainerBox = document.getElementById('modalSkillsContainer');
+          const skillsContainer = document.getElementById('modalSkills');
+          if (data.skills && data.skills.length > 0) {
+            skillsContainerBox.style.display = 'block';
+            skillsContainer.innerHTML = data.skills.map(skill => 
+              `<span class="px-3 py-1 rounded-xl bg-orange-50 text-orange-700 text-xs font-bold border border-orange-100">${skill}</span>`
+            ).join('');
+          } else {
+            skillsContainerBox.style.display = 'none';
+          }
+
+          document.getElementById('modalDutiesContainer').style.display = 'none';
+
+          const modal = document.getElementById('staffModal');
+          const content = document.getElementById('staffModalContent');
+          modal.classList.remove('opacity-0', 'pointer-events-none');
+          content.classList.remove('scale-95');
+          content.classList.add('scale-100');
+        }
+
+        function closeStaffModal() {
+          const modal = document.getElementById('staffModal');
+          const content = document.getElementById('staffModalContent');
+          modal.classList.add('opacity-0', 'pointer-events-none');
+          content.classList.remove('scale-100');
+          content.classList.add('scale-95');
+        }
+
+        document.getElementById('staffModal').addEventListener('click', function(e) {
+          if (e.target === this) {
+            closeStaffModal();
+          }
+        });
+
+        const staffTrack = document.getElementById('staffTrack');
+        const staffProgressBar = document.getElementById('staffProgressBar');
+        const staffPageIndicator = document.getElementById('staffPageIndicator');
+
+        if (staffTrack && staffProgressBar) {
+          staffTrack.addEventListener('scroll', () => {
+            const maxScroll = staffTrack.scrollWidth - staffTrack.clientWidth;
+            if (maxScroll > 0) {
+              const currentScroll = staffTrack.scrollLeft;
+              const percentage = (currentScroll / maxScroll) * 100;
+              staffProgressBar.style.width = Math.max(10, percentage) + '%';
+
+              const cardWidth = staffTrack.querySelector(':scope > div').clientWidth + 24;
+              const currentIndex = Math.min(3, Math.max(1, Math.round(currentScroll / cardWidth) + 1));
+              if (staffPageIndicator) {
+                staffPageIndicator.innerHTML = `0${currentIndex}<span class="text-orange-300 font-normal">/03</span>`;
+              }
+            }
+          });
+        }
+
+        function scrollStaffTrack(direction) {
+          if (!staffTrack) return;
+          const scrollAmount = 340;
+          if (direction === 'left') {
+            staffTrack.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+          } else {
+            staffTrack.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+          }
+        }
+      </script>
+<!-- 家族分布卡片區塊 -->
       <div class="max-w-7xl mx-auto w-full py-16 px-4 sm:px-6" id="family-map">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div class="lg:col-span-4 flex flex-col justify-center">
