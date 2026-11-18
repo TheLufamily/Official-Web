@@ -53,10 +53,10 @@
 
       <div class="hidden lg:flex items-center gap-8 font-bold text-sm text-slate-700 shrink-0">
         <a href="#calendar-section" class="hover:text-orange-600 transition-colors py-2 tracking-wider">活動資訊</a>
-        <a href="#notice" class="hover:text-orange-600 transition-colors py-2 tracking-wider">最新消息</a> 
-	<a href="#operations-team" class="hover:text-orange-600 transition-colors py-2 tracking-wider">隊職幹部</a> 
+  	<a href="#highlights-section" class="hover:text-orange-600 transition-colors py-2 tracking-wider">活動花絮</a>
         <a href="#family-map" class="hover:text-orange-600 transition-colors py-2 tracking-wider">呂氏家族</a>
-        <a href="#highlights-section" class="hover:text-orange-600 transition-colors py-2 tracking-wider">活動花絮</a>
+       	<a href="#operations-team" class="hover:text-orange-600 transition-colors py-2 tracking-wider">隊職幹部</a> 
+        <a href="#notice" class="hover:text-orange-600 transition-colors py-2 tracking-wider">最新消息</a>
       </div>
 
       <div class="flex items-center gap-3">
@@ -74,20 +74,20 @@
             <span class="font-bold">活動資訊 CALENDAR</span>
             <i class="fa-solid fa-arrow-right text-xs text-orange-500 transform -translate-x-1 group-hover:translate-x-0 transition-all"></i>
           </a>
-          <a href="#notice" onclick="toggleMobileMenu()" class="group py-2.5 px-2 flex items-center justify-between text-slate-800 hover:text-orange-600 transition-colors border-b border-slate-50">
-            <span class="font-bold">最新消息 NEWS</span>
+ 	<a href="#highlights-section" onclick="toggleMobileMenu()" class="group py-2.5 px-2 flex items-center justify-between text-slate-800 hover:text-orange-600 transition-colors border-b border-slate-50">
+            <span class="font-bold">活動花絮 HIGHLIGHTS</span>
+            <i class="fa-solid fa-arrow-right text-xs text-orange-500 transform -translate-x-1 group-hover:translate-x-0 transition-all"></i>
+          </a>
+         <a href="#family-map" onclick="toggleMobileMenu()" class="group py-2.5 px-2 flex items-center justify-between text-slate-800 hover:text-orange-600 transition-colors border-b border-slate-50">
+            <span class="font-bold">呂氏家族 FAMILY-LU</span>
             <i class="fa-solid fa-arrow-right text-xs text-orange-500 transform -translate-x-1 group-hover:translate-x-0 transition-all"></i>
           </a>
           <a href="#operations-team" onclick="toggleMobileMenu()" class="group py-2.5 px-2 flex items-center justify-between text-slate-800 hover:text-orange-600 transition-colors border-b border-slate-50">
             <span class="font-bold">隊職幹部 OPERATIONS TEAM</span>
             <i class="fa-solid fa-arrow-right text-xs text-orange-500 transform -translate-x-1 group-hover:translate-x-0 transition-all"></i>
           </a>
-          <a href="#family-map" onclick="toggleMobileMenu()" class="group py-2.5 px-2 flex items-center justify-between text-slate-800 hover:text-orange-600 transition-colors border-b border-slate-50">
-            <span class="font-bold">呂氏家族 FAMILY-LU</span>
-            <i class="fa-solid fa-arrow-right text-xs text-orange-500 transform -translate-x-1 group-hover:translate-x-0 transition-all"></i>
-          </a>
-          <a href="#highlights-section" onclick="toggleMobileMenu()" class="group py-2.5 px-2 flex items-center justify-between text-slate-800 hover:text-orange-600 transition-colors border-b border-slate-50">
-            <span class="font-bold">活動花絮 HIGHLIGHTS</span>
+          <a href="#notice" onclick="toggleMobileMenu()" class="group py-2.5 px-2 flex items-center justify-between text-slate-800 hover:text-orange-600 transition-colors border-b border-slate-50">
+            <span class="font-bold">最新消息 NEWS</span>
             <i class="fa-solid fa-arrow-right text-xs text-orange-500 transform -translate-x-1 group-hover:translate-x-0 transition-all"></i>
           </a>
         </div>
@@ -95,18 +95,15 @@
     </div>
   </nav>
 
- <!-- 首頁主視覺 HERO 區塊 -->
-  <div id="home" class="max-w-5xl mx-auto z-10 relative py-6 px-4 text-center" data-aos="zoom-in">
-    <div class="glass-card rounded-[28px] sm:rounded-[35px] shadow-2xl relative overflow-hidden group flex flex-col items-center justify-center bg-gradient-to-br from-orange-50 via-white to-amber-50 min-h-[280px] sm:aspect-[21/9] sm:min-h-[auto] w-full border border-orange-100 p-6 sm:p-12">
-      <div class="absolute inset-0 bg-[radial-gradient(#ea580c_1px,transparent_1px)] [background-size:16px_16px] opacity-10 pointer-events-none"></div>
+<!-- 首頁主視覺 HERO 區塊 -->
+  <div id="home" class="max-w-7xl mx-auto z-10 relative py-6 px-4 sm:px-6 lg:px-8 text-center" data-aos="zoom-in">
+    <div class="relative overflow-hidden group flex flex-col items-center justify-center min-h-[280px] sm:aspect-[21/9] sm:min-h-[auto] w-full p-6 sm:p-12">
+      <div class="absolute inset-0 bg-[radial-gradient(#ea580c_2px,transparent_2px)] [background-size:24px_24px] opacity-15 pointer-events-none"></div>
       <div class="relative z-10 flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10 max-w-4xl mx-auto">
-        <div class="w-28 h-28 sm:w-36 sm:h-36 rounded-2xl overflow-hidden shadow-lg border-2 border-orange-200 shrink-0 bg-white flex items-center justify-center">
-          <img src="2025呂氏家庭新版隊徽-正式永久版.png" class="w-full h-full object-cover" alt="呂氏家庭隊徽">
+        <div class="w-36 h-36 sm:w-44 sm:h-44 shrink-0 flex items-center justify-center">
+          <img src="2025呂氏家庭新版隊徽-正式永久版.png" class="w-full h-full object-contain" alt="呂氏家庭隊徽">
         </div>
         <div class="flex flex-col items-center sm:items-start text-center sm:text-left space-y-2 sm:space-y-4">
-          <span class="px-3.5 py-1 rounded-full bg-orange-100 text-orange-700 text-[10px] sm:text-sm font-black tracking-widest uppercase shadow-sm border border-orange-200">
-            LU FAMILY INFORMATION NETWORK
-          </span>
           <h1 class="text-2xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-wider uppercase leading-tight">
             歡迎蒞臨 <span class="text-orange-600 block sm:inline">呂氏家庭</span>
           </h1>
@@ -629,6 +626,50 @@
 
     </div>
   </section>
+
+<!-- 聯絡窗口專區 -->
+      <div class="max-w-7xl mx-auto w-full py-16 px-4 sm:px-6 lg:px-8" id="contact-section">
+        <div class="flex flex-col gap-8 items-start">
+          <div>
+            <span class="text-orange-600 font-black text-xs tracking-widest uppercase block mb-1">聯絡窗口</span>
+            <h1 class="text-4xl sm:text-5xl font-black tracking-wider uppercase text-gray-900 mb-2 leading-tight">
+              HOW CAN WE <span class="text-orange-600">HELP</span>
+            </h1>
+            <p class="text-gray-600 text-base sm:text-lg">家族業務、事務諮詢與相關問題，歡迎透過官方信箱與我們聯繫</p>
+          </div>
+
+          <!-- 聯絡窗口卡片 (參考伊斯特風格) -->
+          <div class="w-full bg-white rounded-[32px] p-6 sm:p-10 border border-slate-100 shadow-xl flex flex-col justify-between relative overflow-hidden">
+            <div>
+              <div class="w-16 h-16 rounded-2xl bg-orange-50 border border-orange-100 flex items-center justify-center text-orange-600 text-2xl mb-6 shadow-sm">
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+
+              <span class="text-orange-600 font-black text-xs tracking-widest uppercase block mb-1">FAMILY SUPPORT</span>
+              <h3 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight mb-3">聯絡信箱服務</h3>
+              <p class="text-slate-600 text-sm sm:text-base leading-relaxed mb-8">
+                若有任何家族事務、活動相關或其他問題，歡迎隨時寄信至我們的官方信箱，我們將於工作日儘速回覆。
+              </p>
+
+              <div class="border-t border-slate-100 pt-6 mb-8">
+                <span class="text-xs font-bold text-slate-400 uppercase tracking-widest block mb-2">官方電子信箱</span>
+                <a href="mailto:luteam.family@gmail.com" class="text-xl sm:text-2xl font-black text-slate-900 hover:text-orange-600 transition-colors tracking-tight block">
+                  luteam.family@gmail.com
+                </a>
+              </div>
+
+              <!-- 備註說明 -->
+              <div class="bg-orange-50/60 border border-orange-100 rounded-2xl p-4 sm:p-5 flex items-start gap-3">
+                <i class="fa-solid fa-circle-info text-orange-600 mt-1 shrink-0"></i>
+                <p class="text-xs sm:text-sm font-bold text-orange-900 leading-relaxed">
+                  備註：如遇假日，統一星期一回覆。
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
 
   <!-- 網頁頁尾 Footer -->
   <footer class="bg-[#fff6ee] text-slate-600 py-10 border-t border-orange-200 mt-auto shadow-inner">
