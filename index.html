@@ -69,42 +69,40 @@
 
 <body class="flex flex-col min-h-screen antialiased">
 
-  <!-- 導覽列 -->
-  <nav class="bg-white/90 backdrop-blur-md sticky top-0 z-40 border-b border-orange-100 shadow-sm w-full">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 sm:py-4 flex justify-between items-center gap-4">
-      <div class="flex items-center gap-2.5 sm:gap-3 shrink-0">
-        <a href="#home" class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-orange-600 flex items-center justify-center text-white shadow-md hover:opacity-85 transition-opacity shrink-0">
-          <i class="fa-solid fa-house text-sm sm:text-base"></i>
-        </a>
-        <a href="#home" class="font-black text-base sm:text-lg text-slate-800 hover:text-orange-600 transition-colors tracking-wider uppercase truncate">
-          呂氏家庭 <span class="text-orange-600 text-[11px] sm:text-xs font-bold ml-0.5">LU FAMILY</span>
-        </a>
+<!-- 導覽列 -->
+  <nav class="bg-white/95 backdrop-blur-md fixed top-0 left-0 right-0 z-40 w-full">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-3.5 flex items-center justify-between lg:justify-start lg:gap-14">
+      <!-- 左側隊徽 Logo -->
+      <a href="#home" class="shrink-0 flex items-center hover:opacity-85 transition-opacity">
+        <img src="2025呂氏家庭新版隊徽-正式永久版.png" alt="呂氏家庭隊徽" class="h-10 sm:h-12 w-auto object-contain">
+      </a>
+
+      <!-- 桌機版橫向等距選單 -->
+      <div class="hidden lg:flex items-center gap-10 xl:gap-12 font-black text-[15px] text-slate-900 tracking-wider">
+        <a href="#family-philosophy" class="hover:text-orange-600 transition-colors py-2">關於我們</a>
+        <a href="#calendar-section" class="hover:text-orange-600 transition-colors py-2">活動資訊</a>
+        <a href="#family-map" class="hover:text-orange-600 transition-colors py-2">呂氏家族</a>
+        <a href="#notice" class="hover:text-orange-600 transition-colors py-2">最新消息</a>
+        <a href="#contact-section" class="hover:text-orange-600 transition-colors py-2">聯絡我們</a>
       </div>
 
-      <div class="hidden lg:flex items-center gap-8 font-bold text-sm text-slate-700 shrink-0">
-        <a href="#calendar-section" class="hover:text-orange-600 transition-colors py-2 tracking-wider">活動資訊</a>
-        <a href="#operations-team" class="hover:text-orange-600 transition-colors py-2 tracking-wider">關於我們</a> 
-        <a href="#family-map" class="hover:text-orange-600 transition-colors py-2 tracking-wider">呂氏家族</a>
-        <a href="#notice" class="hover:text-orange-600 transition-colors py-2 tracking-wider">最新消息</a>
-        <a href="#contact-section" class="hover:text-orange-600 transition-colors py-2 tracking-wider">聯絡我們</a> 
-      </div>
-
-      <div class="flex items-center gap-2 lg:hidden">
+      <!-- 手機版漢堡按鈕 -->
+      <div class="flex items-center lg:hidden">
         <button type="button" onclick="toggleMobileMenu()" aria-label="開啟選單" class="w-10 h-10 flex items-center justify-center text-xl text-slate-800 rounded-xl hover:bg-orange-50 hover:text-orange-600 transition-colors cursor-pointer">
           <i id="mobileMenuIcon" class="fa-solid fa-bars"></i>
         </button>
       </div>
     </div>
 
-    <!-- 漢堡清單選單 -->
+    <!-- 手機版漢堡清單選單 -->
     <div id="mobileMenu" class="hidden bg-white border-t border-slate-100 shadow-2xl transition-all lg:hidden">
       <div class="max-w-7xl mx-auto px-5 py-5 flex flex-col gap-2 text-sm">
-        <a href="#calendar-section" onclick="toggleMobileMenu()" class="group py-3 px-3 rounded-xl flex items-center justify-between text-slate-800 hover:bg-orange-50 hover:text-orange-600 transition-colors">
-          <span class="font-bold">活動資訊</span>
+        <a href="#family-philosophy" onclick="toggleMobileMenu()" class="group py-3 px-3 rounded-xl flex items-center justify-between text-slate-800 hover:bg-orange-50 hover:text-orange-600 transition-colors">
+          <span class="font-bold">關於我們</span>
           <i class="fa-solid fa-arrow-right text-xs text-orange-500 transform -translate-x-1 group-hover:translate-x-0 transition-all"></i>
         </a>
-        <a href="#operations-team" onclick="toggleMobileMenu()" class="group py-3 px-3 rounded-xl flex items-center justify-between text-slate-800 hover:bg-orange-50 hover:text-orange-600 transition-colors">
-          <span class="font-bold">關於我們</span>
+        <a href="#calendar-section" onclick="toggleMobileMenu()" class="group py-3 px-3 rounded-xl flex items-center justify-between text-slate-800 hover:bg-orange-50 hover:text-orange-600 transition-colors">
+          <span class="font-bold">活動資訊</span>
           <i class="fa-solid fa-arrow-right text-xs text-orange-500 transform -translate-x-1 group-hover:translate-x-0 transition-all"></i>
         </a>
         <a href="#family-map" onclick="toggleMobileMenu()" class="group py-3 px-3 rounded-xl flex items-center justify-between text-slate-800 hover:bg-orange-50 hover:text-orange-600 transition-colors">
@@ -124,18 +122,18 @@
   </nav>
 
   <!-- 首頁主視覺 HERO 區塊 -->
-  <header id="home" class="max-w-7xl mx-auto w-full z-10 relative pt-4 pb-2 sm:py-8 px-4 sm:px-6 lg:px-8 text-center" data-aos="zoom-in">
-    <div class="relative overflow-hidden rounded-[32px] sm:rounded-[40px] flex flex-col items-center justify-center min-h-[260px] sm:min-h-[340px] lg:aspect-[21/8] w-full p-6 sm:p-12">
+  <header id="home" class="max-w-7xl mx-auto w-full z-10 relative pt-16 pb-2 sm:pt-20 sm:pb-3 px-4 sm:px-6 lg:px-8 text-center" data-aos="zoom-in">
+    <div class="relative overflow-hidden rounded-[24px] sm:rounded-[36px] flex flex-col items-center justify-center min-h-[220px] sm:min-h-[280px] lg:aspect-[24/6] w-full p-5 sm:p-8">
       <div class="absolute inset-0 bg-[radial-gradient(#ea580c_2px,transparent_2px)] [background-size:24px_24px] opacity-15 pointer-events-none"></div>
-      <div class="relative z-10 flex flex-col sm:flex-row items-center justify-center gap-5 sm:gap-10 max-w-4xl mx-auto">
-        <div class="w-28 h-28 sm:w-40 sm:h-40 lg:w-44 lg:h-44 shrink-0 flex items-center justify-center">
-          <img src="2025呂氏家庭新版隊徽-正式永久版.png" class="w-full h-full object-contain" alt="呂氏家庭隊徽">
+      <div class="relative z-10 flex flex-col sm:flex-row items-center justify-center gap-5 sm:gap-10 max-w-5xl mx-auto">
+        <div class="w-24 h-24 sm:w-32 sm:h-32 lg:w-36 lg:h-36 shrink-0 flex items-center justify-center">
+          <img src="2025呂氏家庭新版隊徽-正式永久版.png" class="w-full h-full object-contain drop-shadow-md" alt="呂氏家庭隊徽">
         </div>
-        <div class="flex flex-col items-center sm:items-start text-center sm:text-left space-y-2 sm:space-y-3">
-          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-wider uppercase leading-tight">
-            歡迎蒞臨 <span class="text-orange-600 block sm:inline mt-1 sm:mt-0">呂氏家庭</span>
+        <div class="flex flex-col items-center sm:items-start text-center sm:text-left space-y-2 sm:space-y-2.5">
+          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-wider uppercase leading-tight drop-shadow-sm">
+            歡迎蒞臨 <span class="text-orange-600 block sm:inline mt-1 sm:mt-0 font-black">呂氏家庭</span>
           </h1>
-          <p class="text-xs sm:text-base font-bold text-slate-500 tracking-widest uppercase">
+          <p class="text-xs sm:text-sm font-black text-slate-600 tracking-[0.2em] uppercase">
             凝聚家族情感・共創美好未來
           </p>
         </div>
@@ -143,25 +141,186 @@
     </div>
   </header>
 
+  <!-- 家族理念與精神專區 (結合圖片風格與創辦人故事按鈕) -->
+  <section id="family-philosophy" class="pt-4 pb-8 sm:pt-8 sm:pb-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        
+        <!-- 左側：醒目大標題 -->
+        <div class="lg:col-span-6 space-y-4">
+          <span class="text-orange-600 font-black text-xs tracking-widest uppercase block mb-1">FAMILY SPIRIT</span>
+          <h2 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+            從板橋總部起跳，<span class="text-orange-600">凝聚家族</span>，為幸福而戰。
+          </h2>
+        </div>
+
+        <!-- 右側：詳細介紹文案與創辦人故事互動按鈕 -->
+        <div class="lg:col-span-6 space-y-6">
+          <div class="space-y-4 text-sm sm:text-base font-medium text-slate-600 leading-relaxed">
+            <p>
+              「呂氏家庭生活資訊網」源自家族成員緊密相連的溫馨初衷，由呂佳寯與核心團隊領軍，以凝聚新北板橋總部、桃園平鎮與臺中分部為使命。我們跨越地域的限制，將彼此的情感與生活點滴緊密連結，共創屬於呂氏家族的數位美好風格。
+            </p>
+            <p>
+              LU FAMILY 象徵一股來自家族的力量——敏捷、果斷、拼到底。我們從日常起步，用汗水與信念開創專屬於呂氏家庭的溫馨日常。
+            </p>
+          </div>
+
+          <button type="button" onclick="openPartnerStoryModal()" class="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-orange-600 hover:bg-orange-700 text-white font-black text-xs sm:text-sm uppercase shadow-md hover:scale-105 transition-all cursor-pointer">
+            <i class="fa-solid fa-book-open"></i> <span>✨ 創辦人故事</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- 主要內容區 -->
   <main class="py-6 sm:py-10 flex-grow w-full">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full space-y-16 sm:space-y-24">
       
-     <!-- 1. 活動資訊專區 (Calendar) -->
+    <!-- 1. 年度活動執行表專區 (Calendar) -->
       <section id="calendar-section" class="scroll-mt-24 pt-2">
-        <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-6 sm:mb-8 relative section-title-watermark">
+        <div class="flex flex-row items-end justify-between mb-8 relative section-title-watermark">
           <div class="watermark-text">CALENDAR</div>
           <div class="relative z-10">
-            <span class="text-orange-600 font-black text-xs tracking-widest uppercase block mb-1">活動資訊</span>
-            <h2 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight uppercase">CALENDAR</h2>
+            <span class="text-orange-600 font-black text-xs tracking-widest uppercase block mb-1">年度活動</span>
+            <h2 class="text-5xl font-black text-slate-900 tracking-tight uppercase">CALENDAR</h2>
           </div>
         </div>
 
         <div class="flex flex-col gap-5">
-          <div id="eventsContainer" class="flex gap-4 sm:gap-5 overflow-x-auto pb-3 no-scrollbar snap-x snap-mandatory"></div>
-          <div class="flex items-center justify-between gap-4 sm:gap-6 pt-1">
+          <div id="eventsContainer" class="flex gap-6 overflow-x-auto pb-3 no-scrollbar snap-x snap-mandatory">
+            
+            <!-- 活動卡片 1 -->
+            <div class="w-[300px] bg-white rounded-[32px] border border-orange-200/80 shadow-xl overflow-hidden shrink-0 snap-start flex flex-col justify-between">
+              <div class="relative bg-gradient-to-br from-orange-50 to-amber-50/50 p-6 overflow-hidden border-b border-orange-100">
+                <div class="absolute -right-4 -bottom-6 text-6xl font-black text-orange-500/10 uppercase tracking-widest pointer-events-none select-none">EVENT</div>
+                <div class="relative z-10">
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="px-3 py-1 rounded-xl bg-orange-600 text-white text-[11px] font-black tracking-wider uppercase shadow-sm">活動日期</span>
+                    <span class="text-xs font-bold text-slate-400 tracking-widest">場次編號 01</span>
+                  </div>
+                  <div class="text-3xl font-black tracking-tight text-slate-900 font-mono">02.16</div>
+                </div>
+              </div>
+              <div class="p-6 space-y-5 bg-white flex-grow flex flex-col justify-between">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-2xl bg-orange-100 text-orange-600 flex items-center justify-center text-base font-black shadow-inner shrink-0">
+                    <i class="fa-solid fa-flag"></i>
+                  </div>
+                  <div>
+                    <span class="text-[10px] font-bold text-orange-600 uppercase tracking-wider block">FAMILY EVENT</span>
+                    <h3 class="text-lg font-black text-slate-900">新年團團圓爐</h3>
+                  </div>
+                </div>
+                <div class="border-t border-slate-100 pt-4 space-y-3 text-xs">
+                  <div class="flex items-center justify-between">
+                    <span class="font-bold text-slate-400 uppercase tracking-wider">活動地點</span>
+                    <span class="font-black text-slate-800"><i class="fa-solid fa-location-dot text-orange-600 mr-1"></i> 新北市板橋區 (總部)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 活動卡片 2 -->
+            <div class="w-[300px] bg-white rounded-[32px] border border-orange-200/80 shadow-xl overflow-hidden shrink-0 snap-start flex flex-col justify-between">
+              <div class="relative bg-gradient-to-br from-orange-50 to-amber-50/50 p-6 overflow-hidden border-b border-orange-100">
+                <div class="absolute -right-4 -bottom-6 text-6xl font-black text-orange-500/10 uppercase tracking-widest pointer-events-none select-none">EVENT</div>
+                <div class="relative z-10">
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="px-3 py-1 rounded-xl bg-orange-600 text-white text-[11px] font-black tracking-wider uppercase shadow-sm">活動日期</span>
+                    <span class="text-xs font-bold text-slate-400 tracking-widest">場次編號 02</span>
+                  </div>
+                  <div class="text-3xl font-black tracking-tight text-slate-900 font-mono">05.10</div>
+                </div>
+              </div>
+              <div class="p-6 space-y-5 bg-white flex-grow flex flex-col justify-between">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-2xl bg-orange-100 text-orange-600 flex items-center justify-center text-base font-black shadow-inner shrink-0">
+                    <i class="fa-solid fa-flag"></i>
+                  </div>
+                  <div>
+                    <span class="text-[10px] font-bold text-orange-600 uppercase tracking-wider block">FAMILY EVENT</span>
+                    <h3 class="text-lg font-black text-slate-900">母親節慶祝大會</h3>
+                  </div>
+                </div>
+                <div class="border-t border-slate-100 pt-4 space-y-3 text-xs">
+                  <div class="flex items-center justify-between">
+                    <span class="font-bold text-slate-400 uppercase tracking-wider">活動地點</span>
+                    <span class="font-black text-slate-800"><i class="fa-solid fa-location-dot text-orange-600 mr-1"></i> 新北市板橋區 (總部)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 活動卡片 3 -->
+            <div class="w-[300px] bg-white rounded-[32px] border border-orange-200/80 shadow-xl overflow-hidden shrink-0 snap-start flex flex-col justify-between">
+              <div class="relative bg-gradient-to-br from-orange-50 to-amber-50/50 p-6 overflow-hidden border-b border-orange-100">
+                <div class="absolute -right-4 -bottom-6 text-6xl font-black text-orange-500/10 uppercase tracking-widest pointer-events-none select-none">EVENT</div>
+                <div class="relative z-10">
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="px-3 py-1 rounded-xl bg-orange-600 text-white text-[11px] font-black tracking-wider uppercase shadow-sm">活動日期</span>
+                    <span class="text-xs font-bold text-slate-400 tracking-widest">場次編號 03</span>
+                  </div>
+                  <div class="text-3xl font-black tracking-tight text-slate-900 font-mono">09.25</div>
+                </div>
+              </div>
+              <div class="p-6 space-y-5 bg-white flex-grow flex flex-col justify-between">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-2xl bg-orange-100 text-orange-600 flex items-center justify-center text-base font-black shadow-inner shrink-0">
+                    <i class="fa-solid fa-flag"></i>
+                  </div>
+                  <div>
+                    <span class="text-[10px] font-bold text-orange-600 uppercase tracking-wider block">FAMILY EVENT</span>
+                    <h3 class="text-lg font-black text-slate-900">中秋烤肉同樂晚會</h3>
+                  </div>
+                </div>
+                <div class="border-t border-slate-100 pt-4 space-y-3 text-xs">
+                  <div class="flex items-center justify-between">
+                    <span class="font-bold text-slate-400 uppercase tracking-wider">活動地點</span>
+                    <span class="font-black text-slate-800"><i class="fa-solid fa-location-dot text-orange-600 mr-1"></i> 桃園市平鎮區 (分部)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 活動卡片 4 -->
+            <div class="w-[300px] bg-white rounded-[32px] border border-orange-200/80 shadow-xl overflow-hidden shrink-0 snap-start flex flex-col justify-between">
+              <div class="relative bg-gradient-to-br from-orange-50 to-amber-50/50 p-6 overflow-hidden border-b border-orange-100">
+                <div class="absolute -right-4 -bottom-6 text-6xl font-black text-orange-500/10 uppercase tracking-widest pointer-events-none select-none">EVENT</div>
+                <div class="relative z-10">
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="px-3 py-1 rounded-xl bg-orange-600 text-white text-[11px] font-black tracking-wider uppercase shadow-sm">活動日期</span>
+                    <span class="text-xs font-bold text-slate-400 tracking-widest">場次編號 04</span>
+                  </div>
+                  <div class="text-3xl font-black tracking-tight text-slate-900 font-mono">11.14</div>
+                </div>
+              </div>
+              <div class="p-6 space-y-5 bg-white flex-grow flex flex-col justify-between">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-2xl bg-orange-100 text-orange-600 flex items-center justify-center text-base font-black shadow-inner shrink-0">
+                    <i class="fa-solid fa-flag"></i>
+                  </div>
+                  <div>
+                    <span class="text-[10px] font-bold text-orange-600 uppercase tracking-wider block">FAMILY EVENT</span>
+                    <h3 class="text-lg font-black text-slate-900">生日慶祝大會</h3>
+                  </div>
+                </div>
+                <div class="border-t border-slate-100 pt-4 space-y-3 text-xs">
+                  <div class="flex items-center justify-between">
+                    <span class="font-bold text-slate-400 uppercase tracking-wider">活動地點</span>
+                    <span class="font-black text-slate-800"><i class="fa-solid fa-location-dot text-orange-600 mr-1"></i> 新北市板橋區 (總部)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          
+          <!-- 完整進度條與左右切換控制 -->
+          <div class="flex items-center justify-between gap-6 pt-2">
             <div class="flex items-center gap-2.5 shrink-0">
-              <div class="slider-indicator-num text-base sm:text-lg font-black text-slate-900 flex items-baseline">
+              <div class="slider-indicator-num text-lg font-black text-slate-900 flex items-baseline">
                 <span id="eventCurrentNum">01</span><span class="text-xs text-slate-400 font-bold ml-1">/ <span id="eventTotalNum">04</span></span>
               </div>
               <div class="w-5 h-5 rounded-full bg-orange-500/20 text-orange-600 flex items-center justify-center text-[10px] font-black"><i class="fa-solid fa-plus"></i></div>
@@ -171,8 +330,8 @@
               <div id="eventProgressThumb" class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-orange-700 shadow-md border-2 border-white transition-all duration-300 pointer-events-none" style="left: 0%;"></div>
             </div>
             <div class="flex items-center gap-2 shrink-0">
-              <button type="button" onclick="scrollEventContainer('left')" aria-label="上一張活動" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white hover:bg-orange-50 text-slate-700 hover:text-orange-600 border border-orange-200 flex items-center justify-center transition-all shadow-sm cursor-pointer"><i class="fa-solid fa-chevron-left text-xs sm:text-sm"></i></button>
-              <button type="button" onclick="scrollEventContainer('right')" aria-label="下一張活動" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white hover:bg-orange-50 text-slate-700 hover:text-orange-600 border border-orange-200 flex items-center justify-center transition-all shadow-sm cursor-pointer"><i class="fa-solid fa-chevron-right text-xs sm:text-sm"></i></button>
+              <button type="button" onclick="scrollEventContainer('left')" aria-label="上一張活動" class="w-10 h-10 rounded-full bg-white hover:bg-orange-50 text-slate-700 hover:text-orange-600 border border-orange-200 flex items-center justify-center transition-all shadow-sm cursor-pointer"><i class="fa-solid fa-chevron-left text-sm"></i></button>
+              <button type="button" onclick="scrollEventContainer('right')" aria-label="下一張活動" class="w-10 h-10 rounded-full bg-white hover:bg-orange-50 text-slate-700 hover:text-orange-600 border border-orange-200 flex items-center justify-center transition-all shadow-sm cursor-pointer"><i class="fa-solid fa-chevron-right text-sm"></i></button>
             </div>
           </div>
         </div>
@@ -234,7 +393,6 @@
             </div>
           </div>
 
-          <!-- 三大核心幹部輪播/滑動容器 -->
           <div class="w-full relative">
             <div id="staffTrack" class="flex gap-4 sm:gap-6 overflow-x-auto pb-3 snap-x snap-mandatory no-scrollbar scroll-smooth">
               <!-- 總經理 -->
@@ -280,7 +438,6 @@
               </div>
             </div>
 
-            <!-- 進度條與切換按鈕區 -->
             <div class="flex items-center justify-between mt-4 gap-4 sm:gap-6">
               <div class="flex items-center gap-2.5 shrink-0">
                 <span id="staffPageIndicator" class="text-base sm:text-lg font-black text-slate-900 tracking-wider">01<span class="text-xs text-slate-400 font-bold ml-1">/ 03</span></span>
@@ -317,58 +474,58 @@
             </div>
           </div>
 
-          <div class="lg:col-span-8 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6" id="mapContainer">
+          <div class="lg:col-span-8 grid grid-cols-3 gap-3 sm:gap-6" id="mapContainer">
             <!-- 總部 -->
-            <div class="map-card bg-gradient-to-b from-orange-600 to-amber-700 rounded-[28px] sm:rounded-[32px] p-6 text-white shadow-xl flex flex-col justify-between relative overflow-hidden group hover:scale-[1.02] transition-all min-h-[250px] sm:min-h-[340px] lg:h-96" data-region="newtaipei">
+            <div class="map-card bg-gradient-to-b from-orange-600 to-amber-700 rounded-[20px] sm:rounded-[32px] p-3.5 sm:p-6 text-white shadow-xl flex flex-col justify-between relative overflow-hidden group hover:scale-[1.02] transition-all min-h-[220px] sm:min-h-[340px] lg:h-96" data-region="newtaipei">
               <div class="absolute -right-10 -bottom-10 w-56 h-56 bg-white/10 rounded-full pointer-events-none"></div>
               <div>
-                <div class="flex items-center justify-between mb-5 relative z-10 gap-2">
-                  <i class="fa-solid fa-house text-lg sm:text-xl text-orange-200 shrink-0"></i>
-                  <span class="text-[10px] sm:text-xs font-black tracking-wider uppercase bg-white/20 px-2.5 py-1 rounded-full backdrop-blur-md truncate">NEW TAIPEI CITY</span>
+                <div class="flex items-center justify-between mb-3 sm:mb-5 relative z-10 gap-1">
+                  <i class="fa-solid fa-house text-sm sm:text-xl text-orange-200 shrink-0"></i>
+                  <span class="text-[9px] sm:text-xs font-black tracking-wider uppercase bg-white/20 px-2 sm:px-2.5 py-1 rounded-full backdrop-blur-md truncate">NEW TAIPEI</span>
                 </div>
-                <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-white/15 backdrop-blur-md flex items-center justify-center text-2xl sm:text-3xl font-black mb-5 shadow-inner border border-white/20 relative z-10"><i class="fa-solid fa-house-chimney"></i></div>
-                <div class="text-xs font-bold text-orange-100 uppercase tracking-widest mb-1 relative z-10">Banqiao</div>
-                <h3 class="text-2xl font-black tracking-tight mb-2 relative z-10">總部</h3>
+                <div class="w-10 h-10 sm:w-16 sm:h-16 rounded-2xl bg-white/15 backdrop-blur-md flex items-center justify-center text-lg sm:text-3xl font-black mb-3 sm:mb-5 shadow-inner border border-white/20 relative z-10"><i class="fa-solid fa-house-chimney"></i></div>
+                <div class="text-[10px] sm:text-xs font-bold text-orange-100 uppercase tracking-widest mb-1 relative z-10">Banqiao</div>
+                <h3 class="text-lg sm:text-2xl font-black tracking-tight mb-2 relative z-10">總部</h3>
               </div>
-              <div class="pt-4 border-t border-white/20 relative z-10 flex items-center justify-between text-xs font-bold text-orange-100">
+              <div class="pt-3 sm:pt-4 border-t border-white/20 relative z-10 flex items-center justify-between text-[10px] sm:text-xs font-bold text-orange-100">
                 <span>據點</span>
                 <span><i class="fa-solid fa-location-dot mr-1"></i>板橋</span>
               </div>
             </div>
 
             <!-- 桃園分部 -->
-            <div class="map-card bg-gradient-to-b from-rose-600 to-pink-700 rounded-[28px] sm:rounded-[32px] p-6 text-white shadow-xl flex flex-col justify-between relative overflow-hidden group hover:scale-[1.02] transition-all min-h-[250px] sm:min-h-[340px] lg:h-96" data-region="taoyuan">
+            <div class="map-card bg-gradient-to-b from-rose-600 to-pink-700 rounded-[20px] sm:rounded-[32px] p-3.5 sm:p-6 text-white shadow-xl flex flex-col justify-between relative overflow-hidden group hover:scale-[1.02] transition-all min-h-[220px] sm:min-h-[340px] lg:h-96" data-region="taoyuan">
               <div class="absolute -right-10 -bottom-10 w-56 h-56 bg-white/10 rounded-full pointer-events-none"></div>
               <div>
-                <div class="flex items-center justify-between mb-5 relative z-10 gap-2">
-                  <i class="fa-solid fa-house text-lg sm:text-xl text-rose-200 shrink-0"></i>
-                  <span class="text-[10px] sm:text-xs font-black tracking-wider uppercase bg-white/20 px-2.5 py-1 rounded-full backdrop-blur-md truncate">TAOYUAN</span>
+                <div class="flex items-center justify-between mb-3 sm:mb-5 relative z-10 gap-1">
+                  <i class="fa-solid fa-house text-sm sm:text-xl text-rose-200 shrink-0"></i>
+                  <span class="text-[9px] sm:text-xs font-black tracking-wider uppercase bg-white/20 px-2 sm:px-2.5 py-1 rounded-full backdrop-blur-md truncate">TAOYUAN</span>
                 </div>
-                <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-white/15 backdrop-blur-md flex items-center justify-center text-2xl sm:text-3xl font-black mb-5 shadow-inner border border-white/20 relative z-10"><i class="fa-solid fa-house-chimney"></i></div>
-                <div class="text-xs font-bold text-rose-100 uppercase tracking-widest mb-1 relative z-10">PINGZHEN</div>
-                <h3 class="text-2xl font-black tracking-tight mb-2 relative z-10">桃園分部</h3>
+                <div class="w-10 h-10 sm:w-16 sm:h-16 rounded-2xl bg-white/15 backdrop-blur-md flex items-center justify-center text-lg sm:text-3xl font-black mb-3 sm:mb-5 shadow-inner border border-white/20 relative z-10"><i class="fa-solid fa-house-chimney"></i></div>
+                <div class="text-[10px] sm:text-xs font-bold text-rose-100 uppercase tracking-widest mb-1 relative z-10">PINGZHEN</div>
+                <h3 class="text-lg sm:text-2xl font-black tracking-tight mb-2 relative z-10">桃園分部</h3>
               </div>
-              <div class="pt-4 border-t border-white/20 relative z-10 flex items-center justify-between text-xs font-bold text-rose-100">
+              <div class="pt-3 sm:pt-4 border-t border-white/20 relative z-10 flex items-center justify-between text-[10px] sm:text-xs font-bold text-rose-100">
                 <span>據點</span>
                 <span><i class="fa-solid fa-location-dot mr-1"></i>平鎮</span>
               </div>
             </div>
 
             <!-- 臺中分部 -->
-            <div class="map-card bg-gradient-to-b from-indigo-800 to-purple-900 rounded-[28px] sm:rounded-[32px] p-6 text-white shadow-xl flex flex-col justify-between relative overflow-hidden group hover:scale-[1.02] transition-all min-h-[250px] sm:min-h-[340px] lg:h-96" data-region="taichung">
+            <div class="map-card bg-gradient-to-b from-indigo-800 to-purple-900 rounded-[20px] sm:rounded-[32px] p-3.5 sm:p-6 text-white shadow-xl flex flex-col justify-between relative overflow-hidden group hover:scale-[1.02] transition-all min-h-[220px] sm:min-h-[340px] lg:h-96" data-region="taichung">
               <div class="absolute -right-10 -bottom-10 w-56 h-56 bg-white/10 rounded-full pointer-events-none"></div>
               <div>
-                <div class="flex items-center justify-between mb-5 relative z-10 gap-2">
-                  <i class="fa-solid fa-house text-lg sm:text-xl text-indigo-200 shrink-0"></i>
-                  <span class="text-[10px] sm:text-xs font-black tracking-wider uppercase bg-white/20 px-2.5 py-1 rounded-full backdrop-blur-md truncate">TAICHUNG</span>
+                <div class="flex items-center justify-between mb-3 sm:mb-5 relative z-10 gap-1">
+                  <i class="fa-solid fa-house text-sm sm:text-xl text-indigo-200 shrink-0"></i>
+                  <span class="text-[9px] sm:text-xs font-black tracking-wider uppercase bg-white/20 px-2 sm:px-2.5 py-1 rounded-full backdrop-blur-md truncate">TAICHUNG</span>
                 </div>
-                <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-white/15 backdrop-blur-md flex items-center justify-center text-2xl sm:text-3xl font-black mb-5 shadow-inner border border-white/20 relative z-10"><i class="fa-solid fa-house-chimney"></i></div>
-                <div class="text-xs font-bold text-indigo-100 uppercase tracking-widest mb-1 relative z-10">CENTRAL、NORTH</div>
-                <h3 class="text-2xl font-black tracking-tight mb-2 relative z-10">臺中分部</h3>
+                <div class="w-10 h-10 sm:w-16 sm:h-16 rounded-2xl bg-white/15 backdrop-blur-md flex items-center justify-center text-lg sm:text-3xl font-black mb-3 sm:mb-5 shadow-inner border border-white/20 relative z-10"><i class="fa-solid fa-house-chimney"></i></div>
+                <div class="text-[10px] sm:text-xs font-bold text-indigo-100 uppercase tracking-widest mb-1 relative z-10">CENTRAL</div>
+                <h3 class="text-lg sm:text-2xl font-black tracking-tight mb-2 relative z-10">臺中分部</h3>
               </div>
-              <div class="pt-4 border-t border-white/20 relative z-10 flex items-center justify-between text-xs font-bold text-indigo-100">
+              <div class="pt-3 sm:pt-4 border-t border-white/20 relative z-10 flex items-center justify-between text-[10px] sm:text-xs font-bold text-indigo-100">
                 <span>據點</span>
-                <span><i class="fa-solid fa-location-dot mr-1"></i>中區、北區</span>
+                <span><i class="fa-solid fa-location-dot mr-1"></i>中、北區</span>
               </div>
             </div>
           </div>
@@ -386,7 +543,6 @@
           </div>
         </div>
 
-        <!-- 11/15 阿英生日慶祝花絮 -->
         <div class="bg-white rounded-[28px] sm:rounded-[32px] p-5 sm:p-8 border border-orange-100 shadow-xl">
           <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-4">
             <div class="flex items-center gap-3.5">
@@ -519,19 +675,17 @@
     <i class="fa-solid fa-arrow-up"></i>
   </button>
 
-<!-- 隊職員詳細資料互動 Modal (手機版照片改為自適應高度、絕對不被裁切) -->
+  <!-- 隊職員詳細資料互動 Modal -->
   <div id="staffModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 p-3 sm:p-4">
     <div id="staffModalContent" class="bg-white rounded-[28px] sm:rounded-[36px] max-w-4xl w-full max-h-[92dvh] md:h-[560px] shadow-2xl transform scale-95 transition-transform duration-300 flex flex-col md:flex-row overflow-hidden relative">
       <button type="button" onclick="closeStaffModal()" aria-label="關閉視窗" class="absolute top-4 right-4 sm:top-5 sm:right-5 z-20 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-colors shadow-sm cursor-pointer">
         <i class="fa-solid fa-xmark text-base sm:text-lg"></i>
       </button>
 
-      <!-- 照片區：手機版改為 h-auto 依比例完整呈現，桌機版左側 5/12 寬度填滿高度 -->
       <div class="w-full md:w-5/12 bg-slate-900 relative h-auto md:h-full shrink-0 overflow-hidden flex items-center justify-center">
         <img id="modalImg" src="" alt="成員照片" class="w-full h-auto md:h-full object-contain md:object-cover object-center max-h-[50dvh] md:max-h-none">
       </div>
 
-      <!-- 右側詳細資訊區：手機版流暢捲動，桌機版右側 7/12 寬度 -->
       <div class="w-full md:w-7/12 p-5 sm:p-8 flex flex-col justify-between bg-white flex-grow overflow-y-auto custom-scrollbar">
         <div>
           <div class="text-[10px] sm:text-xs font-medium text-slate-400 mb-1.5" id="modalBreadcrumb">首頁 / 營運團隊 / 幹部資訊</div>
@@ -560,6 +714,57 @@
             <div class="flex flex-wrap gap-1.5 sm:gap-2" id="modalSkills"></div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 創辦人故事詳細 Modal -->
+  <div id="partnerStoryModal" class="fixed inset-0 z-[165] flex items-center justify-center p-3 sm:p-6 bg-slate-900/60 backdrop-blur-sm hidden" onclick="closePartnerStoryModal()">
+    <div class="bg-white text-slate-800 rounded-[28px] sm:rounded-[36px] max-w-2xl w-full max-h-[90dvh] shadow-2xl overflow-hidden flex flex-col border border-orange-100 relative" onclick="event.stopPropagation()">
+      <div class="bg-slate-900 text-white px-5 sm:px-8 py-4 sm:py-5 flex items-center justify-between shrink-0">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-orange-600 text-white flex items-center justify-center text-sm font-black shadow-md">
+            <i class="fa-solid fa-book-open"></i>
+          </div>
+          <div>
+            <span class="text-[10px] font-bold text-orange-400 uppercase tracking-widest block">CREATOR STORY</span>
+            <h4 class="text-sm sm:text-base font-black tracking-wide">網站創辦人故事</h4>
+          </div>
+        </div>
+        <button type="button" onclick="closePartnerStoryModal()" aria-label="關閉視窗" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-all cursor-pointer">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="p-6 sm:p-8 overflow-y-auto custom-scrollbar space-y-6 bg-slate-50/50 flex-grow">
+        <div class="flex flex-col sm:flex-row items-center gap-5 bg-white p-5 rounded-3xl border border-slate-200/80 shadow-sm">
+          <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden border-2 border-orange-200 shadow-sm shrink-0 bg-slate-100">
+            <img src="1130229005.jpg" alt="呂佳寯" class="w-full h-full object-cover object-top">
+          </div>
+          <div class="text-center sm:text-left">
+            <span class="px-2.5 py-1 rounded-lg bg-orange-100 text-orange-700 text-[10px] font-black uppercase tracking-wider inline-block mb-1.5">網站製作人 / 營運經理</span>
+            <h3 class="text-2xl font-black text-slate-900 tracking-tight">呂佳寯</h3>
+            <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mt-0.5">LU JIA JUN</p>
+          </div>
+        </div>
+
+        <div class="bg-white p-5 sm:p-6 rounded-3xl border border-slate-200/80 shadow-sm space-y-4">
+          <h4 class="text-base sm:text-lg font-black text-slate-900 flex items-center gap-2">
+            <i class="fa-solid fa-quote-left text-orange-500"></i> 打造屬於呂氏家庭的數位家園
+          </h4>
+          <p class="text-sm sm:text-base text-slate-700 font-medium leading-relaxed">
+            「呂氏家庭生活資訊網」從零開始規劃、視覺設計到程式開發，皆由呂佳寯一手打造。希望透過這個專屬的數位平台，將分散在新北板橋總部、桃園平鎮分部與臺中分部的家族成員緊密連結在一起。
+          </p>
+          <p class="text-sm sm:text-base text-slate-700 font-medium leading-relaxed">
+            無論是紀錄每一次歡笑的活動花絮、發布家族最新動態，或是規劃未來的團聚行事曆，這裡都是凝聚我們情感與共同回憶的重要基地。
+          </p>
+        </div>
+      </div>
+
+      <div class="p-4 sm:p-5 bg-white border-t border-slate-100 text-center shrink-0">
+        <button type="button" onclick="closePartnerStoryModal()" class="w-full py-3 rounded-2xl bg-slate-800 hover:bg-slate-900 text-white font-black text-xs sm:text-sm uppercase shadow-md transition-all cursor-pointer">
+          關閉故事視窗
+        </button>
       </div>
     </div>
   </div>
@@ -799,6 +1004,15 @@
     function nextLightboxImage() { _lightboxCurrentIndex++; updateLightboxDisplay(); }
     function closeImageLightbox() { document.getElementById('imageLightboxModal').classList.add('hidden'); }
 
+    // 創辦人故事 Modal 控制函式
+    function openPartnerStoryModal() {
+      document.getElementById('partnerStoryModal').classList.remove('hidden');
+    }
+
+    function closePartnerStoryModal() {
+      document.getElementById('partnerStoryModal').classList.add('hidden');
+    }
+
     const highlightDatasets = {
       birthday: [
         { url: '331444_0.jpg', name: '阿英生日慶祝花絮_1.jpg' },
@@ -884,55 +1098,27 @@
     const eventsDatabase = [
       {
         id: 'ev1',
-        category: '2026',
-        subCategory: '家族聚會',
-        status: '已落幕',
-        statusClass: 'bg-rose-600 text-white',
-        title: '新年團團圓爐',
         monthDay: '02.16',
-        timeStr: '年節團聚',
-        location: '新北市板橋區 (總部)',
-        date: '2026年2月16日',
-        desc: '全家齊聚一堂享用豐盛年夜飯'
+        title: '新年團團圓爐',
+        location: '新北市板橋區 (總部)'
       },
       {
         id: 'ev2',
-        category: '2026',
-        subCategory: '溫馨獻禮',
-        status: '已落幕',
-        statusClass: 'bg-rose-600 text-white',
-        title: '母親節慶祝大會',
         monthDay: '05.10',
-        timeStr: '感恩慶祝',
-        location: '新北市板橋區 (總部)',
-        date: '2026年5月10日',
-        desc: '獻上最誠摯的感謝與溫馨獻禮'
+        title: '母親節慶祝大會',
+        location: '新北市板橋區 (總部)'
       },
       {
         id: 'ev3',
-        category: '2026',
-        subCategory: '節慶活動',
-        status: '已取消',
-        statusClass: 'bg-slate-700 text-white',
-        title: '中秋烤肉同樂晚會',
         monthDay: '09.25',
-        timeStr: '戶外同樂',
-        location: '桃園市平鎮區 (分部)',
-        date: '2026年9月25日',
-        desc: '原定舉辦之戶外烤肉賞月談心活動'
+        title: '中秋烤肉同樂晚會',
+        location: '桃園市平鎮區 (分部)'
       },
       {
         id: 'ev4',
-        category: '2026',
-        subCategory: '溫馨獻禮',
-        status: '已落幕',
-        statusClass: 'bg-rose-600 text-white',
+        monthDay: '11.14',
         title: '生日慶祝大會',
-        monthDay: '11.14-15',
-        timeStr: '壽星慶典',
-        location: '新北市板橋區 (總部)',
-        date: '2026年11月14日至15日',
-        desc: '獻上最誠摯的感謝與生日祝福'
+        location: '新北市板橋區 (總部)'
       }
     ];
 
@@ -944,25 +1130,36 @@
       const totalNumEl = document.getElementById('eventTotalNum');
       if (totalNumEl) totalNumEl.innerText = String(eventsDatabase.length).padStart(2, '0');
 
-      eventsDatabase.forEach(ev => {
+      eventsDatabase.forEach((ev, index) => {
         const card = document.createElement('div');
-        card.className = "w-[78vw] sm:w-[290px] lg:w-[305px] bg-[#fffdfa] rounded-[28px] sm:rounded-[32px] p-6 sm:p-7 border border-orange-100 shadow-lg flex flex-col justify-between relative overflow-hidden shrink-0 snap-start";
+        card.className = "w-[85vw] sm:w-[340px] lg:w-[360px] bg-white rounded-[28px] sm:rounded-[36px] border border-orange-200/80 shadow-xl overflow-hidden shrink-0 snap-start flex flex-col justify-between";
         card.innerHTML = `
-          <div>
-            <div class="flex items-center justify-between mb-3">
-              <span class="text-xs font-black tracking-wider px-3.5 py-1.5 rounded-xl ${ev.statusClass} shadow-sm">${ev.status}</span>
-              <span class="text-[11px] font-bold text-orange-600 uppercase tracking-widest bg-orange-50 px-2.5 py-1 rounded-lg border border-orange-100">${ev.subCategory}</span>
+          <div class="relative bg-gradient-to-br from-orange-50 to-amber-50/50 p-6 sm:p-7 overflow-hidden border-b border-orange-100">
+            <div class="absolute -right-4 -bottom-6 text-6xl sm:text-7xl font-black text-orange-500/10 uppercase tracking-widest pointer-events-none select-none">EVENT</div>
+            <div class="relative z-10">
+              <div class="flex items-center justify-between mb-2">
+                <span class="px-3 py-1 rounded-xl bg-orange-600 text-white text-[11px] font-black tracking-wider uppercase shadow-sm">活動日期</span>
+                <span class="text-xs font-bold text-slate-400 tracking-widest">場次編號 0${index + 1}</span>
+              </div>
+              <div class="text-3xl sm:text-4xl font-black tracking-tight text-slate-900 font-mono">${ev.monthDay}</div>
             </div>
-            <div class="flex items-baseline justify-between mb-2">
-              <span class="text-3xl sm:text-4xl font-black tracking-tight text-slate-900 font-mono">${ev.monthDay}</span>
-              <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">${ev.category}</span>
-            </div>
-            <h3 class="text-lg font-black text-slate-900 mb-2 line-clamp-1 leading-snug">${ev.title}</h3>
-            <p class="text-xs font-medium text-slate-600 line-clamp-2 mb-4 leading-relaxed">${ev.desc}</p>
           </div>
-          <div class="pt-3.5 border-t border-orange-100/60 flex items-center gap-1.5 text-xs font-bold text-slate-500">
-            <i class="fa-solid fa-location-dot text-orange-600 shrink-0"></i>
-            <span class="truncate">${ev.location}</span>
+          <div class="p-6 sm:p-7 space-y-6 bg-white flex-grow flex flex-col justify-between">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-2xl bg-orange-100 text-orange-600 flex items-center justify-center text-base font-black shadow-inner shrink-0">
+                <i class="fa-solid fa-flag"></i>
+              </div>
+              <div>
+                <span class="text-[10px] font-bold text-orange-600 uppercase tracking-wider block">FAMILY EVENT</span>
+                <h3 class="text-lg sm:text-xl font-black text-slate-900">${ev.title}</h3>
+              </div>
+            </div>
+            <div class="border-t border-slate-100 pt-4 space-y-3 text-xs sm:text-sm">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-slate-400 uppercase tracking-wider">活動地點</span>
+                <span class="font-black text-slate-800"><i class="fa-solid fa-location-dot text-orange-600 mr-1"></i> ${ev.location}</span>
+              </div>
+            </div>
           </div>
         `;
         container.appendChild(card);
