@@ -1496,4 +1496,30 @@
         await fetch(API_URL, {
           method: 'POST',
           mode: 'no-cors',
-          
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ action: 'delete', id })
+        });
+        await new Promise(r => setTimeout(r, 1000));
+        await fetchNoticesFromCloud();
+        alert('🗑️ 已刪除！');
+      } catch (err) {
+        console.log("刪除失敗", err);
+      }
+    }
+
+    window.addEventListener('resize', () => {
+      updateEventProgress();
+      updateNoticeProgress();
+      updateStaffProgress();
+      updateHighlightProgress('birthday');
+    });
+
+    document.addEventListener('DOMContentLoaded', () => { 
+      fetchNoticesFromCloud(); 
+      renderEvents();
+      updateStaffProgress();
+      updateHighlightProgress('birthday');
+    });
+  </script>
+</body>
+</html>
