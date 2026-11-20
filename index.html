@@ -519,16 +519,16 @@
     <i class="fa-solid fa-arrow-up"></i>
   </button>
 
-  <!-- 隊職員詳細資料互動 Modal (手機版上下堆疊、桌機版左右並排，照片完整絕不被切) -->
+<!-- 隊職員詳細資料互動 Modal (手機版完整呈現照片、不被裁切) -->
   <div id="staffModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 p-3 sm:p-4">
-    <div id="staffModalContent" class="bg-white rounded-[28px] sm:rounded-[36px] max-w-4xl w-full max-h-[88dvh] md:h-[560px] shadow-2xl transform scale-95 transition-transform duration-300 flex flex-col md:flex-row overflow-hidden relative">
+    <div id="staffModalContent" class="bg-white rounded-[28px] sm:rounded-[36px] max-w-4xl w-full max-h-[90dvh] md:h-[560px] shadow-2xl transform scale-95 transition-transform duration-300 flex flex-col md:flex-row overflow-hidden relative">
       <button type="button" onclick="closeStaffModal()" aria-label="關閉視窗" class="absolute top-4 right-4 sm:top-5 sm:right-5 z-20 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-colors shadow-sm cursor-pointer">
         <i class="fa-solid fa-xmark text-base sm:text-lg"></i>
       </button>
 
-      <!-- 照片區：手機版固定高度確保完整呈現，桌機版左側 5/12 寬度 -->
-      <div class="w-full md:w-5/12 bg-slate-100 relative h-52 sm:h-64 md:h-full shrink-0 overflow-hidden flex items-center justify-center">
-        <img id="modalImg" src="" alt="成員照片" class="w-full h-full object-cover object-center">
+      <!-- 照片區：手機版改為自適應高度且完整包覆，桌機版左側 5/12 寬度 -->
+      <div class="w-full md:w-5/12 bg-slate-900 relative max-h-[45dvh] md:max-h-none md:h-full shrink-0 overflow-hidden flex items-center justify-center p-2 md:p-0">
+        <img id="modalImg" src="" alt="成員照片" class="w-full h-full object-contain md:object-cover object-center">
       </div>
 
       <!-- 右側詳細資訊區：手機版流暢捲動，桌機版右側 7/12 寬度 -->
