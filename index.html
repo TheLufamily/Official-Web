@@ -402,11 +402,11 @@
     <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-4 w-full relative section-title-watermark">
       <div class="watermark-text">TEAM</div>
       <div class="relative z-10">
-        <span class="text-orange-600 font-black text-xs tracking-widest uppercase block mb-1">隊職員</span>
+        <span class="text-orange-600 font-black text-xs tracking-widest uppercase block mb-1">隊職幹部</span>
         <h2 class="text-3xl sm:text-5xl font-black tracking-tight uppercase text-slate-900 mb-2 leading-tight">
-          OPERATIONS <span class="text-orange-600">TEAM</span>
+          TEAM <span class="text-orange-600">STAFF</span>
         </h2>
-        <p class="text-slate-600 text-sm sm:text-base">設置核心幹部專責管理行政、宣傳與設計業務</p>
+        <p class="text-slate-600 text-sm sm:text-base"></p>
       </div>
       <div class="relative z-10 inline-flex items-center gap-2 px-3.5 py-2.5 rounded-2xl bg-orange-50 border border-orange-200 text-xs font-bold text-orange-800 shadow-sm w-fit shrink-0">
         <i class="fa-regular fa-clock text-orange-600 shrink-0"></i>
@@ -605,86 +605,99 @@
 </section>
       
 <!-- 5. 活動花絮專區 (Highlights) -->
-      <section id="highlights-section" class="scroll-mt-24 pt-2 space-y-6 sm:space-y-8">
-        <div class="relative z-10 section-title-watermark">
-          <div class="watermark-text">HIGHLIGHTS</div>
-          <div class="relative z-10">
-            <span class="text-orange-600 font-black text-xs tracking-widest uppercase block mb-1">活動花絮</span>
-            <h2 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight uppercase">HIGHLIGHTS</h2>
-            <p class="text-xs sm:text-sm font-bold text-slate-500 tracking-wider mt-1 uppercase">FAMILY CELEBRATION &bull; 點擊圖片可放大檢視與下載</p>
+<section id="highlights-section" class="scroll-mt-24 pt-2 space-y-6 sm:space-y-8">
+  <!-- 標題與「更多花絮」按鈕 -->
+  <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-4 w-full relative z-10 section-title-watermark">
+    <div class="watermark-text">HIGHLIGHTS</div>
+    <div class="relative z-10">
+      <span class="text-orange-600 font-black text-xs tracking-widest uppercase block mb-1">生活花絮</span>
+      <h2 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight uppercase">HIGHLIGHTS</h2>
+      <p class="text-xs sm:text-sm font-bold text-slate-500 tracking-wider mt-1 uppercase">花絮專區只會顯示最近一次活動</p>
+    </div>
+
+    <!-- 更多花絮按鈕（外連至 Google Drive 相簿資料夾） -->
+    <div class="relative z-10 shrink-0">
+      <a href="https://drive.google.com/drive/folders/1XrPYVt49am9nOSfEU1t3gKLETttbXcDY?usp=sharing" 
+         target="_blank" 
+         rel="noopener noreferrer" 
+         class="inline-flex items-center gap-2.5 px-5 py-3 rounded-2xl bg-slate-900 hover:bg-orange-600 text-white text-xs sm:text-sm font-black tracking-wider shadow-lg hover:shadow-orange-500/25 transition-all duration-300 group">
+        <i class="fa-brands fa-google-drive text-orange-400 group-hover:text-white transition-colors"></i>
+        <span>更多花絮</span>
+        <i class="fa-solid fa-arrow-up-right-from-square text-[11px] opacity-75 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
+      </a>
+    </div>
+  </div>
+
+  <div class="bg-white rounded-[28px] sm:rounded-[32px] p-5 sm:p-8 border border-orange-100 shadow-xl">
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-4">
+      <div class="flex items-center gap-3.5">
+        <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-orange-600 text-white flex items-center justify-center text-lg sm:text-xl shadow-md shrink-0"><i class="fa-solid fa-cake-candles"></i></div>
+        <div>
+          <span class="text-[11px] sm:text-xs font-bold text-orange-600 uppercase tracking-widest block">FAMILY CELEBRATION</span>
+          <h3 class="text-lg sm:text-xl font-black text-slate-900">11/15 阿英生日慶祝大會</h3>
+        </div>
+      </div>
+      <span class="px-3.5 py-1.5 rounded-full bg-orange-100 text-orange-700 text-xs font-black self-start sm:self-auto shrink-0">共 6 張相片</span>
+    </div>
+
+    <div class="relative">
+      <div id="highlightsContainerBirthday" class="flex gap-4 sm:gap-5 overflow-x-auto pb-3 no-scrollbar snap-x snap-mandatory">
+        <div onclick="openHighlightLightbox('birthday', 0)" class="w-[76vw] sm:w-[300px] lg:w-[320px] group relative rounded-2xl overflow-hidden bg-slate-100 aspect-[4/3] shadow-md cursor-pointer border border-slate-200 shrink-0 snap-start">
+          <img src="331444_0.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="阿英生日慶祝花絮 1">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+            <span class="text-white text-xs font-black tracking-wider"><i class="fa-solid fa-magnifying-glass-plus mr-1"></i> 點擊放大檢視</span>
           </div>
         </div>
-
-        <div class="bg-white rounded-[28px] sm:rounded-[32px] p-5 sm:p-8 border border-orange-100 shadow-xl">
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-4">
-            <div class="flex items-center gap-3.5">
-              <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-orange-600 text-white flex items-center justify-center text-lg sm:text-xl shadow-md shrink-0"><i class="fa-solid fa-cake-candles"></i></div>
-              <div>
-                <span class="text-[11px] sm:text-xs font-bold text-orange-600 uppercase tracking-widest block">FAMILY CELEBRATION</span>
-                <h3 class="text-lg sm:text-xl font-black text-slate-900">11/15 阿英生日慶祝大會</h3>
-              </div>
-            </div>
-            <span class="px-3.5 py-1.5 rounded-full bg-orange-100 text-orange-700 text-xs font-black self-start sm:self-auto shrink-0">共 6 張相片</span>
-          </div>
-
-          <div class="relative">
-            <div id="highlightsContainerBirthday" class="flex gap-4 sm:gap-5 overflow-x-auto pb-3 no-scrollbar snap-x snap-mandatory">
-              <div onclick="openHighlightLightbox('birthday', 0)" class="w-[76vw] sm:w-[300px] lg:w-[320px] group relative rounded-2xl overflow-hidden bg-slate-100 aspect-[4/3] shadow-md cursor-pointer border border-slate-200 shrink-0 snap-start">
-                <img src="331444_0.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="阿英生日慶祝花絮 1">
-                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-                  <span class="text-white text-xs font-black tracking-wider"><i class="fa-solid fa-magnifying-glass-plus mr-1"></i> 點擊放大檢視</span>
-                </div>
-              </div>
-              <div onclick="openHighlightLightbox('birthday', 1)" class="w-[76vw] sm:w-[300px] lg:w-[320px] group relative rounded-2xl overflow-hidden bg-slate-100 aspect-[4/3] shadow-md cursor-pointer border border-slate-200 shrink-0 snap-start">
-                <img src="331438_0.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="阿英生日慶祝花絮 2">
-                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-                  <span class="text-white text-xs font-black tracking-wider"><i class="fa-solid fa-magnifying-glass-plus mr-1"></i> 點擊放大檢視</span>
-                </div>
-              </div>
-              <div onclick="openHighlightLightbox('birthday', 2)" class="w-[76vw] sm:w-[300px] lg:w-[320px] group relative rounded-2xl overflow-hidden bg-slate-100 aspect-[4/3] shadow-md cursor-pointer border border-slate-200 shrink-0 snap-start">
-                <img src="331427_0.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="阿英生日慶祝花絮 3">
-                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-                  <span class="text-white text-xs font-black tracking-wider"><i class="fa-solid fa-magnifying-glass-plus mr-1"></i> 點擊放大檢視</span>
-                </div>
-              </div>
-              <div onclick="openHighlightLightbox('birthday', 3)" class="w-[76vw] sm:w-[300px] lg:w-[320px] group relative rounded-2xl overflow-hidden bg-slate-100 aspect-[4/3] shadow-md cursor-pointer border border-slate-200 shrink-0 snap-start">
-                <img src="331428_0.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="阿英生日慶祝花絮 4">
-                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-                  <span class="text-white text-xs font-black tracking-wider"><i class="fa-solid fa-magnifying-glass-plus mr-1"></i> 點擊放大檢視</span>
-                </div>
-              </div>
-              <div onclick="openHighlightLightbox('birthday', 4)" class="w-[76vw] sm:w-[300px] lg:w-[320px] group relative rounded-2xl overflow-hidden bg-slate-100 aspect-[4/3] shadow-md cursor-pointer border border-slate-200 shrink-0 snap-start">
-                <img src="331433_0.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="阿英生日慶祝花絮 5">
-                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-                  <span class="text-white text-xs font-black tracking-wider"><i class="fa-solid fa-magnifying-glass-plus mr-1"></i> 點擊放大檢視</span>
-                </div>
-              </div>
-              <div onclick="openHighlightLightbox('birthday', 5)" class="w-[76vw] sm:w-[300px] lg:w-[320px] group relative rounded-2xl overflow-hidden bg-slate-100 aspect-[4/3] shadow-md cursor-pointer border border-slate-200 shrink-0 snap-start">
-                <img src="331434_0.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="阿英生日慶祝花絮 6">
-                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-                  <span class="text-white text-xs font-black tracking-wider"><i class="fa-solid fa-magnifying-glass-plus mr-1"></i> 點擊放大檢視</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="flex items-center justify-between gap-4 sm:gap-6 pt-3">
-              <div class="flex items-center gap-2.5 shrink-0">
-                <div class="slider-indicator-num text-base sm:text-lg font-black text-slate-900 flex items-baseline">
-                  <span id="highlightCurrentNumBirthday">01</span><span class="text-xs text-slate-400 font-bold ml-1">/ <span id="highlightTotalNumBirthday">06</span></span>
-                </div>
-              </div>
-              <div class="flex-grow bg-orange-200/50 h-1.5 rounded-full overflow-hidden relative">
-                <div id="highlightScrollProgressBirthday" class="bg-orange-600 h-full w-1/6 transition-all duration-300"></div>
-                <div id="highlightProgressThumbBirthday" class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-orange-700 shadow-md border-2 border-white transition-all duration-300 pointer-events-none" style="left: 0%;"></div>
-              </div>
-              <div class="flex items-center gap-2 shrink-0">
-                <button type="button" onclick="scrollHighlightContainer('birthday', 'left')" aria-label="上一張相片" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white hover:bg-orange-50 text-slate-700 hover:text-orange-600 border border-orange-200 flex items-center justify-center transition-all shadow-sm cursor-pointer"><i class="fa-solid fa-chevron-left text-xs sm:text-sm"></i></button>
-                <button type="button" onclick="scrollHighlightContainer('birthday', 'right')" aria-label="下一張相片" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white hover:bg-orange-50 text-slate-700 hover:text-orange-600 border border-orange-200 flex items-center justify-center transition-all shadow-sm cursor-pointer"><i class="fa-solid fa-chevron-right text-xs sm:text-sm"></i></button>
-              </div>
-            </div>
+        <div onclick="openHighlightLightbox('birthday', 1)" class="w-[76vw] sm:w-[300px] lg:w-[320px] group relative rounded-2xl overflow-hidden bg-slate-100 aspect-[4/3] shadow-md cursor-pointer border border-slate-200 shrink-0 snap-start">
+          <img src="331438_0.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="阿英生日慶祝花絮 2">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+            <span class="text-white text-xs font-black tracking-wider"><i class="fa-solid fa-magnifying-glass-plus mr-1"></i> 點擊放大檢視</span>
           </div>
         </div>
-      </section>
+        <div onclick="openHighlightLightbox('birthday', 2)" class="w-[76vw] sm:w-[300px] lg:w-[320px] group relative rounded-2xl overflow-hidden bg-slate-100 aspect-[4/3] shadow-md cursor-pointer border border-slate-200 shrink-0 snap-start">
+          <img src="331427_0.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="阿英生日慶祝花絮 3">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+            <span class="text-white text-xs font-black tracking-wider"><i class="fa-solid fa-magnifying-glass-plus mr-1"></i> 點擊放大檢視</span>
+          </div>
+        </div>
+        <div onclick="openHighlightLightbox('birthday', 3)" class="w-[76vw] sm:w-[300px] lg:w-[320px] group relative rounded-2xl overflow-hidden bg-slate-100 aspect-[4/3] shadow-md cursor-pointer border border-slate-200 shrink-0 snap-start">
+          <img src="331428_0.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="阿英生日慶祝花絮 4">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+            <span class="text-white text-xs font-black tracking-wider"><i class="fa-solid fa-magnifying-glass-plus mr-1"></i> 點擊放大檢視</span>
+          </div>
+        </div>
+        <div onclick="openHighlightLightbox('birthday', 4)" class="w-[76vw] sm:w-[300px] lg:w-[320px] group relative rounded-2xl overflow-hidden bg-slate-100 aspect-[4/3] shadow-md cursor-pointer border border-slate-200 shrink-0 snap-start">
+          <img src="331433_0.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="阿英生日慶祝花絮 5">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+            <span class="text-white text-xs font-black tracking-wider"><i class="fa-solid fa-magnifying-glass-plus mr-1"></i> 點擊放大檢視</span>
+          </div>
+        </div>
+        <div onclick="openHighlightLightbox('birthday', 5)" class="w-[76vw] sm:w-[300px] lg:w-[320px] group relative rounded-2xl overflow-hidden bg-slate-100 aspect-[4/3] shadow-md cursor-pointer border border-slate-200 shrink-0 snap-start">
+          <img src="331434_0.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="阿英生日慶祝花絮 6">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+            <span class="text-white text-xs font-black tracking-wider"><i class="fa-solid fa-magnifying-glass-plus mr-1"></i> 點擊放大檢視</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-between gap-4 sm:gap-6 pt-3">
+        <div class="flex items-center gap-2.5 shrink-0">
+          <div class="slider-indicator-num text-base sm:text-lg font-black text-slate-900 flex items-baseline">
+            <span id="highlightCurrentNumBirthday">01</span><span class="text-xs text-slate-400 font-bold ml-1">/ <span id="highlightTotalNumBirthday">06</span></span>
+          </div>
+        </div>
+        <div class="flex-grow bg-orange-200/50 h-1.5 rounded-full overflow-hidden relative">
+          <div id="highlightScrollProgressBirthday" class="bg-orange-600 h-full w-1/6 transition-all duration-300"></div>
+          <div id="highlightProgressThumbBirthday" class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-orange-700 shadow-md border-2 border-white transition-all duration-300 pointer-events-none" style="left: 0%;"></div>
+        </div>
+        <div class="flex items-center gap-2 shrink-0">
+          <button type="button" onclick="scrollHighlightContainer('birthday', 'left')" aria-label="上一張相片" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white hover:bg-orange-50 text-slate-700 hover:text-orange-600 border border-orange-200 flex items-center justify-center transition-all shadow-sm cursor-pointer"><i class="fa-solid fa-chevron-left text-xs sm:text-sm"></i></button>
+          <button type="button" onclick="scrollHighlightContainer('birthday', 'right')" aria-label="下一張相片" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white hover:bg-orange-50 text-slate-700 hover:text-orange-600 border border-orange-200 flex items-center justify-center transition-all shadow-sm cursor-pointer"><i class="fa-solid fa-chevron-right text-xs sm:text-sm"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
       <!-- 6. 聯絡窗口專區 (Contact) -->
       <section id="contact-section" class="scroll-mt-24 pt-2 pb-6">
