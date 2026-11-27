@@ -76,56 +76,82 @@
         <img src="2025呂氏家庭新版隊徽-正式永久版.png" alt="呂氏家庭隊徽" class="h-10 sm:h-12 w-auto object-contain">
       </a>
 
-      <!-- 桌機版橫向選單（主要區塊 + 子清單下拉選單） -->
+      <!-- 桌機版橫向選單（含 Hover 下拉子選單：仿伊斯特村風格大方格） -->
       <div class="hidden lg:flex items-center gap-8 xl:gap-10 font-black text-[14px] text-slate-900 tracking-wider">
         <a href="#calendar-section" class="hover:text-orange-600 transition-colors py-2">年度活動</a>
         <a href="#notice" class="hover:text-orange-600 transition-colors py-2">最新消息</a>
         <a href="#family-map" class="hover:text-orange-600 transition-colors py-2">呂氏家族</a>
         <a href="#highlights-section" class="hover:text-orange-600 transition-colors py-2">活動花絮</a>
 
-        <!-- 更多資訊子清單 (Dropdown) -->
+        <!-- 家族組織與服務 (Hover 下拉大卡片選單) -->
         <div class="relative group py-2">
           <button type="button" class="inline-flex items-center gap-1.5 hover:text-orange-600 transition-colors cursor-pointer">
             <span>家族組織與服務</span>
             <i class="fa-solid fa-chevron-down text-[11px] text-orange-500 transition-transform duration-200 group-hover:rotate-180"></i>
           </button>
           
-          <!-- 下拉子選單面板 -->
-          <div class="absolute left-0 top-full pt-2 w-60 opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200 z-50">
-            <div class="bg-white rounded-2xl shadow-2xl border border-orange-100 p-2 flex flex-col gap-1">
-              <button type="button" onclick="openIndependentPage('about')" class="w-full text-left px-3.5 py-2.5 rounded-xl hover:bg-orange-50 text-slate-700 hover:text-orange-600 transition-colors flex items-center gap-3 cursor-pointer">
-                <div class="w-8 h-8 rounded-lg bg-orange-50 text-orange-600 flex items-center justify-center text-xs shrink-0"><i class="fa-solid fa-heart"></i></div>
-                <div>
-                  <div class="text-xs font-black">關於我們</div>
-                  <div class="text-[10px] font-medium text-slate-400">家族理念與成立初衷</div>
-                </div>
-              </button>
+          <!-- 下拉大卡片面板 (仿圖片精美雙排 6 格設計) -->
+          <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 w-[720px] opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50">
+            <div class="bg-white rounded-[28px] shadow-2xl border border-orange-100/90 p-6 backdrop-blur-xl">
+              <div class="flex items-center gap-2 mb-4 pb-2 border-b border-orange-100">
+                <span class="w-1.5 h-4 rounded-full bg-orange-600"></span>
+                <span class="text-xs font-black text-orange-600 tracking-wider uppercase">LU FAMILY DIRECTORY & SERVICES</span>
+              </div>
+              
+              <div class="grid grid-cols-3 gap-3.5">
+                <!-- 卡片 1 -->
+                <button type="button" onclick="openIndependentPage('about')" class="group/card bg-[#fffaf5] hover:bg-orange-600 hover:text-white rounded-2xl p-4 border border-orange-100/80 transition-all text-left relative overflow-hidden flex flex-col justify-between min-h-[110px] cursor-pointer shadow-xs">
+                  <div class="absolute right-2 top-1 text-4xl font-black font-mono text-orange-600/10 group-hover/card:text-white/20 transition-colors pointer-events-none">01</div>
+                  <div>
+                    <span class="text-[9px] font-black text-orange-600 group-hover/card:text-orange-200 uppercase tracking-widest block mb-0.5">PHILOSOPHY</span>
+                    <h4 class="text-base font-black text-slate-900 group-hover/card:text-white tracking-tight">關於我們</h4>
+                  </div>
+                  <div class="pt-2 flex items-center justify-between text-xs font-black text-orange-600 group-hover/card:text-white">
+                    <span class="text-[10px] font-medium opacity-80">家族理念</span>
+                    <i class="fa-solid fa-arrow-right transform group-hover/card:translate-x-1 transition-transform"></i>
+                  </div>
+                </button>
 
-              <button type="button" onclick="openIndependentPage('committee')" class="w-full text-left px-3.5 py-2.5 rounded-xl hover:bg-orange-50 text-slate-700 hover:text-orange-600 transition-colors flex items-center gap-3 cursor-pointer">
-                <div class="w-8 h-8 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center text-xs shrink-0"><i class="fa-solid fa-scale-balanced"></i></div>
-                <div>
-                  <div class="text-xs font-black">委員會專區</div>
-                  <div class="text-[10px] font-medium text-slate-400">福利與性平暨懲戒委員會</div>
-                </div>
-              </button>
+                <!-- 卡片 2 -->
+                <button type="button" onclick="openIndependentPage('committee')" class="group/card bg-[#fffaf5] hover:bg-orange-600 hover:text-white rounded-2xl p-4 border border-orange-100/80 transition-all text-left relative overflow-hidden flex flex-col justify-between min-h-[110px] cursor-pointer shadow-xs">
+                  <div class="absolute right-2 top-1 text-4xl font-black font-mono text-orange-600/10 group-hover/card:text-white/20 transition-colors pointer-events-none">02</div>
+                  <div>
+                    <span class="text-[9px] font-black text-orange-600 group-hover/card:text-orange-200 uppercase tracking-widest block mb-0.5">COMMITTEE</span>
+                    <h4 class="text-base font-black text-slate-900 group-hover/card:text-white tracking-tight">委員會專區</h4>
+                  </div>
+                  <div class="pt-2 flex items-center justify-between text-xs font-black text-orange-600 group-hover/card:text-white">
+                    <span class="text-[10px] font-medium opacity-80">福利與性平</span>
+                    <i class="fa-solid fa-arrow-right transform group-hover/card:translate-x-1 transition-transform"></i>
+                  </div>
+                </button>
 
-              <button type="button" onclick="openIndependentPage('team')" class="w-full text-left px-3.5 py-2.5 rounded-xl hover:bg-orange-50 text-slate-700 hover:text-orange-600 transition-colors flex items-center gap-3 cursor-pointer">
-                <div class="w-8 h-8 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center text-xs shrink-0"><i class="fa-solid fa-people-group"></i></div>
-                <div>
-                  <div class="text-xs font-black">營運團隊</div>
-                  <div class="text-[10px] font-medium text-slate-400">隊職幹部與服務時間</div>
-                </div>
-              </button>
+                <!-- 卡片 3 -->
+                <button type="button" onclick="openIndependentPage('team')" class="group/card bg-[#fffaf5] hover:bg-orange-600 hover:text-white rounded-2xl p-4 border border-orange-100/80 transition-all text-left relative overflow-hidden flex flex-col justify-between min-h-[110px] cursor-pointer shadow-xs">
+                  <div class="absolute right-2 top-1 text-4xl font-black font-mono text-orange-600/10 group-hover/card:text-white/20 transition-colors pointer-events-none">03</div>
+                  <div>
+                    <span class="text-[9px] font-black text-orange-600 group-hover/card:text-orange-200 uppercase tracking-widest block mb-0.5">TEAM STAFF</span>
+                    <h4 class="text-base font-black text-slate-900 group-hover/card:text-white tracking-tight">營運團隊</h4>
+                  </div>
+                  <div class="pt-2 flex items-center justify-between text-xs font-black text-orange-600 group-hover/card:text-white">
+                    <span class="text-[10px] font-medium opacity-80">隊職幹部</span>
+                    <i class="fa-solid fa-arrow-right transform group-hover/card:translate-x-1 transition-transform"></i>
+                  </div>
+                </button>
 
-              <div class="h-px bg-slate-100 my-1"></div>
+                <!-- 卡片 4 -->
+                <button type="button" onclick="openIndependentPage('contact')" class="group/card bg-slate-50 hover:bg-slate-900 hover:text-white rounded-2xl p-4 border border-slate-200/80 transition-all text-left relative overflow-hidden flex flex-col justify-between min-h-[110px] cursor-pointer shadow-xs">
+                  <div class="absolute right-2 top-1 text-4xl font-black font-mono text-slate-300 group-hover/card:text-white/20 transition-colors pointer-events-none">04</div>
+                  <div>
+                    <span class="text-[9px] font-black text-slate-500 group-hover/card:text-slate-400 uppercase tracking-widest block mb-0.5">SUPPORT</span>
+                    <h4 class="text-base font-black text-slate-900 group-hover/card:text-white tracking-tight">聯絡我們</h4>
+                  </div>
+                  <div class="pt-2 flex items-center justify-between text-xs font-black text-slate-700 group-hover/card:text-white">
+                    <span class="text-[10px] font-medium opacity-80">官方信箱</span>
+                    <i class="fa-solid fa-arrow-right transform group-hover/card:translate-x-1 transition-transform"></i>
+                  </div>
+                </button>
 
-              <button type="button" onclick="openIndependentPage('contact')" class="w-full text-left px-3.5 py-2.5 rounded-xl hover:bg-orange-50 text-slate-700 hover:text-orange-600 transition-colors flex items-center gap-3 cursor-pointer">
-                <div class="w-8 h-8 rounded-lg bg-slate-100 text-slate-700 flex items-center justify-center text-xs shrink-0"><i class="fa-solid fa-envelope"></i></div>
-                <div>
-                  <div class="text-xs font-black">聯絡我們</div>
-                  <div class="text-[10px] font-medium text-slate-400">官方信箱與諮詢窗口</div>
-                </div>
-              </button>
+              </div>
             </div>
           </div>
         </div>
@@ -139,7 +165,7 @@
       </div>
     </div>
 
-    <!-- 手機版漢堡清單選單（含折疊子清單） -->
+    <!-- 手機版漢堡清單選單 -->
     <div id="mobileMenu" class="hidden bg-white border-t border-slate-100 shadow-2xl transition-all lg:hidden">
       <div class="max-w-7xl mx-auto px-5 py-5 flex flex-col gap-1.5 text-sm">
         <a href="#calendar-section" onclick="toggleMobileMenu()" class="group py-3 px-3 rounded-xl flex items-center justify-between text-slate-800 hover:bg-orange-50 hover:text-orange-600 transition-colors">
@@ -159,26 +185,19 @@
           <i class="fa-solid fa-arrow-right text-xs text-orange-500 transform -translate-x-1 group-hover:translate-x-0 transition-all"></i>
         </a>
 
-        <!-- 手機版折疊子清單 -->
-        <div class="pt-1 border-t border-slate-100 mt-1">
-          <button type="button" onclick="toggleMobileSubmenu()" class="w-full py-3 px-3 rounded-xl flex items-center justify-between text-slate-800 hover:bg-orange-50 hover:text-orange-600 transition-colors cursor-pointer">
-            <span class="font-bold">家族組織與服務</span>
-            <i id="mobileSubmenuIcon" class="fa-solid fa-chevron-down text-xs text-orange-500 transition-transform duration-200"></i>
+        <div class="pt-2 border-t border-slate-100 mt-1 grid grid-cols-2 gap-2">
+          <button type="button" onclick="toggleMobileMenu(); openIndependentPage('about')" class="py-2.5 px-3 rounded-xl bg-orange-50 text-left text-xs font-black text-orange-800 hover:bg-orange-100 flex items-center gap-2 cursor-pointer">
+            <i class="fa-solid fa-heart text-orange-600"></i> 關於我們
           </button>
-          <div id="mobileSubmenu" class="hidden pl-4 pr-2 py-1.5 flex flex-col gap-1 bg-slate-50/80 rounded-2xl mt-1">
-            <button type="button" onclick="toggleMobileMenu(); openIndependentPage('about')" class="py-2.5 px-3 rounded-xl text-left text-xs font-bold text-slate-700 hover:bg-white hover:text-orange-600 flex items-center gap-2.5 cursor-pointer">
-              <i class="fa-solid fa-heart text-orange-500 w-4 text-center"></i> 關於我們（家族理念）
-            </button>
-            <button type="button" onclick="toggleMobileMenu(); openIndependentPage('committee')" class="py-2.5 px-3 rounded-xl text-left text-xs font-bold text-slate-700 hover:bg-white hover:text-orange-600 flex items-center gap-2.5 cursor-pointer">
-              <i class="fa-solid fa-scale-balanced text-rose-500 w-4 text-center"></i> 委員會專區
-            </button>
-            <button type="button" onclick="toggleMobileMenu(); openIndependentPage('team')" class="py-2.5 px-3 rounded-xl text-left text-xs font-bold text-slate-700 hover:bg-white hover:text-orange-600 flex items-center gap-2.5 cursor-pointer">
-              <i class="fa-solid fa-people-group text-amber-500 w-4 text-center"></i> 營運團隊（隊職幹部）
-            </button>
-            <button type="button" onclick="toggleMobileMenu(); openIndependentPage('contact')" class="py-2.5 px-3 rounded-xl text-left text-xs font-bold text-slate-700 hover:bg-white hover:text-orange-600 flex items-center gap-2.5 cursor-pointer">
-              <i class="fa-solid fa-envelope text-slate-600 w-4 text-center"></i> 聯絡我們
-            </button>
-          </div>
+          <button type="button" onclick="toggleMobileMenu(); openIndependentPage('committee')" class="py-2.5 px-3 rounded-xl bg-orange-50 text-left text-xs font-black text-orange-800 hover:bg-orange-100 flex items-center gap-2 cursor-pointer">
+            <i class="fa-solid fa-scale-balanced text-rose-600"></i> 委員會專區
+          </button>
+          <button type="button" onclick="toggleMobileMenu(); openIndependentPage('team')" class="py-2.5 px-3 rounded-xl bg-orange-50 text-left text-xs font-black text-orange-800 hover:bg-orange-100 flex items-center gap-2 cursor-pointer">
+            <i class="fa-solid fa-people-group text-amber-600"></i> 營運團隊
+          </button>
+          <button type="button" onclick="toggleMobileMenu(); openIndependentPage('contact')" class="py-2.5 px-3 rounded-xl bg-orange-50 text-left text-xs font-black text-orange-800 hover:bg-orange-100 flex items-center gap-2 cursor-pointer">
+            <i class="fa-solid fa-envelope text-slate-700"></i> 聯絡我們
+          </button>
         </div>
       </div>
     </div>
@@ -204,11 +223,11 @@
     </div>
   </header>
 
-  <!-- 主要內容區（精簡聚焦四大核心區塊） -->
+  <!-- 主要內容區 -->
   <main class="py-6 sm:py-10 flex-grow w-full">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full space-y-16 sm:space-y-24">
       
-      <!-- 1. 年度活動執行表專區 (2026 & 2027 Timeline with Year Switcher) -->
+      <!-- 1. 年度活動執行表專區 -->
       <section id="calendar-section" class="scroll-mt-24 pt-2">
         <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 relative section-title-watermark gap-4">
           <div id="calendarWatermark" class="watermark-text text-3xl sm:text-7xl font-black text-slate-900/[0.04] pointer-events-none select-none absolute -top-4 left-0 uppercase tracking-widest z-0 transition-all duration-300">
@@ -221,7 +240,6 @@
             </h2>
           </div>
 
-          <!-- 年份切換按鈕群組 -->
           <div class="relative z-10 inline-flex p-1.5 bg-slate-100 rounded-2xl border border-slate-200/80 shadow-inner shrink-0 w-fit">
             <button type="button" onclick="switchYear('2026')" id="btnYear2026" class="px-5 py-2.5 rounded-xl text-xs font-black tracking-wider transition-all duration-300 text-slate-500 hover:text-slate-900 cursor-pointer">
               2026 年度
@@ -233,51 +251,31 @@
         </div>
 
         <div class="flex flex-col gap-5">
-          <!-- 2026 年度活動時間軸面板 -->
-          <div id="panel2026" class="hidden bg-white rounded-[32px] p-8 border border-slate-200/80 shadow-xl overflow-x-auto no-scrollbar snap-x snap-mandatory">
+          <!-- 2026 年度活動面板（統一樣式與內距） -->
+          <div id="panel2026" class="hidden bg-white rounded-[32px] p-8 sm:p-12 border border-orange-100 shadow-xl overflow-x-auto no-scrollbar snap-x snap-mandatory">
             <div class="min-w-[850px] relative pt-6 pb-4">
               <div class="absolute top-[35px] left-8 right-8 h-1 bg-slate-200 z-0"></div>
-
               <div class="grid grid-cols-4 relative z-10 gap-4">
-                <!-- 節點 1 -->
                 <div class="schedule-node flex flex-col items-start px-4 snap-start opacity-75">
-                  <div class="flex items-center gap-3 mb-6">
-                    <div class="w-6 h-6 rounded-full bg-slate-300 border-4 border-white shadow-sm flex items-center justify-center"></div>
-                    <span class="px-2.5 py-0.5 rounded-full text-[11px] font-black tracking-wider bg-slate-200 text-slate-600">活動結束</span>
-                  </div>
+                  <div class="flex items-center gap-3 mb-6"><div class="w-6 h-6 rounded-full bg-slate-300 border-4 border-white shadow-sm flex items-center justify-center"></div><span class="px-2.5 py-0.5 rounded-full text-[11px] font-black tracking-wider bg-slate-200 text-slate-600">活動結束</span></div>
                   <div class="text-3xl font-black font-mono text-slate-400 mb-1 line-through decoration-slate-300">02.16</div>
                   <div class="text-xs font-bold text-slate-400 mb-2"><i class="fa-solid fa-location-dot mr-1 text-slate-400"></i> 新北市板橋區 (總部)</div>
                   <div class="text-base font-black text-slate-600">新年團團圓爐</div>
                 </div>
-
-                <!-- 節點 2 -->
                 <div class="schedule-node flex flex-col items-start px-4 snap-start opacity-75">
-                  <div class="flex items-center gap-3 mb-6">
-                    <div class="w-6 h-6 rounded-full bg-slate-300 border-4 border-white shadow-sm flex items-center justify-center"></div>
-                    <span class="px-2.5 py-0.5 rounded-full text-[11px] font-black tracking-wider bg-slate-200 text-slate-600">活動結束</span>
-                  </div>
+                  <div class="flex items-center gap-3 mb-6"><div class="w-6 h-6 rounded-full bg-slate-300 border-4 border-white shadow-sm flex items-center justify-center"></div><span class="px-2.5 py-0.5 rounded-full text-[11px] font-black tracking-wider bg-slate-200 text-slate-600">活動結束</span></div>
                   <div class="text-3xl font-black font-mono text-slate-400 mb-1 line-through decoration-slate-300">05.10</div>
                   <div class="text-xs font-bold text-slate-400 mb-2"><i class="fa-solid fa-location-dot mr-1 text-slate-400"></i> 新北市板橋區 (總部)</div>
                   <div class="text-base font-black text-slate-600">母親節慶祝大會</div>
                 </div>
-
-                <!-- 節點 3 -->
                 <div class="schedule-node flex flex-col items-start px-4 snap-start opacity-75">
-                  <div class="flex items-center gap-3 mb-6">
-                    <div class="w-6 h-6 rounded-full bg-slate-300 border-4 border-white shadow-sm flex items-center justify-center"></div>
-                    <span class="px-2.5 py-0.5 rounded-full text-[11px] font-black tracking-wider bg-slate-200 text-slate-600">活動結束</span>
-                  </div>
+                  <div class="flex items-center gap-3 mb-6"><div class="w-6 h-6 rounded-full bg-slate-300 border-4 border-white shadow-sm flex items-center justify-center"></div><span class="px-2.5 py-0.5 rounded-full text-[11px] font-black tracking-wider bg-slate-200 text-slate-600">活動結束</span></div>
                   <div class="text-3xl font-black font-mono text-slate-400 mb-1 line-through decoration-slate-300">09.25</div>
                   <div class="text-xs font-bold text-slate-400 mb-2"><i class="fa-solid fa-location-dot mr-1 text-slate-400"></i> 桃園市平鎮區 (分部)</div>
                   <div class="text-base font-black text-slate-600">中秋烤肉同樂晚會</div>
                 </div>
-
-                <!-- 節點 4 -->
                 <div class="schedule-node flex flex-col items-start px-4 snap-start opacity-75">
-                  <div class="flex items-center gap-3 mb-6">
-                    <div class="w-6 h-6 rounded-full bg-slate-300 border-4 border-white shadow-sm flex items-center justify-center"></div>
-                    <span class="px-2.5 py-0.5 rounded-full text-[11px] font-black tracking-wider bg-slate-200 text-slate-600">活動結束</span>
-                  </div>
+                  <div class="flex items-center gap-3 mb-6"><div class="w-6 h-6 rounded-full bg-slate-300 border-4 border-white shadow-sm flex items-center justify-center"></div><span class="px-2.5 py-0.5 rounded-full text-[11px] font-black tracking-wider bg-slate-200 text-slate-600">活動結束</span></div>
                   <div class="text-3xl font-black font-mono text-slate-400 mb-1 line-through decoration-slate-300">11.14</div>
                   <div class="text-xs font-bold text-slate-400 mb-2"><i class="fa-solid fa-location-dot mr-1 text-slate-400"></i> 新北市板橋區 (總部)</div>
                   <div class="text-base font-black text-slate-600">生日慶祝大會</div>
@@ -286,24 +284,21 @@
             </div>
           </div>
 
-          <!-- 2027 年度活動面板 -->
-          <div id="panel2027" class="bg-white rounded-[32px] p-10 sm:p-16 border border-orange-100 shadow-xl flex flex-col items-center justify-center text-center relative overflow-hidden">
-            <div class="w-16 h-16 rounded-2xl bg-orange-50 border border-orange-200/80 text-orange-600 flex items-center justify-center text-2xl mb-5 shadow-xs">
+          <!-- 2027 年度活動面板（與 2026 統一尺寸、內距與圓角） -->
+          <div id="panel2027" class="bg-white rounded-[32px] p-8 sm:p-12 border border-orange-100 shadow-xl flex flex-col items-center justify-center text-center relative overflow-hidden">
+            <div class="w-14 h-14 rounded-2xl bg-orange-50 border border-orange-200/80 text-orange-600 flex items-center justify-center text-2xl mb-4 shadow-xs">
               <i class="fa-solid fa-compass-drafting"></i>
             </div>
             <span class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-orange-100 text-orange-700 text-xs font-black tracking-widest uppercase mb-3">
               <span class="w-2 h-2 rounded-full bg-orange-600 animate-pulse"></span>
               IN PREPARATION
             </span>
-            <h3 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight mb-2">
-              2027 年度活動籌備中
-            </h3>
+            <h3 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight mb-2">2027 年度活動籌備中</h3>
             <p class="text-slate-500 text-sm sm:text-base max-w-md leading-relaxed font-medium">
               營運團隊正在精心規劃 2027 全新年度家族活動與時程，敬請期待後續公告！
             </p>
           </div>
 
-          <!-- 手機與平板專屬滑動進度條 -->
           <div id="calendarMobileControls" class="hidden items-center justify-between gap-6 pt-1">
             <div class="flex items-center gap-2.5 shrink-0">
               <div class="slider-indicator-num text-lg font-black text-slate-900 flex items-baseline">
@@ -323,7 +318,7 @@
         </div>
       </section>
 
-      <!-- 2. 最新消息區 (News) -->
+      <!-- 2. 最新消息區 -->
       <section id="notice" class="scroll-mt-24 pt-2">
         <div class="flex flex-row items-end justify-between mb-6 sm:mb-8 relative section-title-watermark gap-4">
           <div class="watermark-text">NEWS</div>
@@ -361,10 +356,9 @@
         </div>
       </section>
 
-      <!-- 3. 呂氏家族分布專區 (Family Map) -->
+      <!-- 3. 呂氏家族分布專區 -->
       <section id="family-map" class="scroll-mt-24 pt-2">
         <div class="flex flex-col gap-8">
-          <!-- 標題區 -->
           <div class="flex flex-row items-end justify-between gap-4 w-full relative section-title-watermark">
             <div class="watermark-text">FAMILY</div>
             <div class="relative z-10">
@@ -376,76 +370,54 @@
             </div>
           </div>
 
-          <!-- 橫向滑動卡片區 -->
           <div class="flex flex-col gap-5">
             <div id="familyMapContainer" class="flex md:grid md:grid-cols-3 gap-6 overflow-x-auto pb-3 no-scrollbar snap-x snap-mandatory">
-              
-              <!-- 總部：新北板橋 -->
               <div class="w-[340px] md:w-auto bg-white rounded-[28px] p-6 sm:p-8 border border-slate-200/80 shadow-lg flex flex-col justify-between relative overflow-hidden group hover:border-orange-500/50 transition-all shrink-0 snap-start">
                 <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-orange-500 to-amber-600"></div>
                 <div>
                   <div class="flex items-center justify-between mb-4">
-                    <span class="px-3 py-1 rounded-full bg-orange-50 text-orange-700 text-xs font-black tracking-wider uppercase border border-orange-200">
-                      NEW TAIPEI
-                    </span>
+                    <span class="px-3 py-1 rounded-full bg-orange-50 text-orange-700 text-xs font-black tracking-wider uppercase border border-orange-200">NEW TAIPEI</span>
                     <i class="fa-solid fa-house-chimney text-orange-600 text-lg"></i>
                   </div>
                   <h3 class="text-2xl font-black text-slate-900 tracking-tight mb-2">總部 · 板橋</h3>
-                  <p class="text-slate-600 text-sm leading-relaxed mb-6">
-                    作為呂氏家庭的核心樞紐，總部坐落於新北市板橋區，負責統籌家族各項事務、行政規劃與重要決策推動。
-                  </p>
+                  <p class="text-slate-600 text-sm leading-relaxed mb-6">作為呂氏家庭的核心樞紐，總部坐落於新北市板橋區，負責統籌家族各項事務、行政規劃與重要決策推動。</p>
                 </div>
                 <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-500">
-                  <span>據點位置</span>
-                  <span class="text-orange-600 flex items-center gap-1"><i class="fa-solid fa-location-dot"></i> 新北市板橋區</span>
+                  <span>據點位置</span><span class="text-orange-600 flex items-center gap-1"><i class="fa-solid fa-location-dot"></i> 新北市板橋區</span>
                 </div>
               </div>
 
-              <!-- 桃園分部：平鎮 -->
               <div class="w-[340px] md:w-auto bg-white rounded-[28px] p-6 sm:p-8 border border-slate-200/80 shadow-lg flex flex-col justify-between relative overflow-hidden group hover:border-rose-500/50 transition-all shrink-0 snap-start">
                 <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-rose-500 to-pink-600"></div>
                 <div>
                   <div class="flex items-center justify-between mb-4">
-                    <span class="px-3 py-1 rounded-full bg-rose-50 text-rose-700 text-xs font-black tracking-wider uppercase border border-rose-200">
-                      TAOYUAN
-                    </span>
+                    <span class="px-3 py-1 rounded-full bg-rose-50 text-rose-700 text-xs font-black tracking-wider uppercase border border-rose-200">TAOYUAN</span>
                     <i class="fa-solid fa-house-chimney text-rose-600 text-lg"></i>
                   </div>
                   <h3 class="text-2xl font-black text-slate-900 tracking-tight mb-2">桃園分部 · 平鎮</h3>
-                  <p class="text-slate-600 text-sm leading-relaxed mb-6">
-                    桃園分部深耕於平鎮地區，凝聚在地成員的情感與向心力，為家族網絡提供穩固的中繼支援與日常交流。
-                  </p>
+                  <p class="text-slate-600 text-sm leading-relaxed mb-6">桃園分部深耕於平鎮地區，凝聚在地成員的情感與向心力，為家族網絡提供穩固的中繼支援與日常交流。</p>
                 </div>
                 <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-500">
-                  <span>據點位置</span>
-                  <span class="text-rose-600 flex items-center gap-1"><i class="fa-solid fa-location-dot"></i> 桃園市平鎮區</span>
+                  <span>據點位置</span><span class="text-rose-600 flex items-center gap-1"><i class="fa-solid fa-location-dot"></i> 桃園市平鎮區</span>
                 </div>
               </div>
 
-              <!-- 臺中分部：中、北區 -->
               <div class="w-[340px] md:w-auto bg-white rounded-[28px] p-6 sm:p-8 border border-slate-200/80 shadow-lg flex flex-col justify-between relative overflow-hidden group hover:border-indigo-500/50 transition-all shrink-0 snap-start">
                 <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-indigo-600 to-purple-700"></div>
                 <div>
                   <div class="flex items-center justify-between mb-4">
-                    <span class="px-3 py-1 rounded-full bg-indigo-50 text-indigo-700 text-xs font-black tracking-wider uppercase border border-indigo-200">
-                      TAICHUNG
-                    </span>
+                    <span class="px-3 py-1 rounded-full bg-indigo-50 text-indigo-700 text-xs font-black tracking-wider uppercase border border-indigo-200">TAICHUNG</span>
                     <i class="fa-solid fa-house-chimney text-indigo-600 text-lg"></i>
                   </div>
                   <h3 class="text-2xl font-black text-slate-900 tracking-tight mb-2">臺中分部 · 中、北區</h3>
-                  <p class="text-slate-600 text-sm leading-relaxed mb-6">
-                    立足於臺中中、北區，串聯中部地區的家族成員與各項活動，展現呂氏家庭在臺灣中部的活躍生命力。
-                  </p>
+                  <p class="text-slate-600 text-sm leading-relaxed mb-6">立足於臺中中、北區，串聯中部地區的家族成員與各項活動，展現呂氏家庭在臺灣中部的活躍生命力。</p>
                 </div>
                 <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-500">
-                  <span>據點位置</span>
-                  <span class="text-indigo-600 flex items-center gap-1"><i class="fa-solid fa-location-dot"></i> 臺中市中區、北區</span>
+                  <span>據點位置</span><span class="text-indigo-600 flex items-center gap-1"><i class="fa-solid fa-location-dot"></i> 臺中市中區、北區</span>
                 </div>
               </div>
-
             </div>
 
-            <!-- 手機版專屬滑動進度條與左右切換控制 -->
             <div class="flex md:hidden items-center justify-between gap-6 pt-1">
               <div class="flex items-center gap-2.5 shrink-0">
                 <div class="slider-indicator-num text-lg font-black text-slate-900 flex items-baseline">
@@ -466,9 +438,8 @@
         </div>
       </section>
 
-      <!-- 4. 活動花絮專區 (Highlights) -->
+      <!-- 4. 活動花絮專區 -->
       <section id="highlights-section" class="scroll-mt-24 pt-2 pb-6 space-y-6 sm:space-y-8">
-        <!-- 標題與「更多花絮」按鈕 -->
         <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-4 w-full relative z-10 section-title-watermark">
           <div class="watermark-text">HIGHLIGHTS</div>
           <div class="relative z-10">
@@ -476,12 +447,8 @@
             <h2 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight uppercase">HIGHLIGHTS</h2>
             <p class="text-xs sm:text-sm font-bold text-slate-500 tracking-wider mt-1 uppercase">花絮專區只會顯示最近一次活動</p>
           </div>
-
           <div class="relative z-10 shrink-0">
-            <a href="https://drive.google.com/drive/folders/1XrPYVt49am9nOSfEU1t3gKLETttbXcDY?usp=sharing" 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="inline-flex items-center gap-2.5 px-5 py-3 rounded-2xl bg-slate-900 hover:bg-orange-600 text-white text-xs sm:text-sm font-black tracking-wider shadow-lg hover:shadow-orange-500/25 transition-all duration-300 group">
+            <a href="https://drive.google.com/drive/folders/1XrPYVt49am9nOSfEU1t3gKLETttbXcDY?usp=sharing" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 px-5 py-3 rounded-2xl bg-slate-900 hover:bg-orange-600 text-white text-xs sm:text-sm font-black tracking-wider shadow-lg hover:shadow-orange-500/25 transition-all duration-300 group">
               <i class="fa-brands fa-google-drive text-orange-400 group-hover:text-white transition-colors"></i>
               <span>更多花絮</span>
               <i class="fa-solid fa-arrow-up-right-from-square text-[11px] opacity-75 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
@@ -504,37 +471,37 @@
           <div class="relative">
             <div id="highlightsContainerBirthday" class="flex gap-4 sm:gap-5 overflow-x-auto pb-3 no-scrollbar snap-x snap-mandatory">
               <div onclick="openHighlightLightbox('birthday', 0)" class="w-[76vw] sm:w-[300px] lg:w-[320px] group relative rounded-2xl overflow-hidden bg-slate-100 aspect-[4/3] shadow-md cursor-pointer border border-slate-200 shrink-0 snap-start">
-                <img src="331444_0.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="阿英生日慶祝花絮 1">
+                <img src="331444_0.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="花絮 1">
                 <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
                   <span class="text-white text-xs font-black tracking-wider"><i class="fa-solid fa-magnifying-glass-plus mr-1"></i> 點擊放大檢視</span>
                 </div>
               </div>
               <div onclick="openHighlightLightbox('birthday', 1)" class="w-[76vw] sm:w-[300px] lg:w-[320px] group relative rounded-2xl overflow-hidden bg-slate-100 aspect-[4/3] shadow-md cursor-pointer border border-slate-200 shrink-0 snap-start">
-                <img src="331438_0.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="阿英生日慶祝花絮 2">
+                <img src="331438_0.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="花絮 2">
                 <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
                   <span class="text-white text-xs font-black tracking-wider"><i class="fa-solid fa-magnifying-glass-plus mr-1"></i> 點擊放大檢視</span>
                 </div>
               </div>
               <div onclick="openHighlightLightbox('birthday', 2)" class="w-[76vw] sm:w-[300px] lg:w-[320px] group relative rounded-2xl overflow-hidden bg-slate-100 aspect-[4/3] shadow-md cursor-pointer border border-slate-200 shrink-0 snap-start">
-                <img src="331427_0.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="阿英生日慶祝花絮 3">
+                <img src="331427_0.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="花絮 3">
                 <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
                   <span class="text-white text-xs font-black tracking-wider"><i class="fa-solid fa-magnifying-glass-plus mr-1"></i> 點擊放大檢視</span>
                 </div>
               </div>
               <div onclick="openHighlightLightbox('birthday', 3)" class="w-[76vw] sm:w-[300px] lg:w-[320px] group relative rounded-2xl overflow-hidden bg-slate-100 aspect-[4/3] shadow-md cursor-pointer border border-slate-200 shrink-0 snap-start">
-                <img src="331428_0.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="阿英生日慶祝花絮 4">
+                <img src="331428_0.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="花絮 4">
                 <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
                   <span class="text-white text-xs font-black tracking-wider"><i class="fa-solid fa-magnifying-glass-plus mr-1"></i> 點擊放大檢視</span>
                 </div>
               </div>
               <div onclick="openHighlightLightbox('birthday', 4)" class="w-[76vw] sm:w-[300px] lg:w-[320px] group relative rounded-2xl overflow-hidden bg-slate-100 aspect-[4/3] shadow-md cursor-pointer border border-slate-200 shrink-0 snap-start">
-                <img src="331433_0.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="阿英生日慶祝花絮 5">
+                <img src="331433_0.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="花絮 5">
                 <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
                   <span class="text-white text-xs font-black tracking-wider"><i class="fa-solid fa-magnifying-glass-plus mr-1"></i> 點擊放大檢視</span>
                 </div>
               </div>
               <div onclick="openHighlightLightbox('birthday', 5)" class="w-[76vw] sm:w-[300px] lg:w-[320px] group relative rounded-2xl overflow-hidden bg-slate-100 aspect-[4/3] shadow-md cursor-pointer border border-slate-200 shrink-0 snap-start">
-                <img src="331434_0.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="阿英生日慶祝花絮 6">
+                <img src="331434_0.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="花絮 6">
                 <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
                   <span class="text-white text-xs font-black tracking-wider"><i class="fa-solid fa-magnifying-glass-plus mr-1"></i> 點擊放大檢視</span>
                 </div>
@@ -552,8 +519,8 @@
                 <div id="highlightProgressThumbBirthday" class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-orange-700 shadow-md border-2 border-white transition-all duration-300 pointer-events-none" style="left: 0%;"></div>
               </div>
               <div class="flex items-center gap-2 shrink-0">
-                <button type="button" onclick="scrollHighlightContainer('birthday', 'left')" aria-label="上一張相片" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white hover:bg-orange-50 text-slate-700 hover:text-orange-600 border border-orange-200 flex items-center justify-center transition-all shadow-sm cursor-pointer"><i class="fa-solid fa-chevron-left text-xs sm:text-sm"></i></button>
-                <button type="button" onclick="scrollHighlightContainer('birthday', 'right')" aria-label="下一張相片" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white hover:bg-orange-50 text-slate-700 hover:text-orange-600 border border-orange-200 flex items-center justify-center transition-all shadow-sm cursor-pointer"><i class="fa-solid fa-chevron-right text-xs sm:text-sm"></i></button>
+                <button type="button" onclick="scrollHighlightContainer('birthday', 'left')" aria-label="上一張" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white hover:bg-orange-50 text-slate-700 hover:text-orange-600 border border-orange-200 flex items-center justify-center transition-all shadow-sm cursor-pointer"><i class="fa-solid fa-chevron-left text-xs sm:text-sm"></i></button>
+                <button type="button" onclick="scrollHighlightContainer('birthday', 'right')" aria-label="下一張" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white hover:bg-orange-50 text-slate-700 hover:text-orange-600 border border-orange-200 flex items-center justify-center transition-all shadow-sm cursor-pointer"><i class="fa-solid fa-chevron-right text-xs sm:text-sm"></i></button>
               </div>
             </div>
           </div>
@@ -563,7 +530,7 @@
     </div>
   </main>
 
-  <!-- 網頁頁尾 Footer（含子清單快速入口） -->
+  <!-- 網頁頁尾 Footer -->
   <footer class="bg-[#fff6ee] text-slate-600 py-8 sm:py-10 border-t border-orange-200 mt-auto shadow-inner w-full">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
       <div>
@@ -583,7 +550,7 @@
     <i class="fa-solid fa-arrow-up"></i>
   </button>
 
-  <!-- 獨立專區檢視 Modal（承載所有消息 + 子清單：關於我們、委員會專區、營運團隊、聯絡我們） -->
+  <!-- 獨立專區檢視 Modal（當點擊選單內的卡片時開啟） -->
   <div id="independentPageModal" class="fixed inset-0 z-[150] flex items-center justify-center p-3 sm:p-6 bg-slate-900/60 backdrop-blur-md hidden" onclick="closeIndependentPage()">
     <div class="bg-white text-slate-800 rounded-[28px] sm:rounded-[40px] shadow-2xl overflow-hidden relative uniform-modal-container border border-orange-100" onclick="event.stopPropagation()">
       <div class="bg-slate-900 text-white px-5 sm:px-8 py-4 sm:py-6 flex items-center justify-between relative shrink-0">
@@ -596,7 +563,9 @@
         </div>
         <button type="button" onclick="closeIndependentPage()" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-all cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
       </div>
-      <div id="indModalContentBody" class="p-4 sm:p-8 overflow-y-auto custom-scrollbar space-y-5 sm:space-y-6 bg-slate-50 flex-grow"></div>
+      
+      <div id="indModalContentBody" class="p-5 sm:p-8 overflow-y-auto custom-scrollbar space-y-6 sm:space-y-8 bg-slate-50 flex-grow"></div>
+      
       <div class="p-4 sm:p-6 bg-white border-t border-slate-100 shrink-0 text-center flex justify-between items-center gap-3">
         <div id="indPaginationContainer" class="flex items-center justify-start sm:justify-center gap-1.5 flex-grow overflow-x-auto no-scrollbar"></div>
         <button type="button" onclick="closeIndependentPage()" class="px-5 py-2.5 sm:px-6 sm:py-3 rounded-2xl bg-slate-800 hover:bg-slate-900 text-white font-black text-xs sm:text-sm uppercase shadow-md transition-all shrink-0 cursor-pointer">關閉視窗</button>
@@ -610,14 +579,12 @@
       <button type="button" onclick="closeHighlightLightbox()" aria-label="關閉預覽" class="absolute top-2 right-2 sm:top-4 sm:right-4 z-30 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/20 hover:bg-white/40 text-white flex items-center justify-center text-lg sm:text-xl transition-all shadow-lg cursor-pointer">
         <i class="fa-solid fa-xmark"></i>
       </button>
-      
       <button type="button" onclick="prevHighlightImage()" aria-label="上一張" class="absolute left-2 sm:left-4 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/20 hover:bg-white/40 text-white flex items-center justify-center text-base sm:text-lg transition-all shadow-lg backdrop-blur-sm cursor-pointer">
         <i class="fa-solid fa-chevron-left"></i>
       </button>
       <button type="button" onclick="nextHighlightImage()" aria-label="下一張" class="absolute right-2 sm:right-4 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/20 hover:bg-white/40 text-white flex items-center justify-center text-base sm:text-lg transition-all shadow-lg backdrop-blur-sm cursor-pointer">
         <i class="fa-solid fa-chevron-right"></i>
       </button>
-
       <div class="flex flex-col items-center justify-center max-w-full max-h-[82dvh] overflow-hidden rounded-2xl bg-black/50 border border-white/10 p-2 sm:p-3 shadow-2xl">
         <img id="highlightLightboxImg" src="" class="max-w-[85vw] max-h-[65dvh] object-contain rounded-xl" alt="放大預覽圖">
         <div class="flex items-center justify-between w-full mt-3 sm:mt-4 px-2 sm:px-4 py-1.5 gap-4">
@@ -774,18 +741,6 @@
       }
     }
 
-    function toggleMobileSubmenu() {
-      const submenu = document.getElementById('mobileSubmenu');
-      const icon = document.getElementById('mobileSubmenuIcon');
-      if (submenu.classList.contains('hidden')) {
-        submenu.classList.remove('hidden');
-        icon.classList.add('rotate-180');
-      } else {
-        submenu.classList.add('hidden');
-        icon.classList.remove('rotate-180');
-      }
-    }
-
     window.addEventListener('scroll', () => {
       const scrollBtn = document.getElementById('scrollTopBtn');
       if (!scrollBtn) return;
@@ -844,7 +799,6 @@
     let _currentGroupKey = 'birthday';
     let _activeHighlightIdx = 0;
 
-    // 年份切換控制函式
     function switchYear(year) {
       const panel2026 = document.getElementById('panel2026');
       const panel2027 = document.getElementById('panel2027');
@@ -861,13 +815,10 @@
           mobileControls.classList.remove('hidden');
           mobileControls.classList.add('flex', 'lg:hidden');
         }
-        
         btn2026.className = 'px-5 py-2.5 rounded-xl text-xs font-black tracking-wider transition-all duration-300 bg-white text-orange-600 shadow-md border border-slate-200/60 cursor-pointer';
         btn2027.className = 'px-5 py-2.5 rounded-xl text-xs font-black tracking-wider transition-all duration-300 text-slate-500 hover:text-slate-900 cursor-pointer';
-        
         if (titleYear) titleYear.textContent = '2026';
         if (watermark) watermark.textContent = 'PAST 2026';
-
         panel2026.scrollTo({ left: 0, behavior: 'smooth' });
         updateCalendarProgress();
       } else {
@@ -877,16 +828,13 @@
           mobileControls.classList.add('hidden');
           mobileControls.classList.remove('flex', 'lg:hidden');
         }
-        
         btn2027.className = 'px-5 py-2.5 rounded-xl text-xs font-black tracking-wider transition-all duration-300 bg-white text-orange-600 shadow-md border border-slate-200/60 cursor-pointer';
         btn2026.className = 'px-5 py-2.5 rounded-xl text-xs font-black tracking-wider transition-all duration-300 text-slate-500 hover:text-slate-900 cursor-pointer';
-        
         if (titleYear) titleYear.textContent = '2027';
         if (watermark) watermark.textContent = 'EXPECTING 2027';
       }
     }
 
-    // 2026 時間軸手機橫向滑動控制
     function scrollCalendarTrack(direction) {
       const container = document.getElementById('panel2026');
       if (!container) return;
@@ -915,7 +863,6 @@
 
     document.getElementById('panel2026')?.addEventListener('scroll', updateCalendarProgress);
 
-    // 活動花絮燈箱與滑動控制
     function openHighlightLightbox(groupKey, index) {
       _currentGroupKey = groupKey;
       _activeHighlightIdx = index;
@@ -982,7 +929,6 @@
 
     document.getElementById('highlightsContainerBirthday')?.addEventListener('scroll', () => updateHighlightProgress('birthday'));
 
-    // 家族分布卡片手機版滑動控制
     function scrollMapContainer(direction) {
       const container = document.getElementById('familyMapContainer');
       if (!container) return;
@@ -1030,7 +976,6 @@
 
     function formatDate(d) { if (!d) return ''; return String(d).includes('T') ? String(d).split('T')[0] : d; }
 
-    // 獨立專區視窗（包含：所有消息、關於我們、委員會專區、營運團隊、聯絡我們）
     function openIndependentPage(type, page = 1) {
       const modal = document.getElementById('independentPageModal');
       const titleEl = document.getElementById('indModalTitle');
@@ -1094,18 +1039,11 @@
               </h3>
               <p class="text-xs font-bold text-slate-400 uppercase tracking-widest pt-1">凝聚家族情感・共創美好未來</p>
             </div>
-
             <div class="bg-white rounded-[28px] p-6 sm:p-8 border border-slate-200/80 shadow-sm space-y-4">
-              <span class="inline-block px-3 py-1 rounded-full bg-orange-50 text-orange-700 text-[10px] font-black tracking-wider uppercase border border-orange-200">
-                成立初衷
-              </span>
+              <span class="inline-block px-3 py-1 rounded-full bg-orange-50 text-orange-700 text-[10px] font-black tracking-wider uppercase border border-orange-200">成立初衷</span>
               <div class="space-y-3 text-sm sm:text-base font-medium text-slate-600 leading-relaxed">
-                <p>
-                  「呂氏家庭生活資訊網」源自家族成員緊密相連的溫馨初衷，由呂佳寯與核心團隊領軍，以凝聚新北板橋總部、桃園平鎮與臺中分部為使命。我們跨越地域的限制，將彼此的情感與生活點滴緊密連結，共創屬於呂氏家族的數位美好風格。
-                </p>
-                <p>
-                  LU FAMILY 象徵一股來自家族的力量——敏捷、果斷、拼到底。我們從日常起步，用汗水與信念開創專屬於呂氏家庭的溫馨日常與堅實後盾。
-                </p>
+                <p>「呂氏家庭生活資訊網」源自家族成員緊密相連的溫馨初衷，由呂佳寯與核心團隊領軍，以凝聚新北板橋總部、桃園平鎮與臺中分部為使命。我們跨越地域的限制，將彼此的情感與生活點滴緊密連結，共創屬於呂氏家庭的數位美好風格。</p>
+                <p>LU FAMILY 象徵一股來自家族的力量——敏捷、果斷、拼到底。我們從日常起步，用汗水與信念開創專屬於呂氏家庭的溫馨日常與堅實後盾。</p>
               </div>
             </div>
           </div>
@@ -1121,51 +1059,35 @@
               <span class="md:hidden text-[11px] font-black text-orange-600 shrink-0"><i class="fa-solid fa-arrows-left-right mr-1"></i>左右滑動</span>
             </div>
             <div class="flex md:grid md:grid-cols-2 gap-4 sm:gap-5 overflow-x-auto pb-2 no-scrollbar snap-x snap-mandatory">
-              <!-- 福利委員會 -->
               <div class="w-[82vw] md:w-auto shrink-0 snap-start bg-white rounded-[28px] p-6 sm:p-7 border border-slate-200/80 shadow-sm flex flex-col justify-between relative overflow-hidden">
                 <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-orange-500 to-amber-600"></div>
                 <div>
                   <div class="flex items-center justify-between mb-4">
-                    <div class="w-12 h-12 rounded-2xl bg-orange-50 border border-orange-200/70 text-orange-600 flex items-center justify-center text-xl">
-                      <i class="fa-solid fa-hand-holding-heart"></i>
-                    </div>
-                    <span class="px-3 py-1 rounded-full bg-orange-50 text-orange-700 text-[10px] font-black tracking-wider uppercase border border-orange-200">
-                      WELFARE
-                    </span>
+                    <div class="w-12 h-12 rounded-2xl bg-orange-50 border border-orange-200/70 text-orange-600 flex items-center justify-center text-xl"><i class="fa-solid fa-hand-holding-heart"></i></div>
+                    <span class="px-3 py-1 rounded-full bg-orange-50 text-orange-700 text-[10px] font-black tracking-wider uppercase border border-orange-200">WELFARE</span>
                   </div>
                   <span class="text-[10px] font-black text-orange-600 tracking-widest uppercase block mb-1">FAMILY WELFARE COMMITTEE</span>
                   <h3 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight mb-3">福利委員會</h3>
-                  <p class="text-slate-600 text-sm leading-relaxed mb-5">
-                    負責規劃與推動家族成員之各項福利措施、急難救助申請、節慶賀禮發放與聚會補助，致力於提升成員生活品質與凝聚向心力。
-                  </p>
+                  <p class="text-slate-600 text-sm leading-relaxed mb-5">負責規劃與推動家族成員之各項福利措施、急難救助申請、節慶賀禮發放與聚會補助，致力於提升成員生活品質與凝聚向心力。</p>
                 </div>
                 <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-500">
-                  <span>主要職責</span>
-                  <span class="text-orange-600">福利補助、急難救助、活動支援</span>
+                  <span>主要職責</span><span class="text-orange-600">福利補助、急難救助、活動支援</span>
                 </div>
               </div>
 
-              <!-- 性別平等暨懲戒委員會 -->
               <div class="w-[82vw] md:w-auto shrink-0 snap-start bg-white rounded-[28px] p-6 sm:p-7 border border-slate-200/80 shadow-sm flex flex-col justify-between relative overflow-hidden">
                 <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-rose-500 to-pink-600"></div>
                 <div>
                   <div class="flex items-center justify-between mb-4">
-                    <div class="w-12 h-12 rounded-2xl bg-rose-50 border border-rose-200/70 text-rose-600 flex items-center justify-center text-xl">
-                      <i class="fa-solid fa-scale-balanced"></i>
-                    </div>
-                    <span class="px-3 py-1 rounded-full bg-rose-50 text-rose-700 text-[10px] font-black tracking-wider uppercase border border-rose-200">
-                      DISCIPLINE & EQUALITY
-                    </span>
+                    <div class="w-12 h-12 rounded-2xl bg-rose-50 border border-rose-200/70 text-rose-600 flex items-center justify-center text-xl"><i class="fa-solid fa-scale-balanced"></i></div>
+                    <span class="px-3 py-1 rounded-full bg-rose-50 text-rose-700 text-[10px] font-black tracking-wider uppercase border border-rose-200">DISCIPLINE & EQUALITY</span>
                   </div>
                   <span class="text-[10px] font-black text-rose-600 tracking-widest uppercase block mb-1">GENDER EQUALITY & DISCIPLINE COMMITTEE</span>
                   <h3 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight mb-3">性別平等暨懲戒委員會</h3>
-                  <p class="text-slate-600 text-sm leading-relaxed mb-5">
-                    致力於維護家族內部的性別平等、互相尊重與友善互動環境；同時針對違反家族核心規範、重大違紀或損害團隊名譽之行為進行公平公正的調查與評議懲戒。
-                  </p>
+                  <p class="text-slate-600 text-sm leading-relaxed mb-5">致力於維護家族內部的性別平等、互相尊重與友善互動環境；同時針對違反家族核心規範、重大違紀或損害團隊名譽之行為進行公平公正的調查與評議懲戒。</p>
                 </div>
                 <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-500">
-                  <span>主要職責</span>
-                  <span class="text-rose-600">平權倡導、申訴處理、紀律評議</span>
+                  <span>主要職責</span><span class="text-rose-600">平權倡導、申訴處理、紀律評議</span>
                 </div>
               </div>
             </div>
@@ -1190,9 +1112,7 @@
               <h4 class="text-lg sm:text-xl font-black text-slate-900 leading-snug">
                 在活動現場，你看到的是成員的熱情與活力；在他們背後，有一支<span class="text-orange-600">同樣努力的團隊</span>。
               </h4>
-              <p class="text-slate-500 text-xs sm:text-sm leading-relaxed">
-                活動企劃、行程安排、視覺設計，還有社群經營與後勤支援，每個細節背後，都是一群人用心堆疊出來的成果。
-              </p>
+              <p class="text-slate-500 text-xs sm:text-sm leading-relaxed">活動企劃、行程安排、視覺設計，還有社群經營與後勤支援，每個細節背後，都是一群人用心堆疊出來的成果。</p>
             </div>
 
             <div>
@@ -1201,40 +1121,17 @@
                 <span class="text-[11px] font-black text-orange-600"><i class="fa-solid fa-arrows-left-right mr-1"></i>左右滑動檢視</span>
               </div>
               <div class="flex sm:grid sm:grid-cols-3 gap-4 sm:gap-5 overflow-x-auto pb-2 no-scrollbar snap-x snap-mandatory">
-                <!-- 總經理 -->
                 <div class="w-[72vw] sm:w-auto shrink-0 snap-start bg-white rounded-[24px] p-3.5 border border-slate-200/80 shadow-sm">
-                  <div class="w-full aspect-[3/4] rounded-[18px] bg-slate-100 overflow-hidden mb-3">
-                    <img src="A6AA8149-595E-4860-908E-7C445786C5DC.jpg" class="w-full h-full object-cover" alt="呂陳英妹照片">
-                  </div>
-                  <div class="p-2">
-                    <span class="text-[11px] font-black text-orange-600 uppercase block">總經理</span>
-                    <h4 class="text-xl font-black text-slate-900">呂陳英妹</h4>
-                    <p class="text-[10px] font-bold text-slate-400 uppercase mt-0.5">GENERAL MANAGER</p>
-                  </div>
+                  <div class="w-full aspect-[3/4] rounded-[18px] bg-slate-100 overflow-hidden mb-3"><img src="A6AA8149-595E-4860-908E-7C445786C5DC.jpg" class="w-full h-full object-cover" alt="呂陳英妹"></div>
+                  <div class="p-2"><span class="text-[11px] font-black text-orange-600 uppercase block">總經理</span><h4 class="text-xl font-black text-slate-900">呂陳英妹</h4><p class="text-[10px] font-bold text-slate-400 uppercase mt-0.5">GENERAL MANAGER</p></div>
                 </div>
-
-                <!-- 營運經理 -->
                 <div class="w-[72vw] sm:w-auto shrink-0 snap-start bg-white rounded-[24px] p-3.5 border border-slate-200/80 shadow-sm">
-                  <div class="w-full aspect-[3/4] rounded-[18px] bg-slate-100 overflow-hidden mb-3">
-                    <img src="volleyball_player_style.jpg" class="w-full h-full object-cover" alt="呂佳寯照片">
-                  </div>
-                  <div class="p-2">
-                    <span class="text-[11px] font-black text-orange-600 uppercase block">營運經理</span>
-                    <h4 class="text-xl font-black text-slate-900">呂佳寯</h4>
-                    <p class="text-[10px] font-bold text-slate-400 uppercase mt-0.5">OPERATIONS MANAGER</p>
-                  </div>
+                  <div class="w-full aspect-[3/4] rounded-[18px] bg-slate-100 overflow-hidden mb-3"><img src="volleyball_player_style.jpg" class="w-full h-full object-cover" alt="呂佳寯"></div>
+                  <div class="p-2"><span class="text-[11px] font-black text-orange-600 uppercase block">營運經理</span><h4 class="text-xl font-black text-slate-900">呂佳寯</h4><p class="text-[10px] font-bold text-slate-400 uppercase mt-0.5">OPERATIONS MANAGER</p></div>
                 </div>
-
-                <!-- 設計副理 -->
                 <div class="w-[72vw] sm:w-auto shrink-0 snap-start bg-white rounded-[24px] p-3.5 border border-slate-200/80 shadow-sm">
-                  <div class="w-full aspect-[3/4] rounded-[18px] bg-slate-100 overflow-hidden mb-3">
-                    <img src="Portrait_Placeholder.jpg" class="w-full h-full object-cover" alt="呂佳芯照片">
-                  </div>
-                  <div class="p-2">
-                    <span class="text-[11px] font-black text-indigo-600 uppercase block">設計副理</span>
-                    <h4 class="text-xl font-black text-slate-900">呂佳芯</h4>
-                    <p class="text-[10px] font-bold text-slate-400 uppercase mt-0.5">DEPUTY DESIGN MANAGER</p>
-                  </div>
+                  <div class="w-full aspect-[3/4] rounded-[18px] bg-slate-100 overflow-hidden mb-3"><img src="Portrait_Placeholder.jpg" class="w-full h-full object-cover" alt="呂佳芯"></div>
+                  <div class="p-2"><span class="text-[11px] font-black text-indigo-600 uppercase block">設計副理</span><h4 class="text-xl font-black text-slate-900">呂佳芯</h4><p class="text-[10px] font-bold text-slate-400 uppercase mt-0.5">DEPUTY DESIGN MANAGER</p></div>
                 </div>
               </div>
             </div>
@@ -1246,30 +1143,19 @@
         iconEl.innerHTML = '<i class="fa-solid fa-envelope text-white"></i>';
         bodyEl.innerHTML = `
           <div class="bg-white rounded-[28px] p-6 sm:p-8 border border-slate-200/80 shadow-sm space-y-6">
-            <div class="w-14 h-14 rounded-2xl bg-orange-50 border border-orange-100 flex items-center justify-center text-orange-600 text-2xl">
-              <i class="fa-solid fa-envelope"></i>
-            </div>
-
+            <div class="w-14 h-14 rounded-2xl bg-orange-50 border border-orange-100 flex items-center justify-center text-orange-600 text-2xl"><i class="fa-solid fa-envelope"></i></div>
             <div>
               <span class="text-orange-600 font-black text-xs tracking-widest uppercase block mb-1">FAMILY SUPPORT</span>
               <h3 class="text-2xl font-black text-slate-900 tracking-tight mb-2">聯絡信箱服務</h3>
-              <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
-                若有任何家族事務、活動相關或其他問題，歡迎隨時寄信至我們的官方信箱，我們將於工作日儘速回覆。
-              </p>
+              <p class="text-slate-600 text-sm sm:text-base leading-relaxed">若有任何家族事務、活動相關或其他問題，歡迎隨時寄信至我們的官方信箱，我們將於工作日儘速回覆。</p>
             </div>
-
             <div class="border-t border-slate-100 pt-5">
               <span class="text-xs font-bold text-slate-400 uppercase tracking-widest block mb-1.5">官方電子信箱</span>
-              <a href="mailto:luteam.family@gmail.com" class="text-lg sm:text-2xl font-black text-slate-900 hover:text-orange-600 transition-colors tracking-tight block break-all">
-                luteam.family@gmail.com
-              </a>
+              <a href="mailto:luteam.family@gmail.com" class="text-lg sm:text-2xl font-black text-slate-900 hover:text-orange-600 transition-colors tracking-tight block break-all">luteam.family@gmail.com</a>
             </div>
-
             <div class="bg-orange-50/70 border border-orange-100 rounded-2xl p-4 flex items-start gap-3">
               <i class="fa-solid fa-circle-info text-orange-600 mt-0.5 shrink-0"></i>
-              <p class="text-xs sm:text-sm font-bold text-orange-900 leading-relaxed">
-                備註：如遇假日(六、日)國定特殊假日，統一次工作日盡速回覆。
-              </p>
+              <p class="text-xs sm:text-sm font-bold text-orange-900 leading-relaxed">備註：如遇假日(六、日)國定特殊假日，統一次工作日盡速回覆。</p>
             </div>
           </div>
         `;
