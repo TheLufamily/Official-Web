@@ -76,7 +76,7 @@
         <img src="2025呂氏家庭新版隊徽-正式永久版.png" alt="呂氏家庭隊徽" class="h-10 sm:h-12 w-auto object-contain">
       </a>
 
-      <!-- 桌機版橫向選單（含 Hover 下拉子選單：仿伊斯特村風格大方格） -->
+      <!-- 桌機版橫向選單 -->
       <div class="hidden lg:flex items-center gap-8 xl:gap-10 font-black text-[14px] text-slate-900 tracking-wider">
         <a href="#calendar-section" class="hover:text-orange-600 transition-colors py-2">年度活動</a>
         <a href="#notice" class="hover:text-orange-600 transition-colors py-2">最新消息</a>
@@ -90,7 +90,6 @@
             <i class="fa-solid fa-chevron-down text-[11px] text-orange-500 transition-transform duration-200 group-hover:rotate-180"></i>
           </button>
           
-          <!-- 下拉大卡片面板 (仿圖片精美雙排 6 格設計) -->
           <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 w-[720px] opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50">
             <div class="bg-white rounded-[28px] shadow-2xl border border-orange-100/90 p-6 backdrop-blur-xl">
               <div class="flex items-center gap-2 mb-4 pb-2 border-b border-orange-100">
@@ -99,7 +98,6 @@
               </div>
               
               <div class="grid grid-cols-3 gap-3.5">
-                <!-- 卡片 1 -->
                 <button type="button" onclick="openIndependentPage('about')" class="group/card bg-[#fffaf5] hover:bg-orange-600 hover:text-white rounded-2xl p-4 border border-orange-100/80 transition-all text-left relative overflow-hidden flex flex-col justify-between min-h-[110px] cursor-pointer shadow-xs">
                   <div class="absolute right-2 top-1 text-4xl font-black font-mono text-orange-600/10 group-hover/card:text-white/20 transition-colors pointer-events-none">01</div>
                   <div>
@@ -112,7 +110,6 @@
                   </div>
                 </button>
 
-                <!-- 卡片 2 -->
                 <button type="button" onclick="openIndependentPage('committee')" class="group/card bg-[#fffaf5] hover:bg-orange-600 hover:text-white rounded-2xl p-4 border border-orange-100/80 transition-all text-left relative overflow-hidden flex flex-col justify-between min-h-[110px] cursor-pointer shadow-xs">
                   <div class="absolute right-2 top-1 text-4xl font-black font-mono text-orange-600/10 group-hover/card:text-white/20 transition-colors pointer-events-none">02</div>
                   <div>
@@ -125,7 +122,6 @@
                   </div>
                 </button>
 
-                <!-- 卡片 3 -->
                 <button type="button" onclick="openIndependentPage('team')" class="group/card bg-[#fffaf5] hover:bg-orange-600 hover:text-white rounded-2xl p-4 border border-orange-100/80 transition-all text-left relative overflow-hidden flex flex-col justify-between min-h-[110px] cursor-pointer shadow-xs">
                   <div class="absolute right-2 top-1 text-4xl font-black font-mono text-orange-600/10 group-hover/card:text-white/20 transition-colors pointer-events-none">03</div>
                   <div>
@@ -138,7 +134,6 @@
                   </div>
                 </button>
 
-                <!-- 卡片 4 -->
                 <button type="button" onclick="openIndependentPage('contact')" class="group/card bg-slate-50 hover:bg-slate-900 hover:text-white rounded-2xl p-4 border border-slate-200/80 transition-all text-left relative overflow-hidden flex flex-col justify-between min-h-[110px] cursor-pointer shadow-xs">
                   <div class="absolute right-2 top-1 text-4xl font-black font-mono text-slate-300 group-hover/card:text-white/20 transition-colors pointer-events-none">04</div>
                   <div>
@@ -151,7 +146,7 @@
                   </div>
                 </button>
 
-              </div>
+               </div>
             </div>
           </div>
         </div>
@@ -251,7 +246,7 @@
         </div>
 
         <div class="flex flex-col gap-5">
-          <!-- 2026 年度活動面板（統一樣式與內距） -->
+          <!-- 2026 年度活動面板 -->
           <div id="panel2026" class="hidden bg-white rounded-[32px] p-8 sm:p-12 border border-orange-100 shadow-xl overflow-x-auto no-scrollbar snap-x snap-mandatory">
             <div class="min-w-[850px] relative pt-6 pb-4">
               <div class="absolute top-[35px] left-8 right-8 h-1 bg-slate-200 z-0"></div>
@@ -284,7 +279,7 @@
             </div>
           </div>
 
-          <!-- 2027 年度活動面板（與 2026 統一尺寸、內距與圓角） -->
+          <!-- 2027 年度活動面板 -->
           <div id="panel2027" class="bg-white rounded-[32px] p-8 sm:p-12 border border-orange-100 shadow-xl flex flex-col items-center justify-center text-center relative overflow-hidden">
             <div class="w-14 h-14 rounded-2xl bg-orange-50 border border-orange-200/80 text-orange-600 flex items-center justify-center text-2xl mb-4 shadow-xs">
               <i class="fa-solid fa-compass-drafting"></i>
@@ -533,8 +528,12 @@
   <!-- 網頁頁尾 Footer -->
   <footer class="bg-[#fff6ee] text-slate-600 py-8 sm:py-10 border-t border-orange-200 mt-auto shadow-inner w-full">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
-      <div>
+      <div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-3">
         <p class="text-xs sm:text-sm font-bold text-slate-600">&copy; 2026 呂氏家庭生活資訊網 版權所有 All Rights Reserved.</p>
+        <!-- 管制中樞進入入口 -->
+        <button type="button" onclick="openAdminGate()" class="inline-flex items-center gap-1.5 text-[11px] font-black text-amber-800/70 hover:text-amber-700 bg-amber-100/60 hover:bg-amber-200/70 px-2.5 py-1 rounded-full transition-colors cursor-pointer">
+          <i class="fa-solid fa-shield-halved text-amber-600"></i> 管制中樞
+        </button>
       </div>
       <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs font-black text-slate-600">
         <button type="button" onclick="openIndependentPage('about')" class="hover:text-orange-600 transition-colors cursor-pointer">關於我們</button>
@@ -550,7 +549,7 @@
     <i class="fa-solid fa-arrow-up"></i>
   </button>
 
-  <!-- 獨立專區檢視 Modal（當點擊選單內的卡片時開啟） -->
+  <!-- 獨立專區檢視 Modal -->
   <div id="independentPageModal" class="fixed inset-0 z-[150] flex items-center justify-center p-3 sm:p-6 bg-slate-900/60 backdrop-blur-md hidden" onclick="closeIndependentPage()">
     <div class="bg-white text-slate-800 rounded-[28px] sm:rounded-[40px] shadow-2xl overflow-hidden relative uniform-modal-container border border-orange-100" onclick="event.stopPropagation()">
       <div class="bg-slate-900 text-white px-5 sm:px-8 py-4 sm:py-6 flex items-center justify-between relative shrink-0">
@@ -597,43 +596,228 @@
     </div>
   </div>
 
-  <!-- 後台管理選單 Modal -->
-  <div id="adminMenuModal" class="fixed inset-0 z-[140] flex items-center justify-center p-4 sm:p-6 bg-slate-900/60 backdrop-blur-sm hidden" onclick="closeAdminMenuModal()">
-    <div class="bg-white text-slate-800 rounded-[32px] sm:rounded-[40px] w-full max-w-md shadow-2xl p-6 sm:p-8 text-center relative border border-orange-100" onclick="event.stopPropagation()">
-      <button type="button" onclick="closeAdminMenuModal()" class="absolute top-5 right-5 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-slate-100 flex items-center justify-center text-slate-700 cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
-      <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-3xl bg-orange-50 text-orange-600 flex items-center justify-center text-2xl sm:text-3xl mx-auto mb-4 border border-orange-100"><i class="fa-solid fa-user-gear"></i></div>
-      <h3 class="text-xl sm:text-2xl font-black text-slate-900 mb-4">後台管理中心</h3>
-      <div class="grid grid-cols-1 gap-3 sm:gap-4 mb-4">
-        <button type="button" onclick="openPublishModalFromSecret()" class="p-4 rounded-3xl bg-orange-50 hover:bg-orange-100 border border-orange-200 text-slate-900 flex items-center gap-4 text-left font-black transition-all cursor-pointer">
-          <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-orange-600 text-white flex items-center justify-center text-lg sm:text-xl shrink-0"><i class="fa-solid fa-user-plus"></i></div>
-          <div><h4 class="text-sm sm:text-base">新增消息</h4><p class="text-xs text-slate-500 font-medium">發布最新公告</p></div>
-        </button>
-        <button type="button" onclick="openHistoryModalFromSecret()" class="p-4 rounded-3xl bg-slate-50 hover:bg-orange-100 border border-orange-200 text-slate-900 flex items-center gap-4 text-left font-black transition-all cursor-pointer">
-          <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-slate-800 text-white flex items-center justify-center text-lg sm:text-xl shrink-0"><i class="fa-solid fa-user-pen"></i></div>
-          <div><h4 class="text-sm sm:text-base">內容管理</h4><p class="text-xs text-slate-500 font-medium">修改或刪除公告</p></div>
-        </button>
+  <!-- ========================================================================= -->
+  <!-- 改版後台 1：暗金安全登入頁面 Modal (仿螢幕擷取畫面 2026-11-27 225401.png) -->
+  <!-- ========================================================================= -->
+  <div id="adminLoginModal" class="fixed inset-0 z-[140] flex items-center justify-center p-4 bg-[#1c140d]/95 backdrop-blur-md hidden" onclick="closeAdminLoginModal()">
+    <div class="w-full max-w-[420px] bg-[#211912] border border-amber-500/35 rounded-[32px] p-7 sm:p-9 shadow-[0_25px_70px_rgba(0,0,0,0.85)] relative text-center" onclick="event.stopPropagation()">
+      <!-- 右上角關閉按鈕 -->
+      <button type="button" onclick="closeAdminLoginModal()" aria-label="關閉登入畫面" class="absolute top-5 right-5 w-8 h-8 rounded-full bg-white/5 hover:bg-white/15 text-stone-400 hover:text-white flex items-center justify-center transition-colors cursor-pointer">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <!-- 頂部盾牌圖示 -->
+      <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-600 text-white flex items-center justify-center text-3xl mx-auto mb-5 shadow-[0_8px_25px_rgba(245,158,11,0.45)] border border-amber-300/30">
+        <i class="fa-solid fa-shield-halved"></i>
       </div>
-      <button type="button" onclick="closeAdminMenuModal()" class="w-full py-3.5 rounded-2xl bg-slate-100 text-slate-600 font-black text-sm uppercase cursor-pointer">關閉選單</button>
+
+      <!-- 系統徽章膠囊 -->
+      <div class="inline-flex items-center gap-1.5 px-4 py-1 rounded-full bg-[#362815] border border-amber-500/40 text-amber-400 text-[11px] font-black tracking-wider mb-3">
+        <i class="fa-solid fa-lock text-[10px]"></i>
+        <span>呂氏家庭生活資訊網 · 安全管制中樞</span>
+      </div>
+
+      <!-- 主標題與說明 -->
+      <h2 class="text-2xl sm:text-[26px] font-black text-white tracking-wide mb-1.5">呂氏家庭網站管制系統</h2>
+      <p class="text-xs text-stone-400 font-medium mb-6">本系統由管制官親自管理，請輸入授權帳號與密碼進入</p>
+
+      <!-- 登入表單 -->
+      <form onsubmit="handleAdminLogin(event)" class="space-y-4 text-left">
+        <div>
+          <label class="block text-[11px] font-black text-amber-400 tracking-wider uppercase mb-1.5">管制官帳號 (ACCOUNT)</label>
+          <div class="relative flex items-center">
+            <i class="fa-solid fa-user-shield absolute left-4 text-amber-500 text-sm"></i>
+            <input type="text" id="adminAccountInput" required autocomplete="username" placeholder="請輸入管理員帳號" class="w-full pl-11 pr-4 py-3.5 rounded-2xl bg-[#2c2219] border border-stone-700/80 focus:border-amber-500 text-white placeholder-stone-500 text-sm font-bold focus:outline-none transition-colors">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-[11px] font-black text-amber-400 tracking-wider uppercase mb-1.5">安全通行密碼 (PASSWORD)</label>
+          <div class="relative flex items-center">
+            <i class="fa-solid fa-key absolute left-4 text-amber-500 text-sm"></i>
+            <input type="password" id="adminPasswordInput" required autocomplete="current-password" placeholder="請輸入安全通行密碼" class="w-full pl-11 pr-11 py-3.5 rounded-2xl bg-[#2c2219] border border-stone-700/80 focus:border-amber-500 text-white placeholder-stone-500 text-sm font-bold focus:outline-none transition-colors">
+            <button type="button" onclick="toggleAdminPasswordVisibility()" aria-label="顯示或隱藏密碼" class="absolute right-4 text-stone-400 hover:text-amber-400 transition-colors cursor-pointer">
+              <i id="adminPwdEyeIcon" class="fa-solid fa-eye text-sm"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- 錯誤提示訊息 -->
+        <p id="adminLoginError" class="hidden text-xs font-bold text-rose-400 bg-rose-950/60 border border-rose-500/30 rounded-xl px-3.5 py-2 text-center">
+          <i class="fa-solid fa-triangle-exclamation mr-1"></i> 帳號或安全通行密碼錯誤，請重新驗證！
+        </p>
+
+        <!-- 登入送出按鈕 -->
+        <button type="submit" class="w-full py-3.5 rounded-2xl bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-[#1c140d] font-black text-sm tracking-wider shadow-[0_8px_25px_rgba(245,158,11,0.35)] flex items-center justify-center gap-2 transition-all cursor-pointer mt-2">
+          <i class="fa-solid fa-right-to-bracket"></i>
+          <span>驗證身分並進入管制台</span>
+        </button>
+      </form>
+
+      <!-- 底部快速通道與一鍵填入提示 -->
+      <div class="mt-6 pt-5 border-t border-stone-800 space-y-3">
+        <p class="text-[11px] text-stone-500">若您為一般家族成員瀏覽資訊，可直接返回前台頁面</p>
+        <div class="flex flex-col sm:flex-row gap-2">
+          <button type="button" onclick="quickFillAdminDemo()" class="flex-1 py-2.5 px-3 rounded-xl bg-[#2a2118] hover:bg-[#362a1e] border border-amber-500/25 text-amber-400/90 text-[11px] font-bold flex items-center justify-center gap-1.5 transition-colors cursor-pointer">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> 自動帶入管制官憑證
+          </button>
+          <button type="button" onclick="closeAdminLoginModal()" class="flex-1 py-2.5 px-3 rounded-xl bg-[#2a2118] hover:bg-[#362a1e] border border-stone-700/80 text-stone-300 text-[11px] font-bold flex items-center justify-center gap-1.5 transition-colors cursor-pointer">
+            <i class="fa-solid fa-house"></i> 返回資訊網首頁
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- 內容管理 Modal -->
-  <div id="historyModal" class="fixed inset-0 z-[160] flex items-center justify-center p-3 sm:p-6 bg-slate-900/60 backdrop-blur-sm hidden" onclick="closeHistoryModal()">
-    <div class="bg-white text-slate-800 rounded-[28px] sm:rounded-[40px] shadow-2xl p-5 sm:p-8 uniform-modal-container border border-orange-100" onclick="event.stopPropagation()">
-      <div class="flex justify-between items-center mb-4 sm:mb-6 shrink-0">
-        <h3 class="text-lg sm:text-2xl font-black text-slate-900">最新消息管理</h3>
-        <button type="button" onclick="closeHistoryModal()" class="w-8 h-8 rounded-full bg-slate-100 text-slate-700 flex items-center justify-center cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
-      </div>
-      <div class="mb-4 flex justify-end items-center gap-3 shrink-0">
-        <div class="flex items-center gap-2">
-          <span class="text-xs font-black text-slate-500">排序方式：</span>
-          <select id="adminSortOrderSelect" onchange="renderHistoryList()" class="px-3 py-1.5 rounded-xl bg-slate-100 border border-slate-200 font-black text-xs text-slate-700 focus:outline-none">
-            <option value="desc">由近而遠 (新 → 舊)</option>
-            <option value="asc">由遠而近 (舊 → 新)</option>
-          </select>
+  <!-- ========================================================================= -->
+  <!-- 改版後台 2：暖棕白「安全管制中樞」主控制台 Modal (仿 225429.png)          -->
+  <!-- ========================================================================= -->
+  <div id="adminDashboardModal" class="fixed inset-0 z-[145] bg-[#f7f2ec] flex flex-col hidden overflow-hidden">
+    <!-- 頂部深棕狀態列 -->
+    <div class="bg-[#3d2914] text-white px-4 sm:px-8 py-3.5 flex flex-wrap items-center justify-between gap-3 border-b border-amber-900/50 shadow-md shrink-0">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-xl bg-amber-500/20 border border-amber-400/40 text-amber-400 flex items-center justify-center text-base shrink-0">
+          <i class="fa-solid fa-shield-halved"></i>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="font-black text-base sm:text-lg tracking-wide text-white">呂氏家庭網站管制系統</span>
+            <span class="hidden sm:inline-block px-2.5 py-0.5 rounded-full bg-amber-500/20 border border-amber-400/30 text-amber-300 text-[10px] font-black">呂氏家庭生活資訊網</span>
+          </div>
+          <div id="adminLiveClock" class="text-[11px] text-amber-200/75 font-mono mt-0.5">--</div>
         </div>
       </div>
-      <div class="space-y-3 overflow-y-auto custom-scrollbar flex-grow pr-1" id="historyListContainer"></div>
+
+      <div class="flex items-center gap-2 sm:gap-2.5 flex-wrap">
+        <div class="px-3 py-1.5 rounded-xl bg-[#2a1c0e] border border-amber-500/30 text-xs font-bold text-amber-200 flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span>管制官：RobinLu (呂佳寯)</span>
+        </div>
+        <button type="button" onclick="toggleAdminVoice()" id="adminVoiceToggleBtn" class="px-3 py-1.5 rounded-xl bg-[#543a1f] hover:bg-[#664726] border border-amber-400/30 text-amber-200 text-xs font-black flex items-center gap-1.5 transition-colors cursor-pointer">
+          <i id="adminVoiceIcon" class="fa-solid fa-volume-high text-amber-400"></i>
+          <span id="adminVoiceText">語音開啟</span>
+        </button>
+        <button type="button" onclick="logoutAdminDashboard()" class="px-3.5 py-1.5 rounded-xl bg-rose-700 hover:bg-rose-600 text-white text-xs font-black flex items-center gap-1.5 shadow-sm transition-colors cursor-pointer">
+          <i class="fa-solid fa-lock"></i>
+          <span>安全登出 / 鎖定系統</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- 主控制台內容區 -->
+    <div class="flex-grow overflow-y-auto custom-scrollbar p-4 sm:p-7">
+      <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6">
+        
+        <!-- 左側欄位：管制中樞資訊卡與快速發布 -->
+        <div class="lg:col-span-4 space-y-5">
+          <div class="bg-white rounded-[28px] p-6 border border-[#e8dfd5] shadow-sm space-y-5">
+            <div class="flex items-center justify-between border-b border-stone-100 pb-4">
+              <div>
+                <span class="text-[11px] font-black text-amber-700 uppercase tracking-wider block">CURRENT MODULE</span>
+                <h3 class="text-xl font-black text-stone-900 mt-0.5">最新消息發布與維護</h3>
+              </div>
+              <span class="px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-[11px] font-black">連線正常</span>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-[#fbf8f4] border border-[#ece3d8] space-y-2 text-xs text-stone-600">
+              <div class="flex items-center justify-between font-bold">
+                <span>雲端資料庫狀態</span>
+                <span class="text-emerald-600 font-black"><i class="fa-solid fa-circle-check mr-1"></i>Google Sheets 同步中</span>
+              </div>
+              <div class="flex items-center justify-between font-bold">
+                <span>管理權限等級</span>
+                <span class="text-amber-700 font-black">最高管制官 (Level 1)</span>
+              </div>
+              <div class="flex items-center justify-between font-bold">
+                <span>總部管制據點</span>
+                <span class="text-stone-800">新北市板橋區</span>
+              </div>
+            </div>
+
+            <button type="button" onclick="openPublishModalFromDashboard()" class="w-full py-3.5 px-4 rounded-2xl bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 text-white font-black text-sm shadow-md flex items-center justify-center gap-2 transition-all cursor-pointer">
+              <i class="fa-solid fa-plus-circle"></i>
+              <span>發布全新家族公告</span>
+            </button>
+
+            <button type="button" onclick="fetchNoticesFromCloud()" class="w-full py-3 px-4 rounded-2xl bg-[#f3ece4] hover:bg-[#e8ded3] text-stone-800 font-black text-xs flex items-center justify-center gap-2 transition-colors cursor-pointer">
+              <i class="fa-solid fa-rotate"></i>
+              <span>立即重新整理雲端資料</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 右側欄位：統計儀表板 + 公告即時管制名單 -->
+        <div class="lg:col-span-8 space-y-5">
+          <!-- 4 張數據統計卡片 -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3.5">
+            <div class="bg-white rounded-2xl p-4 border border-[#e8dfd5] shadow-xs">
+              <div class="flex items-center justify-between text-stone-400 text-xs font-bold mb-1.5">
+                <span>累計公告總數</span>
+                <i class="fa-solid fa-bullhorn text-amber-600"></i>
+              </div>
+              <div id="statTotalNotices" class="text-2xl sm:text-3xl font-black text-stone-900">0</div>
+              <div class="text-[11px] text-stone-400 font-medium mt-1">雲端有效紀錄</div>
+            </div>
+
+            <div class="bg-emerald-50/70 rounded-2xl p-4 border border-emerald-200 shadow-xs">
+              <div class="flex items-center justify-between text-emerald-700 text-xs font-bold mb-1.5">
+                <span>首頁顯示中</span>
+                <i class="fa-solid fa-eye text-emerald-600"></i>
+              </div>
+              <div id="statFrontNotices" class="text-2xl sm:text-3xl font-black text-emerald-700">0</div>
+              <div class="text-[11px] text-emerald-600/80 font-medium mt-1">最新前 10 則展示</div>
+            </div>
+
+            <div class="bg-white rounded-2xl p-4 border border-[#e8dfd5] shadow-xs">
+              <div class="flex items-center justify-between text-stone-400 text-xs font-bold mb-1.5">
+                <span>含附件 / 圖片</span>
+                <i class="fa-solid fa-paperclip text-orange-500"></i>
+              </div>
+              <div id="statWithFiles" class="text-2xl sm:text-3xl font-black text-stone-900">0</div>
+              <div class="text-[11px] text-stone-400 font-medium mt-1">附帶多媒體檔案</div>
+            </div>
+
+            <div class="bg-amber-50/70 rounded-2xl p-4 border border-amber-200 shadow-xs">
+              <div class="flex items-center justify-between text-amber-800 text-xs font-bold mb-1.5">
+                <span>家族成員總數</span>
+                <i class="fa-solid fa-users text-amber-600"></i>
+              </div>
+              <div class="text-2xl sm:text-3xl font-black text-amber-700">17</div>
+              <div class="text-[11px] text-amber-700/80 font-medium mt-1">北桃中三區據點</div>
+            </div>
+          </div>
+
+          <!-- 即時公告管制清單 -->
+          <div class="bg-white rounded-[28px] p-5 sm:p-7 border border-[#e8dfd5] shadow-sm space-y-4">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div>
+                <div class="flex items-center gap-2">
+                  <i class="fa-solid fa-list-check text-amber-600"></i>
+                  <h3 class="text-lg sm:text-xl font-black text-stone-900">最新消息即時管制名單</h3>
+                </div>
+                <p class="text-xs text-stone-500 mt-0.5">管制官可親自執行「修改內容」、「預覽公告」與「永久刪除紀錄」</p>
+              </div>
+
+              <div class="flex items-center gap-2">
+                <select id="adminSortOrderSelect" onchange="renderHistoryList()" class="px-3 py-2 rounded-xl bg-[#f7f2ec] border border-[#e2d7ca] font-black text-xs text-stone-700 focus:outline-none cursor-pointer">
+                  <option value="desc">由近而遠 (新 → 舊)</option>
+                  <option value="asc">由遠而近 (舊 → 新)</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- 搜尋過濾欄 -->
+            <div class="relative">
+              <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-stone-400 text-xs"></i>
+              <input type="text" id="adminSearchInput" oninput="renderHistoryList()" placeholder="搜尋公告標題、日期或內文關鍵字..." class="w-full pl-10 pr-4 py-2.5 rounded-2xl bg-[#faf7f2] border border-[#e6dcd0] text-xs sm:text-sm font-bold text-stone-800 placeholder-stone-400 focus:outline-none focus:border-amber-500">
+            </div>
+
+            <!-- 公告列表容器 -->
+            <div id="historyListContainer" class="space-y-3 max-h-[420px] overflow-y-auto custom-scrollbar pr-1"></div>
+          </div>
+        </div>
+
+      </div>
     </div>
   </div>
 
@@ -959,10 +1143,16 @@
 
     AOS.init({ duration: 900, once: true });
 
-    // 雲端最新消息與後台管理
+    // =========================================================================
+    // 雲端最新消息與「安全管制中樞」後台管理邏輯
+    // =========================================================================
     const API_URL = "https://script.google.com/macros/s/AKfycbwS-5vgJfq6Prb24jbWuVIpGb6UlHT3yZpXRp4ST4siAAecvzHZ6M8MfNlD_ttlwjuMNQ/exec";
     let noticeData = {};
+    let isAdminAuthenticated = false;
+    let adminVoiceEnabled = true;
+    let clockInterval = null;
 
+    // 鍵盤暗碼觸發 (03210501)
     let secretKeyBuffer = "";
     const SECRET_CODE = "03210501";
     window.addEventListener('keydown', (e) => {
@@ -970,9 +1160,124 @@
       if (/^[0-9]$/.test(e.key)) {
         secretKeyBuffer += e.key;
         if (secretKeyBuffer.length > SECRET_CODE.length) secretKeyBuffer = secretKeyBuffer.slice(-SECRET_CODE.length);
-        if (secretKeyBuffer === SECRET_CODE) { secretKeyBuffer = ""; openAdminMenuModal(); }
+        if (secretKeyBuffer === SECRET_CODE) { 
+          secretKeyBuffer = ""; 
+          openAdminGate(); 
+        }
       }
     });
+
+    function speakAdminFeedback(text) {
+      if (!adminVoiceEnabled || !('speechSynthesis' in window)) return;
+      try {
+        window.speechSynthesis.cancel();
+        const utter = new SpeechSynthesisUtterance(text);
+        utter.lang = 'zh-TW';
+        utter.rate = 1.05;
+        window.speechSynthesis.speak(utter);
+      } catch (e) {}
+    }
+
+    // 進入管制中樞入口（若已登入直接進主控制台，否則開啟暗金登入頁）
+    function openAdminGate() {
+      if (isAdminAuthenticated) {
+        openAdminDashboard();
+      } else {
+        document.getElementById('adminLoginError').classList.add('hidden');
+        document.getElementById('adminLoginModal').classList.remove('hidden');
+      }
+    }
+
+    function closeAdminLoginModal() {
+      document.getElementById('adminLoginModal').classList.add('hidden');
+    }
+
+    function toggleAdminPasswordVisibility() {
+      const pwdInput = document.getElementById('adminPasswordInput');
+      const eyeIcon = document.getElementById('adminPwdEyeIcon');
+      if (pwdInput.type === 'password') {
+        pwdInput.type = 'text';
+        eyeIcon.className = 'fa-solid fa-eye-slash text-sm';
+      } else {
+        pwdInput.type = 'password';
+        eyeIcon.className = 'fa-solid fa-eye text-sm';
+      }
+    }
+
+    function quickFillAdminDemo() {
+      document.getElementById('adminAccountInput').value = 'RobinLu';
+      document.getElementById('adminPasswordInput').value = '03210501';
+      document.getElementById('adminLoginError').classList.add('hidden');
+    }
+
+    function handleAdminLogin(e) {
+      e.preventDefault();
+      const account = document.getElementById('adminAccountInput').value.trim();
+      const password = document.getElementById('adminPasswordInput').value.trim();
+      const errorEl = document.getElementById('adminLoginError');
+
+      if ((account.toLowerCase() === 'robinlu' || account === '呂佳寯') && password === '03210501') {
+        isAdminAuthenticated = true;
+        errorEl.classList.add('hidden');
+        closeAdminLoginModal();
+        openAdminDashboard();
+        speakAdminFeedback('身分驗證通過，歡迎進入呂氏家庭安全管制中樞');
+      } else {
+        errorEl.classList.remove('hidden');
+        speakAdminFeedback('驗證失敗，請確認帳號與密碼');
+      }
+    }
+
+    function openAdminDashboard() {
+      updateAdminClock();
+      if (!clockInterval) {
+        clockInterval = setInterval(updateAdminClock, 1000);
+      }
+      renderHistoryList();
+      document.getElementById('adminDashboardModal').classList.remove('hidden');
+    }
+
+    function logoutAdminDashboard() {
+      isAdminAuthenticated = false;
+      document.getElementById('adminAccountInput').value = '';
+      document.getElementById('adminPasswordInput').value = '';
+      document.getElementById('adminDashboardModal').classList.add('hidden');
+      if (clockInterval) {
+        clearInterval(clockInterval);
+        clockInterval = null;
+      }
+      speakAdminFeedback('系統已安全鎖定並登出');
+    }
+
+    function toggleAdminVoice() {
+      adminVoiceEnabled = !adminVoiceEnabled;
+      const btnText = document.getElementById('adminVoiceText');
+      const icon = document.getElementById('adminVoiceIcon');
+      if (adminVoiceEnabled) {
+        btnText.innerText = '語音開啟';
+        icon.className = 'fa-solid fa-volume-high text-amber-400';
+        speakAdminFeedback('語音提示已開啟');
+      } else {
+        btnText.innerText = '語音靜音';
+        icon.className = 'fa-solid fa-volume-xmark text-stone-400';
+        window.speechSynthesis?.cancel();
+      }
+    }
+
+    function updateAdminClock() {
+      const clockEl = document.getElementById('adminLiveClock');
+      if (!clockEl) return;
+      const now = new Date();
+      const days = ['週日', '週一', '週二', '週三', '週四', '週五', '週六'];
+      const y = now.getFullYear();
+      const m = String(now.getMonth() + 1).padStart(2, '0');
+      const d = String(now.getDate()).padStart(2, '0');
+      const dayName = days[now.getDay()];
+      const hh = String(now.getHours()).padStart(2, '0');
+      const mm = String(now.getMinutes()).padStart(2, '0');
+      const ss = String(now.getSeconds()).padStart(2, '0');
+      clockEl.innerText = `${y}年${m}月${d}日 (${dayName}) ${hh}:${mm}:${ss}`;
+    }
 
     function formatDate(d) { if (!d) return ''; return String(d).includes('T') ? String(d).split('T')[0] : d; }
 
@@ -1193,6 +1498,9 @@
           }
         });
         renderNotices();
+        if (isAdminAuthenticated) {
+          renderHistoryList();
+        }
       } catch (error) {
         console.log("雲端連線或解析失敗", error);
       }
@@ -1343,11 +1651,7 @@
 
     function closeNoticeModal() { document.getElementById('noticeDetailModal').classList.add('hidden'); }
 
-    function openAdminMenuModal() { document.getElementById('adminMenuModal').classList.remove('hidden'); }
-    function closeAdminMenuModal() { document.getElementById('adminMenuModal').classList.add('hidden'); }
-
-    function openPublishModalFromSecret() {
-      closeAdminMenuModal();
+    function openPublishModalFromDashboard() {
       document.getElementById('editNoticeId').value = '';
       document.getElementById('publishForm').reset();
       document.getElementById('pubDate').value = new Date().toISOString().split('T')[0];
@@ -1356,44 +1660,71 @@
       document.getElementById('publishModal').classList.remove('hidden');
     }
 
-    function openHistoryModalFromSecret() {
-      closeAdminMenuModal();
-      renderHistoryList();
-      document.getElementById('historyModal').classList.remove('hidden');
-    }
-
     function closePublishModal() { document.getElementById('publishModal').classList.add('hidden'); }
-    function closeHistoryModal() { document.getElementById('historyModal').classList.add('hidden'); }
 
     function renderHistoryList() {
       const historyList = document.getElementById('historyListContainer');
       if (!historyList) return;
       historyList.innerHTML = '';
-      const sortDirection = document.getElementById('adminSortOrderSelect') ? document.getElementById('adminSortOrderSelect').value : 'desc';
 
-      const keys = Object.keys(noticeData).sort((a, b) => {
+      const allKeys = Object.keys(noticeData);
+      const totalCount = allKeys.length;
+      const withFilesCount = allKeys.filter(id => noticeData[id].files && noticeData[id].files.length > 0).length;
+
+      // 更新數據統計卡片
+      const statTotalEl = document.getElementById('statTotalNotices');
+      const statFrontEl = document.getElementById('statFrontNotices');
+      const statFilesEl = document.getElementById('statWithFiles');
+      if (statTotalEl) statTotalEl.innerText = totalCount;
+      if (statFrontEl) statFrontEl.innerText = Math.min(totalCount, 10);
+      if (statFilesEl) statFilesEl.innerText = withFilesCount;
+
+      const sortDirection = document.getElementById('adminSortOrderSelect') ? document.getElementById('adminSortOrderSelect').value : 'desc';
+      const keyword = (document.getElementById('adminSearchInput')?.value || '').trim().toLowerCase();
+
+      const filteredKeys = allKeys.filter(id => {
+        if (!keyword) return true;
+        const item = noticeData[id];
+        return (item.title || '').toLowerCase().includes(keyword) || 
+               (item.content || '').toLowerCase().includes(keyword) || 
+               formatDate(item.date).includes(keyword);
+      }).sort((a, b) => {
         const dateA = new Date(noticeData[a].date || 0);
         const dateB = new Date(noticeData[b].date || 0);
         return sortDirection === 'asc' ? dateA - dateB : dateB - dateA;
       });
 
-      if (keys.length === 0) {
-        historyList.innerHTML = '<p class="text-center text-slate-400 font-bold py-6">目前沒有任何紀錄。</p>';
+      if (filteredKeys.length === 0) {
+        historyList.innerHTML = `
+          <div class="py-12 text-center border-2 border-dashed border-[#e8dfd5] rounded-3xl bg-[#faf7f2]">
+            <i class="fa-solid fa-folder-open text-3xl text-stone-300 mb-2"></i>
+            <p class="text-sm font-black text-stone-500">目前尚無符合條件的公告紀錄</p>
+            <p class="text-xs text-stone-400 mt-1">請點擊左側「發布全新家族公告」新增資料</p>
+          </div>
+        `;
         return;
       }
 
-      keys.forEach(id => {
+      filteredKeys.forEach(id => {
         const data = noticeData[id];
+        const hasFilesBadge = (data.files && data.files.length > 0) 
+          ? `<span class="px-2 py-0.5 rounded-md bg-amber-100 text-amber-800 text-[10px] font-black"><i class="fa-solid fa-paperclip mr-1"></i>${data.files.length} 附件</span>` 
+          : '';
         const item = document.createElement('div');
-        item.className = "p-3.5 sm:p-4 rounded-2xl bg-slate-50 border border-slate-200 flex justify-between items-center gap-3";
+        item.className = "p-4 rounded-2xl bg-[#fbf8f4] hover:bg-white border border-[#e6dcd0] flex flex-col sm:flex-row justify-between sm:items-center gap-3 transition-all shadow-2xs";
         item.innerHTML = `
-          <div class="p-1 truncate">
-            <span class="text-xs font-bold text-slate-400">${formatDate(data.date)} [最新消息]</span>
-            <h4 class="font-black text-slate-800 text-sm sm:text-base truncate">${data.title}</h4>
+          <div class="min-w-0 flex-grow">
+            <div class="flex items-center gap-2 mb-1 flex-wrap">
+              <span class="text-xs font-black text-amber-700 font-mono">${formatDate(data.date)}</span>
+              <span class="px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 text-[10px] font-black">已發布</span>
+              ${hasFilesBadge}
+            </div>
+            <h4 class="font-black text-stone-900 text-sm sm:text-base truncate">${data.title}</h4>
           </div>
-          <div class="flex items-center gap-2 shrink-0">
-            <button type="button" onclick="openEditModal('${id}')" class="px-3 py-1.5 rounded-xl bg-orange-600 hover:bg-orange-700 text-white text-xs font-black transition-all cursor-pointer">修改</button>
-            <button type="button" onclick="deleteNotice('${id}')" class="px-3 py-1.5 rounded-xl bg-red-600 hover:bg-red-700 text-white text-xs font-black transition-all cursor-pointer">刪除</button>
+          <div class="flex items-center gap-2 shrink-0 self-end sm:self-center">
+            <button type="button" onclick="openNoticeModal('${id}')" class="px-3 py-1.5 rounded-xl bg-stone-200 hover:bg-stone-300 text-stone-800 text-xs font-black transition-all cursor-pointer">預覽</button>
+            <button type="button" onclick="openEditModal('${id}')" class="px-3 py-1.5 rounded-xl bg-amber-600 hover:bg-amber-700 text-white text-xs font-black transition-all cursor-pointer">修改</button>
+            <button type="button" onclick="deleteNotice('${id}')" class="px-3 py-1.5 rounded-xl bg-rose-600 hover:bg-rose-700 text-white text-xs font-black transition-all cursor-pointer">刪除</button>
           </div>
         `;
         historyList.appendChild(item);
@@ -1403,7 +1734,6 @@
     function openEditModal(id) {
       const data = noticeData[id];
       if (!data) return;
-      closeHistoryModal();
       document.getElementById('editNoticeId').value = id;
       document.getElementById('pubTitle').value = data.title;
       document.getElementById('pubDate').value = data.date;
@@ -1450,6 +1780,8 @@
       }
 
       noticeData[id] = { title, tag: '最新消息', date, content, link, linkName, files: filesArr };
+      renderHistoryList();
+      renderNotices();
 
       try {
         await fetch(API_URL, {
@@ -1466,11 +1798,11 @@
         await new Promise(r => setTimeout(r, 1500));
         await fetchNoticesFromCloud();
 
+        speakAdminFeedback('公告已成功發布並同步至雲端');
         alert('✅ 發布/修改成功！');
       } catch (err) {
         console.log("雲端連線或失敗", err);
         alert('⚠️ 雲端同步發生點小狀況，但資料已暫存，請確認網路後重新整理。');
-        renderNotices();
       } finally {
         submitBtn.disabled = false;
         submitBtn.innerText = "立即發布";
@@ -1479,7 +1811,7 @@
     }
 
     async function deleteNotice(id) {
-      if (!confirm('確定要刪除這則消息嗎？')) return;
+      if (!confirm('確定要永久刪除這則消息嗎？')) return;
       delete noticeData[id];
       renderHistoryList();
       renderNotices();
@@ -1493,6 +1825,7 @@
         });
         await new Promise(r => setTimeout(r, 1000));
         await fetchNoticesFromCloud();
+        speakAdminFeedback('該筆公告紀錄已刪除');
         alert('🗑️ 已刪除！');
       } catch (err) {
         console.log("刪除失敗", err);
