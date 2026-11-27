@@ -80,7 +80,65 @@
       <div class="hidden lg:flex items-center gap-8 xl:gap-10 font-black text-[14px] text-slate-900 tracking-wider">
         <a href="#calendar-section" class="hover:text-orange-600 transition-colors py-2">年度活動</a>
         <a href="#notice" class="hover:text-orange-600 transition-colors py-2">最新消息</a>
-        <a href="#family-map" class="hover:text-orange-600 transition-colors py-2">呂氏家族</a>
+
+        <!-- 呂氏家族 (Hover 下拉大卡片子清單，點擊各據點開啟獨立專區介紹) -->
+        <div class="relative group py-2">
+          <button type="button" class="inline-flex items-center gap-1.5 hover:text-orange-600 transition-colors cursor-pointer">
+            <span>呂氏家族</span>
+            <i class="fa-solid fa-chevron-down text-[11px] text-orange-500 transition-transform duration-200 group-hover:rotate-180"></i>
+          </button>
+          
+          <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 w-[720px] opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50">
+            <div class="bg-white rounded-[28px] shadow-2xl border border-orange-100/90 p-6 backdrop-blur-xl">
+              <div class="flex items-center justify-between gap-2 mb-4 pb-2 border-b border-orange-100">
+                <div class="flex items-center gap-2">
+                  <span class="w-1.5 h-4 rounded-full bg-orange-600"></span>
+                  <span class="text-xs font-black text-orange-600 tracking-wider uppercase">LU FAMILY BRANCHES & INTRO</span>
+                </div>
+                <span class="text-[11px] font-bold text-slate-400">共 17 位家族成員・北桃中三區據點</span>
+              </div>
+              
+              <div class="grid grid-cols-3 gap-3.5">
+                <button type="button" onclick="openIndependentPage('family', 'hq')" class="group/card bg-[#fffaf5] hover:bg-orange-600 hover:text-white rounded-2xl p-4 border border-orange-100/80 transition-all text-left relative overflow-hidden flex flex-col justify-between min-h-[115px] cursor-pointer shadow-xs">
+                  <div class="absolute right-2 top-1 text-4xl font-black font-mono text-orange-600/10 group-hover/card:text-white/20 transition-colors pointer-events-none">01</div>
+                  <div>
+                    <span class="text-[9px] font-black text-orange-600 group-hover/card:text-orange-200 uppercase tracking-widest block mb-0.5">NEW TAIPEI</span>
+                    <h4 class="text-base font-black text-slate-900 group-hover/card:text-white tracking-tight">總部 · 板橋</h4>
+                  </div>
+                  <div class="pt-2 flex items-center justify-between text-xs font-black text-orange-600 group-hover/card:text-white">
+                    <span class="text-[10px] font-medium opacity-80">點擊看介紹</span>
+                    <i class="fa-solid fa-arrow-right transform group-hover/card:translate-x-1 transition-transform"></i>
+                  </div>
+                </button>
+
+                <button type="button" onclick="openIndependentPage('family', 'taoyuan')" class="group/card bg-[#fffaf5] hover:bg-rose-600 hover:text-white rounded-2xl p-4 border border-rose-100/80 transition-all text-left relative overflow-hidden flex flex-col justify-between min-h-[115px] cursor-pointer shadow-xs">
+                  <div class="absolute right-2 top-1 text-4xl font-black font-mono text-rose-600/10 group-hover/card:text-white/20 transition-colors pointer-events-none">02</div>
+                  <div>
+                    <span class="text-[9px] font-black text-rose-600 group-hover/card:text-rose-200 uppercase tracking-widest block mb-0.5">TAOYUAN</span>
+                    <h4 class="text-base font-black text-slate-900 group-hover/card:text-white tracking-tight">桃園分部 · 平鎮</h4>
+                  </div>
+                  <div class="pt-2 flex items-center justify-between text-xs font-black text-rose-600 group-hover/card:text-white">
+                    <span class="text-[10px] font-medium opacity-80">點擊看介紹</span>
+                    <i class="fa-solid fa-arrow-right transform group-hover/card:translate-x-1 transition-transform"></i>
+                  </div>
+                </button>
+
+                <button type="button" onclick="openIndependentPage('family', 'taichung')" class="group/card bg-[#fffaf5] hover:bg-indigo-600 hover:text-white rounded-2xl p-4 border border-indigo-100/80 transition-all text-left relative overflow-hidden flex flex-col justify-between min-h-[115px] cursor-pointer shadow-xs">
+                  <div class="absolute right-2 top-1 text-4xl font-black font-mono text-indigo-600/10 group-hover/card:text-white/20 transition-colors pointer-events-none">03</div>
+                  <div>
+                    <span class="text-[9px] font-black text-indigo-600 group-hover/card:text-indigo-200 uppercase tracking-widest block mb-0.5">TAICHUNG</span>
+                    <h4 class="text-base font-black text-slate-900 group-hover/card:text-white tracking-tight">臺中分部 · 中、北區</h4>
+                  </div>
+                  <div class="pt-2 flex items-center justify-between text-xs font-black text-indigo-600 group-hover/card:text-white">
+                    <span class="text-[10px] font-medium opacity-80">點擊看介紹</span>
+                    <i class="fa-solid fa-arrow-right transform group-hover/card:translate-x-1 transition-transform"></i>
+                  </div>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <a href="#highlights-section" class="hover:text-orange-600 transition-colors py-2">活動花絮</a>
 
         <!-- 家族組織與服務 (Hover 下拉大卡片選單) -->
@@ -171,10 +229,26 @@
           <span class="font-bold">最新消息</span>
           <i class="fa-solid fa-arrow-right text-xs text-orange-500 transform -translate-x-1 group-hover:translate-x-0 transition-all"></i>
         </a>
-        <a href="#family-map" onclick="toggleMobileMenu()" class="group py-3 px-3 rounded-xl flex items-center justify-between text-slate-800 hover:bg-orange-50 hover:text-orange-600 transition-colors">
-          <span class="font-bold">呂氏家族</span>
-          <i class="fa-solid fa-arrow-right text-xs text-orange-500 transform -translate-x-1 group-hover:translate-x-0 transition-all"></i>
-        </a>
+
+        <!-- 手機版呂氏家族及各分部子清單 -->
+        <div class="py-1">
+          <div class="py-2.5 px-3 rounded-xl flex items-center justify-between text-slate-800 font-bold bg-slate-50">
+            <span>呂氏家族據點</span>
+            <span class="text-xs text-orange-600 font-black">點擊下方查看介紹</span>
+          </div>
+          <div class="grid grid-cols-3 gap-1.5 px-2 pt-2 pb-2">
+            <button type="button" onclick="toggleMobileMenu(); openIndependentPage('family', 'hq')" class="py-2 px-2.5 rounded-xl bg-orange-50 hover:bg-orange-100 text-left text-[11px] font-black text-orange-800 flex items-center gap-1.5 cursor-pointer">
+              <i class="fa-solid fa-house-chimney text-orange-600 text-[10px]"></i> 總部·板橋
+            </button>
+            <button type="button" onclick="toggleMobileMenu(); openIndependentPage('family', 'taoyuan')" class="py-2 px-2.5 rounded-xl bg-rose-50 hover:bg-rose-100 text-left text-[11px] font-black text-rose-800 flex items-center gap-1.5 cursor-pointer">
+              <i class="fa-solid fa-house-chimney text-rose-600 text-[10px]"></i> 桃園·平鎮
+            </button>
+            <button type="button" onclick="toggleMobileMenu(); openIndependentPage('family', 'taichung')" class="py-2 px-2.5 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-left text-[11px] font-black text-indigo-800 flex items-center gap-1.5 cursor-pointer">
+              <i class="fa-solid fa-house-chimney text-indigo-600 text-[10px]"></i> 臺中分部
+            </button>
+          </div>
+        </div>
+
         <a href="#highlights-section" onclick="toggleMobileMenu()" class="group py-3 px-3 rounded-xl flex items-center justify-between text-slate-800 hover:bg-orange-50 hover:text-orange-600 transition-colors">
           <span class="font-bold">活動花絮</span>
           <i class="fa-solid fa-arrow-right text-xs text-orange-500 transform -translate-x-1 group-hover:translate-x-0 transition-all"></i>
@@ -351,89 +425,7 @@
         </div>
       </section>
 
-      <!-- 3. 呂氏家族分布專區 -->
-      <section id="family-map" class="scroll-mt-24 pt-2">
-        <div class="flex flex-col gap-8">
-          <div class="flex flex-row items-end justify-between gap-4 w-full relative section-title-watermark">
-            <div class="watermark-text">FAMILY</div>
-            <div class="relative z-10">
-              <span class="text-orange-600 font-black text-xs tracking-widest uppercase block mb-1">呂氏家庭</span>
-              <h2 class="text-3xl sm:text-5xl font-black tracking-tight uppercase text-slate-900 mb-2 leading-tight">
-                FAMILY <span class="text-orange-600">MAP</span>
-              </h2>
-              <p class="text-slate-600 text-sm sm:text-base">家族成員共17位，分別在新北、桃園及臺中深耕發展</p>
-            </div>
-          </div>
-
-          <div class="flex flex-col gap-5">
-            <div id="familyMapContainer" class="flex md:grid md:grid-cols-3 gap-6 overflow-x-auto pb-3 no-scrollbar snap-x snap-mandatory">
-              <div class="w-[340px] md:w-auto bg-white rounded-[28px] p-6 sm:p-8 border border-slate-200/80 shadow-lg flex flex-col justify-between relative overflow-hidden group hover:border-orange-500/50 transition-all shrink-0 snap-start">
-                <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-orange-500 to-amber-600"></div>
-                <div>
-                  <div class="flex items-center justify-between mb-4">
-                    <span class="px-3 py-1 rounded-full bg-orange-50 text-orange-700 text-xs font-black tracking-wider uppercase border border-orange-200">NEW TAIPEI</span>
-                    <i class="fa-solid fa-house-chimney text-orange-600 text-lg"></i>
-                  </div>
-                  <h3 class="text-2xl font-black text-slate-900 tracking-tight mb-2">總部 · 板橋</h3>
-                  <p class="text-slate-600 text-sm leading-relaxed mb-6">作為呂氏家庭的核心樞紐，總部坐落於新北市板橋區，負責統籌家族各項事務、行政規劃與重要決策推動。</p>
-                </div>
-                <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-500">
-                  <span>據點位置</span><span class="text-orange-600 flex items-center gap-1"><i class="fa-solid fa-location-dot"></i> 新北市板橋區</span>
-                </div>
-              </div>
-
-              <div class="w-[340px] md:w-auto bg-white rounded-[28px] p-6 sm:p-8 border border-slate-200/80 shadow-lg flex flex-col justify-between relative overflow-hidden group hover:border-rose-500/50 transition-all shrink-0 snap-start">
-                <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-rose-500 to-pink-600"></div>
-                <div>
-                  <div class="flex items-center justify-between mb-4">
-                    <span class="px-3 py-1 rounded-full bg-rose-50 text-rose-700 text-xs font-black tracking-wider uppercase border border-rose-200">TAOYUAN</span>
-                    <i class="fa-solid fa-house-chimney text-rose-600 text-lg"></i>
-                  </div>
-                  <h3 class="text-2xl font-black text-slate-900 tracking-tight mb-2">桃園分部 · 平鎮</h3>
-                  <p class="text-slate-600 text-sm leading-relaxed mb-6">桃園分部深耕於平鎮地區，凝聚在地成員的情感與向心力，為家族網絡提供穩固的中繼支援與日常交流。</p>
-                </div>
-                <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-500">
-                  <span>據點位置</span><span class="text-rose-600 flex items-center gap-1"><i class="fa-solid fa-location-dot"></i> 桃園市平鎮區</span>
-                </div>
-              </div>
-
-              <div class="w-[340px] md:w-auto bg-white rounded-[28px] p-6 sm:p-8 border border-slate-200/80 shadow-lg flex flex-col justify-between relative overflow-hidden group hover:border-indigo-500/50 transition-all shrink-0 snap-start">
-                <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-indigo-600 to-purple-700"></div>
-                <div>
-                  <div class="flex items-center justify-between mb-4">
-                    <span class="px-3 py-1 rounded-full bg-indigo-50 text-indigo-700 text-xs font-black tracking-wider uppercase border border-indigo-200">TAICHUNG</span>
-                    <i class="fa-solid fa-house-chimney text-indigo-600 text-lg"></i>
-                  </div>
-                  <h3 class="text-2xl font-black text-slate-900 tracking-tight mb-2">臺中分部 · 中、北區</h3>
-                  <p class="text-slate-600 text-sm leading-relaxed mb-6">立足於臺中中、北區，串聯中部地區的家族成員與各項活動，展現呂氏家庭在臺灣中部的活躍生命力。</p>
-                </div>
-                <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-500">
-                  <span>據點位置</span><span class="text-indigo-600 flex items-center gap-1"><i class="fa-solid fa-location-dot"></i> 臺中市中區、北區</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="flex md:hidden items-center justify-between gap-6 pt-1">
-              <div class="flex items-center gap-2.5 shrink-0">
-                <div class="slider-indicator-num text-lg font-black text-slate-900 flex items-baseline">
-                  <span id="mapCurrentNum">01</span><span class="text-xs text-slate-400 font-bold ml-1">/ <span id="mapTotalNum">03</span></span>
-                </div>
-                <div class="w-5 h-5 rounded-full bg-orange-500/20 text-orange-600 flex items-center justify-center text-[10px] font-black"><i class="fa-solid fa-plus"></i></div>
-              </div>
-              <div class="flex-grow bg-orange-200/50 h-1.5 rounded-full overflow-hidden relative">
-                <div id="mapScrollProgress" class="bg-orange-600 h-full w-1/3 transition-all duration-300"></div>
-                <div id="mapProgressThumb" class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-orange-700 shadow-md border-2 border-white transition-all duration-300 pointer-events-none" style="left: 0%;"></div>
-              </div>
-              <div class="flex items-center gap-2 shrink-0">
-                <button type="button" onclick="scrollMapContainer('left')" aria-label="上一張" class="w-10 h-10 rounded-full bg-white hover:bg-orange-50 text-slate-700 hover:text-orange-600 border border-orange-200 flex items-center justify-center transition-all shadow-sm cursor-pointer"><i class="fa-solid fa-chevron-left text-sm"></i></button>
-                <button type="button" onclick="scrollMapContainer('right')" aria-label="下一張" class="w-10 h-10 rounded-full bg-white hover:bg-orange-50 text-slate-700 hover:text-orange-600 border border-orange-200 flex items-center justify-center transition-all shadow-sm cursor-pointer"><i class="fa-solid fa-chevron-right text-sm"></i></button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 4. 活動花絮專區 -->
+      <!-- 3. 活動花絮專區 -->
       <section id="highlights-section" class="scroll-mt-24 pt-2 pb-6 space-y-6 sm:space-y-8">
         <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-4 w-full relative z-10 section-title-watermark">
           <div class="watermark-text">HIGHLIGHTS</div>
@@ -596,32 +588,22 @@
     </div>
   </div>
 
-  <!-- ========================================================================= -->
-  <!-- 改版後台 1：暗金安全登入頁面 Modal (仿螢幕擷取畫面 2026-11-27 225401.png) -->
-  <!-- ========================================================================= -->
+  <!-- 暗金安全登入頁面 Modal -->
   <div id="adminLoginModal" class="fixed inset-0 z-[140] flex items-center justify-center p-4 bg-[#1c140d]/95 backdrop-blur-md hidden" onclick="closeAdminLoginModal()">
     <div class="w-full max-w-[420px] bg-[#211912] border border-amber-500/35 rounded-[32px] p-7 sm:p-9 shadow-[0_25px_70px_rgba(0,0,0,0.85)] relative text-center" onclick="event.stopPropagation()">
-      <!-- 右上角關閉按鈕 -->
       <button type="button" onclick="closeAdminLoginModal()" aria-label="關閉登入畫面" class="absolute top-5 right-5 w-8 h-8 rounded-full bg-white/5 hover:bg-white/15 text-stone-400 hover:text-white flex items-center justify-center transition-colors cursor-pointer">
         <i class="fa-solid fa-xmark"></i>
       </button>
-
-      <!-- 頂部盾牌圖示 -->
       <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-600 text-white flex items-center justify-center text-3xl mx-auto mb-5 shadow-[0_8px_25px_rgba(245,158,11,0.45)] border border-amber-300/30">
         <i class="fa-solid fa-shield-halved"></i>
       </div>
-
-      <!-- 系統徽章膠囊 -->
       <div class="inline-flex items-center gap-1.5 px-4 py-1 rounded-full bg-[#362815] border border-amber-500/40 text-amber-400 text-[11px] font-black tracking-wider mb-3">
         <i class="fa-solid fa-lock text-[10px]"></i>
         <span>呂氏家庭生活資訊網 · 安全管制中樞</span>
       </div>
-
-      <!-- 主標題與說明 -->
       <h2 class="text-2xl sm:text-[26px] font-black text-white tracking-wide mb-1.5">呂氏家庭網站管制系統</h2>
       <p class="text-xs text-stone-400 font-medium mb-6">本系統由管制官親自管理，請輸入授權帳號與密碼進入</p>
 
-      <!-- 登入表單 -->
       <form onsubmit="handleAdminLogin(event)" class="space-y-4 text-left">
         <div>
           <label class="block text-[11px] font-black text-amber-400 tracking-wider uppercase mb-1.5">管制官帳號 (ACCOUNT)</label>
@@ -630,7 +612,6 @@
             <input type="text" id="adminAccountInput" required autocomplete="username" placeholder="請輸入管理員帳號" class="w-full pl-11 pr-4 py-3.5 rounded-2xl bg-[#2c2219] border border-stone-700/80 focus:border-amber-500 text-white placeholder-stone-500 text-sm font-bold focus:outline-none transition-colors">
           </div>
         </div>
-
         <div>
           <label class="block text-[11px] font-black text-amber-400 tracking-wider uppercase mb-1.5">安全通行密碼 (PASSWORD)</label>
           <div class="relative flex items-center">
@@ -641,20 +622,15 @@
             </button>
           </div>
         </div>
-
-        <!-- 錯誤提示訊息 -->
         <p id="adminLoginError" class="hidden text-xs font-bold text-rose-400 bg-rose-950/60 border border-rose-500/30 rounded-xl px-3.5 py-2 text-center">
           <i class="fa-solid fa-triangle-exclamation mr-1"></i> 帳號或安全通行密碼錯誤，請重新驗證！
         </p>
-
-        <!-- 登入送出按鈕 -->
         <button type="submit" class="w-full py-3.5 rounded-2xl bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-[#1c140d] font-black text-sm tracking-wider shadow-[0_8px_25px_rgba(245,158,11,0.35)] flex items-center justify-center gap-2 transition-all cursor-pointer mt-2">
           <i class="fa-solid fa-right-to-bracket"></i>
           <span>驗證身分並進入管制台</span>
         </button>
       </form>
 
-      <!-- 底部快速通道與一鍵填入提示 -->
       <div class="mt-6 pt-5 border-t border-stone-800 space-y-3">
         <p class="text-[11px] text-stone-500">若您為一般家族成員瀏覽資訊，可直接返回前台頁面</p>
         <div class="flex flex-col sm:flex-row gap-2">
@@ -669,11 +645,8 @@
     </div>
   </div>
 
-  <!-- ========================================================================= -->
-  <!-- 改版後台 2：暖棕白「安全管制中樞」主控制台 Modal (仿 225429.png)          -->
-  <!-- ========================================================================= -->
+  <!-- 暖棕白「安全管制中樞」主控制台 Modal -->
   <div id="adminDashboardModal" class="fixed inset-0 z-[145] bg-[#f7f2ec] flex flex-col hidden overflow-hidden">
-    <!-- 頂部深棕狀態列 -->
     <div class="bg-[#3d2914] text-white px-4 sm:px-8 py-3.5 flex flex-wrap items-center justify-between gap-3 border-b border-amber-900/50 shadow-md shrink-0">
       <div class="flex items-center gap-3">
         <div class="w-9 h-9 rounded-xl bg-amber-500/20 border border-amber-400/40 text-amber-400 flex items-center justify-center text-base shrink-0">
@@ -704,11 +677,8 @@
       </div>
     </div>
 
-    <!-- 主控制台內容區 -->
     <div class="flex-grow overflow-y-auto custom-scrollbar p-4 sm:p-7">
       <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6">
-        
-        <!-- 左側欄位：管制中樞資訊卡與快速發布 -->
         <div class="lg:col-span-4 space-y-5">
           <div class="bg-white rounded-[28px] p-6 border border-[#e8dfd5] shadow-sm space-y-5">
             <div class="flex items-center justify-between border-b border-stone-100 pb-4">
@@ -718,7 +688,6 @@
               </div>
               <span class="px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-[11px] font-black">連線正常</span>
             </div>
-
             <div class="p-4 rounded-2xl bg-[#fbf8f4] border border-[#ece3d8] space-y-2 text-xs text-stone-600">
               <div class="flex items-center justify-between font-bold">
                 <span>雲端資料庫狀態</span>
@@ -733,12 +702,10 @@
                 <span class="text-stone-800">新北市板橋區</span>
               </div>
             </div>
-
             <button type="button" onclick="openPublishModalFromDashboard()" class="w-full py-3.5 px-4 rounded-2xl bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 text-white font-black text-sm shadow-md flex items-center justify-center gap-2 transition-all cursor-pointer">
               <i class="fa-solid fa-plus-circle"></i>
               <span>發布全新家族公告</span>
             </button>
-
             <button type="button" onclick="fetchNoticesFromCloud()" class="w-full py-3 px-4 rounded-2xl bg-[#f3ece4] hover:bg-[#e8ded3] text-stone-800 font-black text-xs flex items-center justify-center gap-2 transition-colors cursor-pointer">
               <i class="fa-solid fa-rotate"></i>
               <span>立即重新整理雲端資料</span>
@@ -746,9 +713,7 @@
           </div>
         </div>
 
-        <!-- 右側欄位：統計儀表板 + 公告即時管制名單 -->
         <div class="lg:col-span-8 space-y-5">
-          <!-- 4 張數據統計卡片 -->
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-3.5">
             <div class="bg-white rounded-2xl p-4 border border-[#e8dfd5] shadow-xs">
               <div class="flex items-center justify-between text-stone-400 text-xs font-bold mb-1.5">
@@ -758,7 +723,6 @@
               <div id="statTotalNotices" class="text-2xl sm:text-3xl font-black text-stone-900">0</div>
               <div class="text-[11px] text-stone-400 font-medium mt-1">雲端有效紀錄</div>
             </div>
-
             <div class="bg-emerald-50/70 rounded-2xl p-4 border border-emerald-200 shadow-xs">
               <div class="flex items-center justify-between text-emerald-700 text-xs font-bold mb-1.5">
                 <span>首頁顯示中</span>
@@ -767,7 +731,6 @@
               <div id="statFrontNotices" class="text-2xl sm:text-3xl font-black text-emerald-700">0</div>
               <div class="text-[11px] text-emerald-600/80 font-medium mt-1">最新前 10 則展示</div>
             </div>
-
             <div class="bg-white rounded-2xl p-4 border border-[#e8dfd5] shadow-xs">
               <div class="flex items-center justify-between text-stone-400 text-xs font-bold mb-1.5">
                 <span>含附件 / 圖片</span>
@@ -776,7 +739,6 @@
               <div id="statWithFiles" class="text-2xl sm:text-3xl font-black text-stone-900">0</div>
               <div class="text-[11px] text-stone-400 font-medium mt-1">附帶多媒體檔案</div>
             </div>
-
             <div class="bg-amber-50/70 rounded-2xl p-4 border border-amber-200 shadow-xs">
               <div class="flex items-center justify-between text-amber-800 text-xs font-bold mb-1.5">
                 <span>家族成員總數</span>
@@ -787,7 +749,6 @@
             </div>
           </div>
 
-          <!-- 即時公告管制清單 -->
           <div class="bg-white rounded-[28px] p-5 sm:p-7 border border-[#e8dfd5] shadow-sm space-y-4">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <div>
@@ -797,7 +758,6 @@
                 </div>
                 <p class="text-xs text-stone-500 mt-0.5">管制官可親自執行「修改內容」、「預覽公告」與「永久刪除紀錄」</p>
               </div>
-
               <div class="flex items-center gap-2">
                 <select id="adminSortOrderSelect" onchange="renderHistoryList()" class="px-3 py-2 rounded-xl bg-[#f7f2ec] border border-[#e2d7ca] font-black text-xs text-stone-700 focus:outline-none cursor-pointer">
                   <option value="desc">由近而遠 (新 → 舊)</option>
@@ -806,17 +766,14 @@
               </div>
             </div>
 
-            <!-- 搜尋過濾欄 -->
             <div class="relative">
               <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-stone-400 text-xs"></i>
               <input type="text" id="adminSearchInput" oninput="renderHistoryList()" placeholder="搜尋公告標題、日期或內文關鍵字..." class="w-full pl-10 pr-4 py-2.5 rounded-2xl bg-[#faf7f2] border border-[#e6dcd0] text-xs sm:text-sm font-bold text-stone-800 placeholder-stone-400 focus:outline-none focus:border-amber-500">
             </div>
 
-            <!-- 公告列表容器 -->
             <div id="historyListContainer" class="space-y-3 max-h-[420px] overflow-y-auto custom-scrollbar pr-1"></div>
           </div>
         </div>
-
       </div>
     </div>
   </div>
@@ -1113,34 +1070,6 @@
 
     document.getElementById('highlightsContainerBirthday')?.addEventListener('scroll', () => updateHighlightProgress('birthday'));
 
-    function scrollMapContainer(direction) {
-      const container = document.getElementById('familyMapContainer');
-      if (!container) return;
-      const step = getCardStepWidth(container);
-      container.scrollBy({ left: direction === 'left' ? -step : step, behavior: 'smooth' });
-    }
-
-    function updateMapProgress() {
-      const container = document.getElementById('familyMapContainer');
-      const progressBar = document.getElementById('mapScrollProgress');
-      const progressThumb = document.getElementById('mapProgressThumb');
-      const currentNumEl = document.getElementById('mapCurrentNum');
-      if (!container || !progressBar) return;
-
-      const maxScroll = container.scrollWidth - container.clientWidth;
-      let scrollPercent = maxScroll > 0 ? (container.scrollLeft / maxScroll) * 100 : 0;
-      progressBar.style.width = Math.max(scrollPercent, 33) + '%';
-      if (progressThumb) progressThumb.style.left = scrollPercent + '%';
-
-      const totalItems = 3;
-      const step = getCardStepWidth(container);
-      let currentIndex = Math.round(container.scrollLeft / step) + 1;
-      currentIndex = Math.max(1, Math.min(currentIndex, totalItems));
-      if (currentNumEl) currentNumEl.innerText = String(currentIndex).padStart(2, '0');
-    }
-
-    document.getElementById('familyMapContainer')?.addEventListener('scroll', updateMapProgress);
-
     AOS.init({ duration: 900, once: true });
 
     // =========================================================================
@@ -1178,7 +1107,6 @@
       } catch (e) {}
     }
 
-    // 進入管制中樞入口（若已登入直接進主控制台，否則開啟暗金登入頁）
     function openAdminGate() {
       if (isAdminAuthenticated) {
         openAdminDashboard();
@@ -1281,7 +1209,7 @@
 
     function formatDate(d) { if (!d) return ''; return String(d).includes('T') ? String(d).split('T')[0] : d; }
 
-    function openIndependentPage(type, page = 1) {
+    function openIndependentPage(type, subType = '', page = 1) {
       const modal = document.getElementById('independentPageModal');
       const titleEl = document.getElementById('indModalTitle');
       const subTitleEl = document.getElementById('indModalSubTitle');
@@ -1327,9 +1255,65 @@
             btn.type = 'button';
             btn.className = `w-8 h-8 sm:w-9 sm:h-9 rounded-xl font-black text-xs transition-all cursor-pointer shrink-0 ${i === page ? 'bg-orange-600 text-white shadow-md' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}`;
             btn.innerText = i;
-            btn.setAttribute('onclick', `openIndependentPage('notice', ${i})`);
+            btn.setAttribute('onclick', `openIndependentPage('notice', '', ${i})`);
             paginationEl.appendChild(btn);
           }
+        }
+      } else if (type === 'family') {
+        if (subType === 'hq') {
+          subTitleEl.innerText = "NEW TAIPEI BRANCH & HQ";
+          titleEl.innerText = "總部 · 板橋 (核心樞紐)";
+          iconEl.innerHTML = '<i class="fa-solid fa-house-chimney text-white"></i>';
+          bodyEl.innerHTML = `
+            <div class="space-y-6">
+              <div class="bg-white rounded-[28px] p-6 sm:p-8 border border-orange-100 shadow-sm space-y-4">
+                <span class="px-3 py-1 rounded-full bg-orange-50 text-orange-700 text-xs font-black tracking-wider uppercase border border-orange-200">NEW TAIPEI</span>
+                <h3 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">總部坐落於新北市板橋區</h3>
+                <p class="text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
+                  作為呂氏家庭的核心樞紐，板橋總部負責統籌家族各項事務、行政規劃、重要決策推動以及跨區協調。家族17位成員與各據點的聯絡與日常行政運作皆由總部主導。
+                </p>
+                <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-500">
+                  <span>據點位置</span><span class="text-orange-600 flex items-center gap-1"><i class="fa-solid fa-location-dot"></i> 新北市板橋區</span>
+                </div>
+              </div>
+            </div>
+          `;
+        } else if (subType === 'taoyuan') {
+          subTitleEl.innerText = "TAOYUAN BRANCH";
+          titleEl.innerText = "桃園分部 · 平鎮";
+          iconEl.innerHTML = '<i class="fa-solid fa-house-chimney text-white"></i>';
+          bodyEl.innerHTML = `
+            <div class="space-y-6">
+              <div class="bg-white rounded-[28px] p-6 sm:p-8 border border-rose-100 shadow-sm space-y-4">
+                <span class="px-3 py-1 rounded-full bg-rose-50 text-rose-700 text-xs font-black tracking-wider uppercase border border-rose-200">TAOYUAN</span>
+                <h3 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">桃園分部深耕於平鎮地區</h3>
+                <p class="text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
+                  桃園分部凝聚在地成員的情感與向心力，為家族網絡提供穩固的中繼支援與日常交流，串聯北台灣與中台灣的重要據點。
+                </p>
+                <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-500">
+                  <span>據點位置</span><span class="text-rose-600 flex items-center gap-1"><i class="fa-solid fa-location-dot"></i> 桃園市平鎮區</span>
+                </div>
+              </div>
+            </div>
+          `;
+        } else if (subType === 'taichung') {
+          subTitleEl.innerText = "TAICHUNG BRANCH";
+          titleEl.innerText = "臺中分部 · 中、北區";
+          iconEl.innerHTML = '<i class="fa-solid fa-house-chimney text-white"></i>';
+          bodyEl.innerHTML = `
+            <div class="space-y-6">
+              <div class="bg-white rounded-[28px] p-6 sm:p-8 border border-indigo-100 shadow-sm space-y-4">
+                <span class="px-3 py-1 rounded-full bg-indigo-50 text-indigo-700 text-xs font-black tracking-wider uppercase border border-indigo-200">TAICHUNG</span>
+                <h3 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">立足於臺中中區與北區</h3>
+                <p class="text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
+                  臺中分部串聯中部地區的家族成員與各項活動，展現呂氏家庭在臺灣中部的活躍生命力與向心力。
+                </p>
+                <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-500">
+                  <span>據點位置</span><span class="text-indigo-600 flex items-center gap-1"><i class="fa-solid fa-location-dot"></i> 臺中市中區、北區</span>
+                </div>
+              </div>
+            </div>
+          `;
         }
       } else if (type === 'about') {
         subTitleEl.innerText = "FAMILY SPIRIT & ORIGIN";
@@ -1348,7 +1332,7 @@
               <span class="inline-block px-3 py-1 rounded-full bg-orange-50 text-orange-700 text-[10px] font-black tracking-wider uppercase border border-orange-200">成立初衷</span>
               <div class="space-y-3 text-sm sm:text-base font-medium text-slate-600 leading-relaxed">
                 <p>「呂氏家庭生活資訊網」源自家族成員緊密相連的溫馨初衷，由呂佳寯與核心團隊領軍，以凝聚新北板橋總部、桃園平鎮與臺中分部為使命。我們跨越地域的限制，將彼此的情感與生活點滴緊密連結，共創屬於呂氏家庭的數位美好風格。</p>
-                <p>LU FAMILY 象徵一股來自家族的力量——敏捷、果斷、拼到底。我們從日常起步，用汗水與信念開創專屬於呂氏家庭的溫馨日常與堅實後盾。</p>
+                <p>LU FAMILY 象徵一股來自家族的力量——敏捷, 果斷, 拼到底。我們從日常起步，用汗水與信念開創專屬於呂氏家庭的溫馨日常與堅實後盾。</p>
               </div>
             </div>
           </div>
@@ -1671,7 +1655,6 @@
       const totalCount = allKeys.length;
       const withFilesCount = allKeys.filter(id => noticeData[id].files && noticeData[id].files.length > 0).length;
 
-      // 更新數據統計卡片
       const statTotalEl = document.getElementById('statTotalNotices');
       const statFrontEl = document.getElementById('statFrontNotices');
       const statFilesEl = document.getElementById('statWithFiles');
@@ -1835,13 +1818,11 @@
     window.addEventListener('resize', () => {
       updateCalendarProgress();
       updateNoticeProgress();
-      updateMapProgress();
       updateHighlightProgress('birthday');
     });
 
     document.addEventListener('DOMContentLoaded', () => { 
       fetchNoticesFromCloud(); 
-      updateMapProgress();
       updateHighlightProgress('birthday');
     });
   </script>
