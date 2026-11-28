@@ -64,6 +64,7 @@
 </head>
 
 <body class="flex flex-col min-h-screen antialiased">
+  
 <!-- 導覽列 -->
   <nav class="bg-white/95 backdrop-blur-md fixed top-0 left-0 right-0 z-40 w-full border-b border-orange-100/80 shadow-xs">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 sm:py-2.5 flex items-center justify-between">
@@ -201,7 +202,7 @@
         </div>
       </div>
 
-      <!-- 右側群組 (即時時間看板 + 據點標籤) -->
+      <!-- 右側群組 (即時時間看板 + 最後更新時間) -->
       <div class="hidden lg:flex items-center gap-3 shrink-0">
         <!-- 即時時間看板 -->
         <div class="bg-white/90 backdrop-blur-md border border-orange-200/80 rounded-2xl px-3 py-1.5 shadow-xs flex items-center gap-2.5">
@@ -216,10 +217,13 @@
           </div>
         </div>
 
-        <!-- 北桃中三區據點標籤 -->
-        <div class="flex items-center gap-2 px-3 py-1.5 rounded-2xl bg-orange-50 border border-orange-200/80 text-orange-700 text-xs font-black tracking-wider shadow-2xs">
-          <i class="fa-solid fa-house-chimney text-orange-600"></i>
-          <span>北桃中三區據點・共 17 位成員</span>
+        <!-- 網站最後更新時間標籤 -->
+        <div class="bg-white/90 backdrop-blur-md border border-orange-200/80 rounded-2xl px-3 py-1.5 shadow-xs flex items-center gap-2">
+          <div class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-orange-100/80 text-orange-700 text-[9px] font-black tracking-widest uppercase">
+            <i class="fa-solid fa-rotate text-orange-600"></i>
+            <span>最後更新</span>
+          </div>
+          <span class="text-[11px] font-black text-slate-700 font-mono tracking-wide">2026.11.28</span>
         </div>
       </div>
 
@@ -234,6 +238,13 @@
     <!-- 手機版漢堡清單選單 -->
     <div id="mobileMenu" class="hidden bg-white border-t border-slate-100 shadow-2xl transition-all lg:hidden max-h-[80dvh] overflow-y-auto custom-scrollbar">
       <div class="max-w-7xl mx-auto px-5 py-5 flex flex-col gap-1.5 text-sm">
+        
+        <!-- 手機版最後更新時間標籤 -->
+        <div class="px-3 py-2.5 rounded-xl bg-orange-50/70 border border-orange-200/80 flex items-center justify-between text-xs font-black text-orange-800 mb-1">
+          <span class="flex items-center gap-1.5"><i class="fa-solid fa-rotate text-orange-600"></i> 最後更新時間</span>
+          <span class="font-mono">2026.11.28</span>
+        </div>
+
         <a href="#calendar-section" onclick="toggleMobileMenu()" class="group py-3 px-3 rounded-xl flex items-center justify-between text-slate-800 hover:bg-orange-50 hover:text-orange-600 transition-colors">
           <span class="font-bold">年度活動</span>
           <i class="fa-solid fa-arrow-right text-xs text-orange-500"></i>
@@ -282,30 +293,7 @@
         </div>
       </div>
     </div>
-  </nav>
-
-  <script>
-    // 讓導覽列時鐘與日期同步更新的獨立函式
-    function updateNavbarDateTime() {
-      const now = new Date();
-      const options = { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long', timeZone: 'Asia/Taipei' };
-      const dateString = now.toLocaleDateString('zh-TW', options);
-      const hours = String(now.getHours()).padStart(2, '0');
-      const minutes = String(now.getMinutes()).padStart(2, '0');
-      const seconds = String(now.getSeconds()).padStart(2, '0');
-      const timeString = `${hours}:${minutes}:${seconds}`;
-
-      const navDateEl = document.getElementById('navDateDisplay');
-      const navTimeEl = document.getElementById('navTimeDisplay');
-      if (navDateEl) navDateEl.innerText = dateString;
-      if (navTimeEl) navTimeEl.innerText = timeString;
-    }
-
-    updateNavbarDateTime();
-    setInterval(updateNavbarDateTime, 1000);
-  </script>
-
-<!-- 首頁主視覺 HERO 區塊 -->
+  </nav>  <!-- 首頁主視覺 HERO 區塊 -->
   <header id="home" class="max-w-7xl mx-auto w-full z-10 relative pt-24 pb-8 sm:pt-32 sm:pb-12 px-4 sm:px-6 lg:px-8 text-center">
     <div class="relative z-10 flex flex-col items-center justify-center max-w-4xl mx-auto w-full space-y-6">
       
@@ -337,6 +325,93 @@
 
     </div>
   </header>
+  
+  <!-- 最新統計專區 (手機版橫式可滑動 + 數字跳動動畫) -->
+  <section id="stats-section" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 w-full">
+    <div class="text-center mb-6 sm:mb-8">
+      <span class="text-orange-600 font-black text-xs tracking-widest uppercase block mb-1">LU FAMILY STATISTICS</span>
+      <h2 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight uppercase">
+        最新統計
+      </h2>
+    </div>
+
+    <!-- 手機版滑動提示 -->
+    <div class="flex md:hidden items-center gap-1.5 text-xs font-bold text-slate-400 px-1 mb-3">
+      <i class="fa-solid fa-arrows-left-right text-orange-500"></i> 提示：左右滑動檢視統計數據
+    </div>
+
+    <!-- 手機版橫式滑動容器 / 桌機版三欄網格 -->
+    <div id="statsContainer" class="flex md:grid md:grid-cols-3 gap-4 sm:gap-6 overflow-x-auto md:overflow-visible pb-3 md:pb-0 no-scrollbar snap-x snap-mandatory">
+      <!-- 統計卡片 1：家族成員總數 -->
+      <div class="w-[78vw] sm:w-[320px] md:w-auto shrink-0 snap-start bg-white rounded-[28px] p-6 sm:p-8 border border-orange-100 shadow-lg flex flex-col justify-between relative overflow-hidden group hover:border-orange-300 transition-all">
+        <div class="flex items-center gap-3 mb-4 text-slate-600">
+          <div class="w-10 h-10 rounded-xl bg-orange-50 text-orange-600 flex items-center justify-center text-lg shadow-xs">
+            <i class="fa-solid fa-users"></i>
+          </div>
+          <span class="text-sm font-black tracking-wide text-slate-700">家族成員總數</span>
+        </div>
+        <div class="mb-4 flex items-baseline">
+          <span class="stat-counter text-4xl sm:text-5xl font-black font-mono text-orange-600 tracking-tight" data-target="17">0</span>
+          <span class="text-base font-black text-slate-700 ml-2">位成員</span>
+        </div>
+        <div class="pt-3 border-t border-slate-100 text-xs font-bold text-slate-400">
+          資料時間：115/11 (北桃中三區)
+        </div>
+      </div>
+
+      <!-- 統計卡片 2：年度活動執行率 -->
+      <div class="w-[78vw] sm:w-[320px] md:w-auto shrink-0 snap-start bg-white rounded-[28px] p-6 sm:p-8 border border-orange-100 shadow-lg flex flex-col justify-between relative overflow-hidden group hover:border-orange-300 transition-all">
+        <div class="flex items-center gap-3 mb-4 text-slate-600">
+          <div class="w-10 h-10 rounded-xl bg-orange-50 text-orange-600 flex items-center justify-center text-lg shadow-xs">
+            <i class="fa-solid fa-chart-line"></i>
+          </div>
+          <span class="text-sm font-black tracking-wide text-slate-700">年度活動執行率</span>
+        </div>
+        <div class="mb-4 flex items-baseline">
+          <span class="stat-counter text-4xl sm:text-5xl font-black font-mono text-orange-600 tracking-tight" data-target="100">0</span>
+          <span class="text-base font-black text-slate-700 ml-2">% 圓滿</span>
+        </div>
+        <div class="pt-3 border-t border-slate-100 text-xs font-bold text-slate-400">
+          資料時間：115/11 (全年度執行)
+        </div>
+      </div>
+
+      <!-- 統計卡片 3：雲端資料同步率 -->
+      <div class="w-[78vw] sm:w-[320px] md:w-auto shrink-0 snap-start bg-white rounded-[28px] p-6 sm:p-8 border border-orange-100 shadow-lg flex flex-col justify-between relative overflow-hidden group hover:border-orange-300 transition-all">
+        <div class="flex items-center gap-3 mb-4 text-slate-600">
+          <div class="w-10 h-10 rounded-xl bg-orange-50 text-orange-600 flex items-center justify-center text-lg shadow-xs">
+            <i class="fa-solid fa-cloud-arrow-down"></i>
+          </div>
+          <span class="text-sm font-black tracking-wide text-slate-700">雲端資料同步率</span>
+        </div>
+        <div class="mb-4 flex items-baseline">
+          <span class="stat-counter text-4xl sm:text-5xl font-black font-mono text-orange-600 tracking-tight" data-target="100">0</span>
+          <span class="text-base font-black text-slate-700 ml-2">% 即時</span>
+        </div>
+        <div class="pt-3 border-t border-slate-100 text-xs font-bold text-slate-400">
+          資料時間：115/11 (Google Sheets)
+        </div>
+      </div>
+    </div>
+
+    <!-- 手機版統計進度條與左右切換控制列 (桌機版隱藏) -->
+    <div class="flex md:hidden items-center justify-between gap-4 pt-2">
+      <div class="flex items-center gap-2 shrink-0">
+        <div class="slider-indicator-num text-base font-black text-slate-900 flex items-baseline">
+          <span id="statsCurrentNum">01</span><span class="text-xs text-slate-400 font-bold ml-1">/ 03</span>
+        </div>
+      </div>
+      <div class="flex-grow bg-orange-200/50 h-1.5 rounded-full overflow-hidden relative">
+        <div id="statsScrollProgress" class="bg-orange-600 h-full w-1/3 transition-all duration-300"></div>
+        <div id="statsProgressThumb" class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-orange-700 shadow-md border-2 border-white transition-all duration-300 pointer-events-none" style="left: 0%;"></div>
+      </div>
+      <div class="flex items-center gap-2 shrink-0">
+        <button type="button" onclick="scrollStatsContainer('left')" aria-label="上一項統計" class="w-9 h-9 rounded-full bg-white hover:bg-orange-50 text-slate-700 hover:text-orange-600 border border-orange-200 flex items-center justify-center transition-all shadow-sm cursor-pointer"><i class="fa-solid fa-chevron-left text-xs"></i></button>
+        <button type="button" onclick="scrollStatsContainer('right')" aria-label="下一項統計" class="w-9 h-9 rounded-full bg-white hover:bg-orange-50 text-slate-700 hover:text-orange-600 border border-orange-200 flex items-center justify-center transition-all shadow-sm cursor-pointer"><i class="fa-solid fa-chevron-right text-xs"></i></button>
+      </div>
+    </div>
+  </section>
+
   <!-- 主要內容區 -->
   <main class="py-6 sm:py-10 flex-grow w-full">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full space-y-16 sm:space-y-24">
@@ -571,6 +646,15 @@
       <div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-3">
         <p class="text-xs sm:text-sm font-bold text-slate-600">&copy; 2026 呂氏家庭生活資訊網 版權所有 All Rights Reserved.</p>
         <button type="button" onclick="openAdminGate()" class="inline-flex items-center gap-1.5 text-[11px] font-black text-amber-800/70 hover:text-amber-700 bg-amber-100/60 hover:bg-amber-200/70 px-2.5 py-1 rounded-full transition-colors cursor-pointer">
+          <i class="fa-solid fa-shield-halved text-[10px]"></i>
+          <span>管制中樞</span>
+        </button>
+      </div>
+      <div class="text-xs font-bold text-slate-400">
+        北桃中三區家族生活資訊整合平台
+      </div>
+    </div>
+  </footer>
         
   <!-- 回到頂部按鈕 -->
   <button type="button" id="scrollTopBtn" onclick="scrollToTop()" aria-label="回到頂部" class="fixed right-4 bottom-5 sm:right-6 sm:bottom-6 z-40 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-orange-500 to-orange-700 text-white shadow-2xl flex items-center justify-center text-base sm:text-lg hover:scale-110 transition-all duration-300 opacity-0 invisible cursor-pointer border-2 border-white">
@@ -905,31 +989,63 @@
   </div>
 
   <script>
-    // 即時更新首頁時間與日期的獨立函式
-    function updateHeroDateTime() {
+    // 導覽列即時時間看板同步更新
+    function updateNavbarDateTime() {
       const now = new Date();
-      const options = { 
-        year: 'numeric', 
-        month: 'long', 
-        day: 'numeric', 
-        weekday: 'long', 
-        timeZone: 'Asia/Taipei' 
-      };
+      const options = { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long', timeZone: 'Asia/Taipei' };
       const dateString = now.toLocaleDateString('zh-TW', options);
       const hours = String(now.getHours()).padStart(2, '0');
       const minutes = String(now.getMinutes()).padStart(2, '0');
       const seconds = String(now.getSeconds()).padStart(2, '0');
       const timeString = `${hours}:${minutes}:${seconds}`;
 
-      const dateEl = document.getElementById('heroDateDisplay');
-      const timeEl = document.getElementById('heroTimeDisplay');
-      if (dateEl) dateEl.innerText = dateString;
-      if (timeEl) timeEl.innerText = timeString;
+      const navDateEl = document.getElementById('navDateDisplay');
+      const navTimeEl = document.getElementById('navTimeDisplay');
+      if (navDateEl) navDateEl.innerText = dateString;
+      if (navTimeEl) navTimeEl.innerText = timeString;
     }
 
-    // 初始化與計時器
-    updateHeroDateTime();
-    setInterval(updateHeroDateTime, 1000);
+    updateNavbarDateTime();
+    setInterval(updateNavbarDateTime, 1000);
+
+    // 統計數字平滑跳動動畫
+    document.addEventListener("DOMContentLoaded", () => {
+      const counters = document.querySelectorAll(".stat-counter");
+      const duration = 1500;
+
+      const animateCounter = (el) => {
+        const target = +el.getAttribute("data-target");
+        const startTime = performance.now();
+
+        const update = (currentTime) => {
+          const elapsed = currentTime - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          const easeProgress = 1 - Math.pow(1 - progress, 4);
+          const currentVal = Math.floor(easeProgress * target);
+
+          el.innerText = currentVal;
+
+          if (progress < 1) {
+            requestAnimationFrame(update);
+          } else {
+            el.innerText = target;
+          }
+        };
+
+        requestAnimationFrame(update);
+      };
+
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            animateCounter(entry.target);
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+
+      counters.forEach((counter) => observer.observe(counter));
+    });
 
     function toggleMobileMenu() {
       const menu = document.getElementById('mobileMenu');
@@ -965,6 +1081,35 @@
       const gap = window.innerWidth < 640 ? 16 : 20;
       return cardWidth + gap;
     }
+
+    // 手機版統計卡片滑動與進度條同步
+    function scrollStatsContainer(direction) {
+      const container = document.getElementById('statsContainer');
+      if (!container) return;
+      const step = getCardStepWidth(container);
+      container.scrollBy({ left: direction === 'left' ? -step : step, behavior: 'smooth' });
+    }
+
+    function updateStatsProgress() {
+      const container = document.getElementById('statsContainer');
+      const progressBar = document.getElementById('statsScrollProgress');
+      const progressThumb = document.getElementById('statsProgressThumb');
+      const currentNumEl = document.getElementById('statsCurrentNum');
+      if (!container || !progressBar) return;
+
+      const totalItems = 3;
+      const maxScroll = container.scrollWidth - container.clientWidth;
+      let scrollPercent = maxScroll > 0 ? (container.scrollLeft / maxScroll) * 100 : 0;
+      progressBar.style.width = Math.max(scrollPercent, 33) + '%';
+      if (progressThumb) progressThumb.style.left = scrollPercent + '%';
+
+      const step = maxScroll > 0 ? maxScroll / (totalItems - 1) : 1;
+      let currentIndex = step > 0 ? Math.round(container.scrollLeft / step) + 1 : 1;
+      currentIndex = Math.max(1, Math.min(currentIndex, totalItems));
+      if (currentNumEl) currentNumEl.innerText = String(currentIndex).padStart(2, '0');
+    }
+
+    document.getElementById('statsContainer')?.addEventListener('scroll', updateStatsProgress);
 
     let _lightboxCurrentIndex = 0;
     function openImageLightbox(index) {
@@ -1130,6 +1275,35 @@
     }
 
     document.getElementById('highlightsContainerBirthday')?.addEventListener('scroll', () => updateHighlightProgress('birthday'));
+
+    // =========================================================================
+    // 獨立專區檢視 Modal 中的營運團隊滑動邏輯
+    // =========================================================================
+    function scrollTeamContainer(direction) {
+      const container = document.getElementById('teamContainer');
+      if (!container) return;
+      const step = getCardStepWidth(container);
+      container.scrollBy({ left: direction === 'left' ? -step : step, behavior: 'smooth' });
+    }
+
+    function updateTeamProgress() {
+      const container = document.getElementById('teamContainer');
+      const progressBar = document.getElementById('teamScrollProgress');
+      const progressThumb = document.getElementById('teamProgressThumb');
+      const currentNumEl = document.getElementById('teamCurrentNum');
+      if (!container || !progressBar) return;
+
+      const totalItems = 3;
+      const maxScroll = container.scrollWidth - container.clientWidth;
+      let scrollPercent = maxScroll > 0 ? (container.scrollLeft / maxScroll) * 100 : 0;
+      progressBar.style.width = Math.max(scrollPercent, 33) + '%';
+      if (progressThumb) progressThumb.style.left = scrollPercent + '%';
+
+      const step = maxScroll > 0 ? maxScroll / (totalItems - 1) : 1;
+      let currentIndex = step > 0 ? Math.round(container.scrollLeft / step) + 1 : 1;
+      currentIndex = Math.max(1, Math.min(currentIndex, totalItems));
+      if (currentNumEl) currentNumEl.innerText = String(currentIndex).padStart(2, '0');
+    }
 
     // =========================================================================
     // 雲端最新消息與「安全管制中樞」後台管理邏輯
@@ -1364,7 +1538,7 @@
                 <h3 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">總部坐落於新北市</h3>
                 <p class="text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
                   成員人數共7名                
-		</p>
+                </p>
                 <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-500">
                   <span>據點位置</span><span class="text-orange-600 flex items-center gap-1"><i class="fa-solid fa-location-dot"></i> 板橋區</span>
                 </div>
@@ -1400,7 +1574,7 @@
                 <h3 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">臺中分布坐落於臺中市</h3>
                 <p class="text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
                  成員人數共6名               
-		</p>
+                </p>
                 <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-500">
                   <span>據點位置</span><span class="text-indigo-600 flex items-center gap-1"><i class="fa-solid fa-location-dot"></i> 中區、北區</span>
                 </div>
@@ -1408,7 +1582,7 @@
             </div>
           `;
         }
-           } else if (type === 'about') {
+      } else if (type === 'about') {
         subTitleEl.innerText = "FAMILY SPIRIT & ORIGIN";
         titleEl.innerText = "關於我們 · 家族理念";
         iconEl.innerHTML = '<i class="fa-solid fa-heart text-white"></i>';
@@ -1465,21 +1639,51 @@
               <i class="fa-regular fa-clock text-orange-600"></i>
               <span>服務時間：8:30-17:00（六日及國定假日不服務）</span>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <div class="bg-white rounded-[24px] p-3 border border-slate-200 shadow-xs">
-                <img src="A6AA8149-595E-4860-908E-7C445786C5DC.jpg" class="w-full aspect-[3/4] object-cover rounded-xl mb-2" alt="呂陳英妹" loading="lazy">
-                <span class="text-[11px] font-black text-orange-600">總經理</span>
-                <h4 class="text-base font-black text-slate-900">呂陳英妹</h4>
+
+            <!-- 手機版滑動提示 -->
+            <div class="flex md:hidden items-center gap-1.5 text-xs font-bold text-slate-400 px-1">
+              <i class="fa-solid fa-arrows-left-right text-orange-500"></i> 提示：左右滑動檢視營運團隊幹部
+            </div>
+
+            <!-- 手機版橫式滑動 / 桌機版三欄網格 -->
+            <div id="teamContainer" class="flex md:grid md:grid-cols-3 gap-4 overflow-x-auto md:overflow-visible pb-3 md:pb-0 no-scrollbar snap-x snap-mandatory" onscroll="updateTeamProgress()">
+              <div class="w-[78vw] sm:w-[280px] md:w-auto shrink-0 snap-start bg-white rounded-[24px] p-3 border border-slate-200 shadow-xs flex flex-col justify-between">
+                <div>
+                  <img src="A6AA8149-595E-4860-908E-7C445786C5DC.jpg" class="w-full aspect-[3/4] object-cover rounded-xl mb-3" alt="呂陳英妹" loading="lazy">
+                  <span class="text-[11px] font-black text-orange-600 uppercase tracking-widest block mb-0.5">GENERAL MANAGER</span>
+                  <h4 class="text-lg font-black text-slate-900">呂陳英妹 總經理</h4>
+                </div>
               </div>
-              <div class="bg-white rounded-[24px] p-3 border border-slate-200 shadow-xs">
-                <img src="volleyball_player_style.jpg" class="w-full aspect-[3/4] object-cover rounded-xl mb-2" alt="呂佳寯" loading="lazy">
-                <span class="text-[11px] font-black text-orange-600">營運經理</span>
-                <h4 class="text-base font-black text-slate-900">呂佳寯</h4>
+              <div class="w-[78vw] sm:w-[280px] md:w-auto shrink-0 snap-start bg-white rounded-[24px] p-3 border border-slate-200 shadow-xs flex flex-col justify-between">
+                <div>
+                  <img src="volleyball_player_style.jpg" class="w-full aspect-[3/4] object-cover rounded-xl mb-3" alt="呂佳寯" loading="lazy">
+                  <span class="text-[11px] font-black text-orange-600 uppercase tracking-widest block mb-0.5">OPERATIONS MANAGER</span>
+                  <h4 class="text-lg font-black text-slate-900">呂佳寯 營運經理</h4>
+                </div>
               </div>
-              <div class="bg-white rounded-[24px] p-3 border border-slate-200 shadow-xs">
-                <img src="Portrait_Placeholder.jpg" class="w-full aspect-[3/4] object-cover rounded-xl mb-2" alt="呂佳芯" loading="lazy">
-                <span class="text-[11px] font-black text-indigo-600">設計副理</span>
-                <h4 class="text-base font-black text-slate-900">呂佳芯</h4>
+              <div class="w-[78vw] sm:w-[280px] md:w-auto shrink-0 snap-start bg-white rounded-[24px] p-3 border border-slate-200 shadow-xs flex flex-col justify-between">
+                <div>
+                  <img src="Portrait_Placeholder.jpg" class="w-full aspect-[3/4] object-cover rounded-xl mb-3" alt="呂佳芯" loading="lazy">
+                  <span class="text-[11px] font-black text-indigo-600 uppercase tracking-widest block mb-0.5">DESIGN MANAGER</span>
+                  <h4 class="text-lg font-black text-slate-900">呂佳芯 設計副理</h4>
+                </div>
+              </div>
+            </div>
+
+            <!-- 手機版團隊進度條與左右切換按鈕 (桌機隱藏) -->
+            <div class="flex md:hidden items-center justify-between gap-4 pt-1">
+              <div class="flex items-center gap-2 shrink-0">
+                <div class="slider-indicator-num text-base font-black text-slate-900 flex items-baseline">
+                  <span id="teamCurrentNum">01</span><span class="text-xs text-slate-400 font-bold ml-1">/ 03</span>
+                </div>
+              </div>
+              <div class="flex-grow bg-orange-200/50 h-1.5 rounded-full overflow-hidden relative">
+                <div id="teamScrollProgress" class="bg-orange-600 h-full w-1/3 transition-all duration-300"></div>
+                <div id="teamProgressThumb" class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-orange-700 shadow-md border-2 border-white transition-all duration-300 pointer-events-none" style="left: 0%;"></div>
+              </div>
+              <div class="flex items-center gap-2 shrink-0">
+                <button type="button" onclick="scrollTeamContainer('left')" aria-label="上一位" class="w-9 h-9 rounded-full bg-white hover:bg-orange-50 text-slate-700 hover:text-orange-600 border border-orange-200 flex items-center justify-center transition-all shadow-sm cursor-pointer"><i class="fa-solid fa-chevron-left text-xs"></i></button>
+                <button type="button" onclick="scrollTeamContainer('right')" aria-label="下一位" class="w-9 h-9 rounded-full bg-white hover:bg-orange-50 text-slate-700 hover:text-orange-600 border border-orange-200 flex items-center justify-center transition-all shadow-sm cursor-pointer"><i class="fa-solid fa-chevron-right text-xs"></i></button>
               </div>
             </div>
           </div>
@@ -1871,6 +2075,7 @@
     }
 
     window.addEventListener('resize', () => {
+      updateStatsProgress();
       updateCalendarProgress();
       updateNoticeProgress();
       updateHighlightProgress('birthday');
@@ -1878,6 +2083,7 @@
 
     document.addEventListener('DOMContentLoaded', () => { 
       fetchNoticesFromCloud(); 
+      updateStatsProgress();
       updateHighlightProgress('birthday');
     });
   </script>
