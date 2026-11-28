@@ -139,7 +139,6 @@
 
         <a href="#highlights-section" class="hover:text-orange-600 transition-colors py-2">活動花絮</a>
 
-        
         <!-- 組織與團隊 -->
         <div class="relative group py-2">
           <button type="button" class="inline-flex items-center gap-1.5 hover:text-orange-600 transition-colors cursor-pointer">
@@ -237,7 +236,6 @@
           </div>
         </div>
 
-       
         <a href="#highlights-section" onclick="toggleMobileMenu()" class="group py-3 px-3 rounded-xl flex items-center justify-between text-slate-800 hover:bg-orange-50 hover:text-orange-600 transition-colors">
           <span class="font-bold">活動花絮</span>
           <i class="fa-solid fa-arrow-right text-xs text-orange-500"></i>
@@ -261,26 +259,49 @@
     </div>
   </nav>
 
-  <!-- 首頁主視覺 HERO 區塊（已移除會導致消失的 data-aos="zoom-in"） -->
+  <!-- 首頁主視覺 HERO 區塊 -->
   <header id="home" class="max-w-7xl mx-auto w-full z-10 relative pt-24 pb-4 sm:pt-28 sm:pb-6 px-4 sm:px-6 lg:px-8 text-center">
     <div class="relative overflow-hidden rounded-[24px] sm:rounded-[36px] bg-gradient-to-br from-orange-50 via-white to-amber-50/70 border border-orange-200/70 shadow-sm flex flex-col items-center justify-center min-h-[210px] sm:min-h-[260px] lg:aspect-[24/6] w-full p-6 sm:p-10">
       <div class="absolute inset-0 bg-[radial-gradient(#ea580c_2px,transparent_2px)] [background-size:24px_24px] opacity-15 pointer-events-none"></div>
-      <div class="relative z-10 flex flex-col sm:flex-row items-center justify-center gap-5 sm:gap-10 max-w-5xl mx-auto">
-        <div class="w-24 h-24 sm:w-32 sm:h-32 lg:w-36 lg:h-36 shrink-0 flex items-center justify-center">
-          <img src="2025呂氏家庭新版隊徽-正式永久版.png" class="w-full h-full object-contain drop-shadow-md" alt="呂氏家庭隊徽" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-          <div class="hidden w-24 h-24 sm:w-28 sm:h-28 rounded-3xl bg-gradient-to-br from-orange-500 to-orange-700 text-white items-center justify-center text-4xl sm:text-5xl shadow-lg">
-            <i class="fa-solid fa-house-chimney"></i>
+      
+      <!-- 內容區 -->
+      <div class="relative z-10 flex flex-col sm:flex-row items-center justify-between gap-6 sm:gap-10 max-w-6xl mx-auto w-full">
+        
+        <!-- 左側隊徽與主標題 -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-5 sm:gap-8">
+          <div class="w-24 h-24 sm:w-32 sm:h-32 lg:w-36 lg:h-36 shrink-0 flex items-center justify-center">
+            <img src="2025呂氏家庭新版隊徽-正式永久版.png" class="w-full h-full object-contain drop-shadow-md" alt="呂氏家庭隊徽" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="hidden w-24 h-24 sm:w-28 sm:h-28 rounded-3xl bg-gradient-to-br from-orange-500 to-orange-700 text-white items-center justify-center text-4xl sm:text-5xl shadow-lg">
+              <i class="fa-solid fa-house-chimney"></i>
+            </div>
+          </div>
+          <div class="flex flex-col items-center sm:items-start text-center sm:text-left space-y-2 sm:space-y-3">
+            <span class="inline-block px-3 py-1 rounded-full bg-orange-100 text-orange-700 text-[11px] font-black tracking-widest uppercase">LU FAMILY OFFICIAL PORTAL</span>
+            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-wider uppercase leading-tight drop-shadow-xs">
+              歡迎蒞臨 <span class="text-orange-600 block sm:inline mt-1 sm:mt-0 font-black">呂氏家庭</span>
+            </h1>
+            <p class="text-xs sm:text-sm font-black text-slate-600 tracking-[0.2em] uppercase">
+              凝聚家族情感・共創美好未來
+            </p>
           </div>
         </div>
-        <div class="flex flex-col items-center sm:items-start text-center sm:text-left space-y-2 sm:space-y-3">
-          <span class="inline-block px-3 py-1 rounded-full bg-orange-100 text-orange-700 text-[11px] font-black tracking-widest uppercase">LU FAMILY OFFICIAL PORTAL</span>
-          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-wider uppercase leading-tight drop-shadow-xs">
-            歡迎蒞臨 <span class="text-orange-600 block sm:inline mt-1 sm:mt-0 font-black">呂氏家庭</span>
-          </h1>
-          <p class="text-xs sm:text-sm font-black text-slate-600 tracking-[0.2em] uppercase">
-            凝聚家族情感・共創美好未來
-          </p>
+
+        <!-- 右側即時時鐘與日期看板 (融入原網頁暖棕與橙色風格) -->
+        <div class="bg-white/80 backdrop-blur-md border border-orange-200/80 rounded-2xl sm:rounded-3xl p-4 sm:p-5 shadow-md flex flex-col items-center sm:items-end text-center sm:text-right shrink-0 min-w-[240px]">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-100/80 text-orange-700 text-[10px] font-black tracking-widest uppercase mb-2">
+            <i class="fa-solid fa-clock text-orange-600"></i>
+            <span>即時時間看板</span>
+          </div>
+          <!-- 日期 -->
+          <div id="heroDateDisplay" class="text-xs sm:text-sm font-bold text-slate-600 tracking-wide mb-1">
+            載入日期中...
+          </div>
+          <!-- 時間 -->
+          <div id="heroTimeDisplay" class="text-3xl sm:text-4xl font-black text-orange-600 font-mono tracking-wider">
+            00:00:00
+          </div>
         </div>
+
       </div>
     </div>
   </header>
@@ -518,11 +539,17 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
       <div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-3">
         <p class="text-xs sm:text-sm font-bold text-slate-600">&copy; 2026 呂氏家庭生活資訊網 版權所有 All Rights Reserved.</p>
-        <!-- 管制中樞進入入口 -->
         <button type="button" onclick="openAdminGate()" class="inline-flex items-center gap-1.5 text-[11px] font-black text-amber-800/70 hover:text-amber-700 bg-amber-100/60 hover:bg-amber-200/70 px-2.5 py-1 rounded-full transition-colors cursor-pointer">
+          <i class="fa-solid fa-shield-halved text-amber-600"></i> 管制中樞
         </button>
       </div>
-          </div>
+      <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs font-black text-slate-600">
+        <button type="button" onclick="openIndependentPage('dynamics')" class="hover:text-orange-600 transition-colors cursor-pointer">家族動態</button>
+        <button type="button" onclick="openIndependentPage('poll')" class="hover:text-orange-600 transition-colors cursor-pointer">家庭投票</button>
+        <button type="button" onclick="openIndependentPage('traffic')" class="hover:text-orange-600 transition-colors cursor-pointer">據點交通</button>
+        <button type="button" onclick="openIndependentPage('about')" class="hover:text-orange-600 transition-colors cursor-pointer">關於我們</button>
+      </div>
+    </div>
   </footer>
 
   <!-- 回到頂部按鈕 -->
@@ -858,6 +885,32 @@
   </div>
 
   <script>
+    // 即時更新首頁時間與日期的獨立函式
+    function updateHeroDateTime() {
+      const now = new Date();
+      const options = { 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric', 
+        weekday: 'long', 
+        timeZone: 'Asia/Taipei' 
+      };
+      const dateString = now.toLocaleDateString('zh-TW', options);
+      const hours = String(now.getHours()).padStart(2, '0');
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const seconds = String(now.getSeconds()).padStart(2, '0');
+      const timeString = `${hours}:${minutes}:${seconds}`;
+
+      const dateEl = document.getElementById('heroDateDisplay');
+      const timeEl = document.getElementById('heroTimeDisplay');
+      if (dateEl) dateEl.innerText = dateString;
+      if (timeEl) timeEl.innerText = timeString;
+    }
+
+    // 初始化與計時器
+    updateHeroDateTime();
+    setInterval(updateHeroDateTime, 1000);
+
     function toggleMobileMenu() {
       const menu = document.getElementById('mobileMenu');
       const icon = document.getElementById('mobileMenuIcon');
@@ -1063,7 +1116,6 @@
     // =========================================================================
     const API_URL = "https://script.google.com/macros/s/AKfycbwS-5vgJfq6Prb24jbWuVIpGb6UlHT3yZpXRp4ST4siAAecvzHZ6M8MfNlD_ttlwjuMNQ/exec";
     
-    // 預設保底消息（當雲端尚未載入或本機離線開啟時立即顯示，避免一直卡在載入中）
     const DEFAULT_NOTICES = {
       "default_1": {
         title: "2027 年度呂氏家庭活動時程正式啟動籌備",
@@ -1099,7 +1151,6 @@
     let adminVoiceEnabled = true;
     let clockInterval = null;
 
-    // 鍵盤暗碼觸發 (03210501)
     let secretKeyBuffer = "";
     const SECRET_CODE = "03210501";
     window.addEventListener('keydown', (e) => {
@@ -1337,7 +1388,135 @@
             </div>
           `;
         }
+      } else if (type === 'dynamics') {
+        subTitleEl.innerText = "DYNAMICS & BIRTHDAY";
+        titleEl.innerText = "家族成員動態與生日榜";
+        iconEl.innerHTML = '<i class="fa-solid fa-bolt text-white"></i>';
+        bodyEl.innerHTML = `
+          <div class="space-y-6">
+            <div class="bg-gradient-to-br from-orange-500 to-amber-600 text-white rounded-[28px] p-6 sm:p-8 shadow-md">
+              <span class="px-3 py-1 rounded-full bg-white/20 text-white text-[10px] font-black tracking-wider uppercase inline-block mb-3">UPCOMING BIRTHDAY</span>
+              <h3 class="text-xl sm:text-2xl font-black mb-1">🎉 近期壽星預告</h3>
+              <p class="text-white/90 text-sm">本月壽星慶祝活動籌備中，歡迎大家獻上最溫馨的祝福！</p>
+            </div>
 
+            <div class="bg-white rounded-[28px] p-6 sm:p-7 border border-slate-200/80 shadow-sm space-y-4">
+              <h4 class="text-base font-black text-slate-900 flex items-center gap-2">
+                <i class="fa-solid fa-bullhorn text-orange-600"></i> 三區成員即時近況動態
+              </h4>
+              <div class="space-y-3">
+                <div class="p-4 rounded-2xl bg-orange-50/50 border border-orange-100 flex items-start gap-3">
+                  <div class="w-10 h-10 rounded-xl bg-orange-600 text-white flex items-center justify-center font-black shrink-0">總</div>
+                  <div>
+                    <div class="flex items-center justify-between"><h5 class="font-black text-slate-900 text-sm">板橋總部</h5><span class="text-[11px] text-slate-400 font-bold">今天</span></div>
+                    <p class="text-xs text-slate-600 mt-1 font-medium">總經理呂陳英妹與營運經理呂佳寯正在統籌新年度活動企劃與數位網頁升級。</p>
+                  </div>
+                </div>
+                <div class="p-4 rounded-2xl bg-rose-50/50 border border-rose-100 flex items-start gap-3">
+                  <div class="w-10 h-10 rounded-xl bg-rose-600 text-white flex items-center justify-center font-black shrink-0">桃</div>
+                  <div>
+                    <div class="flex items-center justify-between"><h5 class="font-black text-slate-900 text-sm">桃園平鎮分部</h5><span class="text-[11px] text-slate-400 font-bold">3 天前</span></div>
+                    <p class="text-xs text-slate-600 mt-1 font-medium">平鎮據點回報日常維護順利，期盼下次家族大會聚首。</p>
+                  </div>
+                </div>
+                <div class="p-4 rounded-2xl bg-indigo-50/50 border border-indigo-100 flex items-start gap-3">
+                  <div class="w-10 h-10 rounded-xl bg-indigo-600 text-white flex items-center justify-center font-black shrink-0">中</div>
+                  <div>
+                    <div class="flex items-center justify-between"><h5 class="font-black text-slate-900 text-sm">臺中分部</h5><span class="text-[11px] text-slate-400 font-bold">5 天前</span></div>
+                    <p class="text-xs text-slate-600 mt-1 font-medium">中部成員熱烈關注排球賽事與日常花絮，向心力滿點！</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      } else if (type === 'poll') {
+        subTitleEl.innerText = "FAMILY POLL & SURVEY";
+        titleEl.innerText = "家庭意見調查與投票所";
+        iconEl.innerHTML = '<i class="fa-solid fa-square-poll-vertical text-white"></i>';
+        bodyEl.innerHTML = `
+          <div class="space-y-6">
+            <div class="bg-white rounded-[28px] p-6 sm:p-8 border border-orange-100 shadow-sm space-y-5">
+              <div class="flex items-center justify-between">
+                <span class="px-3 py-1 rounded-full bg-orange-100 text-orange-800 text-xs font-black tracking-wider uppercase">進行中的投票</span>
+                <span class="text-xs font-bold text-slate-400"><i class="fa-regular fa-clock mr-1"></i> 截止日：2026/12/31</span>
+              </div>
+              <h3 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">Q：您希望 2027 年度家族春季聚會優先舉辦哪一項活動？</h3>
+              <p class="text-slate-500 text-xs sm:text-sm font-medium">請選擇您最支持的選項，系統將即時彙整意見供總部參考：</p>
+
+              <div class="space-y-3 pt-2">
+                <button type="button" onclick="handleVote('溫泉度假放鬆行')" class="w-full text-left p-4 rounded-2xl bg-slate-50 hover:bg-orange-600 hover:text-white border border-slate-200 font-black text-sm flex items-center justify-between transition-all group cursor-pointer">
+                  <span>♨️ 溫泉度假放鬆行 (北投或礁溪)</span>
+                  <span class="text-xs px-2.5 py-1 rounded-lg bg-orange-100 text-orange-800 group-hover:bg-white/20 group-hover:text-white">投票</span>
+                </button>
+                <button type="button" onclick="handleVote('戶外烤肉與露營派對')" class="w-full text-left p-4 rounded-2xl bg-slate-50 hover:bg-orange-600 hover:text-white border border-slate-200 font-black text-sm flex items-center justify-between transition-all group cursor-pointer">
+                  <span>⛺ 戶外烤肉與露營派對 (桃園/臺中)</span>
+                  <span class="text-xs px-2.5 py-1 rounded-lg bg-orange-100 text-orange-800 group-hover:bg-white/20 group-hover:text-white">投票</span>
+                </button>
+                <button type="button" onclick="handleVote('精緻聚餐與室內桌遊同樂')" class="w-full text-left p-4 rounded-2xl bg-slate-50 hover:bg-orange-600 hover:text-white border border-slate-200 font-black text-sm flex items-center justify-between transition-all group cursor-pointer">
+                  <span>🍽️ 精緻聚餐與室內桌遊同樂 (板橋總部)</span>
+                  <span class="text-xs px-2.5 py-1 rounded-lg bg-orange-100 text-orange-800 group-hover:bg-white/20 group-hover:text-white">投票</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+      } else if (type === 'traffic') {
+        subTitleEl.innerText = "WEATHER & TRAFFIC BOARD";
+        titleEl.innerText = "三區據點天氣與交通指引";
+        iconEl.innerHTML = '<i class="fa-solid fa-cloud-sun text-white"></i>';
+        bodyEl.innerHTML = `
+          <div class="space-y-5">
+            <p class="text-slate-600 text-sm font-medium">提供呂氏家庭三大據點的即時天氣參考與交通指引，方便跨區移動：</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div class="bg-white rounded-[24px] p-5 border border-slate-200 shadow-xs space-y-3">
+                <div class="flex items-center justify-between"><h4 class="font-black text-slate-900 text-base">板橋總部</h4><i class="fa-solid fa-cloud-sun text-orange-500 text-xl"></i></div>
+                <div class="text-xs text-slate-500 space-y-1">
+                  <p class="font-bold text-slate-700">📍 新北市板橋區</p>
+                  <p>🚇 捷運板南線 / 板橋車站步行便捷</p>
+                  <p>🚗 國道一號/三號接台64線快速道路</p>
+                </div>
+              </div>
+              <div class="bg-white rounded-[24px] p-5 border border-slate-200 shadow-xs space-y-3">
+                <div class="flex items-center justify-between"><h4 class="font-black text-slate-900 text-base">桃園平鎮分部</h4><i class="fa-solid fa-sun text-amber-500 text-xl"></i></div>
+                <div class="text-xs text-slate-500 space-y-1">
+                  <p class="font-bold text-slate-700">📍 桃園市平鎮區</p>
+                  <p>🚗 國道一號平鎮系統交流道</p>
+                  <p>🚌 客運與在地公路網便利</p>
+                </div>
+              </div>
+              <div class="bg-white rounded-[24px] p-5 border border-slate-200 shadow-xs space-y-3">
+                <div class="flex items-center justify-between"><h4 class="font-black text-slate-900 text-base">臺中分部</h4><i class="fa-solid fa-cloud-rain text-indigo-500 text-xl"></i></div>
+                <div class="text-xs text-slate-500 space-y-1">
+                  <p class="font-bold text-slate-700">📍 臺中市中區、北區</p>
+                  <p>🚄 高鐵臺中站轉乘區間車或捷運</p>
+                  <p>🚗 國道一號中清/臺灣大道交流道</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      } else if (type === 'about') {
+        subTitleEl.innerText = "FAMILY SPIRIT & ORIGIN";
+        titleEl.innerText = "關於我們 · 家族理念";
+        iconEl.innerHTML = '<i class="fa-solid fa-heart text-white"></i>';
+        bodyEl.innerHTML = `
+          <div class="space-y-6">
+            <div class="bg-white rounded-[28px] p-6 sm:p-8 border border-slate-200/80 shadow-sm space-y-3">
+              <span class="text-orange-600 font-black text-xs tracking-widest uppercase block">FAMILY SPIRIT & ORIGIN</span>
+              <h3 class="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight leading-tight">
+                從板橋開始，<span class="text-orange-600">凝聚家族</span>，為幸福而戰。
+              </h3>
+              <p class="text-xs font-bold text-slate-400 uppercase tracking-widest pt-1">凝聚家族情感・共創美好未來</p>
+            </div>
+            <div class="bg-white rounded-[28px] p-6 sm:p-8 border border-slate-200/80 shadow-sm space-y-4">
+              <span class="inline-block px-3 py-1 rounded-full bg-orange-50 text-orange-700 text-[10px] font-black tracking-wider uppercase border border-orange-200">成立初衷</span>
+              <div class="space-y-3 text-sm sm:text-base font-medium text-slate-600 leading-relaxed">
+                <p>「呂氏家庭生活資訊網」源自家族成員緊密相連的溫馨初衷，由呂佳寯與核心團隊領軍，以凝聚新北板橋總部、桃園平鎮與臺中分部為使命。我們跨越地域的限制，將彼此的情感與生活點滴緊密連結，共創屬於呂氏家庭的數位美好風格。</p>
+              </div>
+            </div>
+          </div>
+        `;
       } else if (type === 'committee') {
         subTitleEl.innerText = "FAMILY COMMITTEE";
         titleEl.innerText = "委員會專區 · 組織與評議";
@@ -1410,7 +1589,6 @@
     function closeIndependentPage() { document.getElementById('independentPageModal').classList.add('hidden'); }
 
     async function fetchNoticesFromCloud() {
-      // 先渲染現有資料（包含預設保底消息），確保畫面不會一片空白或一直轉圈
       renderNotices();
 
       try {
