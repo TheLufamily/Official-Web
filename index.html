@@ -64,142 +64,167 @@
 </head>
 
 <body class="flex flex-col min-h-screen antialiased">
-
-  <!-- 導覽列 -->
+<!-- 導覽列 -->
   <nav class="bg-white/95 backdrop-blur-md fixed top-0 left-0 right-0 z-40 w-full border-b border-orange-100/80 shadow-xs">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-3.5 flex items-center justify-between lg:justify-start lg:gap-8">
-      <!-- 左側隊徽 Logo -->
-      <a href="#home" class="shrink-0 flex items-center hover:opacity-85 transition-opacity">
-        <img src="2025呂氏家庭新版隊徽-正式永久版.png" alt="呂氏家庭隊徽" class="h-10 sm:h-12 w-auto object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-        <span class="hidden items-center gap-2 font-black text-orange-600 text-lg tracking-wider"><i class="fa-solid fa-house-chimney"></i> 呂氏家庭</span>
-      </a>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 sm:py-2.5 flex items-center justify-between">
+      
+      <!-- 左側 Logo 與選單群組 -->
+      <div class="flex items-center gap-6 xl:gap-8">
+        <!-- 隊徽 Logo -->
+        <a href="#home" class="shrink-0 flex items-center hover:opacity-85 transition-opacity">
+          <img src="2025呂氏家庭新版隊徽-正式永久版.png" alt="呂氏家庭隊徽" class="h-10 sm:h-11 w-auto object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <span class="hidden items-center gap-2 font-black text-orange-600 text-lg tracking-wider"><i class="fa-solid fa-house-chimney"></i> 呂氏家庭</span>
+        </a>
 
-      <!-- 桌機版橫向選單（加入 pointer-events-none 防遮擋修正） -->
-      <div class="hidden lg:flex items-center gap-6 xl:gap-8 font-black text-[13px] text-slate-900 tracking-wider">
-        <a href="#calendar-section" class="hover:text-orange-600 transition-colors py-2">年度活動</a>
-        <a href="#notice" class="hover:text-orange-600 transition-colors py-2">最新消息</a>
+        <!-- 桌機版橫向選單 -->
+        <div class="hidden lg:flex items-center gap-5 xl:gap-7 font-black text-[13px] text-slate-900 tracking-wider">
+          <a href="#calendar-section" class="hover:text-orange-600 transition-colors py-2">年度活動</a>
+          <a href="#notice" class="hover:text-orange-600 transition-colors py-2">最新消息</a>
 
-        <!-- 呂氏家族 (據點介紹) -->
-        <div class="relative group py-2">
-          <button type="button" class="inline-flex items-center gap-1.5 hover:text-orange-600 transition-colors cursor-pointer">
-            <span>呂氏家族</span>
-            <i class="fa-solid fa-chevron-down text-[11px] text-orange-500 transition-transform duration-200 group-hover:rotate-180"></i>
-          </button>
-          
-          <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 w-[680px] opacity-0 invisible pointer-events-none translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:pointer-events-auto group-hover:translate-y-0 transition-all duration-200 z-50">
-            <div class="bg-white rounded-[28px] shadow-2xl border border-orange-100/90 p-6">
-              <div class="flex items-center justify-between gap-2 mb-4 pb-2 border-b border-orange-100">
-                <div class="flex items-center gap-2">
-                  <span class="w-1.5 h-4 rounded-full bg-orange-600"></span>
-                  <span class="text-xs font-black text-orange-600 tracking-wider uppercase">LU FAMILY BRANCHES & INTRO</span>
+          <!-- 呂氏家族 (據點介紹) -->
+          <div class="relative group py-2">
+            <button type="button" class="inline-flex items-center gap-1.5 hover:text-orange-600 transition-colors cursor-pointer">
+              <span>呂氏家族</span>
+              <i class="fa-solid fa-chevron-down text-[11px] text-orange-500 transition-transform duration-200 group-hover:rotate-180"></i>
+            </button>
+            
+            <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 w-[680px] opacity-0 invisible pointer-events-none translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:pointer-events-auto group-hover:translate-y-0 transition-all duration-200 z-50">
+              <div class="bg-white rounded-[28px] shadow-2xl border border-orange-100/90 p-6">
+                <div class="flex items-center justify-between gap-2 mb-4 pb-2 border-b border-orange-100">
+                  <div class="flex items-center gap-2">
+                    <span class="w-1.5 h-4 rounded-full bg-orange-600"></span>
+                    <span class="text-xs font-black text-orange-600 tracking-wider uppercase">LU FAMILY BRANCHES & INTRO</span>
+                  </div>
+                  <span class="text-[11px] font-bold text-slate-400">共 17 位家族成員・北桃中三區據點</span>
                 </div>
-                <span class="text-[11px] font-bold text-slate-400">共 17 位家族成員・北桃中三區據點</span>
-              </div>
-              
-              <div class="grid grid-cols-3 gap-3.5">
-                <button type="button" onclick="openIndependentPage('family', 'hq')" class="group/card bg-[#fffaf5] hover:bg-orange-600 hover:text-white rounded-2xl p-4 border border-orange-100/80 transition-all text-left relative overflow-hidden flex flex-col justify-between min-h-[115px] cursor-pointer shadow-xs">
-                  <div class="absolute right-2 top-1 text-4xl font-black font-mono text-orange-600/10 group-hover/card:text-white/20 transition-colors pointer-events-none">01</div>
-                  <div>
-                    <span class="text-[9px] font-black text-orange-600 group-hover/card:text-orange-200 uppercase tracking-widest block mb-0.5">NEW TAIPEI</span>
-                    <h4 class="text-base font-black text-slate-900 group-hover/card:text-white tracking-tight">總部 · 板橋</h4>
-                  </div>
-                  <div class="pt-2 flex items-center justify-between text-xs font-black text-orange-600 group-hover/card:text-white">
-                    <span class="text-[10px] font-medium opacity-80">點擊看介紹</span>
-                    <i class="fa-solid fa-arrow-right transform group-hover/card:translate-x-1 transition-transform"></i>
-                  </div>
-                </button>
+                
+                <div class="grid grid-cols-3 gap-3.5">
+                  <button type="button" onclick="openIndependentPage('family', 'hq')" class="group/card bg-[#fffaf5] hover:bg-orange-600 hover:text-white rounded-2xl p-4 border border-orange-100/80 transition-all text-left relative overflow-hidden flex flex-col justify-between min-h-[115px] cursor-pointer shadow-xs">
+                    <div class="absolute right-2 top-1 text-4xl font-black font-mono text-orange-600/10 group-hover/card:text-white/20 transition-colors pointer-events-none">01</div>
+                    <div>
+                      <span class="text-[9px] font-black text-orange-600 group-hover/card:text-orange-200 uppercase tracking-widest block mb-0.5">NEW TAIPEI</span>
+                      <h4 class="text-base font-black text-slate-900 group-hover/card:text-white tracking-tight">總部 · 板橋</h4>
+                    </div>
+                    <div class="pt-2 flex items-center justify-between text-xs font-black text-orange-600 group-hover/card:text-white">
+                      <span class="text-[10px] font-medium opacity-80">點擊看介紹</span>
+                      <i class="fa-solid fa-arrow-right transform group-hover/card:translate-x-1 transition-transform"></i>
+                    </div>
+                  </button>
 
-                <button type="button" onclick="openIndependentPage('family', 'taoyuan')" class="group/card bg-[#fffaf5] hover:bg-rose-600 hover:text-white rounded-2xl p-4 border border-rose-100/80 transition-all text-left relative overflow-hidden flex flex-col justify-between min-h-[115px] cursor-pointer shadow-xs">
-                  <div class="absolute right-2 top-1 text-4xl font-black font-mono text-rose-600/10 group-hover/card:text-white/20 transition-colors pointer-events-none">02</div>
-                  <div>
-                    <span class="text-[9px] font-black text-rose-600 group-hover/card:text-rose-200 uppercase tracking-widest block mb-0.5">TAOYUAN</span>
-                    <h4 class="text-base font-black text-slate-900 group-hover/card:text-white tracking-tight">桃園分部 · 平鎮</h4>
-                  </div>
-                  <div class="pt-2 flex items-center justify-between text-xs font-black text-rose-600 group-hover/card:text-white">
-                    <span class="text-[10px] font-medium opacity-80">點擊看介紹</span>
-                    <i class="fa-solid fa-arrow-right transform group-hover/card:translate-x-1 transition-transform"></i>
-                  </div>
-                </button>
+                  <button type="button" onclick="openIndependentPage('family', 'taoyuan')" class="group/card bg-[#fffaf5] hover:bg-rose-600 hover:text-white rounded-2xl p-4 border border-rose-100/80 transition-all text-left relative overflow-hidden flex flex-col justify-between min-h-[115px] cursor-pointer shadow-xs">
+                    <div class="absolute right-2 top-1 text-4xl font-black font-mono text-rose-600/10 group-hover/card:text-white/20 transition-colors pointer-events-none">02</div>
+                    <div>
+                      <span class="text-[9px] font-black text-rose-600 group-hover/card:text-rose-200 uppercase tracking-widest block mb-0.5">TAOYUAN</span>
+                      <h4 class="text-base font-black text-slate-900 group-hover/card:text-white tracking-tight">桃園分部 · 平鎮</h4>
+                    </div>
+                    <div class="pt-2 flex items-center justify-between text-xs font-black text-rose-600 group-hover/card:text-white">
+                      <span class="text-[10px] font-medium opacity-80">點擊看介紹</span>
+                      <i class="fa-solid fa-arrow-right transform group-hover/card:translate-x-1 transition-transform"></i>
+                    </div>
+                  </button>
 
-                <button type="button" onclick="openIndependentPage('family', 'taichung')" class="group/card bg-[#fffaf5] hover:bg-indigo-600 hover:text-white rounded-2xl p-4 border border-indigo-100/80 transition-all text-left relative overflow-hidden flex flex-col justify-between min-h-[115px] cursor-pointer shadow-xs">
-                  <div class="absolute right-2 top-1 text-4xl font-black font-mono text-indigo-600/10 group-hover/card:text-white/20 transition-colors pointer-events-none">03</div>
-                  <div>
-                    <span class="text-[9px] font-black text-indigo-600 group-hover/card:text-indigo-200 uppercase tracking-widest block mb-0.5">TAICHUNG</span>
-                    <h4 class="text-base font-black text-slate-900 group-hover/card:text-white tracking-tight">臺中分部 · 中、北區</h4>
-                  </div>
-                  <div class="pt-2 flex items-center justify-between text-xs font-black text-indigo-600 group-hover/card:text-white">
-                    <span class="text-[10px] font-medium opacity-80">點擊看介紹</span>
-                    <i class="fa-solid fa-arrow-right transform group-hover/card:translate-x-1 transition-transform"></i>
-                  </div>
-                </button>
+                  <button type="button" onclick="openIndependentPage('family', 'taichung')" class="group/card bg-[#fffaf5] hover:bg-indigo-600 hover:text-white rounded-2xl p-4 border border-indigo-100/80 transition-all text-left relative overflow-hidden flex flex-col justify-between min-h-[115px] cursor-pointer shadow-xs">
+                    <div class="absolute right-2 top-1 text-4xl font-black font-mono text-indigo-600/10 group-hover/card:text-white/20 transition-colors pointer-events-none">03</div>
+                    <div>
+                      <span class="text-[9px] font-black text-indigo-600 group-hover/card:text-indigo-200 uppercase tracking-widest block mb-0.5">TAICHUNG</span>
+                      <h4 class="text-base font-black text-slate-900 group-hover/card:text-white tracking-tight">臺中分部 · 中、北區</h4>
+                    </div>
+                    <div class="pt-2 flex items-center justify-between text-xs font-black text-indigo-600 group-hover/card:text-white">
+                      <span class="text-[10px] font-medium opacity-80">點擊看介紹</span>
+                      <i class="fa-solid fa-arrow-right transform group-hover/card:translate-x-1 transition-transform"></i>
+                    </div>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <a href="#highlights-section" class="hover:text-orange-600 transition-colors py-2">活動花絮</a>
+          <a href="#highlights-section" class="hover:text-orange-600 transition-colors py-2">活動花絮</a>
 
-        <!-- 組織與團隊 -->
-        <div class="relative group py-2">
-          <button type="button" class="inline-flex items-center gap-1.5 hover:text-orange-600 transition-colors cursor-pointer">
-            <span>組織與團隊</span>
-            <i class="fa-solid fa-chevron-down text-[11px] text-orange-500 transition-transform duration-200 group-hover:rotate-180"></i>
-          </button>
-          
-          <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 w-[520px] opacity-0 invisible pointer-events-none translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:pointer-events-auto group-hover:translate-y-0 transition-all duration-200 z-50">
-            <div class="bg-white rounded-[28px] shadow-2xl border border-orange-100/90 p-6">
-              <div class="grid grid-cols-2 gap-3.5">
-                <button type="button" onclick="openIndependentPage('about')" class="group/card bg-[#fffaf5] hover:bg-orange-600 hover:text-white rounded-2xl p-4 border border-orange-100/80 transition-all text-left relative overflow-hidden flex flex-col justify-between min-h-[95px] cursor-pointer shadow-xs">
-                  <div>
-                    <span class="text-[9px] font-black text-orange-600 group-hover/card:text-orange-200 uppercase tracking-widest block mb-0.5">PHILOSOPHY</span>
-                    <h4 class="text-sm font-black text-slate-900 group-hover/card:text-white tracking-tight">關於我們</h4>
-                  </div>
-                  <div class="pt-1 flex items-center justify-between text-xs font-black text-orange-600 group-hover/card:text-white">
-                    <span class="text-[10px] font-medium opacity-80">家族理念</span>
-                    <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                  </div>
-                </button>
+          <!-- 組織與團隊 -->
+          <div class="relative group py-2">
+            <button type="button" class="inline-flex items-center gap-1.5 hover:text-orange-600 transition-colors cursor-pointer">
+              <span>組織與團隊</span>
+              <i class="fa-solid fa-chevron-down text-[11px] text-orange-500 transition-transform duration-200 group-hover:rotate-180"></i>
+            </button>
+            
+            <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 w-[520px] opacity-0 invisible pointer-events-none translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:pointer-events-auto group-hover:translate-y-0 transition-all duration-200 z-50">
+              <div class="bg-white rounded-[28px] shadow-2xl border border-orange-100/90 p-6">
+                <div class="grid grid-cols-2 gap-3.5">
+                  <button type="button" onclick="openIndependentPage('about')" class="group/card bg-[#fffaf5] hover:bg-orange-600 hover:text-white rounded-2xl p-4 border border-orange-100/80 transition-all text-left relative overflow-hidden flex flex-col justify-between min-h-[95px] cursor-pointer shadow-xs">
+                    <div>
+                      <span class="text-[9px] font-black text-orange-600 group-hover/card:text-orange-200 uppercase tracking-widest block mb-0.5">PHILOSOPHY</span>
+                      <h4 class="text-sm font-black text-slate-900 group-hover/card:text-white tracking-tight">關於我們</h4>
+                    </div>
+                    <div class="pt-1 flex items-center justify-between text-xs font-black text-orange-600 group-hover/card:text-white">
+                      <span class="text-[10px] font-medium opacity-80">家族理念</span>
+                      <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </div>
+                  </button>
 
-                <button type="button" onclick="openIndependentPage('committee')" class="group/card bg-[#fffaf5] hover:bg-orange-600 hover:text-white rounded-2xl p-4 border border-orange-100/80 transition-all text-left relative overflow-hidden flex flex-col justify-between min-h-[95px] cursor-pointer shadow-xs">
-                  <div>
-                    <span class="text-[9px] font-black text-orange-600 group-hover/card:text-orange-200 uppercase tracking-widest block mb-0.5">COMMITTEE</span>
-                    <h4 class="text-sm font-black text-slate-900 group-hover/card:text-white tracking-tight">委員會專區</h4>
-                  </div>
-                  <div class="pt-1 flex items-center justify-between text-xs font-black text-orange-600 group-hover/card:text-white">
-                    <span class="text-[10px] font-medium opacity-80">福利與性平</span>
-                    <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                  </div>
-                </button>
+                  <button type="button" onclick="openIndependentPage('committee')" class="group/card bg-[#fffaf5] hover:bg-orange-600 hover:text-white rounded-2xl p-4 border border-orange-100/80 transition-all text-left relative overflow-hidden flex flex-col justify-between min-h-[95px] cursor-pointer shadow-xs">
+                    <div>
+                      <span class="text-[9px] font-black text-orange-600 group-hover/card:text-orange-200 uppercase tracking-widest block mb-0.5">COMMITTEE</span>
+                      <h4 class="text-sm font-black text-slate-900 group-hover/card:text-white tracking-tight">委員會專區</h4>
+                    </div>
+                    <div class="pt-1 flex items-center justify-between text-xs font-black text-orange-600 group-hover/card:text-white">
+                      <span class="text-[10px] font-medium opacity-80">福利與性平</span>
+                      <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </div>
+                  </button>
 
-                <button type="button" onclick="openIndependentPage('team')" class="group/card bg-[#fffaf5] hover:bg-orange-600 hover:text-white rounded-2xl p-4 border border-orange-100/80 transition-all text-left relative overflow-hidden flex flex-col justify-between min-h-[95px] cursor-pointer shadow-xs">
-                  <div>
-                    <span class="text-[9px] font-black text-orange-600 group-hover/card:text-orange-200 uppercase tracking-widest block mb-0.5">TEAM STAFF</span>
-                    <h4 class="text-sm font-black text-slate-900 group-hover/card:text-white tracking-tight">營運團隊</h4>
-                  </div>
-                  <div class="pt-1 flex items-center justify-between text-xs font-black text-orange-600 group-hover/card:text-white">
-                    <span class="text-[10px] font-medium opacity-80">隊職幹部</span>
-                    <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                  </div>
-                </button>
+                  <button type="button" onclick="openIndependentPage('team')" class="group/card bg-[#fffaf5] hover:bg-orange-600 hover:text-white rounded-2xl p-4 border border-orange-100/80 transition-all text-left relative overflow-hidden flex flex-col justify-between min-h-[95px] cursor-pointer shadow-xs">
+                    <div>
+                      <span class="text-[9px] font-black text-orange-600 group-hover/card:text-orange-200 uppercase tracking-widest block mb-0.5">TEAM STAFF</span>
+                      <h4 class="text-sm font-black text-slate-900 group-hover/card:text-white tracking-tight">營運團隊</h4>
+                    </div>
+                    <div class="pt-1 flex items-center justify-between text-xs font-black text-orange-600 group-hover/card:text-white">
+                      <span class="text-[10px] font-medium opacity-80">隊職幹部</span>
+                      <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </div>
+                  </button>
 
-                <button type="button" onclick="openIndependentPage('contact')" class="group/card bg-slate-50 hover:bg-slate-900 hover:text-white rounded-2xl p-4 border border-slate-200/80 transition-all text-left relative overflow-hidden flex flex-col justify-between min-h-[95px] cursor-pointer shadow-xs">
-                  <div>
-                    <span class="text-[9px] font-black text-slate-500 group-hover/card:text-slate-400 uppercase tracking-widest block mb-0.5">SUPPORT</span>
-                    <h4 class="text-sm font-black text-slate-900 group-hover/card:text-white tracking-tight">聯絡我們</h4>
-                  </div>
-                  <div class="pt-1 flex items-center justify-between text-xs font-black text-slate-700 group-hover/card:text-white">
-                    <span class="text-[10px] font-medium opacity-80">官方信箱</span>
-                    <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                  </div>
-                </button>
+                  <button type="button" onclick="openIndependentPage('contact')" class="group/card bg-slate-50 hover:bg-slate-900 hover:text-white rounded-2xl p-4 border border-slate-200/80 transition-all text-left relative overflow-hidden flex flex-col justify-between min-h-[95px] cursor-pointer shadow-xs">
+                    <div>
+                      <span class="text-[9px] font-black text-slate-500 group-hover/card:text-slate-400 uppercase tracking-widest block mb-0.5">SUPPORT</span>
+                      <h4 class="text-sm font-black text-slate-900 group-hover/card:text-white tracking-tight">聯絡我們</h4>
+                    </div>
+                    <div class="pt-1 flex items-center justify-between text-xs font-black text-slate-700 group-hover/card:text-white">
+                      <span class="text-[10px] font-medium opacity-80">官方信箱</span>
+                      <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </div>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
 
+      <!-- 右側群組 (即時時間看板 + 據點標籤) -->
+      <div class="hidden lg:flex items-center gap-3 shrink-0">
+        <!-- 即時時間看板 -->
+        <div class="bg-white/90 backdrop-blur-md border border-orange-200/80 rounded-2xl px-3 py-1.5 shadow-xs flex items-center gap-2.5">
+          <div class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-orange-100/80 text-orange-700 text-[9px] font-black tracking-widest uppercase">
+            <i class="fa-solid fa-clock text-orange-600"></i>
+            <span>即時時間看板</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span id="navDateDisplay" class="text-[11px] font-bold text-slate-600 tracking-wide">載入中...</span>
+            <span class="text-slate-300">|</span>
+            <span id="navTimeDisplay" class="text-sm font-black text-orange-600 font-mono tracking-wider">00:00:00</span>
+          </div>
+        </div>
+
+        <!-- 北桃中三區據點標籤 -->
+        <div class="flex items-center gap-2 px-3 py-1.5 rounded-2xl bg-orange-50 border border-orange-200/80 text-orange-700 text-xs font-black tracking-wider shadow-2xs">
+          <i class="fa-solid fa-house-chimney text-orange-600"></i>
+          <span>北桃中三區據點・共 17 位成員</span>
+        </div>
+      </div>
+
       <!-- 手機版漢堡按鈕 -->
-      <div class="flex items-center lg:hidden">
+      <div class="flex items-center lg:hidden ml-auto">
         <button type="button" onclick="toggleMobileMenu()" aria-label="開啟選單" class="w-10 h-10 flex items-center justify-center text-xl text-slate-800 rounded-xl hover:bg-orange-50 hover:text-orange-600 transition-colors cursor-pointer">
           <i id="mobileMenuIcon" class="fa-solid fa-bars"></i>
         </button>
@@ -259,48 +284,59 @@
     </div>
   </nav>
 
+  <script>
+    // 讓導覽列時鐘與日期同步更新的獨立函式
+    function updateNavbarDateTime() {
+      const now = new Date();
+      const options = { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long', timeZone: 'Asia/Taipei' };
+      const dateString = now.toLocaleDateString('zh-TW', options);
+      const hours = String(now.getHours()).padStart(2, '0');
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const seconds = String(now.getSeconds()).padStart(2, '0');
+      const timeString = `${hours}:${minutes}:${seconds}`;
+
+      const navDateEl = document.getElementById('navDateDisplay');
+      const navTimeEl = document.getElementById('navTimeDisplay');
+      if (navDateEl) navDateEl.innerText = dateString;
+      if (navTimeEl) navTimeEl.innerText = timeString;
+    }
+
+    updateNavbarDateTime();
+    setInterval(updateNavbarDateTime, 1000);
+  </script>
+
 <!-- 首頁主視覺 HERO 區塊 -->
-  <header id="home" class="max-w-7xl mx-auto w-full z-10 relative pt-24 pb-6 sm:pt-28 sm:pb-8 px-4 sm:px-6 lg:px-8">
-    <div class="relative z-10 flex flex-col sm:flex-row items-center justify-between gap-6 sm:gap-10 max-w-6xl mx-auto w-full">
+  <header id="home" class="max-w-7xl mx-auto w-full z-10 relative pt-24 pb-8 sm:pt-32 sm:pb-12 px-4 sm:px-6 lg:px-8 text-center">
+    <div class="relative z-10 flex flex-col items-center justify-center max-w-4xl mx-auto w-full space-y-6">
       
-      <!-- 左側隊徽與主標題 -->
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-5 sm:gap-8">
-        <div class="w-24 h-24 sm:w-32 sm:h-32 lg:w-36 lg:h-36 shrink-0 flex items-center justify-center">
-          <img src="2025呂氏家庭新版隊徽-正式永久版.png" class="w-full h-full object-contain drop-shadow-md" alt="呂氏家庭隊徽" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-          <div class="hidden w-24 h-24 sm:w-28 sm:h-28 rounded-3xl bg-gradient-to-br from-orange-500 to-orange-700 text-white items-center justify-center text-4xl sm:text-5xl shadow-lg">
-            <i class="fa-solid fa-house-chimney"></i>
-          </div>
-        </div>
-        <div class="flex flex-col items-center sm:items-start text-center sm:text-left space-y-2 sm:space-y-3">
-          <span class="inline-block px-3 py-1 rounded-full bg-orange-100 text-orange-700 text-[11px] font-black tracking-widest uppercase">LU FAMILY OFFICIAL PORTAL</span>
-          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-wider uppercase leading-tight drop-shadow-xs">
-            歡迎蒞臨 <span class="text-orange-600 block sm:inline mt-1 sm:mt-0 font-black">呂氏家庭</span>
-          </h1>
-          <p class="text-xs sm:text-sm font-black text-slate-600 tracking-[0.2em] uppercase">
-            凝聚家族情感・共創美好未來
-          </p>
+      <!-- 隊徽 Logo (放大尺寸) -->
+      <div class="w-32 h-32 sm:w-40 sm:h-40 lg:w-44 lg:h-44 shrink-0 flex items-center justify-center">
+        <img src="2025呂氏家庭新版隊徽-正式永久版.png" class="w-full h-full object-contain drop-shadow-md" alt="呂氏家庭隊徽" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="hidden w-32 h-32 sm:w-40 sm:h-40 rounded-3xl bg-gradient-to-br from-orange-500 to-orange-700 text-white items-center justify-center text-5xl sm:text-6xl shadow-lg">
+          <i class="fa-solid fa-house-chimney"></i>
         </div>
       </div>
-
-      <!-- 右側即時時鐘與日期看板 -->
-      <div class="bg-white/90 backdrop-blur-md border border-orange-200/80 rounded-2xl sm:rounded-3xl p-4 sm:p-5 shadow-md flex flex-col items-center sm:items-end text-center sm:text-right shrink-0 min-w-[240px]">
-        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-100/80 text-orange-700 text-[10px] font-black tracking-widest uppercase mb-2">
-          <i class="fa-solid fa-clock text-orange-600"></i>
-          <span>即時時間看板</span>
-        </div>
-        <!-- 日期 -->
-        <div id="heroDateDisplay" class="text-xs sm:text-sm font-bold text-slate-600 tracking-wide mb-1">
-          載入日期中...
-        </div>
-        <!-- 時間 -->
-        <div id="heroTimeDisplay" class="text-3xl sm:text-4xl font-black text-orange-600 font-mono tracking-wider">
-          00:00:00
-        </div>
+      
+      <!-- 標題與文字區 (置中對齊、加大字體) -->
+      <div class="flex flex-col items-center justify-center text-center space-y-3 sm:space-y-4 w-full">
+        <!-- 上方橘色小標題 -->
+        <span class="inline-block px-4 py-1.5 rounded-full bg-orange-100 text-orange-700 text-xs sm:text-sm font-black tracking-widest uppercase shadow-2xs">
+          LU FAMILY OFFICIAL PORTAL
+        </span>
+        
+        <!-- 主標題 (放大) -->
+        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black text-slate-900 tracking-wider uppercase leading-tight drop-shadow-xs">
+          歡迎蒞臨 <span class="text-orange-600 block sm:inline mt-1 sm:mt-0 font-black">呂氏家庭</span>
+        </h1>
+        
+        <!-- 下方副標題 (加大間距與字體) -->
+        <p class="text-sm sm:text-base font-black text-slate-600 tracking-[0.25em] uppercase pt-1">
+          凝聚家族情感・共創美好未來
+        </p>
       </div>
 
     </div>
   </header>
-
   <!-- 主要內容區 -->
   <main class="py-6 sm:py-10 flex-grow w-full">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full space-y-16 sm:space-y-24">
